@@ -1,0 +1,6 @@
+// Warps
+// Eden Warps
+eden_fild01,182,180,0	warp	eden#03	1,1,eden_fild02,31,25
+eden_fild02,28,17,0	warp	eden#04	1,1,eden_fild01,177,179
+eden_fild02,166,184,0	warp	eden#05	1,1,eden_fild03,34,37
+eden_fild03,21,22,0	warp	eden#06	5,5,eden_fild02,164,179
