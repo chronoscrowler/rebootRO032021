@@ -1,0 +1,22 @@
+// Instance Database
+//
+// Structure of Database:
+// ID,Name,LimitTime,IdleTimeOut,EnterMap,EnterX,EnterY,Map2,Map3,...,Map255
+//
+// EnterMap is considered as Map1
+
+1,Endless Tower,14400,300,1@tower,50,355,2@tower,3@tower,4@tower,5@tower,6@tower
+2,Sealed Catacomb,7200,300,1@cata,100,224,2@cata
+3,Orc's Memory,3600,300,1@orcs,179,15,2@orcs
+4,Nidhoggur's Nest,14400,300,1@nyd,32,36,2@nyd
+5,Ruins of Lograth,14400,300,1@dth2,18,94
+6,Remnants of Elban,14400,300,plazuda,119,112
+7,Ouvel's Chamber,600,300,1@def02,30,64
+8,Battle of the Immortals,14400,300,jupe_ele,41,46
+9,The Avatar of Hatred,14400,300,1@tnm2,141,214
+10,Corrupted Memories,600,300,1@def03,109,41
+27,Destiny Null - Netoria,1800,300,1@spa,118,111
+28,Destiny Null - Iruna,1800,300,1@def01,49,22
+29,Destiny Null - Schicksal,1800,300,1@lhz,84,26
+30,Destiny Void,1800,300,1@jtb,181,216
+31,Multiversal Disaster,14400,300,dali,90,97
