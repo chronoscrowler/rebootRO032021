@@ -1,0 +1,17 @@
+//Back to Airship
+eden_fild01.gat,83,148,6	script	Protection Crystal	4_xmas_cat2,{
+mes "[Protection Crystal]";
+mes "The Crystal Reads [This place is protected by the Inspectors]";
+mes " ";
+mes "The Crystal shows the next message [Go back to Airship: Flugel?]";
+menu "Yes",airship,"No",stayeden;
+airship:
+warp "1@air2",245,57;
+close;
+end;
+
+stayeden:
+mes "The Crystal shows the next message [Confirmed. No Coordinates Selected.]";
+close;
+end;
+}

@@ -1,0 +1,4 @@
+function	script	RebootCash10	{
+atcommand "@cash 10";
+end;
+}

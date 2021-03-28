@@ -1,0 +1,1867 @@
+//Airship Defaults
+1@air2,244,34,3	script	Dimensional Researcher#air1	4_m_alche_d,{
+	cutin "var_nor.bmp",2;
+	mes "[Dimensional Researcher]";
+	mes "This Airship we are in right now, Is named Flugel, which is based on my research on the Coordinator who lives in a different dimension..";
+	next;
+	mes "[Dimensional Researcher]";
+	mes "This crystal behind me is what I got to make based on the items you collected.";
+	next;
+	cutin "var_dan.bmp",2;
+	mes "[Dimensional Researcher]";
+	mes "Essentially it should protect us from any threat while on this Airship. But if there are Invaders.";
+	mes " ";
+	mes "I might need your help with everyone here to protect the Ship. So please check the crystal time-to-time.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+1@air2,244,69,0	script	Navigation Interpreter	4_ed_orb,{
+mes "Select where you want to go:";
+if (getcharid(5) == 3 || getcharid(2) == 1){
+menu "Restored Geffenia",geffenia,"Mysterious Island",mystery,"Server Area",secret,"Lithalzen Airport",lithalzen,"Prontera",pronto;
+}
+else {
+menu "Prontera",pronto;
+}
+
+pronto:
+warp "prontera",156,191;
+close;
+end;
+
+geffenia:
+warp "geffenia",279,183;
+close;
+end;
+
+mystery:
+warp "eden_fild01",86,150;
+close;
+end;
+
+secret:
+if (schickwarp0 == 2){
+warp "dali02",40,134;
+close;
+end;
+}
+else if (schickwarp0 == 1 && countitem(39100) > 49){
+next;
+mes "Fuel Accepted.";
+next;
+mes "Dimensional Warp Open.";
+close2;
+delitem 39100,50;
+set schickwarp0,2;
+warp "dali02",40,134;
+end;
+}
+else if (schickwarp0 == 1 && countitem(39100) < 50){
+next;
+mes "Not enough Fuel. (50 Beholder's Eyes)";
+close;
+end;
+}
+else {
+next;
+mes "To unlock this destination, you need to supply the contraption with sufficient fuel.";
+next;
+mes "50 Beholder's Eyes";
+close2;
+set schickwarp0,1;
+end;
+}
+
+lithalzen:
+warp "lhz_airport",177,36;
+close;
+end;
+}
+
+//randomNPCS
+
+//Ann
+1@air2,235,57,5	script	Ann	4_f_fruit,{
+	cutin "ep15_2_fru_2.bmp",2;
+	mes "[Ann]";
+	mes "Flying in the air through with the strength of machinery... the development of technology is truly marvelous.";
+	close2;
+	cutin " ",255;
+	end;
+}
+
+//BestFriend
+1@air2,240,57,3	script	Daniel	4_m_redman,{
+	cutin "bu_du5.bmp",2;
+	mes "[Daniel]";
+	mes "I am feeling uneasy from those noisy spinning thingies..";
+	close2;
+	cutin "ep14_roki02.bmp",255;
+	end;
+}
+
+//GroupA
+1@air2,217,67,3	script	Erin	4_M_BIRMAN,{
+		cutin "lunain01",2;
+		mes "[Liz]";
+		mes "Whoa~ this is great!! The wind is so cool~!!";
+		mes "Hooray~ we are flying through the sky! For free on top of that!";
+		next;
+		mes "[Liz]";
+		mes "Is it not marvelous how this huge ship can fly without the use of magic? Angelo?";
+		next;
+		cutin "lumin_ac_02",2;
+		mes "[Angelo]";
+		mes "......";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "...?? Angelo?";
+		next;
+		cutin "lumin_ac_02",2;
+		mes "[Angelo]";
+		mes ".....So High..";
+		next;
+		cutin "lunain04",2;
+		mes "[Liz]";
+		mes "What are you doing instead of listening to me!!!!";
+		next;
+		cutin "lumin_ac_03",2;
+		mes "[Angelo]";
+		mes "Argh! Aaah~!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Humph! That's what you get for being absent-minded!";
+		next;
+		cutin "lumin_ac_03",2;
+		mes "[Angelo]";
+		mes "Ah...Liz!! Are you trying to kill me~!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Humph! I don't care if you die or not...";
+		next;
+		cutin "bu_mark3",2;
+		mes "[Erin]";
+		mes "Hey!! No horsing around on the ship!!";
+		mes "That's why I said we should be inside! Your voices are giving me a headache! If you don't stop I will toss all of you off!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Oops... Sorry Leader, how does this big airship fly through the sky? It is so marvelous!";
+		next;
+		cutin "bu_mark2",2;
+		mes "[Erin]";
+		mes "Huh? That's a good question.";
+		mes "As you can see, Ann told me that they heat the large boiler to boil water then use the pressure of the steam to move the pistons which turns the cogwheel and moves the turbine to turn the propeller.";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "Eh... So that's how this big ship floats... but now the feeling of the mystery is gone. I thought there would be some mystical device... a little disappointed...";
+		next;
+		cutin "bu_mark1",2;
+		mes "[Erin]";
+		mes "That's right. This big ship can't be in the sky with just steam. So it uses an amplifier called a 'Rune Engine'.";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "Rune Engine? What is that?";
+		next;
+		cutin "bu_mark2",2;
+		mes "[Erin]";
+		mes "It's a device that uses a magical stone.";
+		mes "Something about fallen fragments from an unknown world according to the recent research... quiete bizarre if you ask me...";
+		next;
+		mes "[Erin]";
+		mes "The stone is dubbed as 'Chrono Stardust.' If put in junction with locomotive engines like steam engines, the rune exuded from the stone amplifies the energy.";
+		next;
+		mes "[Erin]";
+		mes "In all honesty it is not an overstatement to say a rock the size of a thumb is moving this ship. It possesses an incredible power. Atleast that's what Ann told me.";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "That little thing...!!!";
+		close2;
+		cutin " ",255;
+		end;
+}
+
+//Liz
+1@air2,215,67,5	script	Liz	4_f_runain,{
+cutin "lunain01",2;
+mes "[Liz]";
+mes "It looks nice here~";
+	close2;
+	cutin " ",255;
+	end;
+}
+//Angelo
+1@air2,214,66,5	script	Angelo	4_m_ac_rumin,{
+cutin "lumin_ac_05",2;
+mes "[Angelo]";
+mes "I am getting seasick... wait we're on the air.. Air Sick then..";
+	close2;
+	cutin " ",255;
+	end;
+}
+
+//MasterSmith
+1@air2,120,62,3	script	Old Man Karl	2_m_oldblsmith,{
+cutin "fey_oneg",2;
+	mes "[Old Man Karl]";
+	mes "I can't believe am on a different dimmension";
+	mes " ";
+	mes "I've tried the usual airships in Lithalzen, but this one is the real deal";
+	next;
+	cutin "fey_fun",2;
+	mes "[Old Man Karl]";
+	mes "I am proud I took part of it's creation.";
+	close2;
+	cutin " ",255;
+	end;
+}
+
+1@air2,58,67,3	script	Drunk Man	4_M_LIEMAN,{
+	mes "[Drunk Man]";
+	mes "Hooray.. *hik*.. the ship flies.. ...";
+	mes "*hik*";
+	close;
+	end;
+}
+
+1@air2,75,71,5	script	Gentleman	1_M_JOBTESTER,{
+	mes "[Gentleman]";
+	mes "I can't wait to see new things with this ship..";
+	close;
+	end;
+}
+
+1@air2,61,88,5	script	Bard	1_M_BARD,{
+	mes "[Bard]";
+	mes "La,la,la~~~ Oh, all the odes I can write and I am here to witness it.";
+	close;
+	end;
+}
+
+1@air2,32,61,5	script	Ship Manager	1_M_PUBMASTER,{
+	mes "[Ship Manager]";
+	mes "Come bet, come, come.";
+	next;
+	mes "[Ship Manager]";
+	mes "Let's enjoy the time while we are up in the skies~";
+	close;
+	end;
+}
+
+1@air2,28,67,5	script	Magnate	4_M_YURI,{
+	mes "[Magnate]";
+	mes "I invested a great deal of money to get this thing flying.";
+	next;
+	mes "[Magnate]";
+	mes "And look, I still can't believe we're in a different dimmension.";
+	mes " ";
+	mes "This is money well spent~";
+	close;
+	end;
+}
+
+1@air2,93,193,3	script	Cartographer Louie	4_tower_16,{
+cutin "laime_evenor01",2;
+	mes "[Louie]";
+	mes "I am glad to be here with everyone. So many things to document~";
+	close2;
+	cutin " ",255;
+	end;
+}
+
+1@air2,39,191,4	script	Royal Guard	8W_SOLDIER,{
+	mes "[Royal Guard]";
+	mes "It's a priviliege to be part of the King's Guards!";
+	close;
+	end;
+}
+
+1@air2,43,191,4	duplicate(Royal Guard)	Royal Guard#1air1	8W_SOLDIER
+
+1@air2,49,169,5	script	Asleep Man	4_M_LIEMAN,{
+	mes "[Asleep Man]";
+	mes "Zzz...... Zzz..";
+	close;
+	end;
+}
+
+1@air2,58,197,3	duplicate(Asleep Man)	Asleep Man	4_M_LIEMAN
+
+1@air2,42,205,3	script	King of Lithalzen	4_M_TRISTAN,{
+	mes "[King Longinus]";
+	mes "Zzz...... Zzz..";
+	close;
+	end;
+}
+
+1@air2,240,65,6	script	Rode	4_m_seanmccurdy,{
+	mes "[Mechanic Rode]";
+	mes "I can't believe technology like this exist, see that crystal ball? It's a special navigation interpreter that we created, it only works in this ship. It can take you to places you won't normally reach by normal means.";
+	close;
+	end;
+}
+
+1@air2,66,156,3	script	Administrator	4_xmas_cat5,{
+	mes "[Porami Administrator]";
+	mes "You did well contacting and finding me. With our agreement and as a member of the Chrono Imperium, I shall aid you in this ship and keep the connection flowing between the server and this place.";
+	close;
+	end;
+}
+
+//Instance Part as below
+-	script	CrystalSwitcher	-1,{
+OnInit:
+if (gettime(4) == 2 || gettime(4) == 4 || gettime(4) == 6){
+enablenpc "Protection Crystal#ran";
+disablenpc "Disabled Crystal#ran";
+end;
+}
+else {
+disablenpc "Protection Crystal#ran";
+enablenpc "Disabled Crystal#ran";
+end;
+}
+
+OnClock0000:
+if (gettime(4) == 2 || gettime(4) == 4 || gettime(4) == 6){
+disablenpc "Disabled Crystal#ran";
+enablenpc "Protection Crystal#ran";
+end;
+}
+else {
+disablenpc "Protection Crystal#ran";
+enablenpc "Disabled Crystal#ran";
+end;
+}
+}
+
+1@air2,244,30,3	script	Disabled Crystal#ran	4_xmas_cat2,{
+mes "There's a faint crystal right there.";
+close;
+end;
+}
+
+1@air2,244,30,3	script	Protection Crystal#ran	4_xmas_cat2,{
+	set .@airassault_time,checkquest(15050,PLAYTIME); //23 hours
+	if (.@airassault_time == 2) {
+		erasequest 15050;
+		erasequest 15051;
+		end;
+	}
+	if(.@airassault_time == 0)
+	{
+		mes "^ff0000No threat detected right now.^000000";
+		close;
+	}
+	else if ((.@airassault_time >= 0) || (.@airassault_time == -1)) {
+		set .@airreturn,checkquest(15051,PLAYTIME); //5 Minutes Re-Enter
+		if(.@airreturn >= 1)
+		{
+			mes "^ff0000Threat automatically averted, you took too long to respond.^000000";
+  			instance_destroy $airas_instance;
+  			set $airas_instance, -1;
+			erasequest 15051;
+			close;
+		}
+		else {
+			set .@party_id,getcharid(1);
+			set .@p_name$,getpartyname(.@party_id);
+			set .@md_name$,"Airship Assault";
+			
+			if (!instance_check_party(.@party_id,1)) {
+				mes "You need to be in a Solo Party.";
+				close;
+			}
+
+			switch(select((getcharid(0) == getpartyleader(.@party_id,2) && .@airreturn == -1 ? "Create Instance":""),(.@airreturn == 1 || .@airreturn == 0 ? "Enter in Airship Assault":""),"Leave")) 
+			{
+				case 1:
+					set $airas_instance, instance_create(.@md_name$);
+					if($airas_instance < 0) {
+						mes "Party's name: "+.@p_name$;
+						mes "Leader's name "+strcharinfo(0);
+						mes "^0000ff"+.@md_name$+" ^000000- unable to create!";
+						close;
+					} else {
+						mes "^ff0000The instance is created.^000000";
+						mes "^ff0000Activated dimensional Portal.^000000";
+            
+						disablenpc instance_npcname("warp1#air1", $airas_instance);
+						disablenpc instance_npcname("warp2a#air1", $airas_instance);
+						disablenpc instance_npcname("warp2b#air1", $airas_instance);
+						disablenpc instance_npcname("warp3a#air1", $airas_instance);
+						disablenpc instance_npcname("warp3b#air1", $airas_instance);
+						disablenpc instance_npcname("warp4a#air2", $airas_instance);
+						disablenpc instance_npcname("warp5a#air2", $airas_instance);
+						
+						donpcevent "::OnASInstanceInit";
+						setquest 15051;
+						close;
+					}
+				case 2:
+					getmapxy(.@map$, .@x, .@y, BL_PC);
+					save .@map$, .@x, .@y;
+					mes "^ff0000Locking this Dimension with the Invaders, defense activated^000000";
+					next;
+					mes "^ff0000Protect the Airship at all cost.^000000";
+					next;
+					set .@state, instance_enter(.@md_name$);
+					switch(.@state)
+					{
+						case 0:
+							setquest 15050;
+							if(getcharid(0) != getpartyleader(.@party_id,2))
+								setquest 15051;
+							mapannounce "prontera",strcharinfo(0)+", member of the party "+.@p_name$+" entered the instance "+.@md_name$+".",bc_map,"0x00ff99";
+							specialeffect2 EF_WARP;
+							end;
+						case 1:
+							mes "Only registered members can enter the instance "+.@md_name$+".";
+							close;
+						case 2:
+							mes "The instance "+.@md_name$+" doesn't exists.";
+							mes "The leader of the party must register before entering.";
+							close;
+						case 3:
+							mes "Unkwnon error";
+							close;
+					}
+				case 3:
+					close;
+			}
+		}
+	}
+
+OnWhisperGlobal:
+  	instance_destroy $airas_instance;
+  	set $airas_instance, -1;
+	erasequest 15051;
+	erasequest 15050;
+	end;
+}
+
+//Script Instance.
+1@air1,240,57,3	script	Daniel#air1	4_m_redman,{
+	cutin "bu_du5.bmp",2;
+	mes "[Daniel]";
+	mes "I am feeling uneasy from those noisy spinning thingies..";
+	close2;
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+	
+1@air1,235,57,5	script	Ann#air1	4_f_fruit,{
+	cutin "ep15_2_fru_2.bmp",2;
+	mes "[Ann]";
+	mes "Flying in the air through with the strength of machinery... the development of technology is truly marvelous.";
+	next;
+	mes "[Ann]";
+	mes "I really feel proud making this thing with everyone <3 ! ";
+	close2;
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+1@air1,235,57,5	script	Ann#air11	4_f_fruit,{
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "Angelo and Liz, pay attention to what's happening!";
+	close2;
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+1@air1,215,67,5	script	Liz#air1	4_f_runain,{
+	end;
+OnASInstanceInit:
+
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+1@air1,214,66,5	script	Angelo#air1	4_m_ac_rumin,{
+	end;
+OnASInstanceInit:
+
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+1@air1,217,67,3	script	Erin#air1	4_M_BIRMAN,{
+		cutin "lunain01",2;
+		mes "[Liz]";
+		mes "Whoa~ this is great!! The wind is so cool~!!";
+		mes "Hooray~ we are flying through the sky! For free on top of that!";
+		next;
+		mes "[Liz]";
+		mes "Is it not marvelous how this huge ship can fly without the use of magic? Angelo?";
+		next;
+		cutin "lumin_ac_02",2;
+		mes "[Angelo]";
+		mes "......";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "...?? Angelo?";
+		next;
+		cutin "lumin_ac_02",2;
+		mes "[Angelo]";
+		mes ".....So High..";
+		next;
+		cutin "lunain04",2;
+		mes "[Liz]";
+		mes "What are you doing instead of listening to me!!!!";
+		next;
+		cutin "lumin_ac_03",2;
+		mes "[Angelo]";
+		mes "Argh! Aaah~!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Humph! That's what you get for being absent-minded!";
+		next;
+		cutin "lumin_ac_03",2;
+		mes "[Angelo]";
+		mes "Ah...Liz!! Are you trying to kill me~!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Humph! I don't care if you die or not...";
+		next;
+		cutin "bu_mark3",2;
+		mes "[Erin]";
+		mes "Hey!! No horsing around on the ship!!";
+		mes "That's why I said we should be inside! Your voices are giving me a headache! If you don't stop I will toss all of you off!!";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "Oops... Sorry Leader, how does this big airship fly through the sky? It is so marvelous!";
+		next;
+		cutin "bu_mark2",2;
+		mes "[Erin]";
+		mes "Huh? That's a good question.";
+		mes "As you can see, Ann told me that they heat the large boiler to boil water then use the pressure of the steam to move the pistons which turns the cogwheel and moves the turbine to turn the propeller.";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "Eh... So that's how this big ship floats... but now the feeling of the mystery is gone. I thought there would be some mystical device... a little disappointed...";
+		next;
+		cutin "bu_mark1",2;
+		mes "[Erin]";
+		mes "That's right. This big ship can't be in the sky with just steam. So it uses an amplifier called a 'Rune Engine'.";
+		next;
+		cutin "lunain02",2;
+		mes "[Liz]";
+		mes "Rune Engine? What is that?";
+		next;
+		cutin "bu_mark2",2;
+		mes "[Erin]";
+		mes "It's a device that uses a magical stone.";
+		mes "Something about fallen fragments from an unknown world according to the recent research... quiete bizarre if you ask me...";
+		next;
+		mes "[Erin]";
+		mes "The stone is dubbed as 'Chrono Stardust.' If put in junction with locomotive engines like steam engines, the rune exuded from the stone amplifies the energy.";
+		next;
+		mes "[Erin]";
+		mes "In all honesty it is not an overstatement to say a rock the size of a thumb is moving this ship. It possesses an incredible power. Atleast that's what Ann told me.";
+		next;
+		cutin "lunain03",2;
+		mes "[Liz]";
+		mes "That little thing...!!!";
+		next;
+		cutin "bu_du5",2;
+		mes "[Daniel]";
+		mes "......huh?";
+		mes "Something is coming this way...";
+		next;
+		cutin "porami_admin",2;
+		mes "[Porami Administrator]";
+		mes "Alert!! Alert!! A dimensional distortion is approaching!!";
+		next;
+		cutin "bu_mark4",2;
+		mes "[Erin]";
+		mes "What?!";
+		next;
+		cutin "",255;
+		mes "[Porami Administrator]";
+		mes "I cannot participate in the conflict, but I will maintain the ship, so everyone onboard fendoff the invaders!!";
+	donpcevent instance_npcname("Ground Asl.#1air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#2air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#3air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#4air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#5air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#6air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#7air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#8air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Air Asl.#2air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Air Asl.#1air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Dragon Muggler#2air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Dragon Muggler#1air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Great Dragon#air1", $airas_instance)+"::OnEnable";
+	next;
+	cutin "lumin_ac_03",2;
+	mes "[Angelo]";
+	mes "Hm... What is this now?";
+	next;
+	cutin "h_arcana02",2;
+	mes "[Pandora]";
+	mes "Hahahaha~ You have waited long!!";
+	mes "It's time for Pandora's Box Show!!";
+	next;
+	cutin "lumin_ac_03",2;
+	mes "[Angelo]";
+	mes "Wha...what show?";
+	next;
+	cutin "h_arcana02",2;
+	mes "[Pandora]";
+	mes "Now... Let us get started! Gremlins~!!";
+	mes "It's PARTY TIME~!!";
+	next;
+	cutin "Porami_Admin",2;
+	mes "[Porami Administrator]";
+	mes "Alert! Gremlins have infiltrated the Ship.";
+	mes "Everyone, take action now!!";
+	next;
+	cutin "bu_mark3",2;
+	mes "[Erin]";
+	mes "What?! They don't feel like normal Gremlins?!";
+	mes "You bastards!! Stop right there!!";
+	next;
+	cutin "lunain03",2;
+	mes "[Liz]";
+	mes "Leader. There is no need to be so agitated.";
+	mes "Gremlins are just monsters that tinker with machines. Rather...";
+	next;
+	cutin "bu_mark3",2;
+	mes "[Erin]";
+	mes "You don't know what you're talking about!!";
+	mes "As the Administrator said, he cannot participate in the conflict!! We might as well be dead if we don't do anything!";
+	next;
+	cutin "Porami_Admin",2;
+	mes "[Porami Administrator]";
+	mes "My Monitors detect they are after the Chrono Stardust.";
+	mes "...This is serious! You might be all lost in space if we this ship loses power!!";
+	next;
+	cutin "bu_mark3",2;
+	mes "[Erin]";
+	mes "Damn it... We can't let that happen...";
+	mes "I have a family!! C'mon team let's move out!";
+	next;
+	mes "[Erin]";
+	mes "We have to especially stop them from getting to the Rune Engine!! Else, we will all be doom!!";
+	next;
+	mes "[Erin]";
+	mes "PANDORA...DAMN YOU..";
+	next;
+	donpcevent instance_npcname("Erin#air1", $airas_instance)+"::OnDisable";
+	cutin "lumin_ac_03",2;
+	mes "[Angelo]";
+	mes "Liz!! Let's go down to the engine room! Daniel and the others will handle the roofdeck!";
+	next;
+	cutin "lunain04",2;
+	mes "[Liz]";
+	mes "Oh...okay! Alright... Let's go!!";
+	close2;
+	cutin "",255;
+	sleep2 500;
+	donpcevent instance_npcname("Liz#air1", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Angelo#air1", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ann#air1", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ann#air11", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("#airshipputmob1", $airas_instance)+"::OnEnable";
+	instance_announce $airas_instance, "[Voice of the World] Flying monsters have begun their assault to the ship.",bc_map,"0xFFFF00";
+	sleep2 1000;
+	instance_announce $airas_instance, "[Voice of the World] Adventurers' need to protect the cabin!",bc_map,"0xFFFF00";
+	sleep 1000;
+	instance_announce $airas_instance, "[Voice of the World] Go to the lower floors of the airship and defeat all the monsters that you might encounter.",bc_map,"0xFFFF00";
+	enablenpc instance_npcname("warp1#air1", $airas_instance);
+	end;
+OnASInstanceInit:
+
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance);
+	end;
+	
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance);
+	end;
+}
+	
+1@air1,236,57,3	script	Ground Asl.#1air1	3176,{ //GREMLIN
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,239,57,5	duplicate(Ground Asl.#1air1)	Ground Asl.#2air1	3176 //GREMLIN
+1@air1,230,50,5	duplicate(Ground Asl.#1air1)	Ground Asl.#3air1	3176 //GREMLIN
+1@air1,226,62,3	duplicate(Ground Asl.#1air1)	Ground Asl.#4air1	3176 //GREMLIN
+1@air1,241,48,3	duplicate(Ground Asl.#1air1)	Ground Asl.#5air1	3176 //GREMLIN
+1@air1,225,40,7	duplicate(Ground Asl.#1air1)	Ground Asl.#6air1	3176 //GREMLIN
+1@air1,236,48,7	duplicate(Ground Asl.#1air1)	Ground Asl.#7air1	3176 //GREMLIN
+1@air1,224,66,5	duplicate(Ground Asl.#1air1)	Ground Asl.#8air1	3176 //GREMLIN
+
+//Warportals.
+
+1@air1,253,54	warp	warp1#air1	2,2,1@air1,91,68
+1@air1,104,72	warp	warp2a#air1	2,2,1@air1,101,200
+1@air1,104,52	warp	warp2b#air1	2,2,1@air1,101,176
+1@air1,103,200	warp	warp3a#air1	2,2,airflugel,104,72
+1@air1,103,176	warp	warp3b#air1	2,2,airflugel,104,52;
+airflugel,88,67	warp	warp4a#air2	2,2,airflugel,247,53
+airflugel,244,73	warp	warp5a#air2	2,2,dali02,41,133
+
+//Monsters Spawn.
+1@air1,0,0,0	script	#airshipputmob1	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	set .@map$, instance_mapname("1@air1", $airas_instance);
+	set .@label$, strnpcinfo(0)+"::OnMyMobDead";
+	areamonster .@map$,36,49,98,77,"Air Asl.",3175,9,.@label$;
+	areamonster .@map$,36,49,98,77,"Air Asl.",3177,10,.@label$;
+	
+	monster .@map$,62,92,"Air Asl.",3175,1,.@label$;
+	monster .@map$,61,88,"Air Asl.",3177,1,.@label$;
+	
+	monster .@map$,62,32,"Air Asl.",3175,1,.@label$;
+	monster .@map$,60,36,"Air Asl.",3177,1,.@label$;
+	
+	monster .@map$,19,66,"Air Asl.",3175,1,.@label$;
+	monster .@map$,19,64,"Air Asl.",3175,1,.@label$;
+	monster .@map$,19,62,"Air Asl.",3175,1,.@label$;
+	monster .@map$,19,60,"Air Asl.",3175,1,.@label$;
+	areamonster .@map$,102,68,117,54,"Air Asl.",3177,3,.@label$;
+	set .MyMobs,30;
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("1@air1", $airas_instance);
+	set .MyMobs, .MyMobs-1;
+	if (.MyMobs == 0) {
+		goto OnComplete;
+	}
+	end;
+OnComplete:
+	instance_announce $airas_instance, "[Voice of the World] Don't stop! More monsters are attacking the Airship!",bc_map,"0xFFFF00";
+	enablenpc instance_npcname("warp2a#air1", $airas_instance);
+	enablenpc instance_npcname("warp2b#air1", $airas_instance);
+	donpcevent instance_npcname("#airshipputmob2", $airas_instance)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+1@air1,0,0,0	script	#airshipputmob2	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	set .@map$, instance_mapname("1@air1", $airas_instance);
+	set .@label$, instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead";
+	monster .@map$,97,201,"Ground Asl.",3176,1,.@label$;
+	monster .@map$,97,198,"Ground Asl.",3176,1,.@label$;
+	monster .@map$,97,177,"Ground Asl.",3176,1,.@label$;
+	monster .@map$,97,174,"Ground Asl.",3176,1,.@label$;
+	
+	monster .@map$,18,192,"Dragon Muggler",3179,1,.@label$;
+	monster .@map$,18,190,"Dragon Muggler",3179,1,.@label$;
+	monster .@map$,18,188,"Dragon Muggler",3179,1,.@label$;
+	monster .@map$,18,186,"Dragon Muggler",3179,1,.@label$;
+	
+	monster .@map$,65,215,"Ground Asl.",3176,1,.@label$;
+	monster .@map$,65,215,"Dragon Muggler",3179,1,.@label$;
+	monster .@map$,65,160,"Ground Asl.",3176,1,.@label$;
+	monster .@map$,65,160,"Dragon Muggler",3179,1,.@label$;
+	
+	areamonster .@map$,108,198,119,180,"Dragon Muggler",3179,2,.@label$;
+	areamonster .@map$,108,198,119,180,"Ground Asl.",3176,2,.@label$;
+	
+	areamonster .@map$,87,209,30,171,"Dragon Muggler",3179,7,.@label$;
+	areamonster .@map$,87,209,30,171,"Ground Asl.",3176,7,.@label$;
+	set .MyMobs,30;
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("1@air1", $airas_instance);
+	set .MyMobs, .MyMobs-1;
+	if (.MyMobs == 0) {
+		goto OnComplete;
+	}
+	end;
+OnComplete:
+	instance_announce $airas_instance, "[Voice of the World] See what's happening with Liz and Angelo.",bc_map,"0xFFFF00";
+	donpcevent instance_npcname("Liz#2air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Angelo#2air1", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#2aair", $airas_instance)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+
+airflugel,0,0,0	script	#airshipputmob3	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	set .@label$, instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead";
+	areamonster .@map$,36,49,98,77,"Dragon Muggler",3178,9,.@label$;
+	areamonster .@map$,36,49,98,77,"Air Asl.",3177,10,.@label$;
+	
+	monster .@map$,62,92,"Dragon Muggler",3178,1,.@label$;
+	monster .@map$,61,88,"Dragon Muggler",3177,1,.@label$;
+	
+	monster .@map$,62,32,"Dragon Muggler",3178,1,.@label$;
+	monster .@map$,60,36,"Dragon Muggler",3177,1,.@label$;
+	
+	monster .@map$,19,66,"Dragon Muggler",3178,1,.@label$;
+	monster .@map$,19,64,"Dragon Muggler",3178,1,.@label$;
+	monster .@map$,19,62,"Dragon Muggler",3178,1,.@label$;
+	monster .@map$,19,60,"Dragon Muggler",3178,1,.@label$;
+	areamonster .@map$,102,68,117,54,"Air Asl.",3177,3,.@label$;
+	set .MyMobs,30;
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	set .MyMobs, .MyMobs-1;
+	if (.MyMobs == 0) {
+		goto OnComplete;
+	}
+	end;
+OnComplete:
+	instance_announce $airas_instance, "[Voice of the World] Go back upstairs, a major threat has appeared.",bc_map,"0xFFFF00";
+	enablenpc instance_npcname("warp4a#air2", $airas_instance);
+	donpcevent instance_npcname("Liz#air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ann#air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Great Dragon#2air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Great Dragon#3air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("firecontrol2#air2", $airas_instance)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+airflugel,0,0,0	script	#airshipputmob4	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	set .@label$, instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead";
+	monster .@map$,235,49,"Great Dragon",3180,1,.@label$;
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	if (mobcount(.@map$,instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead") < 1) {
+		goto OnComplete;
+	}
+	end;
+OnComplete:
+	set .@map$, instance_mapname("airflugel");
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#4air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#5air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#6air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#7air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Ground Asl.#8air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Liz#2air2", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Erin#air2", $airas_instance)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+
+airflugel,0,0,0	script	#airshipputmob5	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc strnpcinfo(0);
+	end;
+OnEnable:
+	enablenpc strnpcinfo(0);
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	set .@label$, instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead";
+	monster .@map$,247,51,"Invader-level DRAKE",3181,1,.@label$;
+	end;
+OnMyMobDead:
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	if (mobcount(.@map$,instance_npcname(strnpcinfo(0), $airas_instance)+"::OnMyMobDead") < 1) {
+		goto OnComplete;
+	}
+	end;
+OnComplete:
+	set .@map$, instance_mapname("airflugel", $airas_instance);
+	donpcevent instance_npcname("Angelo#air2", $airas_instance)+"::OnEnable";
+	sleep2 500;
+	donpcevent instance_npcname("Erin#2air2", $airas_instance)+"::OnEnable";
+	donpcevent strnpcinfo(0)+"::OnDisable";
+	end;
+}
+
+airflugel,229,54,5	script	Ann#air2	4_f_fruit,{
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "...These bastards just keep coming.";
+	next;
+	cutin "fey_oneg.bmp",1;
+	mes "[Old Man Karl]";
+	mes "Oraaaaa, Oraaaa!! Don't underestimate me damn monsters!.";
+	next;
+	cutin "lunain02.bmp",2;
+	mes "[Liz]";
+	mes "...?? Who goes there!!";
+	next;
+	cutin "fey_oneg.bmp",1;
+	mes "[Old Man Karl]";
+	mes "Don't worry Missy! these things won't get pass me!";
+	next;
+	mes "[Old Man Karl]";
+	mes "Taste my AXEEEEEE!!!";
+	mes "ORAAAAAAAAAAAAAAAAAAAAA";
+	next;
+	cutin "fey_fun.bmp",1;
+	mes "[Old Man Karl]";
+	mes "See that!! That's why they call me the Mastersmith!";
+	next;
+	cutin "lumin_ac_01.bmp",2;
+	mes "[Angelo]";
+	mes "......";
+	next;
+	cutin "ep15_2_fru_2.bmp",2;
+	mes "[Ann]";
+	mes "......*sparkles*";
+	next;
+	cutin "fey_nor.bmp",1;
+	mes "[Old Man Karl]";
+	mes "Hmppphhh.. Was that too much?, oh well!";
+	next;
+	mes "[Old Man Karl]";
+	mes "HAMMERFALL!!!!!!!!!!!!!!!!!!!";
+	next;
+	mes "[Old Man Karl]";
+	mes "I am almost there in the Upperdeck!!!!";
+	next;
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "Pu....";
+	mes "Puhahahahahahahahaha";
+	next;
+	mes "[Liz]";
+	mes "Well that's something you don't see everyday?!";
+	mes "Can't believe the old guy is outclassing us!!";
+	mes "Not to mention his brute strength is just ridiculous~";
+	next;
+	cutin "laime_evenor03.bmp",1;
+	mes "[Louie]";
+	mes "I am here also!";
+	mes "I'll do whatever I can to help..";
+	next;
+	cutin "laime_evenor03.bmp",1;
+	mes "[Dimension Researcher]";
+	mes "I am counting on you guys Save this ship!!";
+	next;
+	cutin "fey_nor.bmp",1;
+	mes "[Old Man Karl]";
+	mes "OVERBOOSSSSSSST!!";
+	mes "CART TERMINATION!!!!!!!!! AND HAMMERFALL!!!!!!!!!!!!!!!";
+	next;
+	cutin " ",255;
+	mes "- Old Man Karl arrives and puts the monsters in a corner!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	sleep2 200;
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "That old guy might loose some breath soon, we have to help!";
+	next;
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "Oh? Gee!";
+	mes "An unexpected ally?";
+	mes "This could turn out to be a fun party~";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "Wait!";
+	mes "It would be better to end this party now... Come face us!!";
+	next;
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "Oh. You have no fear...";
+	mes "You should thank that Administrator for not allowing me entry, else I would have destroyed all instantly..";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "Come down and face us, you coward!!?";
+	next;
+	cutin "h_arcana01.bmp",2;
+	mes "[Pandora]";
+	mes "...Careful. If you keep going on like that...";
+	mes "You will receive a sinister punishment!";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "...!!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	sleep2 200;
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "Okay~ I will show you something good. Something to cool your heads.";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "It can't be! The Wyverns are coming?!!";
+	next;
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "B.I.N.G.O ~";
+	next;
+	cutin " ",255;
+	mes "[Wyvern]";
+	mes "Gyaoooooo!!";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "No... no!! The ship!!";
+	next;
+	donpcevent instance_npcname("Daniel#air2", $airas_instance)+"::OnEnable";
+	cutin " ",255;
+	mes "- boom!!";
+	next;
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "...?! Daniel!!";
+	next;
+	cutin "bu_du2.bmp",2;
+	mes "[Daniel]";
+	mes "Yo..";
+	mes "What's going on here?";
+	next;
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "Ooh.. you threw back Wyvern's Breath... an unexpected outcome. But can you withstand this one?";
+	next;
+	cutin " ",255;
+	mes "[Wyvern]";
+	mes "Gyaoooooooooooo!!";
+	next;
+	cutin "bu_du3.bmp",2;
+	mes "[Daniel]";
+	mes "Bothersome pests...";
+	mes "You! I will face this one, while you face the other...";
+	close2;
+	cutin " ",255;
+	donpcevent instance_npcname("Ann#air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Daniel#air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Liz#air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Great Dragon#2air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Great Dragon#3air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("#airshipputmob4", $airas_instance)+"::OnEnable";
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+airflugel,229,56,5	script	Daniel#air2	4_m_redman,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	initnpctimer;
+	end;
+OnTimer1000:
+	specialeffect EF_SUI_EXPLOSION;
+	stopnpctimer;
+	end;
+}
+airflugel,241,54,3	script	Liz#air2	4_f_runain,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+airflugel,235,59,3	script	Great Dragon#2air2	3180,{ //E1_G_S_NYDHOG
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+airflugel,235,49,3	script	Great Dragon#3air2	3180,{ //E1_G_S_NYDHOG
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+//NPC Historia.
+
+1@air1,88,189,5	script	Liz#2air1	4_f_runain,{
+	cutin "lumin_ac_03.bmp",2;
+	mes "[Angelo]";
+	mes "It's heading inside the engine room!";
+	next;
+	cutin "lunain04.bmp",2;
+	mes "[Liz]";
+	mes "We have to stop it!";
+	next;
+	cutin " ",255;
+	mes "[Gremlin]";
+	mes "Graawr..!!";
+	//disablenpc "warp3a#air1_0op"
+	next;
+	donpcevent instance_npcname("Ground Asl.#2aair", $airas_instance)+"::OnEffect";
+	mes "- Kaboom!";
+	next;
+	cutin "lunain02.bmp",2;
+	mes "[Liz]";
+	mes "We're too late!!";
+	next;
+	cutin "Porami_Admin",2;
+	mes "[Porami Administrators]";
+	mes "I am doing my best to maintain the ship, Go back upstairs!!";
+	next;
+	cutin "lumin_ac_03.bmp",2;
+	mes "[Angelo]";
+	mes "Don't just stand there! Move it!!";
+	close2;
+	donpcevent instance_npcname("Liz#2air1", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Angelo#2air1", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("#airshipputmob3", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("firecontrol#air2", $airas_instance)+"::OnEnable";
+	sleep2 1000;
+	instance_announce $airas_instance, "[Voice of the World] Hundreds of explosions were heard in the upper floors, hurry up, go back there.",bc_map,"0xFFFF00";
+	enablenpc instance_npcname("warp3a#air1", $airas_instance);
+	enablenpc instance_npcname("warp3b#air1", $airas_instance);
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,88,187,5	script	Angelo#2air1	4_m_ac_rumin,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,93,188,5	script	Ground Asl.#2aair	3176,{ //E1_GREMLIN
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEffect:
+	specialeffect EF_SUI_EXPLOSION;
+	donpcevent instance_npcname(strnpcinfo(0), $airas_instance)+"::OnDisable";
+	end;
+}
+
+airflugel,232,51,5	script	Liz#2air2	4_f_runain,{
+	mes "[Gremlins]";
+	mes "Squeak... Kooar~!!";
+	next;
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "Eek! There are still more of these!!";
+	next;
+	cutin "bu_mark3.bmp",2;
+	mes "[Erin]";
+	mes "Get out of my way!!!!";
+	next;
+	mes "[Erin]";
+	mes "I will show you what happens when mess with us!";
+	next;
+	mes "[Erin]";
+	mes "I will end you all! See the power of a real Arch Bishop!!";
+	next;
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "Just.. just a minute...";
+	mes "You're really going to cast your skills in this conditions?!";
+	next;
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "Of course!";
+	mes "MAXXX DUPLE LIGHT!!!";
+	next;
+	cutin " ",255;
+	mes "- kABOOOM!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnDisable";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnDisable";
+	mes "[Gremlins]";
+	mes "Urrrk!!";
+	next;
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "Muhahahaha!";
+	mes "How do you like that!!";
+	mes "Muhahahahaha";
+	next;
+	cutin "porami_admin.bmp",2;
+	mes "[Porami Administrator]";
+	mes "Those spells are interrupting my channeling!";
+	next;
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "What?! Those bastards are breaking the engine more?!! You're making me angry!! MASSSS JUDEXXXXX!!!";
+	next;
+	cutin " ",255;
+	mes "- kaBOOOM!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	mes "[Everyone]";
+	mes "What do you think you're doing! Leader!";
+	next;
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "Bastards! Die! Die!";
+	mes "Muhahahaha!!";
+	next;
+	cutin "lunain01.bmp",2;
+	mes "[Liz]";
+	mes "Stop Leader!!...";
+	next;
+	cutin "lunain02.bmp",255;
+	mes "- kaBOOOM!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	cutin "bu_mark3.bmp",2;
+	mes "[Erin]";
+	mes "What is it Liz!! I am busy here!!";
+	next;
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "Your SP is already depleted!! And Look out!!!! A distortion is coming!!";
+	next;
+	mes "[Liz]";
+	mes "It can't be! It's a DRAKE, but it feels super powerful ...";
+	close2;
+	cutin " ",255;
+	donpcevent instance_npcname("Ground Asl.#4air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ground Asl.#5air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ground Asl.#6air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ground Asl.#7air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Ground Asl.#8air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("Erin#air2", $airas_instance)+"::OnDisable";
+	donpcevent instance_npcname("#airshipputmob5", $airas_instance)+"::OnEnable";
+	donpcevent instance_npcname("Liz#2air2", $airas_instance)+"::OnDisable";
+	end;
+	
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,247,51,3	script	Erin#air2	4_M_BIRMAN,{
+	end;
+OnASInstanceInit:
+
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,243,58,3	duplicate(Erin#air2)	Erin#2air2	4_M_BIRMAN
+
+
+airflugel,239,58,5	script	Angelo#air2	4_m_ac_rumin,{
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "Oops.. I guess you were right, am almost out of strength? but look all the enemies are gone, Hehehehe";
+	next;
+	cutin "lunain03.bmp",2;
+	mes "[Liz]";
+	mes "Not to mention you made it worst, lol!!";
+	next;
+	cutin "h_arcana02.bmp",2;
+	mes "[Pandora]";
+	mes "Hmpphh You destroyed my toys?!";
+	next;
+	mes "[Pandora]";
+	mes "I'll make them stronger, and next time I find you again, It won't be so easy...";
+	next;
+	cutin "porami_admin",1;
+	mes "[Porami Administrator]";
+	mes "Oh? ... best I'll send you off then..";
+	next;
+	mes "[Porami Administrator]";
+	mes "I was too busy maintaining the ship, but now that there are no longer any monsters, if it's you, I am well allowed to pass on judgement..";
+	next;
+	mes "[Porami Administrator]";
+	mes "Dimensional Collapse!!";
+	next;
+	cutin " ",255;
+	mes "- Kaboom!";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	cutin "ep15_2_fru_3.bmp",2;
+	mes "[Ann]";
+	mes "Eek!! Looks like we'll fall!!";
+	mes "...too short... Can't reach...";
+	next;
+	next;
+	mes "[Ann]";
+	mes "...is this the end?";
+	mes "...A place I can't reach like before...";
+	mes "Daniel...";
+	next;
+	cutin "bu_du2.bmp",2;
+	mes "[Daniel]";
+	mes "...Grab on";
+	next;
+	cutin "ep15_2_fru_2.bmp",2;
+	mes "[Ann]";
+	mes "Dan...iel? *sparkles*";
+	next;
+	cutin "bu_du2.bmp",2;
+	mes "[Daniel]";
+	mes "What are you looking at? Here, come up...";
+	next;
+	cutin "porami_admin",1;
+	mes "[Porami Administrator]";
+	mes "My Apologies, I forgot I should have kept maitaining the energy flow..";
+	mes "Enter the our zone for now, while I bring this place back to normal in a few minutes! I might need a catalyst since, I can't loose focus..";
+	next;
+	cutin "bu_mark4.bmp",2;
+	mes "[Erin]";
+	mes "Damn...";
+	mes "If only, I was stronger..";
+	mes "Everyone, am channeling my remaining energy to the Navigation Interpreter, I'll force a portal to the Faction Zone!";
+	next;
+	donpcevent instance_npcname("Erin#2air2", $airas_instance)+"::OnDisable";
+	next;
+	cutin "lumin_ac_03.bmp",2;
+	mes "[Angelo]";
+	mes "Ok No Problem!!";
+	next;
+	mes "- Kaboom";
+	next;
+	donpcevent instance_npcname("Ground Asl.#1air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("Ground Asl.#2air2", $airas_instance)+"::OnEffect";
+	sleep2 300;
+	donpcevent instance_npcname("Ground Asl.#3air2", $airas_instance)+"::OnEffect";
+	cutin "lunain02.bmp",2;
+	mes "[Liz]";
+	mes "Hurry Everyone !!";
+	next;
+	cutin "lumin_ac_02",2;
+	mes "[Angelo]";
+	mes "Liz!! Come here!!";
+	mes "Let's quickly find Ann and Daniel and get out of here!!";
+	next;
+	cutin "lumin_ac_05",2;
+	mes "[Angelo]";
+	mes "Okay, let's go.";
+	close2;
+	enablenpc instance_npcname("warp5a#air2", $airas_instance);
+	disablenpc instance_npcname("Angelo#air2", $airas_instance);
+	donpcevent instance_npcname("Angelo#1air2", $airas_instance)+"::OnEnable";
+	cutin " ",255;
+	set sarah_q2,1;
+	getexp 5000000,1000000;
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,239,58,5	script	Angelo#1air2	4_m_ac_rumin,{
+	cutin "lumin_ac_03",2;
+	mes "[Angelo]";
+	mes "You get out of here now!! So that the Administrator can return this ship back to normal!!";
+	close2;
+	cutin " ",255;
+  	sleep2 15000;
+  	instance_destroy $airas_instance;
+  	set $airas_instance, -1;
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+//Dummies NPC.
+
+1@air1,120,62,3	script	Old Man Karl#air1	2_m_oldblsmith,{
+	cutin "fey_fun",2;
+	mes "[Old Man Karl]";
+	mes "Don't worry about me, I can handle myself!";
+	close2;
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,120,62,3	script	Old Man Karl#air2	2_m_oldblsmith,{
+	cutin "fey_fun",2;
+	mes "[Old Man Karl]";
+	mes "Oraaaaaaa!!! Come and get it monsters!!!";
+	close2;
+	cutin " ",255;
+	end;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,95,47,3	script	Drunk Man#air1	4_M_LIEMAN,{
+	mes "[Drunk Man]";
+	mes "I see dragons everywhere ...";
+	mes "*hip*";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,95,47,3	duplicate(Drunk Man#air1)	Drunk Man#air2	4_M_LIEMAN
+
+1@air1,75,71,5	script	Gentleman#air1	1_M_JOBTESTER,{
+	mes "[Gentleman]";
+	mes "Why is this happening? I can't even drink my coffee properly without a dragon spitting fire me?";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,75,71,5	duplicate(Gentleman#air1)	Gentleman#air2	1_M_JOBTESTER
+
+1@air1,61,88,5	script	Bard#air	1_M_BARD,{
+	mes "[Bard]";
+	mes "And I call it, the sonata of destruction ~~~";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+airflugel,61,88,5	duplicate(Bard#air)	Bard#air2	1_M_BARD
+
+1@air1,46,61,5	script	Ship Manager#air1	1_M_PUBMASTER,{
+	mes "[Ship Manager]";
+	mes "Come bet, come, come.";
+	next;
+	mes "[Ship Manager]";
+	mes "Em ... you too monsters, while you have money, you are welcomed.";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,46,61,5	duplicate(Ship Manager#air1)	Ship Manager#air2	1_M_PUBMASTER
+
+1@air1,28,67,5	script	Magnate#air1	4_M_YURI,{
+	mes "[Magnate]";
+	mes "Oh, damn monsters";
+	next;
+	mes "[Magnate]";
+	mes "I did not think they were good with poker..";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+airflugel,28,67,5	duplicate(Magnate#air1)	Magnate#air2	4_M_YURI
+
+1@air1,93,193,3	script	Cartographer#1air1	4_tower_16,{
+	mes "[Cartographer: Louie]";
+	mes "I'll help with what I can!";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,22,182,7	duplicate(Cartographer#1air1)	Cartographer#2air1	4_tower_16
+
+1@air1,39,191,4	script	Royal Guard#2air1	8W_SOLDIER,{
+	mes "[Royal Guard]";
+	mes "Stop making noise, the king is asleep!";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,43,191,4	duplicate(Royal Guard#2air1)	Royal Guard#1air1	8W_SOLDIER
+
+1@air1,49,169,5	script	Asleep Man#2air1	4_M_LIEMAN,{
+	mes "[Asleep Man]";
+	mes "Zzz... Dragons... Zzz..";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+1@air1,58,197,3	duplicate(Asleep Man#2air1)	Asleep Man#1air1	4_M_LIEMAN
+
+1@air1,42,205,3	script	Sleeping King#air1	4_M_TRISTAN,{
+	mes "[Sleeping King]";
+	mes "Zzz... Dragons... Zzz..";
+	close;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+}
+
+//Explosions!!
+//=====================
+
+airflugel,113,52,0	script	fire1#air2	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEffect:
+	specialeffect EF_BLASTMINEBOMB;
+	end;
+}
+
+airflugel,115,68,5	duplicate(fire1#air2)	fire2#air2	HIDDEN_WARP_NPC
+airflugel,96,58,0	duplicate(fire1#air2)	fire3#air2	HIDDEN_WARP_NPC
+airflugel,90,75,0	duplicate(fire1#air2)	fire4#air2	HIDDEN_WARP_NPC
+airflugel,92,51,0	duplicate(fire1#air2)	fire5#air2	HIDDEN_WARP_NPC
+airflugel,77,42,0	duplicate(fire1#air2)	fire6#air2	HIDDEN_WARP_NPC
+airflugel,69,77,0	duplicate(fire1#air2)	fire7#air2	HIDDEN_WARP_NPC
+airflugel,50,49,0	duplicate(fire1#air2)	fire8#air2	HIDDEN_WARP_NPC
+airflugel,44,61,0	duplicate(fire1#air2)	fire9#air2	HIDDEN_WARP_NPC
+airflugel,31,53,0	duplicate(fire1#air2)	fire10#air2	HIDDEN_WARP_NPC
+airflugel,24,74,0	duplicate(fire1#air2)	fire11#air2	HIDDEN_WARP_NPC
+airflugel,43,45,0	duplicate(fire1#air2)	fire12#air2	HIDDEN_WARP_NPC
+airflugel,73,65,0	duplicate(fire1#air2)	fire13#air2	HIDDEN_WARP_NPC
+airflugel,53,72,0	duplicate(fire1#air2)	fire14#air2	HIDDEN_WARP_NPC
+airflugel,82,62,0	duplicate(fire1#air2)	fire15#air2	HIDDEN_WARP_NPC
+
+airflugel,234,70,0	duplicate(fire1#air2)	fire21#air2	HIDDEN_WARP_NPC
+airflugel,247,64,0	duplicate(fire1#air2)	fire22#air2	HIDDEN_WARP_NPC
+airflugel,230,33,0	duplicate(fire1#air2)	fire23#air2	HIDDEN_WARP_NPC
+airflugel,277,39,0	duplicate(fire1#air2)	fire25#air2	HIDDEN_WARP_NPC
+airflugel,223,50,0	duplicate(fire1#air2)	fire26#air2	HIDDEN_WARP_NPC
+airflugel,238,70,0	duplicate(fire1#air2)	fire29#air2	HIDDEN_WARP_NPC
+airflugel,238,32,0	duplicate(fire1#air2)	fire30#air2	HIDDEN_WARP_NPC
+
+airflugel,0,0,0	script	firecontrol#air2	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	donpcevent instance_npcname(strnpcinfo(0), $airas_instance)+"::OnReplay";
+	end;
+OnReplay:
+	initnpctimer;
+	end;
+OnTimer1000:
+	donpcevent instance_npcname("fire1#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire8#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer1400:
+	donpcevent instance_npcname("fire2#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire9#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer1800:
+	donpcevent instance_npcname("fire3#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire10#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer2200:
+	donpcevent instance_npcname("fire4#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire11#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer2600:
+	donpcevent instance_npcname("fire5#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire12#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer3000:
+	donpcevent instance_npcname("fire6#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire13#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer3400:
+	donpcevent instance_npcname("fire7#air2", $airas_instance)+"::OnEffect";
+	donpcevent instance_npcname("fire14#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer3800:
+	donpcevent instance_npcname("fire15#air2", $airas_instance)+"::OnEffect";
+	stopnpctimer;
+	donpcevent instance_npcname(strnpcinfo(0), $airas_instance)+"::OnReplay";
+	end;
+}
+
+airflugel,0,0,0	script	firecontrol2#air2	HIDDEN_WARP_NPC,{
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	end;
+OnEnable:
+	enablenpc instance_npcname(strnpcinfo(0), $airas_instance);
+	donpcevent instance_npcname(strnpcinfo(0), $airas_instance)+"::OnReplay";
+	end;
+OnReplay:
+	initnpctimer;
+	end;
+OnTimer1000:
+	donpcevent instance_npcname("fire21#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer1400:
+	donpcevent instance_npcname("fire22#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer1800:
+	donpcevent instance_npcname("fire23#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer2200:
+	donpcevent instance_npcname("fire25#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer2600:
+	donpcevent instance_npcname("fire26#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer3000:
+	donpcevent instance_npcname("fire29#air2", $airas_instance)+"::OnEffect";
+	end;
+OnTimer3400:
+	donpcevent instance_npcname("fire30#air2", $airas_instance)+"::OnEffect";
+	stopnpctimer;
+	donpcevent instance_npcname(strnpcinfo(0), $airas_instance)+"::OnReplay";
+	end;
+}
+
+//FINAL EFFECT!
+	
+airflugel,236,57,3	script	Ground Asl.#1air2	3176,{ //E1_GREMLIN
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEffect:
+	specialeffect EF_SUI_EXPLOSION;
+	end;
+}
+
+airflugel,239,57,0	duplicate(Ground Asl.#1air2)	Ground Asl.#2air2	3176 //E1_GREMLIN
+airflugel,230,50,5	duplicate(Ground Asl.#1air2)	Ground Asl.#3air2	3176 //E1_GREMLIN
+airflugel,226,62,3	duplicate(Ground Asl.#1air2)	Ground Asl.#4air2	3176 //E1_GREMLIN
+airflugel,241,48,3	duplicate(Ground Asl.#1air2)	Ground Asl.#5air2	3176 //E1_GREMLIN
+airflugel,225,40,7	duplicate(Ground Asl.#1air2)	Ground Asl.#6air2	3176 //E1_GREMLIN
+airflugel,236,48,7	duplicate(Ground Asl.#1air2)	Ground Asl.#7air2	3176 //E1_GREMLIN
+airflugel,224,66,5	duplicate(Ground Asl.#1air2)	Ground Asl.#8air2	3176 //E1_GREMLIN
+
+1@air1,213,75,5	script	Great Dragon#air1	3180,{ //E1_G_S_NYDHOG
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+1@air1,218,78,3	script	Dragon Muggler#1air1	3179,{ //E1_ACIDUS
+	end;
+OnASInstanceInit:
+OnDisable:
+	disablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+OnEnable:
+	enablenpc instance_npcname( strnpcinfo(0), $airas_instance );
+	end;
+}
+
+airflugel,208,78,5	duplicate(Ground Asl.#1air2)	Dragon Muggler#2air1	3179 //E1_ACIDUS
+airflugel,200,78,5	duplicate(Ground Asl.#1air2)	Air Asl.#1air1	3175 //E1_ROTAR_ZAIRO
+airflugel,223,78,5	duplicate(Ground Asl.#1air2)	Air Asl.#2air1	3175 //E1_ROTAR_ZAIRO
