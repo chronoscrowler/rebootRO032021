@@ -1,0 +1,404 @@
+//===== rAthena Script ======================================= 
+//= Voluspa Prophecy
+//===== By: ================================================== 
+//= ChronosCrowler, cleaning by Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Schicksal Instance
+//= Many Battles
+//= Much Wow
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================
+que_god01,97,98,3	script	Volva#alvopr	4_F_RUSGREEN,{
+if (countitem(40040) > 0){
+	mes "^0055FF[ Voluspa Prophecy ]^000000";
+	mes "I was a free Volva long ago. Do you know what's a Volva?";
+	mes "We're shaman. Mediums. Reading Past and Future.";
+	mes "The Inspectors brought me back to this world with the restoration of Geffenia.";
+	mes " ";
+	mes "But because of my death before, my hatred has manifested into a vengeful spirit, and is now threatening this realm.";
+	next;
+	mes "^0055FF[ Voluspa Prophecy ]^000000";
+	mes "Can you go there and calm it?";
+	menu "We will.",volinst,"Sorry.",exit;
+	}
+else if (countitem(40040) < 1){
+	mes "^0055FF[ Voluspa Prophecy ]^000000";
+	mes "I was a free Volva long ago. Do you know what's a Volva?";
+	mes "We're shaman. Mediums. Reading Past and Future.";
+	mes "Odin's call me back from the death to use me. But I didn't feared him anymore.";
+	next;
+	mes "^0055FF[ Voluspa Prophecy ]^000000";
+	mes "While he asked me for the Knowledge, I showed him everything, past and future, what was about to arrive.";
+	mes "All his beloved death, and even his own. And from Wisdom, he also learnt fear.";
+	next;
+	mes "^0055FF[ Voluspa Prophecy ]^000000";
+	mes "But that wasn't enough. I lived long enough, and don't want to come back. So I hated him, like never before.";
+	mes "From my hate, a ghost was raised. Now, it threatened anything around here...";
+	close;
+	end;
+	}
+
+volinst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Voluspa Prophecy";
+
+	set .@vol_timer,checkquest(62252,PLAYTIME); // 2 days
+	set .@vol_timer2,checkquest(62253,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@vol_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Voluspa Prophecy?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Prontera:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				mes "Transferring to Prontera.";
+				close2;
+				warp "prontera",156,191;
+				end;
+			case 4:
+				close;
+			}
+		}
+		switch(select("Enter the "+.@md_name$+":Return to Prontera:Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			mes "Transferring to Prontera.";
+			close2;
+			warp "prontera",156,191;
+			end;
+		case 3:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@vol_timer2 < 2 && getcharid(1) == vol_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter the "+.@md_name$+":Return to Prontera:Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				mes "Transferring to Prontera.";
+				close2;
+				warp "prontera",156,191;
+				end;
+			case 3:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,vol_timer+172800; // 2 days
+			// set .@dun_lim_time2,vol_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the prophecy's aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			next;
+			mes "Transferring to Prontera.";
+			close2;
+			warp "prontera",156,191;
+			end;
+		}
+	case 2:
+		set vol_timer,0;
+		erasequest 62252;
+		erasequest 62253;
+		mes "^0000ffThe records and after effects related to Voluspa Prophecy have been removed. You can generate and enter Voluspa Prophecy again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Voluspa Prophecy")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Voluspa Prophecy does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "que_god01", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Voluspa Prophecy.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set vol_timer,gettimetick(2);
+			set vol_partyid, getcharid(1);
+			setquest 62252;
+			setquest 62253;
+		}
+		//warp "1@vp",216,58
+		if (getarg(0) == 0) close;
+		else end;
+	}
+	
+exit:
+close;
+end;
+}
+
+1@vp,216,126,4	script	vpwarp	111,{
+end;
+
+OnInstanceInit:
+areamonster instance_mapname("1@vp"),208,70,221,121,"Ghost",3762,33,instance_npcname("vpwarp")+"::OnGhostKill";
+areamonster instance_mapname("1@vp"),208,70,221,121,"Ghost",3752,33,instance_npcname("vpwarp")+"::OnGhostKill";
+areamonster instance_mapname("1@vp"),208,70,221,121,"Ghost",3754,33,instance_npcname("vpwarp")+"::OnGhostKill";
+donpcevent instance_npcname("vpwarp")+"::OnEnter";
+end;
+
+OnEnter:
+initnpctimer;
+end;
+
+OnTimer5000:
+instance_announce 0,"Clear all ghosts before all is too late.",bc_map;
+stopnpctimer;
+end;
+
+OnGhostKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),instance_npcname("vpwarp")+"::OnGhostKill");
+if (.@mob_dead_num > 0){
+instance_announce 0,.@mob_dead_num+" Ghosts remain.",bc_map;
+end;
+}
+else if (.@mob_dead_num < 1){
+instance_announce 0,"Who goes there?",bc_map;
+sleep2 3000;
+instance_warpall instance_mapname("1@vp"),156,60;
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed	4_MAL_BUDIDAI,{
+mes "[Voluspa Ghost]";
+mes "Who...?";
+next;
+mes "[Voluspa Ghost]";
+mes "Are you here to take a glimpse of your past, present and future?";
+next;
+mes "[Voluspa Ghost]";
+mes "If so, you'll have to pay the price.";
+menu "Price of Blood",-;
+next;
+menu "Selfish Offering",vvhard,"Kind Offering",hard,"Generous Offering",normal,"Selfless Offering",easy;
+
+vvhard:
+percentheal -10,0;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1640,17,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1641,17,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1642,16,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1643,16,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1644,17,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1645,17,instance_npcname("Revenge Seed#st1")+"::OnVvHardKill";
+hideonnpc instance_npcname("Revenge Seed");
+end;
+
+hard:
+percentheal -33,0;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2415,20,instance_npcname("Revenge Seed#st12")+"::OnHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2416,20,instance_npcname("Revenge Seed#st12")+"::OnHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2417,20,instance_npcname("Revenge Seed#st12")+"::OnHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2418,20,instance_npcname("Revenge Seed#st12")+"::OnHardKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2420,20,instance_npcname("Revenge Seed#st12")+"::OnHardKill";
+hideonnpc instance_npcname("Revenge Seed");
+end;
+
+normal:
+percentheal -75,0;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2421,17,instance_npcname("Revenge Seed#st13")+"::OnKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2422,17,instance_npcname("Revenge Seed#st13")+"::OnKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2423,16,instance_npcname("Revenge Seed#st13")+"::OnKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2424,16,instance_npcname("Revenge Seed#st13")+"::OnKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2426,17,instance_npcname("Revenge Seed#st13")+"::OnKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2427,17,instance_npcname("Revenge Seed#st13")+"::OnKill";
+hideonnpc instance_npcname("Revenge Seed");
+end;
+
+easy:
+percentheal -99,0;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2428,17,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2429,17,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2430,16,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2431,16,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2432,17,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2433,17,instance_npcname("Revenge Seed#st14")+"::OnEasyKill";
+hideonnpc instance_npcname("Revenge Seed");
+end;
+
+OnBossKill:
+instance_announce 0,"Thank you for calming the ghosts of the past. You will be returned shortly.",bc_map;
+sleep2 20000;
+instance_destroy;
+end;
+
+OnInstanceInit:
+hideoffnpc instance_npcname("Revenge Seed");
+end;
+}
+
+1@vp,154,111,4	script	Revenge Seed#st1	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st1");
+end;
+
+OnVvHardKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"I want more blood...",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1640,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1641,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1642,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1643,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1644,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blodo Ghost",1645,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st12	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st12");
+end;
+
+OnHardKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"I want more blood...",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2415,20,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2416,20,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2417,20,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2418,20,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2420,20,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st13	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st13");
+end;
+
+OnKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"I want more blood...",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2421,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2422,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2423,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2424,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2426,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2427,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st14	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st14");
+end;
+
+OnEasyKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"I want more blood...",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2428,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2429,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2430,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2431,16,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2432,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",2433,17,instance_npcname("Revenge Seed#st2")+"::OnSecondKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st2	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st2");
+end;
+
+OnSecondKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"More... Give me more!!!",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1817,3,instance_npcname("Revenge Seed#st3")+"::OnThirdKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1848,3,instance_npcname("Revenge Seed#st3")+"::OnThirdKill";
+areamonster instance_mapname("1@vp"),136,100,173,123,"Blood Ghost",1849,3,instance_npcname("Revenge Seed#st3")+"::OnThirdKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st3	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st3");
+end;
+
+OnThirdKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"Just a little more... I'll show you your future!!!",bc_map;
+sleep2 3000;
+areamonster instance_mapname("1@vp"),136,100,173,123,"Avatar of Chivalry",3765,10,instance_npcname("Revenge Seed#st4")+"::OnLastKill";
+end;
+}
+}
+
+1@vp,154,111,4	script	Revenge Seed#st4	4_MAL_BUDIDAI,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Revenge Seed#st4");
+end;
+
+OnLastKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@vp"),"all");
+if (.@mob_dead_num < 1){
+instance_announce 0,"Your future... IS DEATH!!!",bc_map;
+sleep2 3000;
+monster instance_mapname("1@vp"),155,111,"Corrupted Voluspa",2476,1,instance_npcname("Revenge Seed")+"::OnBossKill";
+end;
+}
+}

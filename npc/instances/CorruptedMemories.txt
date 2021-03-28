@@ -1,0 +1,206 @@
+//===== rAthena Script ======================================= 
+//= Corrupted Memories
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Netoria Instance
+//= Corrupted Primal Lord Netori boss battle
+//= Consists of 2 boss battle parts.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================
+ecl_tdun01,60,55,3	script	Primal Lord's Grave	111,{
+mes "You feel something is wrong with ^0000FFPrimal Lord Netori^000000's grave.";
+if (countitem(20243) > 0){
+next;
+mes "^0000FFThe White Light's Pure Feelings^000000 is reacting to the possible corruption in the grave...";
+next;
+mes "It implores you to erase it once and for all.";
+menu "Help the Primal Lord from beyond.",netoinst,"I'm too scared.",exit;
+}
+else {
+close;
+end;
+}
+
+netoinst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Corrupted Memories";
+
+	set .@net_timer,checkquest(62250,PLAYTIME); // 2 days
+	set .@net_timer2,checkquest(62251,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@net_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Corrupted Memories?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Netoria:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 4:
+				close;
+			}
+		}
+		switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		case 3:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@net_timer2 < 2 && getcharid(1) == net_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 3:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,net_timer+172800; // 2 days
+			// set .@dun_lim_time2,net_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the portal's aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			next;
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		}
+	case 2:
+		set net_timer,0;
+		erasequest 62250;
+		erasequest 62251;
+		mes "^0000ffThe records and after effects related to Corrupted Memories have been removed. You can generate and enter Corrupted Memories again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Corrupted Memories")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Corrupted Memories does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "ecl_tdun01", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Corrupted Memories.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set net_timer,gettimetick(2);
+			set net_partyid, getcharid(1);
+			setquest 62250;
+			setquest 62251;
+		}
+		//warp "1@def03",109,41
+		if (getarg(0) == 0) close;
+		else end;
+	}
+	
+exit:
+close;
+end;
+}
+
+1@def03,79,106,3	script	Spirit of Netori#ins	653,{
+mes "[^0000FFPrimal Lord Netori^000000]";
+mes "Thank you, young one.";
+next;
+mes "[^0000FFPrimal Lord Netori^000000]";
+mes "It's just as I've feared.";
+next;
+mes "[^0000FFPrimal Lord Netori^000000]";
+mes "^0000FFJeff Saber^000000 has lost control of himself...";
+next;
+mes "[^0000FFPrimal Lord Netori^000000]";
+mes "We must then help at all costs.";
+close2;
+instance_destroy;
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Spirit of Netori#ins");
+disablenpc instance_npcname("Tamari's Aid#ins");
+monster instance_mapname("1@def03"),80,70,"Corrupted Lord Netori",1875,1,instance_npcname("Spirit of Netori#ins")+"::OnKill";
+initnpctimer;
+end;
+
+OnTimer10000:
+instance_announce 0,"Free the Primal Lord from the Corruption within ten minutes.",bc_map;
+end;
+
+OnTimer60000:
+instance_announce 0,"My child, I don't know what happened to the Primal Lord's spirit, but let me help.",bc_map;
+enablenpc instance_npcname("Tamari's Aid#ins");
+end;
+
+OnTimer360000:
+instance_announce 0,"I'm sorry, my child. This is as far as my current reserves go... Please be careful.",bc_map;
+end;
+
+OnTimer540000:
+instance_announce 0,"One minute remain.",bc_map;
+end;
+
+OnTimer599000:
+instance_announce 0,"Time Up.",bc_map;
+instance_destroy;
+end;
+
+OnKill:
+stopnpctimer;
+instance_announce 0,"The Primal Lord has been cleansed. Talk to his spirit due north.",bc_map;
+hideoffnpc instance_npcname("Spirit of Netori#ins");
+end;
+}
+
+1@def03,80,70,3	script	Tamari's Aid#ins	111,100,100,{
+atcommand "@summon 2003 5";
+disablenpc instance_npcname("Tamari's Aid#ins");
+end;
+}

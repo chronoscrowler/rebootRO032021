@@ -1,0 +1,300 @@
+//===== rAthena Script ======================================= 
+//= The Avatar of Hatred
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Netoria Instance and Crossover Point with Iruna
+//= Avatar of Hatred boss battle
+//= Consists of 2 boss battle parts.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//= 1.1 Added warp compatibility with Faction Crossover Quests
+//============================================================
+dic_fild02,263,37,3	script	Time Rip	111,{
+mes "There's an anomaly in the timeline from where you stand.";
+if (countitem(20242) > 0){
+next;
+mes "With the ^0000FFCrest of The White Light^000000, you are protected from temporal forces.";
+if (countitem(40504) > 0){
+next;
+mes "However, the temporal forces are reacting strongly to the newfound energies you have acquired.";
+next;
+mes "It seems possible to traverse the Time Rip completely until its end";
+menu "^FF0000Cross the Time Rip^000000",gotoiruna,"Enter the Time Rip",ava_inst,"Back away slowly",exit;
+}
+else {
+menu "Enter the Time Rip",ava_inst,"Back away slowly",exit;
+}
+}
+else if (countitem(40484) > 0){
+next;
+mes "Warp back to nearest Instability?";
+menu "Yes",-;
+next;
+mes "You body dematerializes as you're transported back.";
+close2;
+warp "1@mist",342,183;
+end;
+}
+else if (countitem(40503) > 0){
+if (countitem(40509) > 0){
+mes "Tamari's seal on your temporary pass glows a brilliant white as you come even closer to the Time Rip.";
+next;
+mes "What do you want to do?";
+menu "Enter the Time Rip",ava_inst,"Go back to Noieverre",gotoiruna,"Back away slowly",exit;
+}
+else {
+menu "Go back to Noieverre",gotoiruna,"Back away slowly",exit;
+}
+}
+else {
+next;
+mes "Temporal forces are too strong for you to press on.";
+close;
+end;
+}
+
+gotoiruna:
+close2;
+warp "1@mist",339,179;
+end;
+
+ava_inst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"The Avatar of Hatred";
+
+	set .@ava_timer,checkquest(62248,PLAYTIME); // 2 days
+	set .@ava_timer2,checkquest(62249,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@ava_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to The Avatar of Hatred?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Netoria:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 4:
+				close;
+			}
+		}
+		switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		case 3:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@ava_timer2 < 2 && getcharid(1) == ava_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 3:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,ava_timer+172800; // 2 days
+			// set .@dun_lim_time2,ava_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the time rip's aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			next;
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		}
+	case 2:
+		set ava_timer,0;
+		erasequest 62248;
+		erasequest 62249;
+		mes "^0000ffThe records and after effects related to The Avatar of Hatred have been removed. You can generate and enter The Avatar of Hatred again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("The Avatar of Hatred")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "The Avatar of Hatred does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "dic_fild02", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, The Avatar of Hatred.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set ava_timer,gettimetick(2);
+			set ava_partyid, getcharid(1);
+			setquest 62248;
+			setquest 62249;
+		}
+		//warp "1@tnm2",135,122
+		if (getarg(0) == 0) close;
+		else end;
+	}
+	
+exit:
+close;
+end;
+}
+
+1@tnm2,135,139,3	script	Primal Hatred#ava	2874,{
+end;
+
+OnInstanceInit:
+hideoffnpc instance_npcname("Primal Hatred#ava");
+sleep2 10000;
+donpcevent instance_npcname("Primal Hatred#ava")+"::OnEnable";
+end;
+
+OnEnable:
+instance_announce 0,"Comfort the primal urges around the place, starting with the northwest urge.",bc_map;
+end;
+
+OnMobKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@tnm2"),instance_npcname("Primal Hatred#ava")+"::OnMobKill");
+if (.@mob_dead_num < 1){
+instance_announce 0,"The primal urge of hatred has finally awakened.",bc_map;
+sleep2 3000;
+instance_announce 0,"The Primal Urge of Hatred is now reacting to Tamari's Crest in your inventory.",bc_map;
+sleep2 3000;
+instance_announce 0,"Must... Consume... World...",bc_map;
+sleep2 3000;
+instance_announce 0,"RRRRAAAAAGGGHHHHHH!!!",bc_map;
+hideonnpc instance_npcname("Primal Hatred#ava");
+sleep2 3000;
+instance_announce 0,"Destroy the Primal Urge of Hatred.",bc_map;
+monster instance_mapname("1@tnm2"),135,132,"Primal Hatred",3461,1,instance_npcname("Primal Hatred#ava")+"::OnBossKill";
+end;
+}
+end;
+
+OnBossKill:
+instance_announce 0,"The heavy feelings have been lifted.",bc_map;
+sleep2 3000;
+instance_announce 0,"The time rip will stabilize in 10 seconds.",bc_map;
+sleep2 10000;
+instance_destroy;
+end;
+
+OnInstanceDestroy:
+hideoffnpc instance_npcname("Primal Regret");
+hideoffnpc instance_npcname("Primal Doubt");
+hideoffnpc instance_npcname("Primal Rage");
+hideoffnpc instance_npcname("Primal Disdain");
+end;
+}
+
+1@tnm2,67,168,3	script	Primal Regret#ava	3247,{
+mes "[???]";
+mes "I shouldn't have done that...";
+next;
+mes "[???]";
+mes "Everyone doesn't deserve what I have done to them...";
+close2;
+hideonnpc instance_npcname("Primal Regret#ava");
+areamonster instance_mapname("1@tnm2"),62,160,75,174,"Primal Regret",2365,5,instance_npcname("Primal Regret#ava")+"::OnKill";
+end;
+
+OnKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@tnm2"),instance_npcname("Primal Regret#ava")+"::OnKill");
+if (.@mob_dead_num < 1){
+instance_announce 0,"The next primal urge has emerged to the southwest. Comfort it.",bc_map;
+end;
+}
+}
+
+1@tnm2,89,85,3	script	Primal Doubt#ava	3247,{
+mes "[???]";
+mes "Should I have really done that?";
+next;
+mes "[???]";
+mes "I don't even know anymore...";
+close2;
+hideonnpc instance_npcname("Primal Doubt#ava");
+areamonster instance_mapname("1@tnm2"),83,77,97,90,"Primal Doubt",2365,5,instance_npcname("Primal Doubt#ava")+"::OnKill";
+end;
+
+OnKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@tnm2"),instance_npcname("Primal Doubt#ava")+"::OnKill");
+if (.@mob_dead_num < 1){
+instance_announce 0,"The next primal urge has emerged to the southeast. Comfort it.",bc_map;
+end;
+}
+}
+
+1@tnm2,192,85,3	script	Primal Rage#ava	3247,{
+mes "[???]";
+mes "I hate myself.";
+next;
+mes "[???]";
+mes "I hate myself so much...";
+close2;
+hideonnpc instance_npcname("Primal Rage#ava");
+areamonster instance_mapname("1@tnm2"),184,78,197,91,"Primal Rage",2365,5,instance_npcname("Primal Rage#ava")+"::OnKill2";
+end;
+
+OnKill2:
+set .@mob_dead_num,mobcount(instance_mapname("1@tnm2"),instance_npcname("Primal Rage#ava")+"::OnKill2");
+if (.@mob_dead_num < 1){
+instance_announce 0,"The next primal urge has emerged to the northeast. Comfort it.",bc_map;
+end;
+}
+}
+
+1@tnm2,206,162,3	script	Primal Disdain#ava	3247,{
+mes "[???]";
+mes "I'm pathetic...";
+next;
+mes "[???]";
+mes "Why???";
+close2;
+hideonnpc instance_npcname("Primal Disdain#ava");
+areamonster instance_mapname("1@tnm2"),198,153,211,170,"Primal Disdain",2365,5,instance_npcname("Primal Hatred#ava")+"::OnMobKill";
+end;
+}

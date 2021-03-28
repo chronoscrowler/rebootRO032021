@@ -1,0 +1,373 @@
+//===== rAthena Script ======================================= 
+//= Ruins of Lograth
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Iruna Online Episode I, Slebinian Book
+//= Empress Mezzaluna boss battle
+//= Consists of a mobclear part, a loot activation part and
+//= a boss battle part.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+yuno_in03,96,31,1	script	Crazy Archaeologist	10300,{
+if (countitem(20239) > 0){
+mes "[Crazy Archaeologist]";
+mes "Is that the old seal of Mezzaluna?";
+next;
+mes "[Crazy Archaeologist]";
+mes "Wanna hear something crazy?";
+next;
+mes "[Crazy Archaeologist]";
+mes "There's this weird dimension called ^FF0000Iruna^000000 that's been warped to our realm...";
+next;
+mes "[Crazy Archaeologist]";
+mes "And there are a lot of crazy hoopla in there.";
+next;
+mes "[Crazy Archaeologist]";
+mes "Do you want in?";
+menu "Yes",loginst,"No",exit;
+}
+if (getcharid(5) == 3){
+if (countitem(7566) > 49){
+mes "[Crazy Archaeologist]";
+mes "You did it!";
+next;
+mes "[Crazy Archaeologist]";
+mes "I'll send you over to my trusty colleague!";
+close2;
+warp "lhz_airport",177,35;
+end;
+}
+else {
+mes "[Crazy Archaeologist]";
+mes "Oh! You've been sent by one of my colleagues?";
+next;
+mes "[Crazy Archaeologist]";
+mes "Then you must know about the last part of the riddle.";
+next;
+mes "[Crazy Archaeologist]";
+mes "Bring me 50 Will of Red Darkness.";
+next;
+mes "[Crazy Archaeologist]";
+mes "Do it for the research!";
+close;
+end;
+}
+}
+else {
+mes "[Crazy Archaeologist]";
+mes "Who are you?";
+close;
+end;
+}
+
+loginst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Ruins of Lograth";
+
+	set .@log_timer,checkquest(62240,PLAYTIME); // 2 days
+	set .@log_timer2,checkquest(62241,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@log_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to the Ruins of Lograth?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Prontera:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				mes "I will move you to Prontera.";
+				close2;
+				warp "Prontera",223,36;
+				end;
+			case 4:
+				close;
+			}
+		}
+		switch(select("Enter the "+.@md_name$+":Return to Prontera:Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			mes "I will move you to Prontera.";
+			close2;
+			warp "Prontera",223,36;
+			end;
+		case 3:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@log_timer2 < 2 && getcharid(1) == log_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter the "+.@md_name$+":Return to Prontera:Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				mes "I will move you to Prontera.";
+				close2;
+				warp "prontera",156,191;
+				end;
+			case 3:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,log_timer+172800; // 2 days
+			// set .@dun_lim_time2,log_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the ruins' aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			next;
+			mes "Stop wasting my time. Let me move you to Prontera.";
+			close2;
+			warp "prontera",156,191;
+			end;
+		}
+	case 2:
+		set log_timer,0;
+		erasequest 62240;
+		erasequest 62241;
+		mes "^0000ffThe records and after effects related to the Ruins of Lograth have been removed. You can generate and enter the Ruins of Lograth again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Ruins of Lograth")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "The Ruins of Lograth does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "yuno_in03", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Ruins of Lograth.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set log_timer,gettimetick(2);
+			set log_partyid, getcharid(1);
+			setquest 62240;
+			setquest 62241;
+		}
+		//warp "1@dth2",18,94;
+		if (getarg(0) == 0) close;
+		else end;
+	}
+	
+exit:
+close;
+end;
+}
+
+1@dth2,16,105,3	script	Memory of Mezzaluna	1689,{
+if(!instance_id()){
+end;
+}
+else {
+set talk,0;
+mes "[Fallen Empress Mezzaluna]";
+mes "Please help me get over my past...";
+close2;
+set talk,1;
+set evil,0;
+hideonnpc "Slebinian Statue";
+hideonnpc "Slebinian Statue#1";
+hideonnpc "Slebinian Statue#2";
+hideonnpc "Slebinian Statue#3";
+hideonnpc "Slebinian Statue#4";
+areamonster instance_mapname("1@dth2"),98,42,250,175,"Gryps",1447,50,instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill";
+areamonster instance_mapname("1@dth2"),98,42,250,175,"Slebinian Royal Guard",1805,5,instance_npcname("Memory of Mezzaluna")+"::OnGuardKill";
+end;
+}
+
+OnGrypsKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (.@mob_dead_num > 0){
+announce .@mob_dead_num+" Gryps remain.",bc_map;
+end;
+}
+if (.@mob_dead_num < 1 && .@mob_dead_num2 > 0){
+announce "Find Slebinian Royal Guards and collect their Evil Hearts!",bc_map;
+end;
+}
+else if (.@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+announce "Find and activate the Slebinian Statues!",bc_map;
+hideoffnpc "Slebinian Statue";
+hideoffnpc "Slebinian Statue#1";
+hideoffnpc "Slebinian Statue#2";
+hideoffnpc "Slebinian Statue#3";
+hideoffnpc "Slebinian Statue#4";
+end;
+}
+
+OnGuardKill:
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (.@mob_dead_num2 > 0){
+announce "You've killed a Slebinian Royal Guard! Get his Evil Heart to activate a Slebinian Statue!",bc_map;
+end;
+}
+if (.@mob_dead_num > 0 && .@mob_dead_num2 < 1){
+announce "Find and kill all the remaining Gryps to continue.",bc_map;
+end;
+}
+else if (.@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+announce "Find and activate the Slebinian Statues!",bc_map;
+hideoffnpc "Slebinian Statue";
+hideoffnpc "Slebinian Statue#1";
+hideoffnpc "Slebinian Statue#2";
+hideoffnpc "Slebinian Statue#3";
+hideoffnpc "Slebinian Statue#4";
+end;
+}
+
+OnMezzKill:
+hideoffnpc "Memory of Mezzaluna#1";
+set talk,2;
+end;
+}
+
+1@dth2,111,93,3	script	Slebinian Statue	111,{
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (evil < 1 && .@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+mes "You put an Evil Heart near the statue, and you feel something ominous.";
+close2;
+delitem 7583,1;
+set evil,1;
+end;
+}
+else if (evil != 0 && .@mob_dead_num > 0 || .@mob_dead_num2 > 0){
+mes "Collect Evil Hearts and clear all monsters first to activate this statue.";
+close;
+end;
+}
+}
+
+1@dth2,127,46,3	script	Slebinian Statue#1	111,{
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (evil > 0 && evil < 2 && .@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+mes "You put an Evil Heart near the statue, and you feel something ominous.";
+close2;
+delitem 7583,1;
+set evil,2;
+end;
+}
+else if (evil != 1 && .@mob_dead_num > 0 || .@mob_dead_num2 > 0){
+mes "Collect Evil Hearts, clear all monsters and find the other statues first.";
+close;
+end;
+}
+}
+
+1@dth2,143,120,3	script	Slebinian Statue#2	111,{
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (evil > 1 && evil < 3 && .@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+mes "You put an Evil Heart near the statue, and you feel something ominous.";
+close2;
+delitem 7583,1;
+set evil,3;
+end;
+}
+else if (evil != 2 && .@mob_dead_num > 0 || .@mob_dead_num2 > 0){
+mes "Collect Evil Hearts, clear all monsters and find the other statues first.";
+close;
+end;
+}
+}
+
+1@dth2,216,98,3	script	Slebinian Statue#3	111,{
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (evil > 2 && evil < 4 && .@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+mes "You put an Evil Heart near the statue, and you feel something ominous.";
+close2;
+delitem 7583,1;
+set evil,4;
+end;
+}
+else if (evil != 3 && .@mob_dead_num > 0 || .@mob_dead_num2 > 0){
+mes "Collect Evil Hearts, clear all monsters and find the other statues first.";
+close;
+end;
+}
+}
+
+1@dth2,233,103,3	script	Slebinian Statue#4	111,{
+set .@mob_dead_num,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGrypsKill");
+set .@mob_dead_num2,mobcount(instance_mapname("1@dth2"),instance_npcname("Memory of Mezzaluna")+"::OnGuardKill");
+if (evil > 3 && evil < 5 && .@mob_dead_num < 1 && .@mob_dead_num2 < 1){
+mes "You put an Evil Heart near the statue, and you feel something ominous.";
+next;
+mes "[Empress Mezzaluna]";
+mes "Help me...";
+close2;
+delitem 7583,1;
+monster instance_mapname("1@dth2"),314,104,"Empress Mezzaluna",1689,1,instance_npcname("Memory of Mezzaluna")+"::OnMezzKill";
+announce "The spirit of the fallen Slebinian Empress Mezzaluna II has appeared! Proceed further and defeat her!",bc_map,"0x00ff99";
+end;
+}
+else if (evil != 4 && .@mob_dead_num > 0 || .@mob_dead_num2 > 0){
+mes "Collect Evil Hearts, clear all monsters and find the other statues first.";
+close;
+end;
+}
+}
+
+1@dth2,327,115,3	script	Memory of Mezzaluna#1	1689,{
+if (talk != 2){
+end;
+}
+else {
+mes "[Fallen Empress Mezzaluna]";
+mes "Thank you, brave one.";
+next;
+mes "[Fallen Empress Mezzaluna]";
+mes "My good friend, the High Empress of Iruna's hard choice would've been for nothing if you didn't come here to help...";
+next;
+mes "[Fallen Empress Mezzaluna]";
+mes "With the last of my powers, I can take you back to where you came from.";
+next;
+mes "[Fallen Empress Mezzaluna]";
+mes "Hold on tight...";
+close2;
+set talk,0;
+instance_destroy;
+end;
+}
+
+OnInstanceDestroy:
+hideonnpc "Memory of Mezzaluna#1";
+end;
+}

@@ -1,0 +1,182 @@
+//===== rAthena Script ======================================= 
+//= Ouvel's Chamber
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Iruna Online Episode III, Ouvelam Book
+//= Ouvel boss battle
+//= Consists of 2 boss battle parts.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//= 1.1 Added Compatibility with Curonne Quest line for Iruna
+//============================================================ 
+moonhaven,206,288,4	script	Dimensional Anomaly	10007,{
+mes "There seems to be something odd here...";
+if (countitem(20240) > 0){
+mes "Do you want to jump in?";
+menu "Yes",ouvelinst,"No",exit;
+}
+else {
+close;
+end;
+}
+
+ouvelinst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Ouvel's Chamber";
+
+	set .@ove_timer,checkquest(62244,PLAYTIME); // 2 days
+	set .@ove_timer2,checkquest(62245,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@ove_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Ouvel's Chamber?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@ove_timer2 < 2 && getcharid(1) == ove_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,ove_timer+172800; // 2 days
+			// set .@dun_lim_time2,ove_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the chamber's aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			close;
+			end;
+		}
+	case 2:
+		set ove_timer,0;
+		erasequest 62244;
+		erasequest 62245;
+		mes "^0000ffThe records and after effects related to Ouvel's Chamber have been removed. You can generate and enter Ouvel's Chamber again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Ouvel's Chamber")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Ouvel's Chamber does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "moonhaven", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Ouvel's Chamber.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set ove_timer,gettimetick(2);
+			set ove_partyid, getcharid(1);
+			setquest 62244;
+			setquest 62245;
+		}
+		//warp "1@def02",30,64;
+		if (getarg(0) == 0) close;
+		else end;
+	}
+
+exit:
+close;
+end;	
+}
+
+1@def02,35,61,3	script	OuvelChamber	111,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("OuvelChamber");
+hideonnpc instance_npcname("Exit Chamber#ovc");
+monster instance_mapname("1@def02"),29,35,"Ouvel - Eater of Worlds",2475,1,instance_npcname("OuvelChamber")+"::OnKill";
+initnpctimer;
+end;
+
+OnTimer1000:
+instance_announce 0,"Defeat Ouvel within ten minutes.",bc_map;
+end;
+
+OnTimer10000:
+instance_announce 0,"I am reborn!",bc_map;
+end;
+
+OnTimer60000:
+instance_announce 0,"I have devoured countless worlds already. I won't hesitate to do it again!",bc_map;
+end;
+
+OnTimer120000:
+instance_announce 0,"The Gods... no... The High Being will not stop me!",bc_map;
+end;
+
+OnTimer540000:
+instance_announce 0,"One minute remain.",bc_map;
+end;
+
+OnTimer599000:
+instance_announce 0,"Time Up.",bc_map;
+instance_destroy;
+end;
+
+OnKill:
+stopnpctimer;
+instance_announce 0,"Ouvel has been defeated. You can now exit the instance.",bc_map;
+hideoffnpc instance_npcname("Exit Chamber#ovc");
+if (countitem(40505) > 0){
+delitem 40505,1;
+getitem 20269,5;
+getitem 20270,1;
+dispbottom "Curonne's Memory has been honored.";
+end;
+}
+end;
+}
+
+1@def02,50,66,3	script	Exit Chamber#ovc	10007,{
+warp "moonhaven",209,187;
+end;
+}

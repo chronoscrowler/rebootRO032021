@@ -1,0 +1,227 @@
+//===== rAthena Script ======================================= 
+//= Battle of the Immortals
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Netoria Instance
+//= Shyvana boss battle
+//= Consists of 2 boss battle parts.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================
+jupe_gate,49,167,3	script	Master Control#neto	111,{
+mes "There's an apparatus that needs a key to activate.";
+if (countitem(20241) > 0){
+next;
+mes "Insert ^0000FFKey of the Frost Garrison^000000?";
+menu "Yes",boi_inst,"No",exit;
+}
+else if (countitem(40509) > 0){
+next;
+mes "Enter Special Access Code?";
+menu "Yes",boi_inst,"No",exit;
+}
+else {
+close;
+end;
+}
+
+boi_inst:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Battle of the Immortals";
+
+	set .@boi_timer,checkquest(62246,PLAYTIME); // 2 days
+	set .@boi_timer2,checkquest(62247,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@boi_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to the Battle of the Immortals?";
+			next;
+			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Netoria:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 4:
+				close;
+			}
+		}
+		switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		case 3:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@boi_timer2 < 2 && getcharid(1) == boi_partyid) {
+			mes "If you have the dungeon generated already, you can enter it. ";
+			next;
+			switch(select("Enter the "+.@md_name$+":Return to Netoria:Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				mes "Transferring to Netoria.";
+				close2;
+				warp "dicastes01",197,189;
+				end;
+			case 3:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,boi_timer+172800; // 2 days
+			// set .@dun_lim_time2,boi_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+
+			mes "Due to the ruins' aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			next;
+			mes "Transferring to Netoria.";
+			close2;
+			warp "dicastes01",197,189;
+			end;
+		}
+	case 2:
+		set boi_timer,0;
+		erasequest 62246;
+		erasequest 62247;
+		mes "^0000ffThe records and after effects related to the Battle of the Immortals have been removed. You can generate and enter the Battle of the Immortals again.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Battle of the Immortals")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "The Battle of The Immortals does not exist.";
+		mes "The party leader did not generate the dungeon yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the dungeon after making the party.";
+		close;
+	case IE_OK:
+		mapannounce "jupe_gate", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Battle of the Immortals.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set boi_timer,gettimetick(2);
+			set boi_partyid, getcharid(1);
+			setquest 62246;
+			setquest 62247;
+		}
+		//warp "jupe_ele",41,46;
+		if (getarg(0) == 0) close;
+		else end;
+	}
+	
+exit:
+close;
+end;
+}
+
+jupe_ele,41,46,3	script	Elevator#1	-1,{
+end;
+
+OnInstanceInit:
+hideonnpc instance_npcname("Elevator#1");
+sleep2 10000;
+donpcevent instance_npcname("Elevator#1")+"::OnEnable";
+end;
+
+OnEnable:
+instance_announce 0,"You hear a devastating roar from within the ruins.",bc_map;
+sleep2 10000;
+instance_announce 0,"Clear the room to proceed.",bc_map;
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2222,1,instance_npcname("Elevator#1")+"::OnKill";
+end;
+
+OnKill:
+instance_announce 0,"Round Cleared.",bc_map;
+sleep2 5000;
+instance_announce 0,"Clear the room to proceed.",bc_map;
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2222,1,instance_npcname("Elevator#1")+"::OnKill2";
+end;
+
+OnKill2:
+instance_announce 0,"Round Cleared.",bc_map;
+sleep2 5000;
+instance_announce 0,"Clear the room to proceed.",bc_map;
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2222,1,instance_npcname("Elevator#1")+"::OnKill3";
+end;
+
+OnKill3:
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2222,1,instance_npcname("Elevator#1")+"::OnKill4";
+end;
+
+OnKill4:
+instance_announce 0,"Round Cleared.",bc_map;
+sleep2 5000;
+instance_announce 0,"Clear the room to proceed.",bc_map;
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2060,1,instance_npcname("Elevator#1")+"::OnKill5";
+end;
+
+OnKill5:
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2060,1,instance_npcname("Elevator#1")+"::OnKill6";
+end;
+
+OnKill6:
+monster instance_mapname("jupe_ele"),41,46,"Netorian Homunculus",2060,1,instance_npcname("Elevator#1")+"::OnKill7";
+end;
+
+OnKill7:
+instance_announce 0,"Round Cleared.",bc_map;
+sleep2 5000;
+instance_announce 0,"An illusion of the Former Light of Netoria has appeared.",bc_map;
+monster instance_mapname("jupe_ele"),41,46,"Red Light Illusion",2004,1,instance_npcname("Elevator#1")+"::OnKill8";
+end;
+
+OnKill8:
+instance_announce 0,"As the illusion falls, a mighty roar echoes within the ruins.",bc_map;
+sleep2 5000;
+monster instance_mapname("jupe_ele"),41,46,"Shyvana",3465,1,instance_npcname("Elevator#1")+"::OnKill9";
+end;
+
+OnKill9:
+instance_announce 0,"The Red Light's pet dragon, Shyvana, has been defeated.",bc_map;
+initnpctimer;
+end;
+
+OnTimer3000:
+instance_announce 0,"Exiting in 10 seconds.",bc_map;
+end;
+
+OnTimer13000:
+instance_destroy;
+end;
+}

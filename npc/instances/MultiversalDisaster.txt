@@ -1,0 +1,1534 @@
+//===== rAthena Script ======================================= 
+//= Multiversal Disaster
+//===== By: ================================================== 
+//= Jeff Saber
+//===== Current Version: ===================================== 
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Destiny of Three Season 1 Episode 2
+//= Arcturus Dominion Encounter
+//= Consists of two mobclear parts and a boss battle part.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+// Instance Entry
+mid_camp,209,308,3	script	Dark Energy	10045,{
+mes "You feel a very disturbing force.";
+next;
+mes "It seems to be otherworldly in nature.";
+next;
+mes "Resonate with the Dark Energy?";
+menu "Yes",disaster,"No",exitdis;
+
+disaster:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Multiversal Disaster";
+
+	set .@midi_timer,checkquest(62262,PLAYTIME); // 2 days
+	set .@midi_timer2,checkquest(62263,PLAYTIME); // 4 hours
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@midi_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Multiversal Disaster?";
+			next;
+			switch(select("Generate instance "+.@md_name$+":Enter the instance:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the instance' to enter the instance.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@midi_timer2 < 2 && getcharid(1) == midi_partyid) {
+			mes "If you have the instance generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			set .@dun_lim_time,midi_timer+172800; // 2 days
+			// set .@dun_lim_time2,midi_timer+14400; // 4 hours
+			set .@dun_cur_time,gettimetick(2);
+			set .@dun_ent_t,(.@dun_lim_time - .@dun_cur_time);
+			set .@dun_h,(.@dun_ent_t / 3600);
+			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
+			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
+			
+			mes "You have already attempted to quell the disaster once.";
+			next;
+			mes "Try again in" + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "when the Multiversal Energy Field is unstable.";
+			close;
+			end;
+		}
+	case 2:
+		set midi_timer,0;
+		erasequest 62262;
+		erasequest 62263;
+		mes "^0000ffThe Multiversal Energy Field is unstable.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Multiversal Disaster")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Destiny Void does not exist.";
+		mes "The party leader did not generate the instance yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the instance after making the party.";
+		close;
+	case IE_OK:
+		//mapannounce "mid_camp", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is attempting to quell the Multiversal Disaster.",bc_map,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set midi_timer,gettimetick(2);
+			set midi_partyid, getcharid(1);
+			setquest 62262;
+			setquest 62263;
+		}
+		//warp "dali",90,97
+		if (getarg(0) == 0) close;
+		else end;
+	}
+
+exitdis:
+next;
+mes "You disconnect from the Dark Energy.";
+close;
+end;
+}
+
+//Instance Controls
+dali,1,1,1	script	InstanceControl#dis	111,{
+end;
+
+//OnInit
+OnInstanceInit:
+disablenpc instance_npcname("Dark Energy#dis");
+disablenpc instance_npcname("Dark Energy#dis2");
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+disablenpc instance_npcname("Dimensional Rift#disn1");
+disablenpc instance_npcname("Dimensional Rift#disn2");
+disablenpc instance_npcname("Dimensional Rift#disn3");
+disablenpc instance_npcname("Dimensional Rift#disi1");
+disablenpc instance_npcname("Dimensional Rift#disi2");
+disablenpc instance_npcname("Dimensional Rift#disi3");
+disablenpc instance_npcname("Dimensional Rift#disb");
+//disablenpc "Dark Energy#dis";
+//disablenpc "Dark Energy#dis2";
+//disablenpc "Flugel, The Coordinator#8";
+//disablenpc "Dimensional Rift#disn1";
+//disablenpc "Dimensional Rift#disn2";
+//disablenpc "Dimensional Rift#disn3";
+//disablenpc "Dimensional Rift#disi1";
+//disablenpc "Dimensional Rift#disi2";
+//disablenpc "Dimensional Rift#disi3";
+//disablenpc "Dimensional Rift#disb";
+end;
+
+OnStage1Active1:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat1Kill";
+areamonster instance_mapname("dali"),50,120,56,127,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn2")+"::OnHat1Kill";
+areamonster instance_mapname("dali"),70,121,76,127,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn3")+"::OnHat1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2317,5,"Dimensional Rift#disn1::OnHat1Kill";
+//areamonster "dali",50,120,56,127,"Hatred Remnant",2317,5,"Dimensional Rift#disn2::OnHat1Kill";
+//areamonster "dali",70,121,76,127,"Hatred Remnant",2317,5,"Dimensional Rift#disn3::OnHat1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active2:
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal1Kill";
+areamonster instance_mapname("dali"),126,79,132,86,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi2")+"::OnMal1Kill";
+areamonster instance_mapname("dali"),113,65,120,70,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi3")+"::OnMal1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",119,93,125,99,"Malicious Passion",2311,5,"Dimensional Rift#disi1::OnMal1Kill";
+//areamonster "dali",126,79,132,86,"Malicious Passion",2311,5,"Dimensional Rift#disi2::OnMal1Kill";
+//areamonster "dali",113,65,120,70,"Malicious Passion",2311,5,"Dimensional Rift#disi3::OnMal1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active3:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat1Kill";
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal1Kill";
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",3466,5,instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2317,5,"Dimensional Rift#disn1::OnHat1Kill";
+//areamonster "dali",119,93,125,99,"Malicious Passion",2311,5,"Dimensional Rift#disi1::OnMal1Kill";
+//areamonster "dali",97,71,102,76,"Poring",3466,5,"Dimensional Rift#disb::OnPor1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active4:
+areamonster instance_mapname("dali"),50,100,56,107,"Poring",3466,5,instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill";
+areamonster instance_mapname("dali"),119,93,125,99,"Poring",3466,5,instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill";
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",3466,5,instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",50,100,56,107,"Poring",3466,5,"Dimensional Rift#disn1::OnPor1Kill";
+//areamonster "dali",119,93,125,99,"Poring",3466,5,"Dimensional Rift#disi1::OnPor1Kill";
+//areamonster "dali",97,71,102,76,"Poring",3466,5,"Dimensional Rift#disb::OnPor1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5a:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2317,5,"Dimensional Rift#disn1::OnHat1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+
+OnStage1Active5b:
+areamonster instance_mapname("dali"),50,120,56,127,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn2")+"::OnHat1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",50,120,56,127,"Hatred Remnant",2317,5,"Dimensional Rift#disn2::OnHat1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5c:
+areamonster instance_mapname("dali"),70,121,76,127,"Hatred Remnant",2317,5,instance_npcname("Dimensional Rift#disn3")+"::OnHat1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",70,121,76,127,"Hatred Remnant",2317,5,"Dimensional Rift#disn3::OnHat1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5d:
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",119,93,125,99,"Malicious Passion",2311,5,"Dimensional Rift#disi1::OnMal1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5e:
+areamonster instance_mapname("dali"),126,79,132,86,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi2")+"::OnMal1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",126,79,132,86,"Malicious Passion",2311,5,"Dimensional Rift#disi2::OnMal1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5f:
+areamonster instance_mapname("dali"),113,65,120,70,"Malicious Passion",2311,5,instance_npcname("Dimensional Rift#disi3")+"::OnMal1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",113,65,120,70,"Malicious Passion",2311,5,"Dimensional Rift#disi3::OnMal1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage1Active5g:
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",3466,5,instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#9");
+//areamonster "dali",97,71,102,76,"Poring",3466,5,"Dimensional Rift#disb::OnPor1Kill";
+//disablenpc "Flugel, The Coordinator#9";
+end;
+
+OnStage2Active1:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat2Kill";
+areamonster instance_mapname("dali"),50,120,56,127,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn2")+"::OnHat2Kill";
+areamonster instance_mapname("dali"),70,121,76,127,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn3")+"::OnHat2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2318,5,"Dimensional Rift#disn1::OnHat2Kill";
+//areamonster "dali",50,120,56,127,"Hatred Remnant",2318,5,"Dimensional Rift#disn2::OnHat2Kill";
+//areamonster "dali",70,121,76,127,"Hatred Remnant",2318,5,"Dimensional Rift#disn3::OnHat2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active2:
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal2Kill";
+areamonster instance_mapname("dali"),126,79,132,86,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi2")+"::OnMal2Kill";
+areamonster instance_mapname("dali"),113,65,120,70,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi3")+"::OnMal2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",119,93,125,99,"Malicious Passion",2338,5,"Dimensional Rift#disi1::OnMal2Kill";
+//areamonster "dali",126,79,132,86,"Malicious Passion",2338,5,"Dimensional Rift#disi2::OnMal2Kill";
+//areamonster "dali",113,65,120,70,"Malicious Passion",2338,5,"Dimensional Rift#disi3::OnMal2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active3:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat2Kill";
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal2Kill";
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",2697,5,instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2318,5,"Dimensional Rift#disn1::OnHat2Kill";
+//areamonster "dali",119,93,125,99,"Malicious Passion",2338,5,"Dimensional Rift#disi1::OnMal2Kill";
+//areamonster "dali",97,71,102,76,"Poring",2697,5,"Dimensional Rift#disb::OnPor2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active4:
+areamonster instance_mapname("dali"),50,100,56,107,"Poring",2697,5,instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill";
+areamonster instance_mapname("dali"),119,93,125,99,"Poring",2697,5,instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill";
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",2697,5,instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",50,100,56,107,"Poring",2697,5,"Dimensional Rift#disn1::OnPor2Kill";
+//areamonster "dali",119,93,125,99,"Poring",2697,5,"Dimensional Rift#disi1::OnPor2Kill";
+//areamonster "dali",97,71,102,76,"Poring",2697,5,"Dimensional Rift#disb::OnPor2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5a:
+areamonster instance_mapname("dali"),50,100,56,107,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn1")+"::OnHat2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",50,100,56,107,"Hatred Remnant",2318,5,"Dimensional Rift#disn1::OnHat2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+
+OnStage2Active5b:
+areamonster instance_mapname("dali"),50,120,56,127,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn2")+"::OnHat2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",50,120,56,127,"Hatred Remnant",2318,5,"Dimensional Rift#disn2::OnHat2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5c:
+areamonster instance_mapname("dali"),70,121,76,127,"Hatred Remnant",2318,5,instance_npcname("Dimensional Rift#disn3")+"::OnHat2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",70,121,76,127,"Hatred Remnant",2318,5,"Dimensional Rift#disn3::OnHat2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5d:
+areamonster instance_mapname("dali"),119,93,125,99,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi1")+"::OnMal2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",119,93,125,99,"Malicious Passion",2338,5,"Dimensional Rift#disi1::OnMal2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5e:
+areamonster instance_mapname("dali"),126,79,132,86,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi2")+"::OnMal2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",126,79,132,86,"Malicious Passion",2338,5,"Dimensional Rift#disi2::OnMal2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5f:
+areamonster instance_mapname("dali"),113,65,120,70,"Malicious Passion",2338,5,instance_npcname("Dimensional Rift#disi3")+"::OnMal2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",113,65,120,70,"Malicious Passion",2338,5,"Dimensional Rift#disi3::OnMal2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnStage2Active5g:
+areamonster instance_mapname("dali"),97,71,102,76,"Poring",2697,5,instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill";
+disablenpc instance_npcname("Flugel, The Coordinator#8");
+//areamonster "dali",97,71,102,76,"Poring",2697,5,"Dimensional Rift#disb::OnPor2Kill";
+//disablenpc "Flugel, The Coordinator#8";
+end;
+
+OnArcSpawn:
+disablenpc instance_npcname("Flugel, The Coordinator#7");
+//disablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","[Flugel]: Arcturus! Show yourself! I will not let you have your despicable way.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Flugel]: Arcturus! Show yourself! I will not let you have your despicable way.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 3000;
+//mapannounce "dali","[Arcturus]: This is the only dimension where The Destiny of Three does not fail.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: This is the only dimension where The Destiny of Three does not fail.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 2000;
+//mapannounce "dali","[Arcturus]: I absolutely must not let that pass. Schicksal must fall.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: I absolutely must not let that pass. Schicksal must fall.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 2000;
+//mapannounce "dali","[Arcturus]: Without Schicksal, Netoria and Iruna will annihilate each other, and my Dominion will rule the Multiverse.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: Without Schicksal, Netoria and Iruna will annihilate each other, and my Dominion will rule the Multiverse.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 3000;
+//mapannounce "dali","[Flugel]: With Jeff Saber as he is right now...",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Flugel]: With Jeff Saber as he is right now...",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 3000;
+//mapannounce "dali","[Arcturus]: Exactly. It shall be The Chrono Imperator's end.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: Exactly. It shall be The Chrono Imperator's end.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 3000;
+//mapannounce "dali","[Flugel]: Just like with every other dimension I have Watched over, it won't end like how you want it to!",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Flugel]: Just like with every other dimension I have Watched over, it won't end like how you want it to!",bc_map,"0x00ff99",FW_NORMAL,12;
+if (getarraysize('arcturus) >= 4){
+//if (getarraysize(.@arcturus) >= 4)
+monster instance_mapname("dali"),90,97,"Arcturus",3457,1,instance_npcname("InstanceControl#dis")+"::OnTurusKill";
+//monster "dali",90,97,"Arcturus",3457,1,"InstanceControl#dis::OnTurusKill";
+}
+else {
+monster instance_mapname("dali"),90,97,"Arctarus",1996,1,instance_npcname("InstanceControl#dis")+"::OnTarusKill";
+//monster "dali",90,97,"Arctarus",1996,1,"InstanceControl#dis::OnTarusKill";
+}
+attachrid('arctarus);
+summon "Flugel Bloodpledge",2063,300000,instance_npcname("InstanceControl#dis")+"::OnFTimedOut";
+end;
+
+OnFTimedOut:
+//mapannounce "dali","[Flugel]: My powers have been spread too thin. I must retreat.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Flugel]: My powers have been spread too thin. I must retreat.",bc_map,"0x00ff99",FW_NORMAL,12;
+if (mobcount(instance_mapname("dali"),instance_npcname("InstanceControl#dis")+"::OnTurusKill") > 0){
+//if (mobcount("dali","InstanceControl#dis::OnTurusKill") > 0)
+sleep 2000;
+//mapannounce "dali","[Arcturus]: Your carelessness will be your end.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: Your carelessness will be your end.",bc_map,"0x00ff99",FW_NORMAL,12;
+areamonster instance_mapname("dali"),88,95,92,99,"Arctarus",1996,4;
+//areamonster "dali",88,95,92,99,"Arctarus",1996,4;
+}
+end;
+
+OnTurusKill:
+//mapannounce "dali","[Arcturus]: This cannot be... What has gone wrong?!",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Arcturus]: This cannot be... What has gone wrong?!",bc_map,"0x00ff99",FW_NORMAL,12;
+//enablenpc "Dark Energy#dis";
+enablenpc instance_npcname("Dark Energy#dis");
+end;
+
+OnTarusKill:
+//mapannounce "dali","[Flugel]: Tch. Just an Illusion. We'll get him next time.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[Flugel]: Tch. Just an Illusion. We'll get him next time.",bc_map,"0x00ff99",FW_NORMAL,12;
+//enablenpc "Dark Energy#dis2";
+enablenpc instance_npcname("Dark Energy#dis2");
+end;
+
+OnInstEnd:
+//disablenpc "Dark Energy#dis";
+disablenpc instance_npcname("Dark Energy#dis");
+//mapannounce "dali","The Dimensional Rift is stabilizing completely.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Dimensional Rift is stabilizing completely.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 1000;
+//mapannounce "dali","The pocket dimension will be destroyed in 15 seconds.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The pocket dimension will be destroyed in 15 seconds.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 15000;
+instance_destroy;
+end;
+
+OnEInstEnd:
+//disablenpc "Dark Energy#dis2";
+disablenpc instance_npcname("Dark Energy#dis2");
+//mapannounce "dali","The Dimensional Rift is stabilizing completely.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Dimensional Rift is stabilizing completely.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 1000;
+//mapannounce "dali","The pocket dimension will be destroyed in 15 seconds.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The pocket dimension will be destroyed in 15 seconds.",bc_map,"0x00ff99",FW_NORMAL,12;
+sleep 15000;
+instance_destroy;
+end;
+}
+
+dali,2,2,2	script	InstanceControl2#dis	111,{
+end;
+
+//OnInit
+OnInstanceInit:
+disablenpc instance_npcname("Dimensional Rift#2isn1");
+disablenpc instance_npcname("Dimensional Rift#2isn2");
+disablenpc instance_npcname("Dimensional Rift#2isn3");
+disablenpc instance_npcname("Dimensional Rift#2isi1");
+disablenpc instance_npcname("Dimensional Rift#2isi2");
+disablenpc instance_npcname("Dimensional Rift#2isi3");
+disablenpc instance_npcname("Dimensional Rift#2isb");
+disablenpc instance_npcname("Flugel, The Coordinator#7");
+//disablenpc "Dimensional Rift#2isn1";
+//disablenpc "Dimensional Rift#2isn2";
+//disablenpc "Dimensional Rift#2isn3";
+//disablenpc "Dimensional Rift#2isi1";
+//disablenpc "Dimensional Rift#2isi2";
+//disablenpc "Dimensional Rift#2isi3";
+//disablenpc "Dimensional Rift#2isb";
+//disablenpc "Flugel, The Coordinator#7";
+end;
+
+OnDisN1Clear:
+disablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#2isn1");
+//disablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#2isn1";
+end;
+
+OnDisN2Clear:
+disablenpc instance_npcname("Dimensional Rift#disn2");
+enablenpc instance_npcname("Dimensional Rift#2isn2");
+//disablenpc "Dimensional Rift#disn2";
+//enablenpc "Dimensional Rift#2isn2";
+end;
+
+OnDisN3Clear:
+disablenpc instance_npcname("Dimensional Rift#disn3");
+enablenpc instance_npcname("Dimensional Rift#2isn3");
+//disablenpc "Dimensional Rift#disn3";
+//enablenpc "Dimensional Rift#2isn3";
+end;
+
+OnDisI1Clear:
+disablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#2isi1");
+//disablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#2isi1";
+end;
+
+OnDisI2Clear:
+disablenpc instance_npcname("Dimensional Rift#disi2");
+enablenpc instance_npcname("Dimensional Rift#2isi2");
+//disablenpc "Dimensional Rift#disi2";
+//enablenpc "Dimensional Rift#2isi2";
+end;
+
+OnDisI3Clear:
+disablenpc instance_npcname("Dimensional Rift#disi3");
+enablenpc instance_npcname("Dimensional Rift#2isi3");
+//disablenpc "Dimensional Rift#disi3";
+//enablenpc "Dimensional Rift#2isi3";
+end;
+
+OnDisBClear:
+disablenpc instance_npcname("Dimensional Rift#disb");
+enablenpc instance_npcname("Dimensional Rift#2isb");
+//disablenpc "Dimensional Rift#disb";
+//enablenpc "Dimensional Rift#2isb";
+end;
+
+OnDisN1X:
+disablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#xisn1");
+//disablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#xisn1";
+end;
+
+OnDisN2X:
+disablenpc instance_npcname("Dimensional Rift#disn2");
+enablenpc instance_npcname("Dimensional Rift#xisn2");
+//disablenpc "Dimensional Rift#disn2";
+//enablenpc "Dimensional Rift#xisn2";
+end;
+
+OnDisN3X:
+disablenpc instance_npcname("Dimensional Rift#disn3");
+enablenpc instance_npcname("Dimensional Rift#xisn3");
+//disablenpc "Dimensional Rift#disn3";
+//enablenpc "Dimensional Rift#xisn3";
+end;
+
+OnDisI1X:
+disablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#xisi1");
+//disablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#xisi1";
+end;
+
+OnDisI2X:
+disablenpc instance_npcname("Dimensional Rift#disi2");
+enablenpc instance_npcname("Dimensional Rift#xisi2");
+//disablenpc "Dimensional Rift#disi2";
+//enablenpc "Dimensional Rift#xisi2";
+end;
+
+OnDisI3X:
+disablenpc instance_npcname("Dimensional Rift#disi3");
+enablenpc instance_npcname("Dimensional Rift#xisi3");
+//disablenpc "Dimensional Rift#disi3";
+//enablenpc "Dimensional Rift#xisi3";
+end;
+
+OnDisBX:
+disablenpc instance_npcname("Dimensional Rift#disb");
+enablenpc instance_npcname("Dimensional Rift#xisb");
+//disablenpc "Dimensional Rift#disb";
+//enablenpc "Dimensional Rift#xisb";
+end;
+}
+
+dali,3,3,3	script	InstanceControl3#dis	111,{
+end;
+
+OnDisN1Clear:
+disablenpc instance_npcname("Dimensional Rift#2isn1");
+//disablenpc "Dimensional Rift#2isn1";
+end;
+
+OnDisN2Clear:
+disablenpc instance_npcname("Dimensional Rift#2isn2");
+//disablenpc "Dimensional Rift#2isn2";
+end;
+
+OnDisN3Clear:
+disablenpc instance_npcname("Dimensional Rift#2isn3");
+//disablenpc "Dimensional Rift#2isn3";
+end;
+
+OnDisI1Clear:
+disablenpc instance_npcname("Dimensional Rift#2isi1");
+//disablenpc "Dimensional Rift#2is11";
+end;
+
+OnDisI2Clear:
+disablenpc instance_npcname("Dimensional Rift#2isi2");
+//disablenpc "Dimensional Rift#2isi2";
+end;
+
+OnDisI3Clear:
+disablenpc instance_npcname("Dimensional Rift#2isi3");
+//disablenpc "Dimensional Rift#2isi3";
+end;
+
+OnDisBClear:
+disablenpc instance_npcname("Dimensional Rift#2isb");
+//disablenpc "Dimensional Rift#2isb";
+end;
+
+OnDisN1X:
+disablenpc instance_npcname("Dimensional Rift#xisn1");
+//disablenpc "Dimensional Rift#xisn1";
+end;
+
+OnDisN2X:
+disablenpc instance_npcname("Dimensional Rift#xisn2");
+//disablenpc "Dimensional Rift#xisn2";
+end;
+
+OnDisN3X:
+disablenpc instance_npcname("Dimensional Rift#xisn3");
+//disablenpc "Dimensional Rift#xisn3";
+end;
+
+OnDisI1X:
+disablenpc instance_npcname("Dimensional Rift#xisi1");
+//disablenpc "Dimensional Rift#xis11";
+end;
+
+OnDisI2X:
+disablenpc instance_npcname("Dimensional Rift#xisi2");
+//disablenpc "Dimensional Rift#xisi2";
+end;
+
+OnDisI3X:
+disablenpc instance_npcname("Dimensional Rift#xisi3");
+//disablenpc "Dimensional Rift#xisi3";
+end;
+
+OnDisBX:
+disablenpc instance_npcname("Dimensional Rift#xisb");
+//disablenpc "Dimensional Rift#xisb";
+end;
+}
+
+//Flugel
+dali,88,102,3	script	Flugel, The Coordinator#9	4_PD_TYRANOS,{
+if (is_party_leader() == true){
+set 'start,gettimetick(1);
+//set .@start,gettimetick(1);
+mes "You see a robed figure who seems very, very powerful at first glance.";
+next;
+cutin "flugel_admin",2;
+mes "[???]";
+mes "Hmm...";
+next;
+mes "[???]";
+mes "How curious...";
+next;
+mes "[???]";
+mes "Well, not that I don't want any help with this matter...";
+next;
+getpartymember getcharid(1),1,.@disasterm;
+set .@disneto,1;
+set .@disiru,2;
+set .@dischick,3;
+set .@disneut,4;
+if (getarraysize(.@disasterm) >= 4){
+for (.@i = 0; .@i < getarraysize(.@disasterm); .@i++){
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+.@disasterm[.@i]+"'", .@disfac[.@i]);
+if (.@disfac[.@i] == 0){
+set .@disfac[.@i],4;
+}
+}
+if (countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@dischick) && countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@disneut)){
+mes "[???]";
+mes "...but I do think that having a bunch of Netorians around would be a great help.";
+next;
+mes "[???]";
+mes "They're coming!";
+next;
+//enablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#disn2";
+//enablenpc "Dimensional Rift#disn3";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#disn2");
+enablenpc instance_npcname("Dimensional Rift#disn3");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[???]";
+mes "We'll talk about pleasantries and introductions later. Wipe them out with me!";
+close2;
+//donpcevent "InstanceControl#dis::OnStage1Active1";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active1";
+cutin "",255;
+end;
+}
+else if (countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@dischick) && countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@disneut)){
+mes "[???]";
+mes "...but I do think that having a bunch of Irunites around would be a great help.";
+next;
+mes "[???]";
+mes "They're coming!";
+next;
+//enablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#disi2";
+//enablenpc "Dimensional Rift#disi3";
+enablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#disi2");
+enablenpc instance_npcname("Dimensional Rift#disi3");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[???]";
+mes "We'll talk about pleasantries and introductions later. Wipe them out with me!";
+close2;
+//donpcevent "InstanceControl#dis::OnStage1Active2";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active2";
+cutin "",255;
+end;
+}
+else if (countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disneut)){
+mes "[???]";
+mes "...but I do think you might need to gain more battle knowledge, so I'll let you handle this.";
+next;
+mes "[???]";
+mes "They're coming!";
+next;
+//enablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#disb");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[???]";
+mes "Wipe them out, for The Chrono Imperator!";
+close2;
+//donpcevent "InstanceControl#dis::OnStage1Active3";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active3";
+cutin "",255;
+end;
+}
+// else if (countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@dischick)) 
+else {
+mes "[???]";
+mes "...but I do think that you lot would be a great help.";
+next;
+mes "[???]";
+mes "They're coming!";
+next;
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disb");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[???]";
+mes "We'll talk about pleasantries and introductions later. Wipe them out with me!";
+close2;
+donpcevent "InstanceControl#dis::OnStage1Active4";
+//donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active4";
+cutin "",255;
+end;
+}
+}
+else {
+mes "[???]";
+mes "...but I do think that you lot would be a great help.";
+next;
+mes "[???]";
+mes "They're coming!";
+next;
+set .@randspawn,rand(1,7);
+if (.@randspawn == 1){
+//enablenpc "Dimensional Rift#disn1";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+}
+else if (.@randspawn == 2){
+//enablenpc "Dimensional Rift#disn2";
+enablenpc instance_npcname("Dimensional Rift#disn2");
+}
+else if (.@randspawn == 3){
+//enablenpc "Dimensional Rift#disn3";
+enablenpc instance_npcname("Dimensional Rift#disn3");
+}
+else if (.@randspawn == 4){
+//enablenpc "Dimensional Rift#disi1";
+enablenpc instance_npcname("Dimensional Rift#disi1");
+}
+else if (.@randspawn == 5){
+//enablenpc "Dimensional Rift#disi2";
+enablenpc instance_npcname("Dimensional Rift#disi2");
+}
+else if (.@randspawn == 6){
+//enablenpc "Dimensional Rift#disi3";
+enablenpc instance_npcname("Dimensional Rift#disi3");
+}
+else if (.@randspawn == 7){
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disb");
+}
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[???]";
+mes "We'll talk about pleasantries and introductions later. Wipe them out with me!";
+close2;
+if (.@randspawn == 1){
+//donpcevent "InstanceControl#dis::OnStage1Active5a";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5a";
+}
+else if (.@randspawn == 2){
+//donpcevent "InstanceControl#dis::OnStage1Active5b";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5b";
+}
+else if (.@randspawn == 3){
+//donpcevent "InstanceControl#dis::OnStage1Active5c";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5c";
+}
+else if (.@randspawn == 4){
+//donpcevent "InstanceControl#dis::OnStage1Active5d";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5d";
+}
+else if (.@randspawn == 5){
+//donpcevent "InstanceControl#dis::OnStage1Active5e";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5e";
+}
+else if (.@randspawn == 6){
+//donpcevent "InstanceControl#dis::OnStage1Active5f";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5f";
+}
+else if (.@randspawn == 7){
+//donpcevent "InstanceControl#dis::OnStage1Active5g";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage1Active5g";
+}
+cutin "",255;
+end;
+}
+}
+else {
+end;
+}
+}
+
+dali,88,102,3	script	Flugel, The Coordinator#8	4_PD_TYRANOS,{
+if (is_party_leader() == true){
+cutin "flugel_admin",2;
+mes "[???]";
+mes "Now that's been taken care of...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I am Flugel Bloodpledge, The Coordinator. The Right Hand of the Chrono Imperator of The Chrono Imperium of Schicksal.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "It has been brought to my immediate attention that this pocket dimension was created near the location of the Schicksal Time Watchers' very own pocket dimension.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "This is most probably an act only the dreaded ^00FF00Arcturus Dominion^000000 would do.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "And to think that of all times to do so, it's made at the worst time when I'm spread too thin.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "The Chrono Imperator cannot move outside of the Spiral Palace within the Watchers' pocket dimension, which is why I'm probably the only one who can deal with this sort of thing.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "But enough of that.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I can sense more ripples in the dimensional fabric.";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "They're at it again!";
+next;
+getpartymember getcharid(1),1,.@disasterm;
+set .@disneto,1;
+set .@disiru,2;
+set .@dischick,3;
+set .@disneut,4;
+if (getarraysize(.@disasterm) >= 4){
+for (.@i = 0; .@i < getarraysize(.@disasterm); .@i++){
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+.@disasterm[.@i]+"'", .@disfac[.@i]);
+if (.@disfac[.@i] == 0){
+set .@disfac[.@i],4;
+}
+}
+if (countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@dischick) && countinarray(.@disfac,.@disneto) > countinarray(.@disfac,.@disneut)){
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I do hope you don't let your current Lord down.";
+next;
+//enablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#disn2";
+//enablenpc "Dimensional Rift#disn3";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#disn2");
+enablenpc instance_npcname("Dimensional Rift#disn3");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I know Jeff Saber won't let weaklings into his fold!";
+close2;
+//donpcevent "InstanceControl#dis::OnStage2Active1";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active1";
+cutin "",255;
+end;
+}
+else if (countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@dischick) && countinarray(.@disfac,.@disiru) > countinarray(.@disfac,.@disneut)){
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Don't disappoint Rose.";
+next;
+//enablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#disi2";
+//enablenpc "Dimensional Rift#disi3";
+enablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#disi2");
+enablenpc instance_npcname("Dimensional Rift#disi3");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "You won't like her when she's angry.";
+close2;
+//donpcevent "InstanceControl#dis::OnStage2Active2";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active2";
+cutin "",255;
+end;
+}
+else if (countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@dischick) > countinarray(.@disfac,.@disneut)){
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "If you don't clear this wave, I'll let Yuwee and Saiki play with you.";
+next;
+//enablenpc "Dimensional Rift#disn1";
+//enablenpc "Dimensional Rift#disi1";
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+enablenpc instance_npcname("Dimensional Rift#disi1");
+enablenpc instance_npcname("Dimensional Rift#disb");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Do you really want that?";
+close2;
+//donpcevent "InstanceControl#dis::OnStage2Active3";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active3";
+cutin "",255;
+end;
+}
+// else if (countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@disiru) && countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@disneto) && countinarray(.@disfac,.@disneut) > countinarray(.@disfac,.@dischick))
+else {
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Prepare yourselves!";
+next;
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disb");
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Here they come!";
+close2;
+//donpcevent "InstanceControl#dis::OnStage2Active4";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active4";
+cutin "",255;
+end;
+}
+}
+else {
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Prepare yourselves!";
+next;
+set .@randspawn,rand(1,7);
+if (.@randspawn == 1){
+//enablenpc "Dimensional Rift#disn1";
+enablenpc instance_npcname("Dimensional Rift#disn1");
+}
+else if (.@randspawn == 2){
+//enablenpc "Dimensional Rift#disn2";
+enablenpc instance_npcname("Dimensional Rift#disn2");
+}
+else if (.@randspawn == 3){
+//enablenpc "Dimensional Rift#disn3";
+enablenpc instance_npcname("Dimensional Rift#disn3");
+}
+else if (.@randspawn == 4){
+//enablenpc "Dimensional Rift#disi1";
+enablenpc instance_npcname("Dimensional Rift#disi1");
+}
+else if (.@randspawn == 5){
+//enablenpc "Dimensional Rift#disi2";
+enablenpc instance_npcname("Dimensional Rift#disi2");
+}
+else if (.@randspawn == 6){
+//enablenpc "Dimensional Rift#disi3";
+enablenpc instance_npcname("Dimensional Rift#disi3");
+}
+else if (.@randspawn == 7){
+//enablenpc "Dimensional Rift#disb";
+enablenpc instance_npcname("Dimensional Rift#disb");
+}
+//mapannounce "dali","The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars are becoming unstable. Defeat the monsters and stabilize the Rifts.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "Here they come!";
+close2;
+if (.@randspawn == 1){
+//donpcevent "InstanceControl#dis::OnStage2Active5a";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5a";
+}
+else if (.@randspawn == 2){
+//donpcevent "InstanceControl#dis::OnStage2Active5b";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5b";
+}
+else if (.@randspawn == 3){
+//donpcevent "InstanceControl#dis::OnStage2Active5c";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5c";
+}
+else if (.@randspawn == 4){
+//donpcevent "InstanceControl#dis::OnStage2Active5d";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5d";
+}
+else if (.@randspawn == 5){
+//donpcevent "InstanceControl#dis::OnStage2Active5e";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5e";
+}
+else if (.@randspawn == 6){
+//donpcevent "InstanceControl#dis::OnStage2Active5f";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5f";
+}
+else if (.@randspawn == 7){
+//donpcevent "InstanceControl#dis::OnStage2Active5g";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnStage2Active5g";
+}
+cutin "",255;
+end;
+}
+}
+else {
+end;
+}
+}
+
+dali,88,102,3	script	Flugel, The Coordinator#7	4_PD_TYRANOS,{
+if (is_party_leader() == true){
+cutin "flugel_admin",2;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "This place is getting denser with Dark Energy by the second.";
+next;
+//mapannounce "dali","[???]: Schicksal shall fall. When it does, so will the entire Multiverse.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"[???]: Schicksal shall fall. When it does, so will the entire Multiverse.",bc_map,"0x00ff99",FW_NORMAL,12;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "That voice... It can only be one person.";
+close2;
+cutin "",255;
+set 'arctarus,getcharid(3);
+getpartymember getcharid(1),1,'arcturus;
+//getpartymember getcharid(1),1,.@arcturus;
+//donpcevent "InstanceControl#dis::OnArcSpawn";
+donpcevent instance_npcname("InstanceControl#dis")+"::OnArcSpawn";
+end;
+}
+else {
+end;
+}
+}
+
+// Netoria Rifts
+dali,38,91,3	script	Dimensional Rift#disn1	111,{
+end;
+
+OnHat1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn1")+"::OnHat1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN1Clear";
+//if (mobcount("dali","Dimensional Rift#disn1::OnHat1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN1Clear";
+end;
+}
+else {
+end;
+}
+
+OnHat2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn1")+"::OnHat2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN1X";
+//if (mobcount("dali","Dimensional Rift#disn1::OnHat2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN1X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,38,91,3	script	Dimensional Rift#2isn1	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN1Clear";
+//donpcevent "InstanceControl3#dis::OnDisN1Clear";
+end;
+}
+
+dali,38,91,3	script	Dimensional Rift#xisn1	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+//donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN1X";
+donpcevent "InstanceControl3#dis::OnDisN1X";
+end;
+}
+
+dali,34,143,3	script	Dimensional Rift#disn2	111,{
+end;
+
+OnHat1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn2")+"::OnHat1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN2Clear";
+//if (mobcount("dali","Dimensional Rift#disn2::OnHat1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN2Clear";
+end;
+}
+else {
+end;
+}
+
+OnHat2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn2")+"::OnHat2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN2X";
+//if (mobcount("dali","Dimensional Rift#disn2::OnHat2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN2X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,34,143,3	script	Dimensional Rift#2isn2	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN2Clear";
+//donpcevent "InstanceControl3#dis::OnDisN2Clear";
+end;
+}
+
+dali,34,143,3	script	Dimensional Rift#xisn2	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN2X";
+//donpcevent "InstanceControl3#dis::OnDisN2X";
+end;
+}
+
+dali,104,156,3	script	Dimensional Rift#disn3	111,{
+end;
+
+OnHat1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn3")+"::OnHat1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN3Clear";
+//if (mobcount("dali","Dimensional Rift#disn3::OnHat1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN3Clear";
+end;
+}
+else {
+end;
+}
+
+OnHat2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disn3")+"::OnHat2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisN3X";
+//if (mobcount("dali","Dimensional Rift#disn3::OnHat2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisN3X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,104,156,3	script	Dimensional Rift#2isn3	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN3Clear";
+//donpcevent "InstanceControl3#dis::OnDisN3Clear";
+end;
+}
+
+dali,104,156,3	script	Dimensional Rift#xisn3	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisN3X";
+//donpcevent "InstanceControl3#dis::OnDisN3X";
+end;
+}
+
+//Iruna Rifts
+dali,144,129,3	script	Dimensional Rift#disi1	111,{
+end;
+
+OnMal1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi1")+"::OnMal1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI1Clear";
+//if (mobcount("dali","Dimensional Rift#disi1::OnMal1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI1Clear";
+end;
+}
+else {
+end;
+}
+
+OnMal2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi1")+"::OnMal2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI1X";
+//if (mobcount("dali","Dimensional Rift#disi1::OnMal2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI1X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,144,129,3	script	Dimensional Rift#2isi1	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI1Clear";
+//donpcevent "InstanceControl3#dis::OnDisI1Clear";
+end;
+}
+
+dali,144,129,3	script	Dimensional Rift#xisi1	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI1X";
+//donpcevent "InstanceControl3#dis::OnDisI1X";
+end;
+}
+
+dali,148,86,3	script	Dimensional Rift#disi2	111,{
+end;
+
+OnMal1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi2")+"::OnMal1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI2Clear";
+//if (mobcount("dali","Dimensional Rift#disi2::OnMal1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI2Clear";
+end;
+}
+else {
+end;
+}
+
+OnMal2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi2")+"::OnMal2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI2X";
+//if (mobcount("dali","Dimensional Rift#disi2::OnMal2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI2X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,148,86,3	script	Dimensional Rift#2isi2	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI2Clear";
+//donpcevent "InstanceControl3#dis::OnDisI2Clear";
+end;
+}
+
+dali,148,86,3	script	Dimensional Rift#xisi2	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI2X";
+//donpcevent "InstanceControl3#dis::OnDisI2X";
+end;
+}
+
+dali,121,53,3	script	Dimensional Rift#disi3	111,{
+end;
+
+OnMal1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi3")+"::OnMal1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI3Clear";
+//if (mobcount("dali","Dimensional Rift#disi3::OnMal1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI3Clear";
+end;
+}
+else {
+end;
+}
+
+OnMal2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disi3")+"::OnMal2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisI3X";
+//if (mobcount("dali","Dimensional Rift#disi3::OnMal2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisI3X";
+end;
+}
+else {
+end;
+}
+}
+
+dali,121,53,3	script	Dimensional Rift#2isi3	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI3Clear";
+//donpcevent "InstanceControl3#dis::OnDisI3Clear";
+end;
+}
+
+dali,121,53,3	script	Dimensional Rift#xisi3	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisI3X";
+//donpcevent "InstanceControl3#dis::OnDisI3X";
+end;
+}
+
+//Neutral Rifts
+dali,72,59,3	script	Dimensional Rift#disb	111,{
+end;
+
+OnPor1Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disb")+"::OnPor1Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisBClear";
+//if (mobcount("dali","Dimensional Rift#disb::OnPor1Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisBClear";
+end;
+}
+else {
+end;
+}
+
+OnPor2Kill:
+if (mobcount(instance_mapname("dali"),instance_npcname("Dimensional Rift#disb")+"::OnPor2Kill") < 1){
+donpcevent instance_npcname("InstanceControl2#dis")+"::OnDisBX";
+//if (mobcount("dali","Dimensional Rift#disb::OnPor2Kill") < 1)
+//donpcevent "InstanceControl2#dis::OnDisBX";
+end;
+}
+else {
+end;
+}
+}
+
+dali,72,59,3	script	Dimensional Rift#2isb	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#8");
+//enablenpc "Flugel, The Coordinator#8";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to the Hooded Figure in the center of this Realm.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisBClear";
+//donpcevent "InstanceControl3#dis::OnDisBClear";
+end;
+}
+
+dali,72,59,3	script	Dimensional Rift#xisb	111,{
+mes "You have dissipated an unstable Dimensional Rift.";
+close2;
+//if (mobcount("dali","all") < 1)
+if (mobcount(instance_mapname("dali"),"all") < 1){
+enablenpc instance_npcname("Flugel, The Coordinator#7");
+//enablenpc "Flugel, The Coordinator#7";
+//mapannounce "dali","The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+instance_announce 0,"The Multiversal Pillars have stabilized for now. Talk to Flugel.",bc_map,"0x00ff99",FW_NORMAL,12;
+}
+donpcevent instance_npcname("InstanceControl3#dis")+"::OnDisBX";
+//donpcevent "InstanceControl3#dis::OnDisBX";
+end;
+}
+
+//Instance Rewards
+dali,90,97,3	script	Dark Energy#dis	10045,{
+if (is_party_leader() == true){
+mes "As you touch the remaining Dark Energy, items begin to materialize.";
+next;
+setarray .itemrew[0],20002,40210,40211,40212,20002,20002,20002,40420,40420,40210,40211,40212,20001;
+set .randrew,getarraysize(.itemrew);
+if ((gettimetick(1) - 'start) < 300){
+//if ((gettimetick(1) - .@start) < 300)
+set .@rew1,.itemrew[rand(0,.randrew)];
+set .@rew2,.itemrew[rand(0,.randrew)];
+set .@rew3,.itemrew[rand(0,.randrew)];
+set .@rew4,.itemrew[rand(0,.randrew)];
+set .@rew5,.itemrew[rand(0,.randrew)];
+set .@rew6,.itemrew[rand(0,.randrew)];
+//makeitem .@rew1,1,"dali",89,96;
+//makeitem .@rew2,1,"dali",88,97;
+//makeitem .@rew3,1,"dali",90,99;
+//makeitem .@rew4,1,"dali",87,95;
+//makeitem .@rew5,1,"dali",91,94;
+//makeitem .@rew6,1,"dali",92,98;
+makeitem .@rew1,1,instance_mapname("dali"),89,96;
+makeitem .@rew2,1,instance_mapname("dali"),88,97;
+makeitem .@rew3,1,instance_mapname("dali"),90,99;
+makeitem .@rew4,1,instance_mapname("dali"),87,95;
+makeitem .@rew5,1,instance_mapname("dali"),91,94;
+makeitem .@rew6,1,instance_mapname("dali"),92,98;
+}
+else if ((gettimetick(1) - 'start) > 299){
+//else if ((gettimetick(1) - .@start) > 299)
+set .@rew1,.itemrew[rand(0,.randrew)];
+set .@rew2,.itemrew[rand(0,.randrew)];
+set .@rew3,.itemrew[rand(0,.randrew)];
+set .@rew4,.itemrew[rand(0,.randrew)];
+//makeitem .@rew1,1,"dali",89,96;
+//makeitem .@rew2,1,"dali",88,97;
+//makeitem .@rew3,1,"dali",90,99;
+//makeitem .@rew4,1,"dali",87,95;
+makeitem .@rew1,1,instance_mapname("dali"),89,96;
+makeitem .@rew2,1,instance_mapname("dali"),88,97;
+makeitem .@rew3,1,instance_mapname("dali"),90,99;
+makeitem .@rew4,1,instance_mapname("dali"),87,95;
+}
+donpcevent instance_npcname("InstanceControl#dis")+"::OnInstEnd";
+//donpcevent "InstanceControl#dis::OnInstEnd";
+end;
+}
+else {
+end;
+}
+}
+
+dali,90,97,3	script	Dark Energy#dis2	10045,{
+if (is_party_leader() == true){
+mes "As you touch the remaining Dark Energy, items begin to materialize.";
+next;
+setarray .itemrew[0],20002,40210,40211,40212,20002,20002,20002,40420,40420,40210,40211,40212,20001;
+set .randrew,getarraysize(.itemrew);
+if ((gettimetick(1) - 'start) < 300){
+//if ((gettimetick(1) - .@start) < 300)
+set .@rew1,.itemrew[rand(0,.randrew)];
+set .@rew2,.itemrew[rand(0,.randrew)];
+set .@rew3,.itemrew[rand(0,.randrew)];
+set .@rew4,.itemrew[rand(0,.randrew)];
+set .@rew5,.itemrew[rand(0,.randrew)];
+//makeitem .@rew1,1,"dali",89,96;
+//makeitem .@rew2,1,"dali",88,97;
+//makeitem .@rew3,1,"dali",90,99;
+//makeitem .@rew4,1,"dali",87,95;
+//makeitem .@rew5,1,"dali",91,94;
+makeitem .@rew1,1,instance_mapname("dali"),89,96;
+makeitem .@rew2,1,instance_mapname("dali"),88,97;
+makeitem .@rew3,1,instance_mapname("dali"),90,99;
+makeitem .@rew4,1,instance_mapname("dali"),87,95;
+makeitem .@rew5,1,instance_mapname("dali"),91,94;
+}
+else if ((gettimetick(1) - 'start) > 299){
+//else if ((gettimetick(1) - .@start) > 299)
+set .@rew1,.itemrew[rand(0,.randrew)];
+set .@rew2,.itemrew[rand(0,.randrew)];
+set .@rew3,.itemrew[rand(0,.randrew)];
+//makeitem .@rew1,1,"dali",89,96;
+//makeitem .@rew2,1,"dali",88,97;
+//makeitem .@rew3,1,"dali",90,99;
+makeitem .@rew1,1,instance_mapname("dali"),89,96;
+makeitem .@rew2,1,instance_mapname("dali"),88,97;
+makeitem .@rew3,1,instance_mapname("dali"),90,99;
+}
+donpcevent instance_npcname("InstanceControl#dis")+"::OnEInstEnd";
+//donpcevent "InstanceControl#dis::OnEInstEnd";
+end;
+}
+else {
+end;
+}
+}
