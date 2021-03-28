@@ -1,0 +1,69 @@
+// Item Combos Database
+//
+// Structure of Database:
+// ID:ID:ID:ID,{ Script }
+
+//DimensionGear
+39047:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39049:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39050:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39048:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39051:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39052:39055,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+39053:39054,{ bonus bMaxHPRate,6; }
+
+//Full_hidden_enchant_DimensionGear
+39046:39047:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+39046:39048:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+39046:39049:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+39046:39050:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+39046:39051:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+39046:39052:39053:39054:39055,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,100; bonus2 bAddSize,Size_Small,100; bonus2 bAddSize,Size_Large,100; bonus2 bMagicAddClass,Class_Boss,200; }
+//RaiderCombo
+40101:40104,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+40102:40103,{ bonus bMaxHPRate,6; }
+40100:40101:40102:40103:40104,{ bonus bMaxHPrate,20; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,110; bonus2 bAddSize,Size_Small,110; bonus2 bAddSize,Size_Large,110; bonus2 bMagicAddClass,Class_Boss,220; }
+
+//Geffen Magic Tournament Armors
+15073:40106,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bHit,100; bonus2 bSubEle,Ele_All,15; bonus2 bSubRace,RC_All,15; bonus2 bAddClass,Class_All,5; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15073:40107,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bFlee2,15; bonus bHit,100; bonus2 bSubRace,RC_All,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15073:40108,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bMaxSPRate,20; bonus bHit,100; bonus bMatkRate,15; bonus2 bSubRace,RC_All,10; bonus2 bMagicAddEle,Ele_Holy,200; bonus2 bMagicAddSize,Size_Small,200; bonus2 bMagicAddSize,Size_Large,200; bonus2 bMagicAddClass,Class_Boss,250; }
+15074:40106,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bHit,100; bonus2 bSubEle,Ele_All,15; bonus2 bSubRace,RC_All,15; bonus2 bAddClass,Class_All,5; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15074:40108,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bMaxSPRate,20; bonus bHit,100; bonus bMatkRate,15; bonus2 bSubRace,RC_All,10; bonus2 bMagicAddEle,Ele_Holy,200; bonus2 bMagicAddSize,Size_Small,200; bonus2 bMagicAddSize,Size_Large,200; bonus2 bMagicAddClass,Class_Boss,250; }
+15146:40106,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bHit,100; bonus2 bSubEle,Ele_All,15; bonus2 bSubRace,RC_All,15; bonus2 bAddClass,Class_All,5; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15146:40107,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bFlee2,15; bonus bHit,100; bonus2 bSubRace,RC_All,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15146:40108,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bMaxSPRate,20; bonus bHit,100; bonus bMatkRate,15; bonus2 bSubRace,RC_All,10; bonus2 bMagicAddEle,Ele_Holy,200; bonus2 bMagicAddSize,Size_Small,200; bonus2 bMagicAddSize,Size_Large,200; bonus2 bMagicAddClass,Class_Boss,250; }
+15177:40106,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bHit,100; bonus2 bSubEle,Ele_All,15; bonus2 bSubRace,RC_All,15; bonus2 bAddClass,Class_All,5; bonus2 bAddEle,Ele_Holy,125; bonus2 bAddSize,Size_Small,125; bonus2 bAddSize,Size_Large,125; bonus2 bMagicAddClass,Class_Boss,250; }
+15177:40108,{ bonus bMaxHPrate,10; bonus bAllStats,10; bonus bMaxSPRate,20; bonus bHit,100; bonus bMatkRate,15; bonus2 bSubRace,RC_All,10; bonus2 bMagicAddEle,Ele_Holy,200; bonus2 bMagicAddSize,Size_Small,200; bonus2 bMagicAddSize,Size_Large,200; bonus2 bMagicAddClass,Class_Boss,250; }
+2964:15074,{ bonus bCastRate,-5; }
+15074:40499,{ bonus bCastRate,-5; }
+2964:15073,{ bonus bDelayRate,-5; bonus2 bSubRace,RC_DemiHuman,5; }
+15073:40499,{ bonus bDelayRate,-5; bonus2 bSubRace,RC_DemiHuman,5; }
+2963:15074,{ bonus bAspdRate,5; }
+15074:40498,{ bonus bAspdRate,5; }
+2963:15073,{ bonus bDelayRate,-5; bonus2 bSubRace,RC_DemiHuman,5; }
+15073:40498,{ bonus bDelayRate,-5; bonus2 bSubRace,RC_DemiHuman,5; }
+
+//Server Set
+15141:19033,{ bonus bMaxSP,100; bonus bNoCastCancel; }
+15141:20779:22075,{ .@r = getequiprefinerycnt(EQI_ARMOR)+getequiprefinerycnt(EQI_GARMENT)+getequiprefinerycnt(EQI_SHOES); bonus bMaxHP,1000; bonus bHealPower,min(5+.@r,30); bonus bHealPower2,min(5+.@r,30); }
+15117:20744:22047,{ bonus bMaxHPrate,25; bonus bMaxSPrate,25; bonus bSpeedAddRate,40; if (getequiprefinerycnt(EQI_ARMOR)+getequiprefinerycnt(EQI_GARMENT)+getequiprefinerycnt(EQI_SHOES) >= 30) { bonus bMaxHPrate,5; bonus bMaxSPrate,5; } }
+15116:20743:22046,{ bonus bMaxHPrate,25; bonus bMaxSPrate,25; bonus bSpeedAddRate,40; }
+24150:24151,{ bonus2 bAddClass,Class_All,1; }
+
+//Easter Egg Set - Reboot HoloCrisis
+40491:40492,{ bonus2 bAddClass,Class_All,3; bonus bMatkRate,3; }
+40493:40495,{ bonus bMaxHPRate,6; }
+40491:40492:40493:40494:40495,{ bonus bMaxHPrate,30; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; bonus2 bAddEle,Ele_Holy,150; bonus2 bAddSize,Size_Small,150; bonus2 bAddSize,Size_Large,150; bonus2 bMagicAddClass,Class_Boss,300; }
+1283:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+1323:40491:40492:40493:40494:40495,{ bonus2 bSkillAtk,"WS_CARTTERMINATION",15; bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",15; bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+1489:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+1746:40491:40492:40493:40494:40495,{ bonus bAllStats,10; }
+1830:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+1935:40491:40492:40493:40494:40495,{ bonus bAllStats,10; }
+1992:40491:40492:40493:40494:40495,{ bonus bAllStats,10; }
+2007:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+13076:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+13088:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }
+13115:40491:40492:40493:40494:40495,{ bonus bAllStats,10; }
+13431:40491:40492:40493:40494:40495,{ bonus bAllStats,10; bonus bMatkRate,10; bonus2 bAddClass,Class_All,10; }

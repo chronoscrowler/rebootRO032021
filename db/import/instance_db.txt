@@ -1,0 +1,10 @@
+// Instance Database
+//
+// Structure of Database:
+// ID,Name,LimitTime,IdleTimeOut,EnterMap,EnterX,EnterY,Map2,Map3,...,Map255
+//
+// EnterMap is considered as Map1
+11,Voluspa Prophecy,14400,300,1@vp,216,58
+15,Geffen Magic Tournament,7200,300,1@gef,119,209,1@gef_in,1@ge_st,final_dest
+23,Server Room,7200,300,1@infi,29,4
+26,Airship Assault,7200,300,1@air1,244,28,airflugel

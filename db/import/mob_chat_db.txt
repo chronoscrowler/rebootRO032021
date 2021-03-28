@@ -1,0 +1,102 @@
+// Monster Chat Database
+//
+// Structure of Database:
+// Line_ID#Color_Code#Dialog
+
+//Netoria Mobs
+51#0x0000FF#Viva Netoria!
+52#0x0000FF#Lost Causes!
+53#0x0000FF#Get a load of this!
+54#0x0000FF#You've been Master-Baited!
+55#0xFF0000#The White Light is a LIE!
+56#0xFF0000#For The Red Light!
+57#0x0000FF#Free me from this corruption, my children...
+58#0x0000FF#Release me !
+59#0x0000FF#EEEEEEEEEEEEEEEIIIIIIIIIIIIIAAAAAAAAAAAA!!!
+60#0x0000FF#Are you seriously gonna do that ?
+61#0x0000FF#Take it all !
+62#0x0000FF#Immortal Quake !
+63#0x0000FF#Eternal Blizzard !
+64#0x0000FF#My pain is my gain.
+65#0x0000FF#For Lord Netori !
+66#0x0000FF#Holy Cleansing !
+67#0x0000FF#I have faith in this new Netoria, Jeff. Thank you.
+68#0x0000FF#Forgive me, Lord Netori, I wasn't strong enough...
+69#0x0000FF#I was the one who got Master-Baited? NOOOOOO!
+//Iruna Mobs
+70#0xFF0000#What was I doing? I'm sorry, Mother... Urghk-
+71#0xFF0000#No... Not again... NOOOOOOOOOOOO!!!
+72#0xFF0000#I will take back what's mine, Specia!
+73#0xFF0000#I will not be denied again!
+74#0xFF0000#Moonlight Slash!
+75#0xFF0000#Issen!
+76#0xFF0000#That was a great one, adventurer. 'Til we meet again.
+77#0xFF0000#Demo Protocol Activated.
+78#0xFF0000#Emergency Protocol Activated.
+79#0xFF0000#System Failure Imminent.
+80#0xFF0000#This is for Eldenbaum!
+81#0xFF0000#Help me, my children!
+82#0xFF0000#Why must we all suffer for all this?
+83#0xFF0000#Haiya!
+84#0xFF0000#I still got them moves!
+85#0xFF0000#Too slow!
+86#0xFF0000#Hah... You got me, youngster! Let's spar again sometime!
+87#0xFF0000#EEEEEEEEEEEEEEEIIIIIIIIIIIIIAAAAAAAAAAAA!!!
+88#0xFF0000#I WILL DEVOUR THE THIRTEEN GODS!
+89#0xFF0000#I WILL DEVOUR THIS WORLD ONCE AGAIN!
+90#0xFF0000#I WILL DEVOUR YOU!
+91#0xFF0000#CURSE YOU, IRUNITE! AAAAAAAAAARRRGHHHHHHHH!
+//Schicksal Mobs
+92#0xFFFF00#This is to make you stronger, Watcher.
+93#0xFFFF00#Congratulations, Watcher.
+94#0xFFFF00#In the name of Arcturus!
+95#0xFFFF00#For the Dominion!
+96#0xFFFF00#Face your Master!
+97#0xFFFF00#I am but a pawn in the Dominion's plans.
+98#0xFFFF00#You are boring.
+99#0xFFFF00#I am inevitable!
+//Destiny Null and Void
+100#0x0000FF#A fraction of my entire power is enough for you!
+101#0x0000FF#None shall tarnish the legacy of Netoria!
+102#0x0000FF#Taste the power of Genocide!
+103#0x0000FF#It's time to end all of this.
+104#0x0000FF#Genocide Fist!
+105#0x0000FF#I am The White Light!
+106#0x0000FF#Be cleansed by my Light!
+107#0xFF0000#By My Will, I shall eradicate you!
+108#0xFF0000#Earth, I command you, shake their souls!
+109#0xFF0000#My Fire will protect all of Iruna!
+110#0xFF0000#I am The High Empress of Iruna! I refuse to back down!
+111#0xFF0000#Zero Ray!
+112#0xFF0000#Imperial Freeze!
+113#0xFF0000#Your Emperor Commands You!
+114#0xFF0000#For ReDGuRL!
+115#0xFF0000#Urk... Rose... It's all up to you now...
+116#0xFFFF00#For The Chrono Imperator!
+117#0xFFFF00#The Watchers' efforts won't be for naught!
+118#0xFFFF00#Schicksal will not fall!
+119#0xFFFF00#Spiral Stardust!
+120#0xFFFF00#Spiral Destruction!
+121#0xFFFF00#I'm sorry, O Great One... I have failed you...
+122#0xFF0000#Destiny is forfeit.
+123#0xFF0000#The end is nigh.
+124#0xFF0000#As I was your beginning, so shall I be your end.
+125#0xFF0000#You only delay the inevitable.
+//Reboot HoloCrisis
+126#0xFF0000#Haachama-chama~
+127#0xFF0000#Do you like the pepeloni?
+128#0xFF0000#Free me? Coexist? No. I kill.
+129#0xFF0000#I am the strongest Idol!
+130#0xFF0000#Kusa.
+131#0xFF0000#Kusozako.
+132#0xFF0000#You motherfxxker!
+133#0x0000FF#For Princess Pekora, Peko!
+134#0x0000FF#No mercy, Pekodayo!
+135#0x0000FF#Pyon~ Peko!
+136#0x0000FF#Bun, bun, cha~
+137#0xFF0000#Your Virtual Idols are TRASH!
+138#0xFF0000#CANCEL!
+139#0xFF0000#Deploy the spambots.
+140#0xFF0000#That darn Dragon must die for her sins!
+141#0xFF0000#Anyone who comes close to her must die.
+142#0xFF0000#I WILL NEVER FORGIVE HER!!!
