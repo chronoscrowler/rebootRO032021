@@ -1,0 +1,4 @@
+// Mapflags
+eden_fild01	mapflag	nightenabled
+eden_fild02	mapflag	nightenabled
+eden_fild03	mapflag	nightenabled
