@@ -1,0 +1,18 @@
+//-----------------------------------------
+// GRF Files
+// Add as many as needed.
+//-----------------------------------------
+//grf: C:\Program Files\Gravity\RO\rdata.grf
+//grf: C:\Program Files\Gravity\RO\data.grf
+grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\reboot_resources.grf
+grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\data.grf
+grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\rdata.grf
+grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\palettes.grf
+//grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\synthetics.grf
+//grf: C:\Program Files (x86)\RebootRO\rebootRO_testserver\prerenewal.grf
+//-----------------------------------------
+// Data Directory
+// Use the base folder, not the data\ path.
+//-----------------------------------------
+//data_dir: C:\Program Files\Gravity\RO\
+data_dir: C:\Program Files (x86)\RebootRO\rebootRO_testserver
