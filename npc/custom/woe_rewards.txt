@@ -1,0 +1,182 @@
+prontera,157,283,6	script	WoE Rewards	1_m_sign1,{
+set $Weekset, 0;
+mes "Select an option.";
+menu "Get Rewards",winwoe,"Exit",exit;
+
+winwoe:
+next;
+if ($Weekset == 0){
+OnMon0000:
+goto monday1;
+
+OnTue0000:
+goto tuesday1;
+
+OnWed0000:
+goto wednesday1;
+
+OnThu0000:
+goto thursday1;
+
+OnFri0000:
+goto friday1;
+
+OnSat0000:
+goto saturday1;
+
+OnSun0000:
+goto sunday1;
+}
+else if ($Weekset == 1) {
+OnMon0000:
+goto monday2;
+
+OnTue0000:
+goto tuesday2;
+
+OnWed0000:
+goto wednesday2;
+
+OnThu0000:
+goto thursday2;
+
+OnFri0000:
+goto friday2;
+
+OnSat0000:
+goto saturday2;
+
+OnSun0000:
+goto sunday2;
+}
+
+monday1:
+close2;
+delitem 20083,1;
+getitem 7074,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+tuesday1:
+close2;
+delitem 20083,1;
+getitem 7080,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+wednesday1:
+close2;
+delitem 20083,1;
+getitem 7081,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+thursday1:
+close2;
+delitem 20083,1;
+getitem 7082,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+friday1:
+close2;
+delitem 20083,1;
+getitem 7083,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+saturday1:
+close2;
+delitem 20083,1;
+getitem 7084,1;
+getitem 7087,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 0;
+end;
+
+sunday1:
+close2;
+delitem 20083,1;
+getitem 7085,1;
+getitem 7092,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 1;
+end;
+
+monday2:
+close2;
+delitem 20083,1;
+getitem 7075,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+tuesday2:
+close2;
+delitem 20083,1;
+getitem 7091,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+wednesday2:
+close2;
+delitem 20083,1;
+getitem 7077,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+thursday2:
+close2;
+delitem 20083,1;
+getitem 7086,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+friday2:
+close2;
+delitem 20083,1;
+getitem 7090,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+saturday2:
+close2;
+delitem 20083,1;
+getitem 7076,1;
+getitem 7079,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 1;
+end;
+
+sunday2:
+close2;
+delitem 20083,1;
+getitem 7088,1;
+getitem 7089,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset,0;
+end;
+}

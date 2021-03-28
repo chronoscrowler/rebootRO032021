@@ -1,0 +1,39 @@
+prontera,165,178,2	script	Arena Master: Ice	4_F_08_STATUE,{
+cutin "3rd_sura_master",2;
+mes "[Arena Master: Ice Ice Baby]";
+mes "Let's fight!";
+menu "Ok.",pvpgo,"NOpe.",pvpno;
+
+pvpgo:
+next;
+menu "Ranked Arena",arena1,"Neutral Arena",arena2;
+
+arena1:
+close2;
+cutin "",255;
+warp "1@dth3",48,89;
+end;
+
+arena2:
+close2;
+cutin "",255;
+warp "tur_dun06",40,83;
+end;
+
+pvpno:
+next;
+mes "[Arena Master: Ice Ice Baby]";
+mes "No balls!";
+close2;
+if (achievementexists(240068) == 0){
+achievementcomplete(240068);
+}
+cutin "",255;
+end;
+}
+
+1@dth3,70,93,6	script	Exit PvP	81,{
+warp "prontera",156,191;
+}
+
+tur_dun06,40,88,6	duplicate(Exit PvP)	Exit PvP#2	81

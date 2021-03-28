@@ -1,0 +1,76 @@
+// https://rathena.org/board/topic/117251-broadcaster-npc-request/
+
+/*
+DROP TABLE IF EXISTS `e_broadcast`;
+CREATE TABLE IF NOT EXISTS `e_broadcast` (
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
+  `aid` int(11) NOT NULL DEFAULT '0',
+  `cid` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(25) NOT NULL DEFAULT '',
+  `message` varchar(255) NOT NULL DEFAULT '',
+  `time` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(3) NOT NULL DEFAULT '1',
+  `repeat` tinyint(3) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM;
+*/
+
+prontera,155,178,5	script	Broadcaster	4_F_08,{
+	doevent "broadcast_main::OnTalk";
+}
+
+jupe_area2,121,58,5	duplicate(Broadcaster)	Broadcaster#Neto	4_F_08,
+dicastes01,189,190,5	duplicate(Broadcaster)	Broadcaster#Neto2	4_F_08,
+moonhaven,212,237,5	duplicate(Broadcaster)	Broadcaster#Iru	4_F_08,
+moonhaven,217,191,5	duplicate(Broadcaster)	Broadcaster#Iru2	4_F_08,
+dali02,89,98,5	duplicate(Broadcaster)	Broadcaster#Schick	4_F_08,
+
+-	script	broadcast_main	-1,{
+
+	OnInit:
+		.zeny = 100000;
+		.broadcast_delay_second = 180;
+		.log_limit = 3;
+		end;
+		
+	OnTalk:
+		.@size = query_sql("SELECT `id`,`message`,`time`,`repeat` FROM `e_broadcast` WHERE `cid` = "+getcharid(0)+" ORDER BY `id` DESC LIMIT "+.log_limit, .@id, .@message$, .@time, .@repeat);
+		mes "Would you like to broadcast a message?";
+		next;
+		switch (select(
+			"Broadcast",
+			"Cancel"
+		)) {
+			case 1:
+				if (.@broadcast_message$ == "") {
+					mes "Enter your broadcast message:";
+					input .@broadcast_message$;
+				}
+				next;
+				mes "Confirm to broadcast this?";
+				mes "^777777"+.@broadcast_message$+"^000000";
+				mes " ";
+				if (.zeny) {
+					mes "Zeny: "+F_InsertComma(.zeny)+"z";
+					mes " ";
+				}
+				if (select("Confirm", "Cancel") == 1) {
+					.@gettimetick = gettimetick(2);
+					if (.zeny > 0 && Zeny <= .zeny) {
+						mes "You dont have enough zeny.";
+					}
+					else if (.broadcast_delay_second > 0 && .@gettimetick < (.@time + .broadcast_delay_second)) {
+						mes "You cant broadcast for next "+((.@time + .broadcast_delay_second) - .@gettimetick)+" second(s)";
+					}
+					else {
+						Zeny -= .zeny;
+						announce ""+strcharinfo(0)+"  : "+.@broadcast_message$, bc_all;
+						mes "done.";
+					}
+				}
+				break;
+			default:
+				break;
+		}
+		close;
+}

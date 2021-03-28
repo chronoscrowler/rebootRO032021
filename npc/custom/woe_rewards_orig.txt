@@ -1,0 +1,180 @@
+prontera,157,283,6	script	WoE Rewards	1_m_sign1,{
+set Weekset, 0;
+mes "Select an option.";
+menu "Get Rewards",winwoe,"Exit",exit;
+
+winwoe:
+next;
+if (gettime(4) == 1 && $Weekset == 0) {
+goto monday1;
+}
+else if (gettime(4) == 2 && $Weekset == 0) {
+goto tuesday1;
+}
+else if (gettime(4) == 3 && $Weekset == 0) {
+goto wednesday1;
+}
+else if (gettime(4) == 4 && $Weekset == 0) {
+goto thursday1;
+}
+else if (gettime(4) == 5 && $Weekset == 0) {
+goto friday1;
+}
+else if (gettime(4) == 6 && $Weekset == 0) {
+goto saturday1;
+}
+else if (gettime(4) == 7 && $Weekset == 0) {
+goto sunday1;
+}
+else if (gettime(4) == 1 && $Weekset == 1) {
+goto monday2;
+}
+else if (gettime(4) == 2 && $Weekset == 1) {
+goto tuesday2
+}
+else if (gettime(4) == 3 && $Weekset == 1) {
+goto wednesday2;
+}
+else if (gettime(4) == 4 && $Weekset == 1) {
+goto thursday2;
+}
+else if (gettime(4) == 5 && $Weekset == 1) {
+goto friday2;
+}
+else if (gettime(4) == 6 && $Weekset == 1) {
+goto saturday2;
+}
+else if (gettime(4) == 7 && $Weekset == 1) {
+goto sunday2;
+}
+
+monday1:
+close2;
+delitem 20083,1;
+getitem 7074,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+tuesday1:
+close2;
+delitem 20083,1;
+getitem 7080,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+wednesday1:
+close2;
+delitem 20083,1;
+getitem 7081,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+thursday1:
+close2;
+delitem 20083,1;
+getitem 7082,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+friday1:
+close2;
+delitem 20083,1;
+getitem 7083,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 0;
+end;
+
+saturday1:
+close2;
+delitem 20083,1;
+getitem 7084,1;
+getitem 7087,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 0;
+end;
+
+sunday1:
+close2;
+delitem 20083,1;
+getitem 7085,1;
+getitem 7092,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 1;
+end;
+
+monday2:
+close2;
+delitem 20083,1;
+getitem 7075,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+tuesday2:
+close2;
+delitem 20083,1;
+getitem 7091,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+wednesday2:
+close2;
+delitem 20083,1;
+getitem 7077,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+thursday2:
+close2;
+delitem 20083,1;
+getitem 7086,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+friday2:
+close2;
+delitem 20083,1;
+getitem 7090,1;
+getitem 13517,100;
+getitem 671,200;
+set $Weekset, 1;
+end;
+
+saturday2:
+close2;
+delitem 20083,1;
+getitem 7076,1;
+getitem 7079,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset, 1;
+end;
+
+sunday2:
+close2;
+delitem 20083,1;
+getitem 7088,1;
+getitem 7089,1;
+getitem 13517,200;
+getitem 671,300;
+set $Weekset,0;
+end;
+}

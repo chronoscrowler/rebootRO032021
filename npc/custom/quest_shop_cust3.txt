@@ -1,0 +1,1117 @@
+valkyrie,45,87,6	script	Poseidon	1697,{
+mes "[Poseidon, Fallen God of Tides]";
+mes "What forgotten power do you wish to have, mortal?";
+menu "Supply Boxes",supply,"Lower Headgear",lower,"Garments",robes,"Cursed Card Album",ccalbum,"Cancel",exitpos;
+
+supply:
+next;
+menu "Yggdrasil Berry Boxes",yagbols,"Elemental Water Boxes",water,"Ore Boxes",eluori,"Food Boxes",fbox,"Token of Siegfried Box",resubox,"Cancel",exitsupply;
+
+yagbols:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Yggdrasil Berries.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeyagbols,"Back out",exityagbols;
+
+makeyagbols:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 13517,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exityagbols:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+water:
+next;
+menu "Cursed Water",cwater,"Phantom Water",pwater;
+
+cwater:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Cursed Water.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makecwater,"Back out",exitcwater;
+
+makecwater:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 20084,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitcwater:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+pwater:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Phantom Water.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 500";
+mes "Sauro II Crysta 100";
+mes "RebootRO 2B Certificate 10";
+next;
+menu "Offer Sacrifice",makepwater,"Back out",exitpwater;
+
+makepwater:
+next;
+if (countitem(543) > 99 && countitem(542) > 9 && countitem(674) > 499){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,100;
+delitem 542,10;
+delitem 674,500;
+getitem 38998,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitpwater:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+eluori:
+next;
+menu "Elunium Boxes",elubox,"Oridecon Boxes",oribox;
+
+elubox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Elunium.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeelubox,"Back out",exitelubox;
+
+makeelubox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 13889,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitelubox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+oribox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Oridecon.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeoribox,"Back out",exitoribox;
+
+makeoribox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 13890,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitoribox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+fbox:
+next;
+menu "STR +10 Food Boxes",strbox,"AGI +10 Food Boxes",agibox,"VIT +10 Food Boxes",vitbox,"INT +10 Food Boxes",intbox,"DEX +10 Food Boxes",dexbox,"LUK +10 Food Boxes",lukbox;
+
+strbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 STR+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makestrbox,"Back out",exitstrbox;
+
+makestrbox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12903,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitstrbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+agibox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 AGI+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeagibox,"Back out",exitagibox;
+
+makeagibox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12904,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitagibox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+dexbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 DEX+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makedexbox,"Back out",exitdexbox;
+
+makedexbox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12906,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitdexbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+intbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 INT+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeintbox,"Back out",exitintbox;
+
+makeintbox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12905,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitintbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+vitbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 VIT+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makevitbox,"Back out",exitvitbox;
+
+makevitbox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12908,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitvitbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+lukbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 LUK+10 Food.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makelukbox,"Back out",exitlukbox;
+
+makelukbox:
+next;
+if (countitem(543) > 9 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,10;
+delitem 671,50;
+delitem 674,10;
+getitem 12907,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitlukbox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+resubox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Contains 10 Tokens of Siegfried.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 25";
+next;
+menu "Offer Sacrifice",makeresubox,"Back out",exitresubox;
+
+makeresubox:
+next;
+if (countitem(542) > 24){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,24;
+getitem 12922,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitresubox:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitsupply:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+lower:
+next;
+menu "Basic Lower Headgears",baselow,"Upgraded Lower Headgear",auralow,"Cancel",exitlower;
+
+baselow:
+next;
+menu "Samurai Mask",genjuromask,"Magic Assassin's Mask",matkmask,"Cancel",exitlower;
+
+genjuromask:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "ATK +10, Increases Physical damage and defense vs Players by 5%.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 15";
+mes "Tamuran Card 100";
+mes "Tooth of Bat 500";
+mes "Omen of Tempest 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makegenjuromask,"Back out",exitgenjuromask;
+
+makegenjuromask:
+next;
+if (countitem(542) > 14 && countitem(4304) > 99 && countitem(913) > 499 && countitem(7089) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,15;
+delitem 4304,100;
+delitem 913,500;
+delitem 7089,1;
+delitem 5317,1;
+getitem 5767,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgenjuromask:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+matkmask:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "MATK +10, Increases Magic dmg and magic resist vs players by 5%";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 15";
+mes "Centipede Larva Card 100";
+mes "Soft Silk 100";
+mes "Snow Crystal 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makematkmask,"Back out",exitmatkmask;
+
+makematkmask:
+next;
+if (countitem(542) > 14 && countitem(4452) > 99 && countitem(7166) > 99 && countitem(7088) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,15;
+delitem 4452,100;
+delitem 7166,100;
+delitem 7088,1;
+delitem 5317,1;
+getitem 977,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitmatkmask:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+auralow:
+next;
+menu "Aura of Vicious Mind",lhzwhite,"Crimson Aura of Vicious Mind",lhzred,"Affinity Aqua",wateraura,"Cancel",exitlower;
+
+lhzwhite:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "ATK, MATK +10 & 2%, All Resist +7%";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Samurai Mask 1";
+mes "Magic Assassin's Mask 1";
+mes "RebootRO 2B Certificate 50";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makelhzwhite,"Back out",exitlhzwhite;
+
+makelhzwhite:
+next;
+if (isequipped(5767) == 1){
+if (countitem(977) > 0 && countitem(542) > 49 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_LOW;
+delitem 977,1;
+delitem 542,50;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40106,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5767) > 0 && countitem(977) > 0 && countitem(542) > 49 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5767,1;
+delitem 977,1;
+delitem 542,50;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40106,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitlhzwhite:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+lhzred:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "ATK +20 & 5%, All Resist +5%";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Samurai Mask 1";
+mes "RebootRO 2B Certificate 75";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makelhzred,"Back out",exitlhzred;
+
+makelhzred:
+next;
+if (isequipped(5767) == 1){
+if (countitem(542) > 74 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_LOW;
+delitem 542,75;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40107,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5767) > 0 && countitem(542) > 74 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5767,1;
+delitem 542,75;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40107,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitlhzred:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+wateraura:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "MATK +20 & 5%, All Resist +5%";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Magic Assassin's Mask 1";
+mes "RebootRO 2B Certificate 75";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makewateraura,"Back out",exitwateraura;
+
+makewateraura:
+next;
+if (isequipped(977) == 1){
+if (countitem(542) > 74 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_LOW;
+delitem 542,75;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40108,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(977) > 0 && countitem(542) > 74 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 977,1;
+delitem 542,75;
+delitem 7078,1;
+delitem 7073,1;
+getitem 40108,1;
+if (achievementexists(240027) == 0){
+achievementcomplete(240027);
+}
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitwateraura:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitlower:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+robes:
+next;
+menu "Asprika",asprika,"Flame Manteau of Naght Sieger",naght,"Leather of Tendrilion",tendril,"Nidhoggur's Shadow Garb",nidhog,"Cancel",exitrobes;
+
+asprika:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "All element resist +7&, Increase MATK by refine.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 50";
+mes "Raydric Card 100";
+mes "Deviling Card 1";
+mes "Iron Maiden 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makeasprika,"Back out",exitasprika;
+
+makeasprika:
+next;
+if (countitem(542) > 49 && countitem(4133) > 99 && countitem(4174) > 0 && countitem(7075) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,50;
+delitem 4133,100;
+delitem 4174,1;
+delitem 7075,1;
+delitem 5317,1;
+getitem 977,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitasprika:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+naght:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "MaxHP and SP +5%, Flee +10, PD +5, ATK +10, Increase long-range physical attack dmg reduction by refine.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 50";
+mes "Bow Guardian Card 100";
+mes "Amon Ra Card 1";
+mes "Wheel of the Unknown 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makenaght,"Back out",exitnaght;
+
+makenaght:
+next;
+if (countitem(542) > 49 && countitem(4428) > 99 && countitem(4236) > 0 && countitem(7076) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,50;
+delitem 4428,100;
+delitem 4236,1;
+delitem 7076,1;
+delitem 5317,1;
+getitem 977,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitnaght:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+tendril:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Alll element resist +5%, reduce dmg from all races +5%, Further reduction of dmg from players by refine.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 50";
+mes "Hillslion Card 100";
+mes "Ghostring Card 1";
+mes "Snow Crystal 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",maketendril,"Back out",exittendril;
+
+maketendril:
+next;
+if (countitem(542) > 49 && countitem(4453) > 99 && countitem(4047) > 0 && countitem(7088) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,50;
+delitem 4453,100;
+delitem 4047,1;
+delitem 7088,1;
+delitem 5317,1;
+getitem 977,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exittendril:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+nidhog:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "All element resist +7%, Increase ATK by refine.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO 2B Certificate 50";
+mes "Imp Card 100";
+mes "Maya Card 1";
+mes "Omen of Tempest 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makenidhog,"Back out",exitnidhog;
+
+makenidhog:
+next;
+if (countitem(542) > 49 && countitem(4433) > 99 && countitem(4146) > 0 && countitem(7089) > 0 && countitem(5317) > 0){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 542,50;
+delitem 4433,100;
+delitem 4146,1;
+delitem 7089,1;
+delitem 5317,1;
+getitem 977,1;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitnidhog:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitrobes:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+ccalbum:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "10 Cursed Card Albums.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "Ah, splendid choice.";
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Crysta 20";
+next;
+menu "Offer Sacrifice",makeccalbum,"Back out",exitccalbum;
+
+makeccalbum:
+next;
+if (countitem(543) > 19){
+mes "[Poseidon, Fallen God of Tides]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 543,20;
+getitem 38997,10;
+end;
+}
+else {
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitccalbum:
+next;
+mes "[Poseidon, Fallen God of Tides]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitpos:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+}

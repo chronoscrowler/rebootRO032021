@@ -1,0 +1,14 @@
+prontera,172,220,6	script	Prontera Armory	24,{
+mes "Enter the Armory?";
+menu "Yes",armory,"No",noarmory;
+
+armory:
+close2;
+warp "prt_in",168,128;
+end;
+
+noarmory:
+next;
+close;
+end;
+}

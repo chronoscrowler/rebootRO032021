@@ -1,0 +1,82 @@
+prontera,146,178,0,	script	Old Man Sauro	847,{
+cutin "ein_hicman",2;
+if (countitem(20271) > 0){
+mes "[Old Man Sauro]";
+mes "Hey, stranger...";
+next;
+mes "[Old Man Sauro]";
+mes "Is that Dyett's Dagger you're holding?";
+next;
+mes "[Old Man Sauro]";
+mes "Oh, so Mash gave it to you.";
+next;
+mes "[Old Man Sauro]";
+mes "Dyett wants it back?";
+next;
+mes "[Old Man Sauro]";
+mes "Good timing.";
+next;
+mes "[Old Man Sauro]";
+mes "Here.";
+next;
+getitem 20268,1;
+mes "[Old Man Sauro]";
+mes "Tell her I said hi.";
+close;
+end;
+}
+else {
+mes "[Old Man Sauro]";
+mes "I've been traveling around the realms to look for a worthy opponent.";
+menu "I'm a worthy opponent.",challenge,"Good luck, old man.",exit;
+}
+
+challenge:
+next;
+mes "[Old Man Sauro]";
+mes "You mean it? Let's go, then!";
+next;
+mes "Select a difficulty.";
+menu "Regular Sauro",regsau,"Elite Sauro",esau,"Master Sauro",msau;
+
+regsau:
+close2;
+cutin "",255;
+warp "1@pump",64,114;
+end;
+
+esau:
+close2;
+cutin "",255;
+warp "2@pump",86,79;
+end;
+
+msau:
+close2;
+cutin "",255;
+warp "mal_dun01",34,231;
+end;
+
+exit:
+close2;
+cutin "",255;
+end;
+}
+
+1@pump,67,116,6	script	Return to Prontera	122,{
+warp "prontera",156,191;
+}
+
+2@pump,82,79,6	duplicate(Return to Prontera)	Return to Prontera#ESau	122
+mal_dun01,22,232,6	duplicate(Return to Prontera)	Return to Prontera#MSau	122
+
+-	script	DetectSauro	-1,{
+end;
+
+OnSauroKill:
+if (achievementexists(240059) == 0){
+achievementcomplete(240059);
+}
+announce strcharinfo(0)+ " has defeated Master Sauro.",bc_blue;
+end;
+}

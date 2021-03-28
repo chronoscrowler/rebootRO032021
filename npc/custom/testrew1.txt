@@ -1,0 +1,39 @@
+-	script	Daily Reward	-1,{
+OnPCLoginEvent:
+if (gettime(DT_DAYOFMONTH) == 1 || $26claimed < 1 && 26claimed == 0) {
+mes "[RebootRO Daily Reward]";
+mes "Here's your reward for logging in today.";
+close2;
+getitem 674,5;
+set 26claimed, 1;
+set $26claimed, $26claimed + 1;
+end;
+}
+else if ($26claimed >= 1 && $26claimed < 26 && 26claimed == 0) {
+mes "[RebootRO Daily Reward]";
+mes "Here's your reward for logging in today.";
+close2;
+if ($26claimed == 7 || $26claimed == 15 || $26claimed == 20 || $26claimed == 26) {
+set #CASHPOINTS,#CASHPOINTS + 10;
+}
+else {
+set .@gamble1,rand(1,500);
+if ((.@gamble1 > 200) && (.@gamble1 < 205)) {
+set .@gamble2,rand(1,10);
+if ((.@gamble2 > 0) && (.@gamble2 <  3)) getitem 671,5;
+else if ((.@gamble2 > 2) && (.@gamble2 <  5)) getitem 671,10;
+else if ((.@gamble2 > 4) && (.@gamble2 <  7)) getitem 671,15;
+else if ((.@gamble2 > 6) && (.@gamble2 <  9)) getitem 671,20;
+else if ((.@gamble2 > 8) && (.@gamble2 < 11)) getitem 671,25;
+}
+else if ((.@gamble1 >   0) && (.@gamble1 < 201)) getitem 671,5;
+else if ((.@gamble1 > 204) && (.@gamble1 < 301)) getitem 671,10;
+else if ((.@gamble1 > 300) && (.@gamble1 < 401)) getitem 671,15;
+else if ((.@gamble1 > 401) && (.@gamble1 < 481)) getitem 671,20;
+else if ((.@gamble1 > 480) && (.@gamble1 < 501)) getitem 671,25;
+}
+set 26claimed, 1;
+set $26claimed, $26claimed + 1;
+end;
+}
+}

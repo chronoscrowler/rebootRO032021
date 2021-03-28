@@ -1,0 +1,2996 @@
+valkyrie,47,87,6	script	Chronos	1694,{
+mes "[Chronos, Fallen God of Time]";
+mes "What forgotten power do you wish to have, mortal?";
+menu "Tier 1 Weapons",tier1w,"Tier 2 Weapons",tier2w,"Soul Weapons",soulw,"Soul Accessories",soula,"Cancel",canceltier;
+
+tier1w:
+next;
+menu "Katzbalger (Strengthened 1)",katz2,"War Nyx",nyx1,"Amaterasu",amabow,"Tellas Rod",tellas,"Raiju Jiulong 100",rj100,"Throat Knife",throat,"Stick of Truth",stick,"Cat Paws",paw1,"Barbaro Axe",barba1,"Silver Horn",tatsuya,"Lasso of Truth",wonder,"Lindsey Stirling",stirling,"Cancel",exitchronos1;
+
+katz2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +5%, STR +5, VIT +7, DEF +15. Bowling Bash dmg +10%, Backstab dmg +30%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Katzbalger 1";
+mes "Chivalry Emblem 100";
+mes "Skel-Bone 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makekatz2,"Back out",exitkatz2;
+
+makekatz2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gokatz2,"No.",exitkatz2;
+
+gokatz2:
+next;
+if (countitem(1170) > 0 && countitem(1004) > 99 && countitem(932) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1170,1;
+delitem 1004,100;
+delitem 932,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20034,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitkatz2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+nyx1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, AGI and INT +5, ATK and MATK +2%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Waghnak [4] 1";
+mes "Handcuffs 100";
+mes "Hand of God 100";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makenyx1,"Back out",exitnyx1;
+
+makenyx1:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gonyx1,"No.",exitnyx1;
+
+gonyx1:
+next;
+if (countitem(1802) > 0 && countitem(7345) > 99 && countitem(1009) > 99 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1802,1;
+delitem 7345,100;
+delitem 1009,100;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20036,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitnyx1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+amabow:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "+15% long-ranged physical dmg. Double Strafe, Phantasmal Arrow, Sharp Shooting and Arrow Shower dmg +25%. Backstab dmg +60%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Composite Bow [4] 1";
+mes "Red Bijou 300";
+mes "Nine Tails 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makeamabow,"Back out",exitamabow;
+
+makeamabow:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goamabow,"No.",exitamabow;
+
+goamabow:
+next;
+if (countitem(1705) > 0 && countitem(7447) > 299 && countitem(1022) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1705,1;
+delitem 7447,300;
+delitem 1022,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20038,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitamabow:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+tellas:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT, INT, DEX +5. MATK and magic dmg vs all elements +10%. Heal power and Holy Light dmg x2.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Piercing Staff 1";
+mes "Worn-out Magic Scroll 300";
+mes "Torn Magic Book 300";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",maketellas,"Back out",exittellas;
+
+maketellas:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gotellas,"No.",exittellas;
+
+gotellas:
+next;
+if (countitem(1626) > 0 && countitem(7099) > 299 && countitem(7117) > 299 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1626,1;
+delitem 7099,300;
+delitem 7117,300;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20040,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exittellas:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+rj100:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT +5, ATK and MaxHP +5%, MATK +10%, Flee +10, PD +1.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Huuma Giant Wheel Shuriken [4] 1";
+mes "Green Live 100";
+mes "Rough Wind 100";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makerj100,"Back out",exitrj100;
+
+makerj100:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gorj100,"No.",exitrj100;
+
+gorj100:
+next;
+if (countitem(13302) > 0 && countitem(993) > 99 && countitem(996) > 99 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 13302,1;
+delitem 993,100;
+delitem 996,100;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20042,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitrj100:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+throat:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +5%, MATK +5%, dmg vs Holy +20%. Flee +10, PD +1.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sandstorm [4] 1";
+mes "Broken Farming Utensil 300";
+mes "Fang of Hatii 25";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makethroat,"Back out",exitthroat;
+
+makethroat:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gothroat,"No.",exitthroat;
+
+gothroat:
+next;
+if (countitem(13035) > 0 && countitem(7753) > 299 && countitem(7036) > 25 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 13035,1;
+delitem 7753,300;
+delitem 7036,25;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20044,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitthroat:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+stick:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, VIT +3. ATK +3%, Pierce, Brandish Spear, Spiral Pierce and Grand Cross dmg +15%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Pike [4] 1";
+mes "Dead Branch 50";
+mes "Elder Branch 50";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makestick,"Back out",exitstick;
+
+makestick:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gostick,"No.",exitstick;
+
+gostick:
+next;
+if (countitem(1408) > 0 && countitem(604) > 49 && countitem(7939) > 49 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1408,1;
+delitem 604,50;
+delitem 7939,50;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20046,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitstick:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+paw1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "HIT +50, Flee +5, ATK +5%, Grimtooth dmg +10%, Soul Breaker and Sonic Blow dmg +15%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Jur [3] 1";
+mes "Animal Skin 500";
+mes "Fluff 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makepaw1,"Back out",exitpaw1;
+
+makepaw1:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gopaw1,"No.",exitpaw1;
+
+gopaw1:
+next;
+if (countitem(1251) > 0 && countitem(919) > 499 && countitem(914) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1251,1;
+delitem 919,500;
+delitem 914,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20048,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitpaw1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+barba1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK, MATK, Cart Termination and Acid Demonstration dmg +5%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Battle Axe [4] 1";
+mes "Dark Crystal Fragment 250";
+mes "Lava 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makebarba1,"Back out",exitbarba1;
+
+makebarba1:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gobarba1,"No.",exitbarba1;
+
+gobarba1:
+next;
+if (countitem(1352) > 0 && countitem(7315) > 249 && countitem(7096) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1352,1;
+delitem 7315,250;
+delitem 7096,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20048,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitbarba1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+tatsuya:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +5%, Long ranged physical dmg +15%, Desperado dmg +25%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Garrison [2] 1";
+mes "Shining Stone 50";
+mes "Shining Scale 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",maketatsuya,"Back out",exittatsuya;
+
+maketatsuya:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gotatsuya,"No.",exittatsuya;
+
+gotatsuya:
+next;
+if (countitem(13105) > 0 && countitem(640) > 49 && countitem(954) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 13105,1;
+delitem 640,50;
+delitem 954,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20052,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exittatsuya:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+wonder:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +5, Long-ranged physical dmg +15%, Arrow vulcan dmg +25%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Rope [4] 1";
+mes "Daenggie 500";
+mes "Short Daenggie 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makewonder,"Back out",exitwonder;
+
+makewonder:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gowonder,"No.",exitwonder;
+
+gowonder:
+next;
+if (countitem(1951) > 0 && countitem(901) > 499 && countitem(1094) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1951,1;
+delitem 901,500;
+delitem 1094,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20054,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitwonder:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+stirling:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +5, Long-ranged physical dmg +15%, Arrow vulcan dmg +25%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Violin [4] 1";
+mes "Rocker Card 50";
+mes "Sharp Leaf 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Gold Coin 50";
+mes "RebootRO Orichalcum Coin 10";
+next;
+menu "Offer Sacrifice",makestirling,"Back out",exitstirling;
+
+makestirling:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gostirling,"No.",exitstirling;
+
+gostirling:
+next;
+if (countitem(1902) > 0 && countitem(4021) > 49 && countitem(7100) > 499 && countitem(985) > 24 && countitem(984) > 24 && countitem(671) > 49 && countitem(674) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 1902,1;
+delitem 4021,50;
+delitem 7100,500;
+delitem 985,25;
+delitem 984,25;
+delitem 671,50;
+delitem 674,10;
+getitem 20056,1;
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitstirling:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitchronos1:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+tier2w:
+next;
+menu "Katzbalger (Strengthened 2)",katz3,"Guerra Nyx",nyx2,"Amaterasu Masusume",amamasu,"Tellas Rod II",tellas2,"Raiju Jiulong 200",rj200,"Throat Knife II",throat2,"Stick of Truth Redux",stick2,"Evil Dog Gloves",paw2,"Barbaro Axe II",barba2,"Beta Trident",tatsuya2,"Lasso of Truth II",wonder2,"Lindsey Stirling II",stirling2,"Cancel",exitchronos2;
+
+katz3:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +7%, STR +10, VIT +15, DEF +20, Bowling Bash dmg +20%, Backstab dmg +50%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Katzbalger II [4] 1";
+mes "Bloody Edge 5";
+mes "Broken Sword 300";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makekatz3,"Back out",exitkatz3;
+
+makekatz3:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gokatz3,"No.",exitkatz3;
+
+gokatz3:
+next;
+if (isequipped(20034) == 1){
+if (countitem(7024) > 4 && countitem(7110) > 299 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7024,5;
+delitem 7110,300;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20035,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20034) > 0 && countitem(7024) > 4 && countitem(7110) > 299 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20034,1;
+delitem 7024,5;
+delitem 7110,300;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20035,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitkatz3:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+nyx2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, AGI, INT +10, ATK +3%, MATK +5%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "War Nyx [4] 1";
+mes "Metal Fragment 500";
+mes "Broken Shell 500";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makenyx2,"Back out",exitnyx2;
+
+makenyx2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gonyx2,"No.",exitnyx2;
+
+gonyx2:
+next;
+if (isequipped(20036) == 1){
+if (countitem(7095) > 499 && countitem(7070) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7095,500;
+delitem 7070,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20037,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20036) > 0 && countitem(7095) > 499 && countitem(7070) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20036,1;
+delitem 7095,500;
+delitem 7070,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20037,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitnyx2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+amamasu:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Long-ranged physical dmg +20%, Double Strafing, Arrow Shower, Phantasmal Arrow and Sharpshooting dmg +50%. Backstab dmg x2.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Amaterasu [4] 1";
+mes "Elastic Band 300";
+mes "Witched Starsand 500";
+mes "Elunium 25";
+mes "Oridecon 25";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeamamasu,"Back out",exitamamasu;
+
+makeamamasu:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goamamasu,"No.",exitamamasu;
+
+goamamasu:
+next;
+if (isequipped(20038) == 1){
+if (countitem(7200) > 299 && countitem(1061) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7200,300;
+delitem 1061,500;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20039,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20038) > 0 && countitem(7200) > 299 && countitem(1061) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20038,1;
+delitem 7200,300;
+delitem 1061,500;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20039,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitamamasu:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+tellas2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT, INT, DEX +10, MATK and magic dmg vs all elements +20%, Heal power x2, Holy Light dmg x3.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Tellas Rod [4] 1";
+mes "Fragment 300";
+mes "Ice Cubic 300";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",maketellas2,"Back out",exittellas2;
+
+maketellas2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gotellas2,"No.",exittellas2;
+
+gotellas2:
+next;
+if (isequipped(20040) == 1){
+if (countitem(7094) > 299 && countitem(7066) > 299 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7094,300;
+delitem 7066,300;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20041,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20040) > 0 && countitem(7094) > 299 && countitem(7066) > 299 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20040,1;
+delitem 7094,300;
+delitem 7066,300;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20041,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exittellas2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+rj200:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT +10, ATK +7%, MaxHP +10%, MATK +15%, Flee +15, PD +2.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Raiju Jiulong [4] 1";
+mes "Wind of Verdure 100";
+mes "Yellow Bijou 100";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makerj200,"Back out",exitrj200;
+
+makerj200:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gorj200,"No.",exitrj200;
+
+gorj200:
+next;
+if (isequipped(20042) == 1){
+if (countitem(992) > 99 && countitem(7448) > 99 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 992,100;
+delitem 7448,100;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20043,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20042) > 0 && countitem(992) > 99 && countitem(7448) > 99 && countitem(985) > 49 && countitem(984) > 49 && countitem(543) > 9 && countitem(674) > 99){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20042,1;
+delitem 992,100;
+delitem 7448,100;
+delitem 985,50;
+delitem 984,50;
+delitem 543,10;
+delitem 674,100;
+getitem 20043,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitrj200:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+throat2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +7%, MATK +10%, dmg to Holy +30%, Flee +15, PD +2.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Throat Knife [4] 1";
+mes "Bloody Edge 5";
+mes "Blade Lost in Darkness 25";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makethroat2,"Back out",exitthroat2;
+
+makethroat2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gothroat2,"No.",exitthroat2;
+
+gothroat2:
+next;
+if (isequipped(20044) == 1){
+if (countitem(7024) > 4 && countitem(7023) > 24 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7024,5;
+delitem 7023,25;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20045,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20044) > 0 && countitem(7024) > 4 && countitem(7023) > 24 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20044,1;
+delitem 7024,5;
+delitem 7023,25;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20045,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitthroat2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+stick2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, VIT +5, ATK +5%, Pierce, Brandish Spear, Spiral Pierce and Grand Cross dmg +20%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Stick of Truth [4] 1";
+mes "Young Twig 10";
+mes "Matchstick 25";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makestick2,"Back out",exitstick2;
+
+makestick2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gostick2,"No.",exitstick2;
+
+gostick2:
+next;
+if (isequipped(20046) == 1){
+if (countitem(7018) > 9 && countitem(7035) > 24 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20046,1;
+delitem 7018,10;
+delitem 7035,25;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20047,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20046) > 0 && countitem(7018) > 9 && countitem(7035) > 24 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20046,1;
+delitem 7018,10;
+delitem 7035,25;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20047,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitstick2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+paw2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "HIT +100, Flee +10, ATK +7%, Grimtooth dmg +20%, Soul Breaker and Sonic Blow dmg +30%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Cat Paws [4] 1";
+mes "Claw of Desert Wolf 500";
+mes "Wolf Claw 500";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makepaw2,"Back out",exitpaw2;
+
+makepaw2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gopaw2,"No.",exitpaw2;
+
+gopaw2:
+next;
+if (isequipped(20048) == 1){
+if (countitem(7030) > 499 && countitem(920) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7030,500;
+delitem 920,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20049,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20048) > 0 && countitem(7030) > 499 && countitem(920) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20048,1;
+delitem 7030,500;
+delitem 920,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20049,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitpaw2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+barba2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +7%, MATK, Cart Termination and Acid Demonstration dmg +10%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Barbaro Axe [4] 1";
+mes "Animal Gore 25";
+mes "Red Blood 50";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makebarba2,"Back out",exitbarba2;
+
+makebarba2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gobarba2,"No.",exitbarba2;
+
+gobarba2:
+next;
+if (isequipped(20050) == 1){
+if (countitem(702) > 24 && countitem(990) > 49 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 702,25;
+delitem 990,50;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20051,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20050) > 0 && countitem(702) > 24 && countitem(990) > 49 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20050,1;
+delitem 702,25;
+delitem 990,50;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20051,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitbarba2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+tatsuya2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +7%, Long ranged physical attack +20% and Desperado dmg +50%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Silver Horn Custom - Trident [4] 1";
+mes "Gemstone 50";
+mes "Glitter Shell 500";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",maketatsuya2,"Back out",exittatsuya2;
+
+maketatsuya2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gotatsuya2,"No.",exittatsuya2;
+
+gotatsuya2:
+next;
+if (isequipped(20052) == 1){
+if (countitem(7300) > 49 && countitem(7009) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7300,50;
+delitem 7009,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20053,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20052) > 0 && countitem(7300) > 49 && countitem(7009) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20052,1;
+delitem 7300,50;
+delitem 7009,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20053,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exittatsuya2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+wonder2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +10, Long-ranged physical attack +20% and Arrow vulcan dmg +50%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Lasso of Truth [4] 1";
+mes "Soft Silk 50";
+mes "Black Hair 500";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makewonder2,"Back out",exitwonder2;
+
+makewonder2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gowonder2,"No.",exitwonder2;
+
+gowonder2:
+next;
+if (isequipped(20054) == 1){
+if (countitem(7166) > 49 && countitem(1020) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 7166,50;
+delitem 1020,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20055,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20054) > 0 && countitem(7166) > 49 && countitem(1020) > 499 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20054,1;
+delitem 7166,50;
+delitem 1020,500;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20055,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitwonder2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+stirling2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +10, Long-ranged physical attack +20% and Arrow vulcan dmg +50%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Lindsey Stirling [4] 1";
+mes "Rocker Doll 10";
+mes "Soft Blde of Grass 100";
+mes "Elunium 50";
+mes "Oridecon 50";
+mes "RebootRO Orichalcum Coin 100";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makestirling2,"Back out",exitstir2;
+
+makestirling2:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gostirling2,"No.",exitstir2;
+
+gostirling2:
+next;
+if (isequipped(20056) == 1){
+if (countitem(752) > 9 && countitem(7194) > 99 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 752,10;
+delitem 7194,100;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20057,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20056) > 0 && countitem(752) > 9 && countitem(7194) > 99 && countitem(985) > 49 && countitem(984) > 49 && countitem(674) > 99 && countitem(543) > 9){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20056,1;
+delitem 752,10;
+delitem 7194,100;
+delitem 985,50;
+delitem 984,50;
+delitem 674,100;
+delitem 543,10;
+getitem 20057,1;
+if (achievementexists(240021) == 0){
+achievementcomplete(240021);
+}
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitstir2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitchronos2:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+soulw:
+next;
+menu "Genjuro's Soul Decimator",gerold,"Icy Soul Brutalizer",alfafara,"Amaranth's Soul Shooter",kulot,"Argent Soul of Agnuz",duque,"Sky's Soul Orb",danilo,"Yoh's Soul Breaker",jerald,"Alice's Soul Piercer",kurt,"Erik's Soul Terminator",jekatar,"Comet Soul Cleaver",kamal,"Astrea's Soul Eater",astrea,"Honest's Soulstrings",honest,"Jonas' Soulsoother",jonas,"Cancel",exitsoulw;
+
+gerold:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, VIT, DEX +20, ATK +10%, Bowling Bash dmg +30%, Backstab dmg +75%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Katzbalger III [4] 1";
+mes "Samurai Spector Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makegerold,"Back out",exitgerold;
+
+makegerold:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gogerold,"No.",exitgerold;
+
+gogerold:
+next;
+if (isequipped(20035) == 1){
+if (countitem(4263) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4263,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20059,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Genjuro's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20035) > 0 && countitem(4263) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20035,1;
+delitem 4263,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20059,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Genjuro's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitgerold:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+alfafara:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, AGI, INT +20, ATK +5%, MATK +7%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Guerra Nyx [4] 1";
+mes "Ktullanux Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makealfafara,"Back out",exitalfafara;
+
+makealfafara:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goalfafara,"No.",exitalfafara;
+
+goalfafara:
+next;
+if (isequipped(20037) == 1){
+if (countitem(4419) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4419,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20060,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Ice's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20037) > 0 && countitem(4419) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20037,1;
+delitem 4419,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20060,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Ice's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitalfafara:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+kulot:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Long-ranged physical attack +30%, Double Strafing, Arrow Shower, Phantasmal Arrow and Sharpshooting dmg +75%, Backstab dmg x3.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Amaterasu Masusume [4] 1";
+mes "Atroce Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makekulot,"Back out",exitkulot;
+
+makekulot:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gokulot,"No.",exitkulot;
+
+gokulot:
+next;
+if (isequipped(20039) == 1){
+if (countitem(4425) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4425,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20061,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Amaranth's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20039) > 0 && countitem(4425) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20039,1;
+delitem 4425,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20061,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Amaranth's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitkulot:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+duque:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT, INT, DEX +15, MATK and magic dmg to all elements +30%, Heal power x2, Holy Light dmg x4.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Tellas Rod II [4] 1";
+mes "Doppelganger Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makeduque,"Back out",exitduque;
+
+makeduque:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goduque,"No.",exitduque;
+
+goduque:
+next;
+if (isequipped(20041) == 1){
+if (countitem(4142) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4142,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20062,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Agnuz' Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20041) > 0 && countitem(4142) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20041,1;
+delitem 4142,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20062,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Agnuz' Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitduque:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+danilo:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "VIT +15, ATK +10%, MaxHP +15%, MATK +20%, Flee +20, PD +3.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Raiju Jiulong 200 [4] 1";
+mes "Stormy Knight Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makedanilo,"Back out",exitdanilo;
+
+makedanilo:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godanilo,"No.",exitdanilo;
+
+godanilo:
+next;
+if (isequipped(20043) == 1){
+if (countitem(4318) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4318,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20063,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Sky's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20043) > 0 && countitem(4318) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20043,1;
+delitem 4318,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20063,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Sky's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdanilo:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+jerald:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +10%, MATK +10%, Flee +20, PD +3, dmg to Holy +50%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Throat Knife II [4] 1";
+mes "Gloom Under Night Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makejerald,"Back out",exitjerald;
+
+makejerald:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gojerald,"No.",exitjerald;
+
+gojerald:
+next;
+if (isequipped(20045) == 1){
+if (countitem(4408) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4408,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20064,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Yoh's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20045) > 0 && countitem(4408) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20045,1;
+delitem 4408,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20064,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Yoh's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitjerald:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+kurt:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, VIT +5, MaxHP +5%, ATK +10%, Pierce, Brandish Spear, Spiral Pierce and Grand Cross dmg +30%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Stick of Truth Redux [4] 1";
+mes "General Egnigem Cenia Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makekurt,"Back out",exitkurt;
+
+makekurt:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gokurt,"No.",exitkurt;
+
+gokurt:
+next;
+if (isequipped(20047) == 1){
+if (countitem(4352) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4352,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20065,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Alice's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20047) > 0 && countitem(4352) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20047,1;
+delitem 4352,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20065,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Alice's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitkurt:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+jekatar:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "HIT +150, Flee +15, ATK +10%, Grimtooth dmg +35%, Sonic Blow and Soul Breaker dmg +75%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Evil Dog Gloves [4] 1";
+mes "Osiris Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makejekatar,"Back out",exitjekatar;
+
+makejekatar:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gojekatar,"No.",exitjekatar;
+
+gojekatar:
+next;
+if (isequipped(20049) == 1){
+if (countitem(4144) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4144,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20066,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Erik's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20049) > 0 && countitem(4144) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20049,1;
+delitem 4144,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20066,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Erik's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitjekatar:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+kamal:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +10%, MATK, Cart Termination and Acid Demonstration dmg +15%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Barbaro Axe II [4] 1";
+mes "Baphomet Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makekamal,"Back out",exitkamal;
+
+makekamal:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gokamal,"No.",exitkamal;
+
+gokamal:
+next;
+if (isequipped(20051) == 1){
+if (countitem(4147) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4147,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20067,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Comet's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20051) > 0 && countitem(4147) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20051,1;
+delitem 4147,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20067,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Comet's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitkamal:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+astrea:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "ATK +10%, Long ranged physical attack +30% and Desperado dmg +75%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Silver Horn - Beta Trident [4] 1";
+mes "Lord of the Dead Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makeastrea,"Back out",exitastrea;
+
+makeastrea:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goastrea,"No.",exitastrea;
+
+goastrea:
+next;
+if (isequipped(20053) == 1){
+if (countitem(4276) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4276,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20068,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Astrea's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20053) > 0 && countitem(4276) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20053,1;
+delitem 4276,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20068,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Astrea's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitastrea:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+honest:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +15, Long ranged physical attack +30% and Arrow vulcan dmg +75%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Lasso of Truth II [4] 1";
+mes "Lady Tanee Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makehonest,"Back out",exithonest;
+
+makehonest:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gohonest,"No.",exithonest;
+
+gohonest:
+next;
+if (isequipped(20055) == 1){
+if (countitem(4376) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4376,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20069,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Honest's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20055) > 0 && countitem(4376) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20055,1;
+delitem 4376,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20069,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Honest's Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exithonest:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+jonas:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Flee +15, Long ranged physical attack +30% and Arrow vulcan dmg +75%.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Lindsey Stirling II [4] 1";
+mes "Vesper Card 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makejonas,"Back out",exitjonas;
+
+makejonas:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gojonas,"No.",exitjonas;
+
+gojonas:
+next;
+if (isequipped(20057) == 1){
+if (countitem(4374) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_R;
+delitem 4374,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20070,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Jonas' Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(20057) > 0 && countitem(4374) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20057,1;
+delitem 4374,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20070,1;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+announce ""+strcharinfo(0)+"  has acquired Jonas' Soul Weapon!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitjonas:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitsoulw:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+soula:
+next;
+menu "Veronica's Tears",titavee,"Mabel's Heart",mably,"Obligaus' Misery",bayag,"Cancel",exitsoula;
+
+titavee:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "STR, DEX, VIT +10.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Megingjard EX [1] 1";
+mes "Brisingamen EX [1] 1";
+mes "Divine Incense [1] 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",maketitavee,"Back out",exittitavee;
+
+maketitavee:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gotitavee,"No.",exittitavee;
+
+gotitavee:
+next;
+if (countitem(20071) > 0 && countitem(20073) > 0 && countitem(20075) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20071,1;
+delitem 20073,1;
+delitem 20075,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20077,1;
+if (achievementexists(240023) == 0){
+achievementcomplete(240023);
+}
+announce ""+strcharinfo(0)+"  has acquired Veronica's Soul Accessory!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exittitavee:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+mably:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "INT, DEX, VIT +10.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Ring of Solomon [1] 1";
+mes "Brisingamen EX [1] 1";
+mes "Divine Incense [1] 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makemably,"Back out",exitmably;
+
+makemably:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gomably,"No.",exitmably;
+
+gomably:
+next;
+if (countitem(20074) > 0 && countitem(20073) > 0 && countitem(20075) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20074,1;
+delitem 20073,1;
+delitem 20075,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20077,1;
+if (achievementexists(240023) == 0){
+achievementcomplete(240023);
+}
+announce ""+strcharinfo(0)+"  has acquired Mabel's Soul Accessory!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitmably:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+bayag:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "AGI, DEX, LUK +10.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "Ah, splendid choice.";
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Freya's Circlet EX [1] 1";
+mes "Brisingamen EX [1] 1";
+mes "Curonne's Treasure [1] 1";
+mes "Sauro II Al Crysta 1";
+mes "Wrath of Valkyrie 1";
+mes "Freya's Jewel 1";
+next;
+menu "Offer Sacrifice",makebayag,"Back out",exitbayag;
+
+makebayag:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gobayag,"No.",exitbayag;
+
+gobayag:
+next;
+if (countitem(20072) > 0 && countitem(20076) > 0 && countitem(20075) > 0 && countitem(5317) > 0 && countitem(7078) > 0 && countitem(7073) > 0){
+mes "[Chronos, Fallen God of Time]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20072,1;
+delitem 20076,1;
+delitem 20075,1;
+delitem 5317,1;
+delitem 7078,1;
+delitem 7073,1;
+getitem 20077,1;
+if (achievementexists(240023) == 0){
+achievementcomplete(240023);
+}
+announce ""+strcharinfo(0)+"  has acquired Obligaus' Soul Accessory!","0x33FF66";
+end;
+}
+else {
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitbayag:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitsoula:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+
+canceltier:
+next;
+mes "[Chronos, Fallen God of Time]";
+mes "That's too bad.";
+close;
+end;
+}

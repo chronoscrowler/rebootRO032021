@@ -1,0 +1,635 @@
+/*Daily Quests*/
+prontera,156,196,3	script	Daily Quest NPC	475,{
+mes "Your Daily Quests are being prepared.";
+next;
+if (gettime(5) != DQTimer){
+set DailyQuest,0;
+set DailyQType,rand(1,5);
+}
+if (DailyQuest == 0){
+mes "Select a Daily Quest";
+menu "Normal",normalq,"Hard",hardq;
+}
+else if (DailyQuest == 1 && DailyQType == 1){
+if (countitem(969) < 100){
+mes "Make sure you have 100 Gold before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(969) > 99){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+delitem 969,100;
+if (.@itemrew == 1){
+getitem 671,10;
+}
+else if (.@itemrew == 2){
+getitem 674,5;
+}
+else if (.@itemrew == 3){
+getitem 543,1;
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 1 && DailyQType == 2){
+if (countitem(4001) < 50){
+mes "Make sure you have 50 Poring Cards before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(4001) > 49){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+delitem 4001,50;
+if (.@itemrew == 1){
+getitem 671,10;
+}
+else if (.@itemrew == 2){
+getitem 674,5;
+}
+else if (.@itemrew == 3){
+getitem 543,1;
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 1 && DailyQType == 3){
+if (countitem(7291) == 0){
+mes "Make sure you have 1 Agate before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(7291) > 0){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+delitem 7291,1;
+if (.@itemrew == 1){
+getitem 671,10;
+}
+else if (.@itemrew == 2){
+getitem 674,5;
+}
+else if (.@itemrew == 3){
+getitem 543,1;
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 1 && DailyQType == 4){
+if (countitem(914) < 100){
+mes "Make sure you have 100 Fluff before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(914) > 99){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+delitem 914,100;
+if (.@itemrew == 1){
+getitem 671,10;
+}
+else if (.@itemrew == 2){
+getitem 674,5;
+}
+else if (.@itemrew == 3){
+getitem 543,1;
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 1 && DailyQType == 5){
+if (countitem(931) < 100){
+mes "Make sure you have 100 Orcish Fang before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(931) > 99){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+delitem 931,100;
+if (.@itemrew == 1){
+getitem 671,10;
+}
+else if (.@itemrew == 2){
+getitem 674,5;
+}
+else if (.@itemrew == 3){
+getitem 543,1;
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 2 && DailyQType == 1){
+if (countitem(543) < 50){
+mes "Make sure you have 50 Sauro II Crystas before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(543) > 49){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@dqr);
+delitem 543,50;
+if (.@dqr == 1){
+if (.@itemrew == 1){
+getitem 40421,5;
+getitem 20264,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40421,7;
+getitem 20264,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40421,10;
+getitem 20264,3;
+getitem 20265,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 2){
+if (.@itemrew == 1){
+getitem 40437,5;
+getitem 20269,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40437,7;
+getitem 20269,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40437,10;
+getitem 20269,3;
+getitem 20270,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 3){
+if (.@itemrew == 1){
+getitem 39134,5;
+getitem 6905,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 39134,7;
+getitem 6905,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 39134,10;
+getitem 6905,5;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 0){
+if (.@itemrew == 1){
+getitem 13517,10;
+getitem 542,3;
+}
+else if (.@itemrew == 2){
+getitem 13517,15;
+getitem 542,4;
+}
+else if (.@itemrew == 3){
+getitem 13517,20;
+getitem 542,5;
+}
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 2 && DailyQType == 2){
+if (countitem(7289) < 25){
+mes "Make sure you have 25 Peridots before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(7289) > 24){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@dqr);
+delitem 7289,25;
+if (.@dqr == 1){
+if (.@itemrew == 1){
+getitem 40421,5;
+getitem 20264,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40421,7;
+getitem 20264,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40421,10;
+getitem 20264,3;
+getitem 20265,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 2){
+if (.@itemrew == 1){
+getitem 40437,5;
+getitem 20269,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40437,7;
+getitem 20269,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40437,10;
+getitem 20269,3;
+getitem 20270,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 3){
+if (.@itemrew == 1){
+getitem 39134,5;
+getitem 6905,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 39134,7;
+getitem 6905,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 39134,10;
+getitem 6905,5;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 0){
+if (.@itemrew == 1){
+getitem 13517,10;
+getitem 542,3;
+}
+else if (.@itemrew == 2){
+getitem 13517,15;
+getitem 542,4;
+}
+else if (.@itemrew == 3){
+getitem 13517,20;
+getitem 542,5;
+}
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 2 && DailyQType == 3){
+if (countitem(7510) < 5){
+mes "Make sure you have 5 Valhalla's Flowers before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(7510) > 4){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@dqr);
+delitem 7510,5;
+if (.@dqr == 1){
+if (.@itemrew == 1){
+getitem 40421,5;
+getitem 20264,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40421,7;
+getitem 20264,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40421,10;
+getitem 20264,3;
+getitem 20265,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 2){
+if (.@itemrew == 1){
+getitem 40437,5;
+getitem 20269,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40437,7;
+getitem 20269,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40437,10;
+getitem 20269,3;
+getitem 20270,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 3){
+if (.@itemrew == 1){
+getitem 39134,5;
+getitem 6905,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 39134,7;
+getitem 6905,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 39134,10;
+getitem 6905,5;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 0){
+if (.@itemrew == 1){
+getitem 13517,10;
+getitem 542,3;
+}
+else if (.@itemrew == 2){
+getitem 13517,15;
+getitem 542,4;
+}
+else if (.@itemrew == 3){
+getitem 13517,20;
+getitem 542,5;
+}
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 2 && DailyQType == 4){
+if (countitem(720) < 50){
+mes "Make sure you have 50 Aquamarine before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(720) > 49){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@dqr);
+delitem 720,50;
+if (.@dqr == 1){
+if (.@itemrew == 1){
+getitem 40421,5;
+getitem 20264,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40421,7;
+getitem 20264,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40421,10;
+getitem 20264,3;
+getitem 20265,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 2){
+if (.@itemrew == 1){
+getitem 40437,5;
+getitem 20269,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40437,7;
+getitem 20269,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40437,10;
+getitem 20269,3;
+getitem 20270,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 3){
+if (.@itemrew == 1){
+getitem 39134,5;
+getitem 6905,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 39134,7;
+getitem 6905,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 39134,10;
+getitem 6905,5;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 0){
+if (.@itemrew == 1){
+getitem 13517,10;
+getitem 542,3;
+}
+else if (.@itemrew == 2){
+getitem 13517,15;
+getitem 542,4;
+}
+else if (.@itemrew == 3){
+getitem 13517,20;
+getitem 542,5;
+}
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 2 && DailyQType == 5){
+if (countitem(4131) < 1){
+mes "Make sure you have 1 Moonlight Flower Card before talking to the NPC again.";
+close;
+end;
+}
+else if (countitem(4131) > 0){
+mes "You have completed your daily quest.";
+close2;
+set .@itemrew,rand(1,3);
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@dqr);
+delitem 4131,1;
+if (.@dqr == 1){
+if (.@itemrew == 1){
+getitem 40421,5;
+getitem 20264,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40421,7;
+getitem 20264,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40421,10;
+getitem 20264,3;
+getitem 20265,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 2){
+if (.@itemrew == 1){
+getitem 40437,5;
+getitem 20269,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 40437,7;
+getitem 20269,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 40437,10;
+getitem 20269,3;
+getitem 20270,1;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 3){
+if (.@itemrew == 1){
+getitem 39134,5;
+getitem 6905,1;
+getitem 13517,5;
+}
+else if (.@itemrew == 2){
+getitem 39134,7;
+getitem 6905,2;
+getitem 13517,7;
+}
+else if (.@itemrew == 3){
+getitem 39134,10;
+getitem 6905,5;
+getitem 13517,10;
+}
+}
+else if (.@dqr == 0){
+if (.@itemrew == 1){
+getitem 13517,10;
+getitem 542,3;
+}
+else if (.@itemrew == 2){
+getitem 13517,15;
+getitem 542,4;
+}
+else if (.@itemrew == 3){
+getitem 13517,20;
+getitem 542,5;
+}
+}
+set DailyQuest,3;
+end;
+}
+}
+else if (DailyQuest == 3){
+mes "You have finished your Daily Quest.";
+next;
+mes "Come back when the day resets.";
+close;
+end;
+}
+
+normalq:
+next;
+if (DailyQType == 1){
+mes "Obtain 100 Gold.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,1;
+end;
+}
+else if (DailyQType == 2){
+mes "Obtain 50 Poring Cards.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,1;
+end;
+}
+else if (DailyQType == 3){
+mes "Obtain 1 Agate.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,1;
+end;
+}
+else if (DailyQType == 4){
+mes "Obtain 100 Fluff.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,1;
+end;
+}
+else if (DailyQType == 5){
+mes "Obtain 100 Orcish Fang.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,1;
+end;
+}
+
+hardq:
+next;
+if (DailyQType == 1){
+mes "Obtain 50 Sauro II Crystas.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,2;
+end;
+}
+else if (DailyQType == 2){
+mes "Obtain 25 Peridots .";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,2;
+end;
+}
+else if (DailyQType == 3){
+mes "Obtain 5 Valhalla Flowers.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,2;
+end;
+}
+else if (DailyQType == 4){
+mes "Obtain 50 Aquamarine.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,2;
+end;
+}
+else if (DailyQType == 5){
+mes "Obtain 1 Moonlight Flower Card.";
+close2;
+set DQTimer,gettime(5);
+set DailyQuest,2;
+end;
+}
+
+OnClock0000:
+announce "The daily quest period has ended. Visit the Daily Quest NPC in the center of Prontera to check for a new daily quest.",bc_all;
+end;
+}

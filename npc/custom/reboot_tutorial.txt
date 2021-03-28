@@ -1,0 +1,410 @@
+1@ecl,167,23,5	script	Wounded Best Friend	687,3,3,{
+if (getcharid(3) <= 2000123){
+if (#first100 < 1){
+getitem 16250,1;
+getitem 20080,1;
+getitem 20081,1;
+getitem 20082,1;
+set #first100,1;
+cutin "bu_du4",2;
+mes "[Wounded Best Friend]";
+mes "Buddy? Buddy? Are you alright?";
+menu "Wha--?",bfq1,"Uurghh...",bfq2;
+}
+else {
+cutin "bu_du4",2;
+mes "[Wounded Best Friend]";
+mes "Buddy? Buddy? Are you alright?";
+menu "Wha--?",bfq1,"Uurghh...",bfq2;
+}
+}
+else {
+cutin "bu_du4",2;
+mes "[Wounded Best Friend]";
+mes "Buddy? Buddy? Are you alright?";
+menu "Wha--?",bfq1,"Uurghh...",bfq2;
+}
+
+bfq1:
+next;
+mes "[Wounded Best Friend]";
+mes "Thank goodness, you're alive.";
+mes "I thought I'd lost you to the anomalies.";
+next;
+goto bfq3;
+end;
+
+bfq2:
+next;
+mes "[Wounded Best Friend]";
+mes "Easy, buddy... don't force yourself up just yet.";
+mes "Just lean on the bed rails for a bit.";
+next;
+goto bfq3;
+end;
+
+bfq3:
+menu "Where am I?",tutor,"Get up anyway",exit1;
+
+tutor:
+next;
+mes "[Wounded Best Friend]";
+mes "We're in the medical bay of the Three Empire Alliance in Eclage.";
+mes "Do you remember anything while we were in battle?";
+next;
+mes "You clutch your head in pain.";
+next;
+mes "[Wounded Best Friend]";
+mes "Buddy?";
+next;
+mes "[Wounded Best Friend]";
+mes "Why won't you rest for a bit here, try to regain as much strength as possible before you head out again?";
+next;
+mes "[Wounded Best Friend]";
+mes "You can talk with the others here, just to gather any info on what anomaly is changing the Past up.";
+next;
+mes "[Wounded Best Friend]";
+mes "Once you're done with gathering intel, I hope you don't forget.";
+mes "Just remember to shout Reboot! once you're near the portal to the Past.";
+close2;
+cutin "",255;
+set tutitle,1;
+warp "1@ecl",166,31;
+end;
+
+exit1:
+next;
+mes "[Wounded Best Friend]";
+mes "Are you sure, buddy?";
+mes "I'm not gonna stop you, then.";
+next;
+mes "[Wounded Best Friend]";
+mes "Just remember to shout Reboot! once you're near the portal to the Past.";
+close2;
+cutin "",255;
+Zeny += 500000;
+savepoint "prontera",156,191;
+warp "prontera",156,191;
+end;
+}
+
+1@ecl,167,31,5	script	Wounded Reboot Patrol	699,3,3,{
+mes "You spot a wounded heavily-armored ally.";
+next;
+mes "[Wounded Reboot Patrol]";
+mes "We need to hurry up and recover!";
+next;
+mes "[Wounded Reboot Patrol]";
+mes "Our allies in the Reboot Patrol of the Three Empire Alliance need our help!";
+next;
+mes "[Wounded Reboot Patrol]";
+mes "If you're ready to head out, then take some of my resources.";
+mes "It seems that I still need some more time, so this is better off with you.";
+close2;
+if (freezen == 1){
+warp "1@ecl",153,14;
+end;
+}
+else {
+Zeny += 5000000;
+warp "1@ecl",153,14;
+set freezen,1;
+if (tutitle == 1){
+set tutitle,2;
+}
+end;
+}
+}
+
+1@ecl,155,14,1	script	Reboot Patrol Mage	585,3,3,{
+mes "[Reboot Patrol Mage]";
+mes "Do you want to know about our magic-casting allies?";
+menu "Yes.",magetutor,"No.",nomagetutor;
+
+magetutor:
+next;
+mes "[Reboot Patrol Mage]";
+mes "Our ^234987Mages^000000 can either be area elemental magic casters (^902785Wizards and High Wizards^000000), or heavy elemental magic enchanters (^655360Sages and Scholars^000000) depending on their specialization.";
+next;
+if (tutitle == 2){
+set tutitle,3;
+}
+warp "1@ecl",145,14;
+end;
+
+nomagetutor:
+warp "1@ecl",145,14;
+end;
+}
+
+1@ecl,144,14,1	script	Reboot Patrol Ranger	694,3,3,{
+mes "[Reboot Patrol Ranger]";
+mes "Do you want to know about our rangers?";
+menu "Yes",archtutor,"No",noarchtutor;
+
+archtutor:
+next;
+mes "[Reboot Patrol Ranger]";
+mes "Our ^333333Archers^000000 are very versatile with bows (^222222Hunters and Snipers^000000), but sometimes their hands get too cramped and they resort to supporting the backline or directly engaging the enemy instead. (^111111Bards, Dancers, Clowns and Gypsies^000000)";
+next;
+if (tutitle == 3){
+set tutitle,4;
+}
+warp "1@ecl",162,14;
+end;
+
+noarchtutor:
+warp "1@ecl",162,14;
+end;
+}
+
+1@ecl,161,14,1	script	Reboot Patrol Soldier	584,3,3,{
+mes "[Reboot Patrol Soldier]";
+mes "Which of our allies do you wish to know about?";
+next;
+goto soldmenu;
+
+soldmenu:
+menu "Swordsmen",swordtutor,"Acolytes",acotutor,"Thieves",thftutor,"Merchants",merchtutor,"Not Interested",nomoretutor;
+
+swordtutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Our ^123660Swordsmen^000000 can either hone their skills further and be ^556655Knights (and eventually Lord Knights)^000000, or devote themselves to a noble cause and be ^666666Crusaders (and eventually Paladins)^000000.";
+next;
+if (tutitle == 4){
+set tutitle,5;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",swordyes,"No",swordno;
+
+swordyes:
+next;
+goto soldmenu;
+
+swordno:
+goto nomoretutor;
+
+acotutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Our ^777777Acolytes^000000 can either deepen their beliefs (^123654Priests and High Priests^000000) or take their faith upon themselves and purge evil (^678123Monks and Champions^000000).";
+next;
+if (tutitle == 4){
+set tutitle,5;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",acoyes,"No",acono;
+
+acoyes:
+next;
+goto soldmenu;
+
+acono:
+goto nomoretutor;
+
+thftutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Former ^FF0000Thieves^000000 can tap into their killer instincts from their criminal days (^0000FFAssassins and Assassin Cross^000000), or gang up and control the area like their old groups (^012345Rogues and Stalkers^000000).";
+next;
+if (tutitle == 4){
+set tutitle,5;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",thfyes,"No",thfno;
+
+thfyes:
+next;
+goto soldmenu;
+
+thfno:
+goto nomoretutor;
+
+merchtutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "^987654Merchant^000000 volunteers can either invest heavily on the material world and improve the quality of weaponry and armors, relying heavily on their physical wealth and well-being (^773322Black and Whitesmiths^000000), or invest in the metaphysical, and enhance the quality of life of every single ally, relying on their wits and creativity (^62B321Alchemist and Creator^000000).";
+next;
+if (tutitle == 4){
+set tutitle,5;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",merchyes,"No",merchno;
+
+merchyes:
+next;
+goto soldmenu;
+
+merchno:
+goto nomoretutor;
+
+nomoretutor:
+warp "1@ecl",147,31;
+end;
+}
+
+1@ecl,148,34,7	script	Patrol Specialist	584,3,3,{
+mes "[Reboot Patrol Specialist]";
+mes "Which of our specialists do you want to know about?";
+next;
+goto specmenu;
+
+specmenu:
+menu "Super Novice",sntutor,"Ninjas",nintutor,"Gunslingers",guntutor,"Martial Artists",taetutor,"None of them",exitspecial;
+
+sntutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Super Novices can learn almost every single skillset of our allied forces, but at the cost of their own well-being.";
+next;
+if (tutitle == 5){
+set tutitle,6;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",snyes,"No",snno;
+
+snyes:
+next;
+goto specmenu;
+
+snno:
+goto exitspecial;
+
+nintutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Ninjas are unique in that they can either use their life force or their magic power to help out our forces.";
+next;
+if (tutitle == 5){
+set tutitle,6;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",ninyes,"No",ninno;
+
+ninyes:
+next;
+goto specmenu;
+
+ninno:
+goto exitspecial;
+
+guntutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Gunslingers are different from our rangers simply because they utilize a gun rather than a bow, musical instruments, or whips, effectively changing their skillsets drastically and focusing their act on gunplay.";
+next;
+if (tutitle == 5){
+set tutitle,6;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",gunyes,"No",gunno;
+
+gunyes:
+next;
+goto specmenu;
+
+gunno:
+goto exitspecial;
+
+taetutor:
+next;
+mes "[Reboot Patrol Soldier]";
+mes "Martial Artists learn the very basics of TaeKwonDo, but are given the option to augment their powers either with the power of the cosmos (Star Gladiator), or our very connections with our allies (Soul Linker).";
+next;
+if (tutitle == 5){
+set tutitle,6;
+}
+mes "[Reboot Patrol Soldier]";
+mes "Do you wish to know more?";
+menu "Yes",taeyes,"No",taeno;
+
+taeyes:
+next;
+goto specmenu;
+
+taeno:
+goto exitspecial;
+
+exitspecial:
+warp "1@ecl",157,38;
+end;
+}
+
+1@ecl,44,47,5	script	Field Commander	465,5,5,{
+cutin "3rd_wl_queen06",2;
+mes "[Reboot Patrol Field Commander]";
+mes "Finally, some backup! Are you ready to jump back into the Past?";
+menu "Yes",dotstart,"No",noob;
+
+dotstart:
+next;
+cutin "3rd_wl_queen04",2;
+mes "[Reboot Patrol Field Commander]";
+mes "Very well, then. Don't forget to shout REBOOT to allow you access through the magic time portal.";
+close2;
+if (tutitle == 6){
+set tutitle,7;
+}
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+cutin "",255;
+end;
+
+noob:
+next;
+cutin "3rd_wl_queen02",2;
+mes "[Reboot Patrol Field Commander]";
+mes "Then what the hell are you doing outside?";
+mes "Get back in the medical bay and recover!";
+close2;
+cutin "",255;
+warp "1@ecl",167,23;
+end;
+}
+
+1@ecl,51,70,1	script	Hole of Reboot	723,10,10,{
+mes "You steel yourself as you once again wander into the past.";
+next;
+mes "[  "+strcharinfo(0)+"  ]";
+mes "REBOOT!";
+next;
+mes "Creating new instance...";
+mes ".......";
+mes "Success, warp initiated";
+close2;
+if (tutitle == 7){
+if (achievementexists(240067) == 0){
+achievementcomplete(240067);
+}
+}
+announce "Welcome to rebootRO, "+strcharinfo(0)+"! Enjoy your stay!",bc_all;
+getitem 608,10;
+getitem 9001,1;
+getitem 643,2;
+getitem 5035,1;
+getitem 12263,5;
+getitem 19634,1;
+savepoint "new_1-1",50,112;
+warp "new_1-1",50,112;
+end;
+}

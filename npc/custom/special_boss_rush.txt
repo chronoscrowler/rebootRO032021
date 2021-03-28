@@ -1,0 +1,52 @@
+prontera,165,163,3	script	Special Boss Rush	4_f_hunter_evil,{
+mes "Select a room.";
+menu "Phi",phi,"Upsilon",upsilon,"Iota",iota,"Lambda",lambda,"Cancel",exit;
+
+phi:
+next;
+mes "Get ready...";
+close2;
+warp "bra_dun01",194,44;
+end;
+
+upsilon:
+next;
+mes "Get ready...";
+close2;
+warp "bra_dun02",145,154;
+end;
+
+iota:
+next;
+mes "Get ready...";
+close2;
+warp "dic_dun02",121,113;
+end;
+
+lambda:
+next;
+mes "Get ready...";
+close2;
+warp "dic_dun03",121,113;
+end;
+
+exit:
+close;
+end;
+}
+
+bra_dun01,201,45,3	script	Exit Phi	768,{
+warp "prontera",156,191;
+}
+
+bra_dun02,150,151,3	script	Exit Upsilon	768,{
+warp "prontera",156,191;
+}
+
+dic_dun02,125,111,3	script	Exit Iota	768,{
+warp "prontera",156,191;
+}
+
+dic_dun03,125,111,3	script	Exit Lambda	768,{
+warp "prontera",156,191;
+}

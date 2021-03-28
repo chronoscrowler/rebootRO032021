@@ -1,0 +1,16 @@
+jawaii,203,290,3	script	Test#facins	420,{
+if ($@facindictest != getcharid(5)){
+mes "No.";
+}
+else if ($@facindictest != getcharid(5)){
+mes "Yes.";
+}
+end;
+
+OnInit:
+OnClock2300:
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+ getguildmasterid(getcastledata("prtg_cas03",CD_GUILD_ID)) +"'", .@testfac2);
+setarray .@testfaca2[0],.@testfac2;
+set $@facindictest,.@testfaca2[0];
+end;
+}

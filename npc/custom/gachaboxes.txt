@@ -1,0 +1,901 @@
+function	script	RebootGacha	{
+setarray .BoxItems1[0],4451,4403,4441,4408,4399,4386,4430,4407,4359,4357,4361,4363,4365,4367;
+setarray .BoxItems2[0],5054,2361,2362,2363,2632,2633,2750,2792,2793,20089;
+setarray .BoxItems3[0],20002,20003,20004;
+
+set .@gamble,rand(1,100);
+
+if ((.@gamble > 1) && (.@gamble < 11)){
+set .Random, getarraysize( .BoxItems1 );
+getitem .BoxItems1[ rand( 0, .Random ) ], 1;
+end;
+}
+else if ((.@gamble > 10) && (.@gamble < 31)){
+set .Random, getarraysize( .BoxItems2 );
+getitem .BoxItems2[ rand( 0, .Random ) ], 1;
+end;
+}
+else if (.@gamble > 30){
+set .Random, getarraysize( .BoxItems3 );
+getitem .BoxItems3[ rand( 0, .Random ) ], 1;
+end;
+}
+end;
+}
+
+function	script	RebootRefine	{
+setarray .BoxItems1[0],20009,20013,20017,20021,20025,20029,20033;
+setarray .BoxItems2[0],20006,20010,20014,20018,20022,20026,20030;
+setarray .BoxItems3[0],20007,20011,20015,20019,20023,20027,20031;
+setarray .BoxItems4[0],20008,20012,20016,20020,20024,20028,20032;
+setarray .BoxItems5[0],20002,20003,20004,13889,13890;
+
+set .@gamble,rand(1,100);
+
+if (.@gamble == 1){
+set .Random, getarraysize( .BoxItems1 );
+getitem .BoxItems1[ rand( 0, .Random ) ], 1;
+end;
+}
+else if ((.@gamble > 20) && (.@gamble < 31)){
+set .Random, getarraysize( .BoxItems2 );
+getitem .BoxItems2[ rand( 0, .Random ) ], 1;
+end;
+}
+else if ((.@gamble > 10) && (.@gamble < 21)){
+set .Random, getarraysize( .BoxItems3 );
+getitem .BoxItems3[ rand( 0, .Random ) ], 1;
+end;
+}
+else if ((.@gamble > 1) && (.@gamble < 11)){
+set .Random, getarraysize( .BoxItems4 );
+getitem .BoxItems4[ rand( 0, .Random ) ], 1;
+end;
+}
+else if (.@gamble > 30){
+set .Random, getarraysize( .BoxItems5 );
+getitem .BoxItems5[ rand( 0, .Random ) ], 1;
+end;
+}
+end;
+}
+
+function	script	RebootWoE	{
+setarray .BoxItems[0],7073,7074,7075,7076,7078,7079,7080,7081,7082,7083,7084,7085,7086,7087,7088,7089,7090,7091,7092;
+set .Random, getarraysize( .BoxItems );
+getitem .BoxItems[ rand( 0, .Random ) ], 1;
+end;
+}
+
+function	script	RandTier1	{
+setarray .BoxItems[0],20034,20036,20038,20040,20042,20044,20046,20048,20050,20052,20054,20056;
+set .Random, getarraysize( .BoxItems );
+getitem .BoxItems[ rand( 0, .Random ) ], 1;
+end;
+}
+
+function	script	Rand10Stat	{
+setarray .BoxItems[0],20071,20072,20073,20074,20075,20076;
+set .Random, getarraysize( .BoxItems );
+getitem .BoxItems[ rand( 0, .Random ) ], 1;
+end;
+}
+
+function	script	Rand7Up	{
+setarray .BoxItems[0],20006,20010,20014,20018,20022,20026,20030;
+set .Random, getarraysize( .BoxItems );
+getitem .BoxItems[ rand( 0, .Random ) ], 1;
+end;
+}
+
+function	script	CursedCard	{
+setarray .BoxItems[0],4236,4054,4241,4425,4372,4147,4145,4174,4142,4134,4137,4123,4330,4324,4047,4128,4263,4403,4318,4419,4376,4276,4146,4198,4132,4131,4143,4135,4144,4148,4121,4342,4302,4305,4374,4352;
+set .Random, getarraysize( .BoxItems );
+getitem .BoxItems[ rand( 0, .Random ) ], 1;
+end;
+}
+
+function	script	RebootFactionWar	{
+if (getcharid(5) == 1){
+getitem 40020,100;
+getitem 13517,300;
+getitem 20002,5;
+getitem 20003,10;
+getitem 5317,5;
+getitem 7073,2;
+getitem 7078,2;
+getitem 16778,5;
+end;
+}
+else if (getcharid(5) == 2){
+getitem 40020,100;
+getitem 13517,300;
+getitem 20002,5;
+getitem 20003,10;
+getitem 5317,5;
+getitem 7073,2;
+getitem 7078,2;
+getitem 16778,5;
+end;
+}
+else if (getcharid(5) == 3){
+getitem 40040,100;
+getitem 13517,300;
+getitem 20002,5;
+getitem 20003,10;
+getitem 5317,5;
+getitem 7073,2;
+getitem 7078,2;
+getitem 16778,5;
+end;
+}
+}
+
+function	script	DiabolusSerum	{
+if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Helm",vhelm,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Manteau",vmanteau,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Armor",varmor,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_ARMOR) == 2357){
+menu "Valkyrie Helm",vhelm,"Valkyrie Armor",varmor;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_GARMENT) == 2524){
+menu "Valkyrie Helm",vhelm,"Valkyrie Manteau",vmanteau;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Helm",vhelm,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Helm",vhelm,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_GARMENT) == 2524){
+menu "Valkyrie Armor",varmor,"Valkyrie Manteau",vmanteau;
+}
+else if (getequipid(EQI_ARMOR) == 2357 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Armor",varmor,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Manteau",vmanteau,"Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_GARMENT) == 2524 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Manteau",vmanteau,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_SHOES) == 2421 && getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Shoes",vshoes,"Valkyrie Shield",vshield;
+}
+else if (getequipid(EQI_HEAD_TOP) == 5171){
+menu "Valkyrie Helm",vhelm;
+}
+else if (getequipid(EQI_ARMOR) == 2357){
+menu "Valkyrie Armor",varmor;
+}
+else if (getequipid(EQI_GARMENT) == 2524){
+menu "Valkyrie Manteau",vmanteau;
+}
+else if (getequipid(EQI_SHOES) == 2421){
+menu "Valkyrie Shoes",vshoes;
+}
+else if (getequipid(EQI_HAND_L) == 2115){
+menu "Valkyrie Shield",vshield;
+}
+else {
+dispbottom "There are no Valkyrie Set Items to Upgrade.";
+getitem 40210,1;
+end;
+}
+
+vhelm:
+next;
+mes "Helm Upgraded.";
+close2;
+set .@vcard,getequipcardid(EQI_HEAD_TOP,0);
+set .@vref,getequiprefinerycnt(EQI_HEAD_TOP);
+delequip EQI_HEAD_TOP;
+getitem2 5808,1,1,.@vref,0,.@vcard,0,0,0;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+
+varmor:
+next;
+mes "Select an upgrade method.";
+menu "Upgrade into Armor",varmor1,"Upgrade into Robe",varmor2;
+
+varmor1:
+close2;
+set .@vcard,getequipcardid(EQI_ARMOR,0);
+set .@vref,getequiprefinerycnt(EQI_ARMOR);
+set .@vcrysta,getequipcardid(EQI_ARMOR,3);
+delequip EQI_ARMOR;
+getitem2 2375,1,1,.@vref,0,.@vcard,0,0,.@vcrysta;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+
+varmor2:
+close2;
+set .@vcard,getequipcardid(EQI_ARMOR,0);
+set .@vref,getequiprefinerycnt(EQI_ARMOR);
+set .@vcrysta,getequipcardid(EQI_ARMOR,3);
+delequip EQI_ARMOR;
+getitem2 2374,1,1,.@vref,0,.@vcard,0,0,.@vcrysta;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+
+vmanteau:
+next;
+mes "Manteau Upgraded.";
+close2;
+set .@vcard,getequipcardid(EQI_GARMENT,0);
+set .@vref,getequiprefinerycnt(EQI_GARMENT);
+delequip EQI_GARMENT;
+getitem2 2537,1,1,.@vref,0,.@vcard,0,0,0;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+
+vshoes:
+next;
+mes "Boots Upgraded.";
+close2;
+set .@vcard,getequipcardid(EQI_SHOES,0);
+set .@vref,getequiprefinerycnt(EQI_SHOES);
+delequip EQI_SHOES;
+getitem2 2433,1,1,.@vref,0,.@vcard,0,0,0;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+
+vshield:
+next;
+mes "Shield Upgraded.";
+close2;
+set .@vcard,getequipcardid(EQI_HAND_L,0);
+set .@vref,getequiprefinerycnt(EQI_HAND_L);
+delequip EQI_HAND_L;
+getitem2 20058,1,1,.@vref,0,.@vcard,0,0,0;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+end;
+}
+
+function	script	AscendedSoul	{
+if (getequipisequiped(EQI_HAND_R) == 1){
+if (getequipid(EQI_HAND_R) == 20035){
+set .@tiertwo,20035;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20059;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20037){
+set .@tiertwo,20037;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20060;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20039){
+set .@tiertwo,20039;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20061;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20041){
+set .@tiertwo,20041;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20062;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20043){
+set .@tiertwo,20043;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20063;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20045){
+set .@tiertwo,20045;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20064;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20047){
+set .@tiertwo,20047;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20065;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20049){
+set .@tiertwo,20049;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20066;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20051){
+set .@tiertwo,20051;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20067;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20053){
+set .@tiertwo,20053;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20068;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20055){
+set .@tiertwo,20055;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20069;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else if (getequipid(EQI_HAND_R) == 20057){
+set .@tiertwo,20057;
+set .@tiertworef,getequiprefinerycnt(EQI_HAND_R);
+set .@tiertwocard1,getequipcardid(EQI_HAND_R,0);
+set .@tiertwocard2,getequipcardid(EQI_HAND_R,1);
+set .@tiertwocard3,getequipcardid(EQI_HAND_R,2);
+set .@tiertwocard4,getequipcardid(EQI_HAND_R,3);
+set .@soulw,20070;
+delequip EQI_HAND_R;
+getitem2 .@soulw,1,1,.@tiertworef,0,.@tiertwocard1,.@tiertwocard2,.@tiertwocard3,.@tiertwocard4;
+if (achievementexists(240022) == 0){
+achievementcomplete(240022);
+}
+end;
+}
+else {
+dispbottom "There are no Tier II Weapons to upgrade.";
+getitem 40211,1;
+end;
+}
+}
+else {
+dispbottom "Either there are no Tier II Weapons to upgrade, or the weapon you're trying to upgrade isn't in the right slot.";
+getitem 40211,1;
+end;
+}
+}
+
+
+function	script	MagiTourneyUp	{
+if (getequipid(EQI_ARMOR) == 15073||15074 && getequipid(EQI_HAND_L) == 2185||2186 && getequipid(EQI_ACC_R) == 2963||2964){
+menu "Armor",gefarm,"Shield",gefshield,"Accessory",gefacc;
+}
+else if (getequipid(EQI_ARMOR) == 15073||15074 && getequipid(EQI_ACC_R) == 2963||2964){
+menu "Armor",gefarm,"Accessory",gefacc;
+}
+else if (getequipid(EQI_ARMOR) == 15073||15074 && getequipid(EQI_HAND_L) == 2185||2186){
+menu "Armor",gefarm,"Shield",gefshield;
+}
+else if (getequipid(EQI_HAND_L) == 2185||2186 && getequipid(EQI_ACC_R) == 2963||2964){
+menu "Shield",gefshield,"Accessory",gefacc;
+}
+else if (getequipid(EQI_HAND_L) == 2185||2186){
+menu "Shield",gefshield;
+}
+else if (getequipid(EQI_ACC_R) == 2963||2964){
+menu "Accessory",gefacc;
+}
+else if (getequipid(EQI_ARMOR) == 15073||15074){
+menu "Armor",gefarm;
+}
+else {
+dispbottom "There are no Geffen Magic Tournament Equipment to upgrade.";
+getitem 40212,1;
+end;
+}
+
+gefarm:
+if (getequipid(EQI_ARMOR) == 15073){
+next;
+mes "Upgraded.";
+close2;
+set .@gefref,getequiprefinerycnt(EQI_ARMOR);
+set .@gefcard,getequipcardid(EQI_ARMOR,0);
+set .@gefcrys,getequipcardid(EQI_ARMOR,3);
+delequip EQI_ARMOR;
+getitem2 15146,1,1,.@gefref,0,.@gefcard,0,0,.@gefcrys;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else if (getequipid(EQI_ARMOR) == 15074){
+next;
+mes "Upgraded.";
+close2;
+set .@gefref,getequiprefinerycnt(EQI_ARMOR);
+set .@gefcard,getequipcardid(EQI_ARMOR,0);
+set .@gefcrys,getequipcardid(EQI_ARMOR,3);
+delequip EQI_ARMOR;
+getitem2 15177,1,1,.@gefref,0,.@gefcard,0,0,.@gefcrys;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else {
+dispbottom "There are no Geffen Magic Tournament Equipment to upgrade.";
+getitem 40212,1;
+end;
+}
+
+gefacc:
+if (getequipid(EQI_ACC_R) == 2963){
+next;
+mes "Upgraded.";
+close2;
+set .@gefcard,getequipcardid(EQI_ACC_R,0);
+delequip EQI_ACC_R;
+getitem2 40498,1,1,0,0,.@gefcard,0,0,0;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else if (getequipid(EQI_ACC_R) == 2964){
+next;
+mes "Upgraded.";
+close2;
+set .@gefcard,getequipcardid(EQI_ACC_R,0);
+delequip EQI_ACC_R;
+getitem2 40499,1,1,0,0,.@gefcard,0,0,0;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else {
+dispbottom "Please equip the Geffen Magic Tournament Accessory in the Right Accessory slot.";
+getitem 40212,1;
+end;
+}
+
+gefshield:
+if (getequipid(EQI_HAND_L) == 2185){
+next;
+mes "Upgraded.";
+close2;
+set .@gefcard,getequipcardid(EQI_HAND_L,0);
+set .@gefref,getequiprefinerycnt(EQI_HAND_L);
+delequip EQI_HAND_L;
+getitem2 28913,1,1,.@gefref,0,.@gefcard,0,0,0;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else if (getequipid(EQI_HAND_L) == 2186){
+next;
+mes "Upgraded.";
+close2;
+set .@gefcard,getequipcardid(EQI_HAND_L,0);
+set .@gefref,getequiprefinerycnt(EQI_HAND_L);
+delequip EQI_HAND_L;
+getitem2 28605,1,1,.@gefref,0,.@gefcard,0,0,0;
+if (achievementexists(240058) == 0){
+achievementcomplete(240058);
+}
+end;
+}
+else {
+dispbottom "There are no Geffen Magic Tournament Equipment to upgrade.";
+getitem 40212,1;
+end;
+}
+}
+
+function	script	FactionEndgameBox	{
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@fct);
+if (.@fct == 1){
+set .@fctchance,rand(1,18);
+if (.@fctchance == 1){
+getitem 40001,1;
+}
+else if (.@fctchance == 2){
+getitem 40002,1;
+}
+else if (.@fctchance == 3){
+getitem 40003,1;
+}
+else if (.@fctchance == 4){
+getitem 40004,1;
+}
+else if (.@fctchance == 5){
+getitem 40005,1;
+}
+else if (.@fctchance == 6){
+getitem 40006,1;
+}
+else if (.@fctchance == 7){
+getitem 40007,1;
+}
+else if (.@fctchance == 8){
+getitem 40008,1;
+}
+else if (.@fctchance == 9){
+getitem 40009,1;
+}
+else if (.@fctchance == 10){
+getitem 40010,1;
+}
+else if (.@fctchance == 11){
+getitem 40011,1;
+}
+else if (.@fctchance == 12){
+getitem 40012,1;
+}
+else if (.@fctchance == 13){
+getitem 40013,1;
+}
+else if (.@fctchance == 14){
+getitem 40014,1;
+}
+else if (.@fctchance == 15){
+getitem 40015,1;
+}
+else if (.@fctchance == 16){
+getitem 40016,1;
+}
+else if (.@fctchance == 17){
+getitem 40017,1;
+}
+else if (.@fctchance == 18){
+getitem 40018,1;
+}
+end;
+}
+else if (.@fct == 2){
+set .@fctchance,rand(1,18);
+if (.@fctchance == 1){
+getitem 40021,1;
+}
+else if (.@fctchance == 2){
+getitem 40022,1;
+}
+else if (.@fctchance == 3){
+getitem 40023,1;
+}
+else if (.@fctchance == 4){
+getitem 40024,1;
+}
+else if (.@fctchance == 5){
+getitem 40025,1;
+}
+else if (.@fctchance == 6){
+getitem 40026,1;
+}
+else if (.@fctchance == 7){
+getitem 40027,1;
+}
+else if (.@fctchance == 8){
+getitem 40028,1;
+}
+else if (.@fctchance == 9){
+getitem 40029,1;
+}
+else if (.@fctchance == 10){
+getitem 40030,1;
+}
+else if (.@fctchance == 11){
+getitem 40031,1;
+}
+else if (.@fctchance == 12){
+getitem 40032,1;
+}
+else if (.@fctchance == 13){
+getitem 40033,1;
+}
+else if (.@fctchance == 14){
+getitem 40034,1;
+}
+else if (.@fctchance == 15){
+getitem 40035,1;
+}
+else if (.@fctchance == 16){
+getitem 40036,1;
+}
+else if (.@fctchance == 17){
+getitem 40037,1;
+}
+else if (.@fctchance == 18){
+getitem 40038,1;
+}
+end;
+}
+else if (.@fct == 3){
+set .@fctchance,rand(1,18);
+if (.@fctchance == 1){
+getitem 40041,1;
+}
+else if (.@fctchance == 2){
+getitem 40042,1;
+}
+else if (.@fctchance == 3){
+getitem 40043,1;
+}
+else if (.@fctchance == 4){
+getitem 40044,1;
+}
+else if (.@fctchance == 5){
+getitem 40045,1;
+}
+else if (.@fctchance == 6){
+getitem 40046,1;
+}
+else if (.@fctchance == 7){
+getitem 40047,1;
+}
+else if (.@fctchance == 8){
+getitem 40048,1;
+}
+else if (.@fctchance == 9){
+getitem 40049,1;
+}
+else if (.@fctchance == 10){
+getitem 40050,1;
+}
+else if (.@fctchance == 11){
+getitem 40051,1;
+}
+else if (.@fctchance == 12){
+getitem 40052,1;
+}
+else if (.@fctchance == 13){
+getitem 40053,1;
+}
+else if (.@fctchance == 14){
+getitem 40054,1;
+}
+else if (.@fctchance == 15){
+getitem 40055,1;
+}
+else if (.@fctchance == 16){
+getitem 40056,1;
+}
+else if (.@fctchance == 17){
+getitem 40057,1;
+}
+else if (.@fctchance == 18){
+getitem 40058,1;
+}
+end;
+}
+else {
+dispbottom "You do not belong to a Faction.";
+getitem 22721,1;
+end;
+}
+}
+
+function	script	GOTMBox	{
+rentitem 40586,2592000;
+set points, points+100;
+end;
+}
+
+function	script	ChampBox	{
+getitem 20737,1;
+getitem 20001,3;
+getitem 16778,3;
+getitem 20005,3;
+set PvPpoints, PvPpoints+100;
+end;
+}
+
+function	script	ChallBox	{
+getitem 20001,2;
+getitem 16778,2;
+getitem 20005,2;
+set PvPpoints, PvPpoints+75;
+end;
+}
+
+function	script	RookieBox	{
+getitem 20001,1;
+getitem 16778,1;
+getitem 20005,1;
+set PvPpoints, PvPpoints+50;
+end;
+}
+
+function	script	CarwashReg	{
+getitem 40193,1;
+warp "ma_zif04",30,36;
+end;
+}
+
+function	script	CarwashPat	{
+getitem 40194,1;
+warp "ma_zif04",30,36;
+end;
+}
+
+function	script	CarwashPre	{
+getitem 40195,1;
+warp "ma_zif04",30,36;
+end;
+}
+
+function	script	CarwashBox1	{
+getitem 20004,1;
+getitem 13517,10;
+getitem 16778,1;
+getitem 13889,5;
+getitem 13890,5;
+getitem 20088,1;
+getitem 20082,1;
+end;
+}
+
+function	script	CarwashBox2	{
+getitem 20003,1;
+getitem 13517,20;
+getitem 16778,3;
+getitem 13889,10;
+getitem 13890,10;
+getitem 20088,3;
+getitem 20082,2;
+end;
+}
+
+function	script	CarwashBox3	{
+getitem 40199,1;
+getitem 20002,1;
+getitem 13517,30;
+getitem 16778,5;
+getitem 13889,20;
+getitem 13890,20;
+getitem 20088,5;
+getitem 20082,3;
+end;
+}

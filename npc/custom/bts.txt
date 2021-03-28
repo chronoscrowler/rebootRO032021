@@ -1,0 +1,499 @@
+//=============Valkyrie Quest==============
+//===================== BTS =====================================================
+prontera,154,198,4	script	Jerald	811,{
+if(bry_bry >= 1) goto L_taposme;
+if(hen_hen >= 1) goto L_taposna;
+if(hen_hen < 1)
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Hey. I'm a ^@%#&^$.";
+mes "Wanna do something ridiculous with me?";
+next;
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Give me these things";
+mes "100 Pieces of Ancient Lips";
+mes "25 Pieces of Peridot";
+mes "25 Pieces of Biotite";
+mes "25 Pieces of Agate";
+mes "25 Pieces of Fragment of Rossata Stone";
+next;
+mes "25 Pieces of Young Twig";
+mes "25 Pieces of Mother's Nightmare";
+mes "25 Pieces of Matchstick";
+mes "200 Pieces of Hand of God";
+mes "100 Pieces of Cursed Seal";
+next;
+mes "25 Pieces of Pyroxene";
+mes "25 Pieces of Muscovite";
+mes "25 Pieces of Phlogopite";
+mes "25 Pieces of Three-Headed Dragon's Head";
+next;
+mes "You up for it?";
+menu "Ok.",-, "Nah.",L_later;
+
+
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "You have the good shiz?";
+next;
+if(countitem(1054) < 100 || countitem(7289) < 25 || countitem(7297) < 25 || countitem(7291) < 25 || countitem(7211) < 25 || countitem(7018) < 25 || countitem(7020) < 25 || countitem(7035) < 25 || countitem(1009) < 200 || countitem(7296) < 25 || countitem(7292) < 25 || countitem(7290) < 25 || countitem(7443) < 25 || countitem(7442) < 100) goto L_later2;
+delitem 1054,100;
+delitem 7289,25;
+delitem 7297,25;
+delitem 7291,25;
+delitem 7211,25;
+delitem 7018,25;
+delitem 7020,25;
+delitem 7035,25;
+delitem 1009,200;
+delitem 7296,25;
+delitem 7292,25;
+delitem 7290,25;
+delitem 7443,25;
+delitem 7442,100;
+
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Ah, yes. Another one gets scammed. Thanks, dumbo.";
+set ron_ron,1;
+next;
+
+switch (select("...You're Welcome?")) {
+
+case 1: // Castle Drops
+  set .@gamble1,rand(1,500);
+  if ((.@gamble1 > 200) && (.@gamble1 < 205)) {
+set .@gamble2,rand(1,10);
+if	  ((.@gamble2 > 0) && (.@gamble2 <  3)) set .@item,7086; // esg
+else if ((.@gamble2 > 2) && (.@gamble2 <  5)) set .@item,7090; // ripple
+else if ((.@gamble2 > 4) && (.@gamble2 <  7)) set .@item,7091; // billow
+else if ((.@gamble2 > 6) && (.@gamble2 <  9)) set .@item,7077; // silver
+else if ((.@gamble2 > 8) && (.@gamble2 < 11)) set .@item,7078; // wov
+  }
+  else if ((.@gamble1 >   0) && (.@gamble1 < 201)) set .@item,7086; // esg
+  else if ((.@gamble1 > 204) && (.@gamble1 < 301)) set .@item,7090; // ripple
+  else if ((.@gamble1 > 300) && (.@gamble1 < 401)) set .@item,7091; // billow
+  else if ((.@gamble1 > 401) && (.@gamble1 < 481)) set .@item,7077; // silver
+  else if ((.@gamble1 > 480) && (.@gamble1 < 501)) set .@item,7078; // wov
+break;
+}
+
+getitem .@item,1;
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Ah, here 'ya go.";
+mes "That's for the good shiz.";
+mes "Now, get lost or something.";
+announce "Wow! Jerald 'Ririe' Erecto just scammed "+strcharinfo(0)+"  out of their hard-earned items!","0x33FF66";
+close2;
+if (achievementexists(240069) == 0){
+achievementcomplete(240069);
+}
+end;
+L_taposna:
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "You can go get lost in the forest... Or go find mushrooms... Go get implants... or go to a beach... Idk.";
+close;
+L_taposme:
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Oh, hey there, noob.";
+close;
+L_later:
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "Eh, Frick you.";
+mes "Get outta my sight, fricking noob.";
+close;
+L_later2:
+mes "[ Jerald 'Ririe' Erecto ]";
+mes "*piff*";
+mes "What the frick did I tell you?";
+mes "Scram.";
+close;
+
+}
+pay_fild10,182,157,5	script	Robin	900,{
+if(bry_bry >= 1) goto L_udone;
+if(kim_kim >= 1) goto L_tapospopo;
+if(ron_ron >= 1) goto continueq;
+if(ron_ron < 1)
+{
+mes "[ Robin Gamboa ]";
+mes "Are you the delivery boy of Pizza Hut?";
+mes "If not go away I don't need you!";
+close;
+}
+continueq:
+
+mes "[ Robin Gamboa ]";
+mes "Oh Grasya Santisimo!!";
+mes "You have spoken to PemPem Master Jerald!?";
+next;
+mes "[ Robin Gamboa ]";
+mes "By the way I am Robin of the PemPem Clan.";
+mes "Would you like to have a big PP??";
+menu "Yes, I deserve it!",-,"No, I'm not good enough.",L_ayaw;
+next;
+mes "[ Robin Gamboa ]";
+mes "If you really want a big PP...";
+next;
+mes "100 Three-Headed Dragon's head";
+mes "1 Emblem of Sun God";
+mes "1 Chain Mail[1]";
+mes "100 Treasure Box";
+next;
+mes "[ Robin Gamboa ]";
+mes "I'll wait with your new PP right here.";
+if(countitem(7443) < 100 || countitem(7086) < 1 || countitem(7444) < 100 || countitem(2315) < 1) goto koolang;
+if(countitem(7443) >= 100 || countitem(7086) >= 1 || countitem(7444) >= 100 || countitem(2315) >= 1) goto kontinueq;
+close;
+L_ayaw:
+
+mes "[ Robin Gamboa ]";
+mes "Wacha Wachi Wacho... Go! Shoooo";
+mes "Just speak to me if you want it already";
+close;
+
+
+koolang:
+next;
+mes "[ Robin Gamboa ]";
+mes "As I said, one missing material and all the others go to waste";
+close;
+kontinueq:
+next;
+mes "[ Robin Gamboa ]";
+mes "Very well done my friend you have finished the quest and acquired a big PP.";
+delitem 7443,100;
+delitem 7086,1;
+delitem 7444,100;
+delitem 2315,1;
+next;
+getitem 2357,1;
+set kim_kim,1;
+next;
+mes "[ Robin Gamboa ]";
+mes "Good Job! Enjoy your PP.";
+mes "Now, go ahead and seek my Brothers and Cousins to finish.";
+mes "And when you have a very big PP to Kevin.";
+mes "If you have no clue about their location, my brothers and cousins are scattered around this game and Kevin is somewhere south of Prontera";
+announce ""+strcharinfo(0)+"  has obtained Valkyrie Armor.",8;
+close;
+L_tapospopo:
+mes "[ Robin Gamboa ]";
+mes "As I said, enjoy your big PP.";
+mes "And then speak to Kevin";
+close;
+L_udone:
+mes "[ Robin Gamboa ]";
+mes "This quest, once done there is no more repeating";
+close;
+}
+
+gef_fild07,183,243,5	script	Andre	899,{
+if(bry_bry >=1) goto L_bulmadone;
+if(jhe_jhe >=1) goto L_bulmatapos;
+if(ron_ron >=1) goto B_ulma;
+if(ron_ron < 1)
+{
+mes "[ Andre Battlewolf ]";
+mes "I am sight seeing, don't disturb me";
+mes "Go far far away from me!!";
+close;
+}
+B_ulma:
+mes "[ Andre Battlewolf ]";
+mes "Oh, you know my Uncle?";
+mes "Well, nice to meet you. I'm Andre";
+mes "I still have this shield for some reason.";
+mes "Would you like me to give this to you?";
+menu "Okay",-,"Nope",M_ofo;
+next;
+
+mes "[ Andre Battlewolf ]";
+mes "This shield is quite heavy. I'll need some compensation for just lifting it.";
+mes "Then these are the items I need.";
+next;
+mes "50 Fire Dragon Scale";
+mes "1 Ripple";
+mes "1 Buckler[1]";
+mes "100 Treasure Box";
+next;
+if(bulma >= 1 || countitem(7451) < 50 || countitem(7090) < 1 || countitem(2104) < 1 || countitem(7444) < 100) goto K_ulangot;
+if(bulma >= 1 || countitem(7451) >= 50 || countitem(7090) >= 1 || countitem(2104) >= 1 || countitem(7444) >= 100) goto K_umpleto;
+close;
+
+M_ofo:
+
+mes "[ Andre Battlewolf ]";
+mes "Okay, talk to me later.";
+close;
+K_ulangot:
+
+mes "[ Andre Battlewolf ]";
+mes "You don't have the items!";
+close;
+
+K_umpleto:
+
+mes "[ Andre Battlewolf ]";
+mes "Wow, thanks!";
+delitem 7451,50;
+delitem 7090,1;
+delitem 2104,1;
+delitem 7444,100;
+getitem 2115,1;
+next;
+mes "[ Andre Battlewolf ]";
+mes "Nicely done isn't? Enjoy the shield";
+mes "So now, continue to search for my friends.";
+mes "And when you get everything speak to Kevin";
+mes "If you have no clue about their location, my brothers and cousins are scattered around the game and Kevin is somewhere south of Prontera";
+announce ""+strcharinfo(0)+"  has obtained Valkyrie Shield.",8;
+set jhep_jhe,1;
+close;
+
+L_bulmatapos:
+mes "[ Andre Battlewolf ]";
+mes "Get everything and speak to Kevin";
+close;
+L_bulmadone:
+mes "[ Andre Battlewolf ]";
+mes "Dude, you can only do this quest once!";
+close;
+}
+
+lighthalzen,189,297,5	script	Kulot	904,{
+
+if(bry_bry >=1) goto L_chichix;
+if(fra_fra >=1) goto L_chichi;
+if(ron_ron >= 1) goto tsitsi;
+if(ron_ron < 1)
+{
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Putang ina mo.";
+mes "I'm swearing in Filipino.";
+close;
+}
+tsitsi:
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Putang ina ni Jerald?";
+mes "I just swore at Jerald in Filipino.";
+mes "Anyway, want some shoes?";
+next;
+menu "Sure",-,"Maybe Later",L_basho;
+next;
+
+
+
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "The shoe is quite brittle.";
+mes "So it needs some items to harness it.";
+mes "I require you to give me these items";
+next;
+mes "20 Skeletal Armor Piece";
+mes "1 Billow";
+mes "1 Boots[1]";
+mes "100 Treasure Box";
+next;
+if(countitem(7450) < 20 || countitem(7091) < 1 || countitem(7444) < 100 || countitem(2406) < 1) goto M_wala;
+if(countitem(7450) >= 20 || countitem(7091) >= 1 || countitem(7444) >= 100 || countitem(2406) >= 1) goto M_eron;
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Hurry up! I have something to do.";
+close;
+L_basho:
+
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Talk to me when you want it already.";
+close;
+
+M_wala:
+
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "PUTANG INA MO.";
+close;
+
+M_eron:
+
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Oh thank you!";
+delitem 7450,20;
+delitem 7091,1;
+delitem 2406,1;
+delitem 7444,100;
+getitem 2421,1;
+set fra_fra,1;
+next;
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Good one boy! Enjoy the shoes";
+mes "And FHRITP.";
+mes "I mean, just go to Kevin when you got it all";
+mes "If you have no clue about their location, my brothers and cousins are scattered around the game and Kevin is somewhere south of Prontera";
+announce ""+strcharinfo(0)+"  has obtained Valkyrie Shoes.",8;
+close;
+
+L_chichi:
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Search my cousins and after that, find Kevin!";
+close;
+
+L_chichix:
+mes "[ Edwin 'Kulot' Respondo ]";
+mes "Oye, gago! Ano na?";
+close;
+}
+
+comodo,172,229,5	script	Justice	731,{
+
+if(bry_bry >=1) goto L_puten;
+if(jmk_jmk >=1) goto L_buten;
+if(ron_ron >=1) goto M_buten;
+if(ron_ron < 1)
+{
+mes "[ Justice Alfafara ]";
+mes "Hi?.";
+mes "Now fly, you noob!";
+close;
+}
+
+M_buten:
+mes "[ Justice Alfafara ";
+mes "So you know my uncle Jerald? Wow that's great!";
+mes "I can make the Valkyrie Manteau for you!";
+mes "You surely want it noob?";
+menu "Yeye",-,"Nevermind, thanks.",karpenter;
+next;
+mes "[ Justice Alfafara ]";
+mes "Oh, holy! Give me these items right away!";
+next;
+mes "50 Matchstick";
+mes "1 Silver Ornament";
+mes "1 Manteau[1]";
+mes "100 Treasure Box";
+next;
+mes "[ Justice Alfafara ]";
+mes "Don't miss your chance, I will be waiting for you.";
+if (countitem(7035) < 50 || countitem(7077) < 1 || countitem(2506) < 1 || countitem(7444) < 100) goto Kewlung;
+if (countitem(7035) >= 50 || countitem(7077) >= 1 || countitem(2506) >= 1 || countitem(7444) >= 100) goto Kempleto;
+close;
+
+karpenter:
+next;
+mes "[ Justice Alfafara ]";
+mes "Huhu *sob*! You've wasted my time! Get lost noob!";
+close;
+Kewlung:
+next;
+mes "[ Justice Alfafara ]";
+mes "Incomplete items, noob!";
+close;
+
+Kempleto:
+next;
+mes "[ Justice Alfafara ]";
+mes "I see, you're a trustworthy one.";
+delitem 7444,100;
+delitem 2506,1;
+delitem 7077,1;
+delitem 7035,50;
+getitem 2524,1;
+set jmk_jmk,1;
+next;
+mes "[ Justice Alfafara ]";  
+mes "Rawr! Take this robe and continue the Valkyrie Quest,";
+mes "And when you gain the Valkyrie Set speak to Kevin.";
+mes "If you have no clue about their location, my brothers and cousins are scattered around the game and Kevin is somewhere south of Prontera";
+announce ""+strcharinfo(0)+"  has obtained Valkyrie Manteau.",8;
+close;
+
+L_buten:
+mes "[ Justice Alfafara ]";
+mes "Finish my Jerald's quest and speak to Kevin at the Valkyrie";
+close;
+L_puten:
+mes "[ Justice Alfafara ]";
+mes "Wow, you're one of the Mega-Warrior! How is life treating you my friend?";
+close;
+}
+
+prt_fild08,57,61,5	script	Kevin	733,{
+mes "[ Kevin Cochicken ]";
+mes "WHAT THE FU";
+next;
+if(bry_bry >= 1) goto L_kalbo;
+if(countitem(2524) < 1 || countitem(2421) < 1 || countitem(2357) < 1 || countitem(2115) < 1) goto Bryan;
+mes "[ Kevin Cochicken ]";
+mes " *zips pants* YOU CAUGHT ME AT A BAD TIME";
+next;
+if(jmk_jmk >= 1) goto Bryanquest;
+if(jmk_jmk < 1) goto Bryan;
+Bryanquest:
+mes "[ Kevin Cochicken ]";
+mes " *shakes hips* Ah, yes.";
+mes "Let me wipe my hands for a sec";
+next;
+mes "[ Kevin Cochicken ]";
+mes "By the way I am Kevin of the PemPem clan and you just caught me mast-";
+mes "Anyway want good shiz?";
+menu "Yes",-,"No",L_nono;
+next;
+mes "[ Kevin Cochicken ]";
+mes "Aight then.";
+mes "If ya want 'em";
+mes "Gather these items so I can give 'em";
+next;
+mes "300 Handcuffs";
+mes "1 Billow";
+mes "10 Matchstick";
+mes "100 Gold";
+next;
+mes "[ Kevin Cochicken ]";
+mes "Now, I'mma rub one out again.";
+if(countitem(7345) < 300 || countitem(7091) < 1 || countitem(7035) < 10 || countitem(969) < 100) goto kikiki;
+if(countitem(7345) >= 300 || countitem(7091) >= 1 || countitem(7035) >= 10 || countitem(969) >= 100) goto killhim;
+close;
+L_nono:
+
+mes "[ Kevin Cochicken ]";
+mes "WHY DO YOU KEEP ON SPOILING MY FUN";
+mes "FECK OFF ALREADY.";
+close;
+
+
+kikiki:
+next;
+mes "[ Kevin Cochicken ]";
+mes "WHY DO YOU KEEP ON SPOILING MY FUN";
+mes "FECK OFF ALREADY.";
+close;
+killhim:
+next;
+mes "[ Kevin Cochicken ]";
+mes " *zips pants* ";
+mes " Woah. ";
+delitem 7345,300;
+delitem 7091,1;
+delitem 969,100;
+delitem 7035,10;
+getitem2 2410,1,1,@ref,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
+set bry_bry,1;
+next;
+mes "[ Kevin Cochicken ]";
+mes "There.";
+mes "You are now a proud PemPem Breaker.";
+mes "Go wild and free, you lewd human";
+announce ""+strcharinfo(0)+"  has obtained Sleipnir.",8;
+if (achievementexists(240070) == 0){
+achievementcomplete(240070);
+}
+close;
+
+L_kalbo:
+mes "[ Kevin Cochicken ]";
+mes " * sigh * ";
+mes "WON'T SOMEONE LET A MAN FLUFFERBATE?";
+next;
+percentheal -100,0;
+warp "prontera",0,0;
+close2;
+Bryan:
+mes "[ Kevin Cochicken ]";
+mes "Oh my bad, I see you are just another pervert.";
+mes "Go fluff somewhere else or something.";
+close;
+}

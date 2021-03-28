@@ -1,0 +1,67 @@
+prontera,158,198,4	script	Save Point	113,{
+mes "[Reboot Kafra Staff]";
+mes "Your Location has been saved.";
+next;
+mes "[Reboot Kafra Staff]";
+mes "Please be careful next time.";
+close2;
+savepoint "prontera",156,191;
+end;
+}
+
+moonhaven,201,191,4	script	Save Point#iru	113,{
+if (getcharid(5) == 2){
+mes "[Reboot Kafra Staff]";
+mes "Your Location has been saved.";
+next;
+mes "[Reboot Kafra Staff]";
+mes "Please be careful next time.";
+close2;
+savepoint "moonhaven",209,187;
+end;
+}
+else {
+mes "[Reboot Kafra Staff]";
+mes "I'm sorry, but only those who belong to this realm's Faction alignment can use the save function.";
+close;
+end;
+}
+}
+
+dicastes01,193,197,4	script	Save Point#neto	113,{
+if (getcharid(5) == 1){
+mes "[Reboot Kafra Staff]";
+mes "Your Location has been saved.";
+next;
+mes "[Reboot Kafra Staff]";
+mes "Please be careful next time.";
+close2;
+savepoint "dicastes01",197,189;
+end;
+}
+else {
+mes "[Reboot Kafra Staff]";
+mes "I'm sorry, but only those who belong to this realm's Faction alignment can use the save function.";
+close;
+end;
+}
+}
+
+1@air2,47,61,6	script	Save Point#airflugel	113,{
+if (getcharid(5) == 3){
+mes "[Reboot Kafra Staff]";
+mes "Your Location has been saved.";
+next;
+mes "[Reboot Kafra Staff]";
+mes "Please be careful next time.";
+close2;
+savepoint "1@air2",51,61;
+end;
+}
+else {
+mes "[Reboot Kafra Staff]";
+mes "I'm sorry, but only those who belong to this realm's Faction alignment can use the save function.";
+close;
+end;
+}
+}

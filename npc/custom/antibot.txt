@@ -1,0 +1,177 @@
+//===== rAthena Script =======================================
+//= Anti-Bot Script
+//===== By ===================================================
+//= Florida
+//===== Version ==============================================
+//= 1.3 - Upgraded Version (Emistry, Modified by JeffSaber)
+//===== Tested With =========================================
+//= rAthena SQL 07/16-2017 Revision
+//===== Description ==========================================
+//= This Script gives a pseudo anti-bot function
+//	depending on how much monsters are killed
+//	map restrictions for less collateral in MVP rooms
+//===== Comments =============================================
+// to set monster just change  if( Kill >= rand( 35,50 ) ){  // 30 - 50 Monster
+//============================================================
+-	script	bot2	-1,{
+
+OnNPCKillEvent:
+if (strcharinfo(3) == "pvp_n_1-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_2-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_3-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_4-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_5-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_6-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_7-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_8-2"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_1-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_2-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_3-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_4-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_5-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_6-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_7-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_8-3"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_1-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_2-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_3-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_4-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_5-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_6-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_7-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_8-4"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_1-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_2-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_3-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_4-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_5-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_6-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_7-5"){
+end;
+}
+if (strcharinfo(3) == "pvp_n_8-5"){
+end;
+}
+if (strcharinfo(3) == "bra_dun01"){
+end;
+}
+if (strcharinfo(3) == "bra_dun02"){
+end;
+}
+if (strcharinfo(3) == "dic_dun02"){
+end;
+}
+if (strcharinfo(3) == "dic_dun03"){
+end;
+}
+else {
+set Kill,Kill+1;
+if (Kill >= rand( 100,250 )){
+cutin "3rd_wl_queen02",2;
+announce "Reboot Patrol : Bot Check time! Thank you for your patience!",bc_yellow|bc_self;
+atcommand "@option 2";
+mes "[^ff557fReboot Patrol^000000]";
+mes "Please enter the ^FF0000RED COLOUR NUMBER^000000";
+next;
+set .@Number,rand( 999999 );
+mes "[^ff557fReboot Patrol^000000]";
+mes "Number : ";
+mes rand( 999999 )+"^ff0000"+.@Number+"^000000"+rand( 999999 );
+input @Number;
+if( @Number != .@Number ){
+cutin "",255;
+mes "[^ff557fReboot Patrol^000000]";
+mes "Oh, no... I'm afraid I'll have to pull you out of your dive...";
+close2;
+atcommand "@kick "+strcharinfo(0);
+end;
+}else{
+mes "[^ff557fReboot Patrol^000000]";
+mes "Thank you. You now can move!.";
+close2;
+cutin "",255;
+dispbottom "You have been certified free of corruption. We will check again soon.";
+announce "Reboot Patrol : To reward your kindness, please take a bonus of some Buffs.",bc_blue|bc_self;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+percentheal 100,100;
+atcommand "@option 0 0 0";
+if(@cart == 1) {
+setcart;
+set @cart,0;
+}
+if(@falcon == 1) {
+setfalcon;
+set @falcon,0;
+}
+if(@riding == 1) {
+setriding;
+set @riding,0;
+}
+set Kill,0;
+}
+end;
+}
+}
+}

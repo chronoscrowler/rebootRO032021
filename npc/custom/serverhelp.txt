@@ -1,0 +1,51 @@
+-	script	TipsTricks	-1,{
+OnInit:
+OnMinute00:
+OnMinute10:
+OnMinute20:
+OnMinute30:
+OnMinute40:
+OnMinute50:
+set .@tips,rand(1,14);
+if (.@tips == 1) announce "Server Tips 'n' Tricks: Be diligent! Item Quests are mostly found in the Olympian Section of the Item Mall, accessible via the Special Warper!",bc_all;
+if (.@tips == 2) announce "Server Tips 'n' Tricks: Build like a champ! Mix and match your build with the questable Equipment and special gear scattered all over the game!",bc_all;
+if (.@tips == 3) announce "Server Tips 'n' Tricks: Explore the Unknown! Join a guild to be able to access Faction content!",bc_all;
+if (.@tips == 4) announce "Server Tips 'n' Tricks: Team up for a better gameplay experience! Party up to challenge Instances!",bc_all;
+if (.@tips == 5) announce "Server Tips 'n' Tricks: Earn your keep! Join regular automated events like Disguise and Poring Catcher for a good coinage!",bc_all;
+if (.@tips == 6) announce "Server Tips 'n' Tricks: Become a Legend! Work your way up to the Item Tiers to reach your full potential!",bc_all;
+if (.@tips == 7) announce "Server Tips 'n' Tricks: Enjoy the challenge! The MVP Rooms and Special Boss Rush are here to provide you with much needed loot!",bc_all;
+if (.@tips == 8) announce "Server Tips 'n' Tricks: Hack, slash and blast your way through the competition! Ranked PvP and WoE have great rewards!",bc_all;
+if (.@tips == 9) announce "Server Tips 'n' Tricks: Take no chances! Mash The Blacksmith can instantly refine your equipment using Special Gacha Upgrade Items!",bc_all;
+if (.@tips == 10) announce "Server Tips 'n' Tricks: Obtain the power of God! Most armors can be embedded with Crystas or Chip Attachments!",bc_all;
+if (.@tips == 11) announce "Server Tips 'n' Tricks: Unlock Hidden Potential! There are select few armors that have powerful, hidden effects when fully refined!",bc_all;
+if (.@tips == 12) announce "Server Tips 'n' Tricks: Reach your endgame! Equip certain combinations of Tier II Headgears, 2s Armors and Ubergarments to unlock immense power!",bc_all;
+if (.@tips == 13) announce "Server Tips 'n' Tricks: Unique Faction Systems! The Three Factions boasts unique gameplay mechanics! Use them to your advantage!",bc_all;
+if (.@tips == 14) announce "Server Tips 'n' Tricks: Hard work pays! Complete your Daily Quest for a quick boost for your hard-to-finish Item Quests!",bc_all;
+end;
+}
+
+-	script	TipsTricks2	-1,{
+OnInit:
+OnMinute05:
+OnMinute15:
+OnMinute25:
+OnMinute35:
+OnMinute45:
+OnMinute55:
+set .@tips2,rand(1,14);
+if (.@tips2 == 1) announce "Server Tips 'n' Tricks: Destroy your limits! Equipment sets such as Valkyrie, Sinister, Dimension and Diabolus have immense power!",bc_all;
+if (.@tips2 == 2) announce "Server Tips 'n' Tricks: Break the Seal! Jerald the man-named Valkyrie provides you the Break the Seal quest to unlock the Valkyrie set!",bc_all;
+if (.@tips2 == 3) announce "Server Tips 'n' Tricks: Transcend your existence! Completing the Geffen Magic Tournament held every 1st of the month allows access to Third Classes!",bc_all;
+if (.@tips2 == 4) announce "Server Tips 'n' Tricks: Form a deep bond! At Intimacy: Cordial and above, your pets will attack alongside you!",bc_all;
+if (.@tips2 == 5) announce "Server Tips 'n' Tricks: Create, Preserve or Destroy your Destiny! Participate in the monthly Faction War to reap exclusive rewards!",bc_all;
+if (.@tips2 == 6) announce "Server Tips 'n' Tricks: Gear up, team up, or man up! Faction-related content are much tougher than the regular Ragnarok content you're used to!",bc_all;
+if (.@tips2 == 7) announce "Server Tips 'n' Tricks: Follow your Guild Leader to glory! Whatever Faction he/she chooses will be set as your guild's Faction!",bc_all;
+if (.@tips2 == 8) announce "Server Tips 'n' Tricks: Finally Breaking the Seal! Jerald's companions are located as-is, with the exception of Kevin, who's in the southern field of Prontera!",bc_all;
+if (.@tips2 == 9) announce "Server Tips 'n' Tricks: Drive off the Invaders! Clear the boss in destroyed Izlude for a chance to get the Sinister Set!",bc_all;
+if (.@tips2 == 10) announce "Server Tips 'n' Tricks: Can't seem to get that one MVP card? Try Questing for a Cursed Card Album instead!",bc_all;
+if (.@tips2 == 11) announce "Server Tips 'n' Tricks: Be mindful of your progress! Most Faction Area Access Quests require delicate handling, so be careful not to risk failure!",bc_all;
+if (.@tips2 == 12) announce "Server Tips 'n' Tricks: Completing the Faction Area Access Quest from the Herald of Destiny will grant you the option to warp directly to your Faction base!",bc_all;
+if (.@tips2 == 13) announce "Server Tips 'n' Tricks: Sneaky, sneaky! Inconspicuous easter eggs are hidden all throughout the game! Can you spot them?",bc_all;
+if (.@tips2 == 14) announce "Server Tips 'n' Tricks: Win exclusive flair! Win PvP Tournaments, Events Series, or singular big events to win exclusive Costumes to show off!",bc_all;
+end;
+}

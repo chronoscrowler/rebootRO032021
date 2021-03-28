@@ -1,0 +1,16 @@
+// by Mabuhay
+// 24 hrs cd
+// account bound
+prontera,149,191,5	script	Daily Reward	911,{
+	.@cd = 60*60*24; // 24 hrs
+	.@time = gettimetick(2);
+	if ( #DAILYRENTREWARD+.@cd > .@time ) {
+		mes "Come back again after "+Time2Str(#DAILYRENTREWARD+.@cd)+" for your reward.";
+		close;
+	}
+	mes "Here is your daily reward!";
+	close2;
+	rentitem 1201, 7200; // <id>, <time in seconds>
+	#DAILYRENTREWARD = .@time;
+	end;
+}

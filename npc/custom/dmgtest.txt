@@ -1,0 +1,84 @@
+prontera,155,171,4	script	Damage Tester	1905,{
+warp "poring_w02",98,84;
+}
+
+poring_w02,96,76,4	script	Exit Dmg Test	1002,{
+warp "prontera",156,191;
+}
+
+-	script	Punching Bag	-1,{
+setmapflag "poring_w02",mf_monster_noteleport;
+end;
+OnDummyKill:
+monster "poring_w02",112,88,"Punching Bag",1905,1,"Punching Bag::OnDummyKill";
+end;
+OnDummyKill2:
+monster "poring_w02",121,88,"Punching Bag",1905,1,"Punching Bag::OnDummyKill2";
+end;
+OnDummyKill3:
+monster "poring_w02",121,79,"Punching Bag",1905,1,"Punching Bag::OnDummyKill3";
+end;
+OnDummyKill4:
+monster "poring_w02",112,79,"Punching Bag",1905,1,"Punching Bag::OnDummyKill4";
+end;
+OnDummyKill5:
+monster "poring_w02",76,88,"Punching Bag",1905,1,"Punching Bag::OnDummyKill5";
+end;
+OnDummyKill6:
+monster "poring_w02",85,88,"Punching Bag",1905,1,"Punching Bag::OnDummyKill6";
+end;
+OnDummyKill7:
+monster "poring_w02",85,79,"Punching Bag",1905,1,"Punching Bag::OnDummyKill7";
+end;
+OnDummyKill8:
+monster "poring_w02",76,79,"Punching Bag",1905,1,"Punching Bag::OnDummyKill8";
+end;
+OnDummyKill9:
+monster "poring_w02",120,49,"Punching Bag",1905,1,"Punching Bag::OnDummyKill9";
+end;
+OnDummyKill10:
+monster "poring_w02",127,49,"Punching Bag",1905,1,"Punching Bag::OnDummyKill10";
+end;
+OnDummyKill11:
+monster "poring_w02",127,38,"Punching Bag",1905,1,"Punching Bag::OnDummyKill11";
+end;
+OnDummyKill12:
+monster "poring_w02",120,38,"Punching Bag",1905,1,"Punching Bag::OnDummyKill12";
+end;
+OnDummyKill13:
+monster "poring_w02",77,49,"Punching Bag",1905,1,"Punching Bag::OnDummyKill13";
+end;
+OnDummyKill14:
+monster "poring_w02",70,38,"Punching Bag",1905,1,"Punching Bag::OnDummyKill14";
+end;
+OnDummyKill15:
+monster "poring_w02",70,49,"Punching Bag",1905,1,"Punching Bag::OnDummyKill15";
+end;
+OnDummyKill16:
+monster "poring_w02",77,38,"Punching Bag",1905,1,"Punching Bag::OnDummyKill16";
+end;
+OnDummyKill17:
+monster "poring_w02",120,127,"Punching Bag",1905,1,"Punching Bag::OnDummyKill17";
+end;
+OnDummyKill18:
+monster "poring_w02",127,127,"Punching Bag",1905,1,"Punching Bag::OnDummyKill18";
+end;
+OnDummyKill19:
+monster "poring_w02",127,116,"Punching Bag",1905,1,"Punching Bag::OnDummyKill19";
+end;
+OnDummyKill20:
+monster "poring_w02",120,116,"Punching Bag",1905,1,"Punching Bag::OnDummyKill20";
+end;
+OnDummyKill21:
+monster "poring_w02",77,127,"Punching Bag",1905,1,"Punching Bag::OnDummyKill21";
+end;
+OnDummyKill22:
+monster "poring_w02",70,127,"Punching Bag",1905,1,"Punching Bag::OnDummyKill22";
+end;
+OnDummyKill23:
+monster "poring_w02",70,116,"Punching Bag",1905,1,"Punching Bag::OnDummyKill23";
+end;
+OnDummyKill24:
+monster "poring_w02",77,116,"Punching Bag",1905,1,"Punching Bag::OnDummyKill24";
+end;
+}

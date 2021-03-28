@@ -1,0 +1,201 @@
+//EmpBreakTest
+prontera,165,167,7	script	Emperium Research	10168,{
+set .Map$,"job3_arch01"; /* Map */
+set .TopRank,10; /* Ladder */
+while( 1 ){
+mes "Emperium Breaker Room to test how quick you destroy it.";
+mes "You can compare too the records of other players.";
+mes "You need a guild to proceed.";
+next;
+switch( select( ( getmapusers( .Map$ ) )?"^FF0000No available":"^0000FFAvailable^000000",
+				"Top ^FF0000"+.TopRank+"^000000 Record",
+				( getgmlevel() < 90 )?"":"^FF0000[GM]^000000 Reset Room",
+				( getgmlevel() < 90 )?"":"^FF0000[GM]^000000 Reset Ladder" )){
+Case 1:
+	if( getmapusers( .Map$ ) ){
+		mes "There is another player, please wait until the player ends.";
+		next;
+		break;
+		}
+	if( getcharid(2) == 0){
+		mes "Make or join a guild first.";
+		next;
+		break;
+		}
+	warp .Map$,0,0;
+	killmonster .Map$,"All";
+	//removemapflag .Map$,mf_noskill;
+	end;
+Case 2:
+	mes "^ED1ADCBest Record^000000 : "+LatestRecord/1000+"."+LatestRecord%1000+" Seconds.";
+	for( set .@i,0; .@i < .TopRank; set .@i,.@i + 1 ){
+		if( !$TopRankTime[.@i] ) break;
+		if (getcharid(3) <= 2000008){
+		mes "^FF0000Top "+( .@i + 1 )+" : ("+$TopBreakID$[.@i]+") ^0000FF"+$TopName$[.@i]+" ";
+		mes "^FF0000Time : ^ED1ADC[ "+$TopRankTime[.@i]/1000+"."+$TopRankTime[.@i]%1000+" Sec. ]^000000 ";
+		}
+		else {
+		mes "^FF0000Top "+( .@i + 1 )+" : ^0000FF"+$TopName$[.@i]+" ";
+		mes "^FF0000Time : ^ED1ADC[ "+$TopRankTime[.@i]/1000+"."+$TopRankTime[.@i]%1000+" Sec. ]^000000 ";
+		}
+	}
+	next;
+	break;
+
+Case 3:
+	killmonster .Map$,"All";
+	sleep2 3000;
+	mapwarp .Map$,"prontera",156,191;
+	next;
+	break;
+Case 4:	
+	switch( select( "^0000FFAll Player^000000:^FF0000One Player^000000" ) ){
+		Case 1:
+			deletearray $TopRankTime[0],getarraysize( $TopRankTime );
+			deletearray $TopName$[0],getarraysize( $TopName$ );
+			deletearray $TopBreakID$[0],getarraysize( $TopBreakID$ );
+			mes "RESETED WHOLE LADDER.";
+			break;
+		Case 2:
+			mes "Please input the ^FF0000EXACT NAME^000000 of player you want to delete.";
+			input .Name$;
+			for( set .@i,0; .@i < .TopRank; set .@i,.@i + 1 ){
+				if( .Name$ == $TopName$[.@i] ){
+					deletearray $TopName$[.@i],1;
+					deletearray $TopRankTime[.@i],1;
+					deletearray $TopBreakID$[.@i],1;
+					mes "Removed ^FF0000"+.Name$+"^000000 from the List.";
+				}
+			}
+		}
+	next;
+	break;
+	}
+}
+end;
+
+OnSaturday0000:
+query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+$TopBreakID$[0]+"'", .@TopB1);
+query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+$TopBreakID$[1]+"'", .@TopB2);
+query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+$TopBreakID$[2]+"'", .@TopB3);
+query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+$TopBreakID$[3]+"'", .@TopB4);
+query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+$TopBreakID$[4]+"'", .@TopB5);
+set .@Top1Point, .@TopB1 + 5;
+set .@Top2Point, .@TopB2 + 4;
+set .@Top3Point, .@TopB3 + 3;
+set .@Top4Point, .@TopB4 + 2;
+set .@Top5Point, .@TopB5 + 1;
+query_sql( "UPDATE `woe_ranking` SET `EmpBreak` = '"+.@Top1Point+"' WHERE `Char_ID` = '"+$TopBreakID$[0]+"'");
+query_sql( "UPDATE `woe_ranking` SET `EmpBreak` = '"+.@Top2Point+"' WHERE `Char_ID` = '"+$TopBreakID$[1]+"'");
+query_sql( "UPDATE `woe_ranking` SET `EmpBreak` = '"+.@Top3Point+"' WHERE `Char_ID` = '"+$TopBreakID$[2]+"'");
+query_sql( "UPDATE `woe_ranking` SET `EmpBreak` = '"+.@Top4Point+"' WHERE `Char_ID` = '"+$TopBreakID$[3]+"'");
+query_sql( "UPDATE `woe_ranking` SET `EmpBreak` = '"+.@Top5Point+"' WHERE `Char_ID` = '"+$TopBreakID$[4]+"'");
+deletearray $TopRankTime[0],getarraysize( $TopRankTime );
+deletearray $TopName$[0],getarraysize( $TopName$ );
+deletearray $TopBreakID$[0],getarraysize( $TopBreakID$ );
+announce "Congratulations to our Top 5 Weekly Fastest Emperium Breakers. Your ToTalB for buying rewards at the Schicksal Ambassador has been updated.",bc_all;
+end;
+}
+
+job3_arch01,29,27,3	script	InBreakTest	111,10,10,{
+if (.@activate == 0){
+set .@activate,1;
+sleep2 3000;
+for( set .@i,0; .@i < getarraysize( .Instruction$ ); set .@i,.@i + 1 ){
+	mapannounce .Map$,.Instruction$[.@i],0,0x00FF00;
+	sleep2 2500;
+	}
+for( set .@i,5; .@i > 0; set .@i,.@i - 1 ){
+	mapannounce .Map$," : "+.@i+" seconds left.",0,0x00FF00;
+	sleep2 1000;
+	}
+//mapannounce .Map$,"Hit the Emperium Now and Skills Disabled.",0,0x00FF00;
+//setmapflag .Map$,mf_noskill;
+monster .Map$,29,27,"Breaker Test",1288,1,strnpcinfo(0)+"::OnBreaked";
+set .Record,0;
+sleep2 500;
+initnpctimer;
+end;
+}
+else {
+end;
+}
+
+OnInit:
+set .Map$,"job3_arch01";
+setarray .Instruction$[0],"You need a guild to be able to hit the Emperium, create one @guild if you don't have any. Please read carefully.","This room is to test how quick you can break an Emperium.","So get prepared, the Emperium will spawn in a few seconds.";
+end;
+
+OnTimer600000:
+if( !mobcount( .Map$,strnpcinfo(0)+"::OnBreaked" ) ) end;
+	mapannounce .Map$,"You spent too much time. i think you are AFK , so you are out.",0,0xED1ADC;
+	sleep2 3000;
+	mapwarp .Map$,"prontera",156,191;
+	stopnpctimer;
+	set .@activate,0;
+end;
+
+OnBreaked:
+	set .Time,getnpctimer(0);
+	copyarray .@tempName$[0],$TopName$[0],getarraysize( $TopName$ );
+	copyarray .@tempRecord[0],$TopRankTime[0],getarraysize( $TopRankTime[0] );
+	copyarray .@tempID$[0],$TopBreakID$[0],getarraysize( $TopBreakID$ );
+	set LatestRecord,.Time;
+	for( set .@i,0; .@i < .TopRank; set .@i,.@i + 1 ){
+		if( .Time < $TopRankTime[.@i] || !$TopRankTime[.@i] ){
+				set $TopRankTime[.@i],.Time;
+				set $TopName$[.@i],strcharinfo(0);
+				set $TopBreakID$[.@i],getcharid(0);
+				copyarray $TopRankTime[.@i + 1],.@tempRecord[0],getarraysize( .@tempRecord );
+				copyarray $TopName$[.@i + 1],.@tempName$[0],getarraysize( .@tempName$ );
+				copyarray $TopBreakID$[.@i + 1],.@tempID$[0],getarraysize( .@tempID$ );
+			announce "[ "+strcharinfo(0)+" ] Got the Ranking "+( .@i + 1 )+" on the Emperium Breaker Room with a record of "+.Time/1000+"."+.Time%1000+" seconds !!!",bc_all,0xED1ADC;
+			break;
+			}
+		}
+	stopnpctimer;
+	announce "Time tooked : "+.Time/1000+"."+.Time%1000+" Seconds. ",bc_self,0xED1ADC;
+	//removemapflag .Map$,mf_noskill;
+	sleep2 5000;
+	set .@activate,0;
+	mapwarp .Map$,"prontera",156,191; //here is the place of the npc
+	end;
+}
+
+-	script	BreakPointChk	-1,{
+OnInit:
+        bindatcmd("vspoints", strnpcinfo(3)+ "::OnCheck");
+        end;
+		
+    OnPCLoginEvent:
+	query_sql( "SELECT `Kills` FROM `pvp_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@PvPPoints);
+	query_sql( "SELECT `Kills` FROM `woe_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@WoEPoints);
+	query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@BreakPoints);
+	set PvPpoints, .@PvPPoints;
+	set points, .@WoEPoints;
+	set ToTalB, .@BreakPoints;
+	dispbottom "Your Available Versus Points are:";
+	dispbottom ""+PvPpoints+" PVP Points";
+	dispbottom ""+points+" GVG Points";
+	dispbottom ""+ToTalB+" Breaker Points";
+	end;
+	
+	OnCheck:
+	query_sql( "SELECT `Kills` FROM `pvp_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@PvPPoints);
+	query_sql( "SELECT `Kills` FROM `woe_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@WoEPoints);
+	query_sql( "SELECT `EmpBreak` FROM `woe_ranking` WHERE `Char_ID` = '"+getcharid(0)+"'", .@BreakPoints);
+	set PvPpoints, .@PvPPoints;
+	set points, .@WoEPoints;
+	set ToTalB, .@BreakPoints;
+	dispbottom "Your Available Versus Points are:";
+	dispbottom ""+PvPpoints+" PVP Points";
+	dispbottom ""+points+" GVG Points";
+	dispbottom ""+ToTalB+" Breaker Points";
+	end;
+	}
+	
+job3_arch01	mapflag	nocommand	50
+job3_arch01	mapflag	gvg	on
+job3_arch01	mapflag	gvg_castle
+job3_arch01	mapflag	monster_noteleport
+job3_arch01	mapflag	nosave	SavePoint

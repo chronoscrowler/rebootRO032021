@@ -1,0 +1,893 @@
+valkyrie,52,87,6	script	Zeus	1693,{
+mes "[Zeus, Fallen God of Heavens]";
+mes "What forgotten power do you wish to have, mortal?";
+menu "Sauro II Al Crysta",sau2al,"Castle Drops",cdrop,"Bloody Branches",bloody,"Stat +10 Accessories",acce10,"Cancel",exitzeus;
+
+sau2al:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Scarlet Dyestuffs 50";
+mes "Lemon Dyestuffs 50";
+mes "Cobaltblue Dyestuffs 50";
+mes "Darkgreen Dyestuffs 50";
+mes "Orange Dyestuffs 50";
+next;
+mes "Violet Dyestuffs 50";
+mes "White Dyestuffs 50";
+mes "Sauro II Crysta 100";
+mes "Star Dust 100";
+mes "Symbol of a Brave Warrior 5";
+next;
+menu "Offer Sacrifice",makesau2,"Back out",exitsau2;
+
+makesau2:
+next;
+if (countitem(975) > 49 && countitem(976) > 49 && countitem(978) > 49 && countitem(979) > 49 && countitem(980) > 49 && countitem(981) > 49 && countitem(982) > 49 && countitem(543) > 99 && countitem(1001) > 99 && countitem(7484) > 4){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 975,50;
+delitem 976,50;
+delitem 978,50;
+delitem 979,50;
+delitem 980,50;
+delitem 981,50;
+delitem 982,50;
+delitem 543,100;
+delitem 1001,100;
+delitem 7484,5;
+getitem 5317,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitsau2:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+cdrop:
+next;
+menu "Emblem of the Sun God",gesg,"Ripple",gripple,"Billow",gbillow,"Silver Ornament",gsilver,"Snow Crystal",gsnow,"Iron Maiden",gmaid,"Omen of Tempest",gomen,"Feather of Angel Wing",gangel,"Wheel of the Unknown",gwok,"Freya's Jewel",gfreya,"Wrath of Valkyrie",gwov,"Cancel",exitcdrop;
+
+gesg:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Red Blood 50";
+mes "Flame Heart 50";
+mes "Fire Dragon Scale 5";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegesg,"Back out",exitgesg;
+
+makegesg:
+next;
+if (countitem(5317) > 0 && countitem(990) > 49 && countitem(994) > 49 && countitem (7451) > 4 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 990,50;
+delitem 994,50;
+delitem 7451,5;
+delitem 542,100;
+delitem 7484,1;
+getitem 7086,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgesg:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gripple:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Crystal Blue 50";
+mes "Mystic Frozen 50";
+mes "Ice Scale 5";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegripple,"Back out",exitgripple;
+
+makegripple:
+next;
+if (countitem(5317) > 0 && countitem(991) > 49 && countitem(995) > 49 && countitem(7562) > 4 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 991,50;
+delitem 995,50;
+delitem 7562,5;
+delitem 542,100;
+delitem 7484,1;
+getitem 7086,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgripple:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gbillow:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Green Live 50";
+mes "Great Nature 50";
+mes "Fragment of Rossata Stone 5";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegbillow,"Back out",exitgbillow;
+
+makegbillow:
+next;
+if (countitem(5317) > 0 && countitem(993) > 49 && countitem(997) > 49 && countitem(7211) > 4 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 993,50;
+delitem 997,50;
+delitem 7211,5;
+delitem 542,100;
+delitem 7484,1;
+getitem 7091,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgbillow:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gsilver:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Wind of Verdure 50";
+mes "Rough Wind 50";
+mes "Skeletal Armor Piece 5";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegsilver,"Back out",exitgsilver;
+
+makegsilver:
+next;
+if (countitem(5317) > 0 && countitem(992) > 49 && countitem(996) > 49 && countitem(7450) > 4 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 992,50;
+delitem 996,50;
+delitem 7450,5;
+delitem 542,100;
+delitem 7484,1;
+getitem 7091,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgsilver:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gsnow:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Ripple 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegsnow,"Back out",exitgsnow;
+
+makegsnow:
+next;
+if (countitem(5317) > 0 && countitem(7086) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7086,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7088,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgsnow:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gmaid:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Silver Ornament 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegmaid,"Back out",exitgmaid;
+
+makegmaid:
+next;
+if (countitem(5317) > 0 && countitem(7091) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7091,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7075,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgmaid:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gomen:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Billow 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegomen,"Back out",exitgomen;
+
+makegomen:
+next;
+if (countitem(5317) > 0 && countitem(7091) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7091,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7089,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgomen:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gangel:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Emblem of the Sun God 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegangel,"Back out",exitgangel;
+
+makegangel:
+next;
+if (countitem(5317) > 0 && countitem(7086) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7086,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7079,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgangel:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gwok:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Emblem of Sun God 1";
+mes "Ripple 1";
+mes "Billow 1";
+mes "Silver Ornament 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegwok,"Back out",exitgwok;
+
+makegwok:
+next;
+if (countitem(5317) > 0 && countitem(7075) > 0 && countitem(7090) > 0 && countitem(7091) > 0 && countitem(7077) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7075,1;
+delitem 7090,1;
+delitem 7091,1;
+delitem 7077,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7076,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgwok:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gfreya:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Drifting Air 1";
+mes "Breath of Spirit 1";
+mes "Sinew of Bear 1";
+mes "Sputum of Bird 1";
+mes "Spirit of Fish 1";
+mes "Root of Stone 1";
+mes "Woman's Moustache 1";
+mes "Cat Tread 1";
+mes "Thor's Gauntlet 1";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegfreya,"Back out",exitgfreya;
+
+makegfreya:
+next;
+if (countitem(5317) > 0 && countitem(7092) > 0 && countitem(7087) > 0 && countitem(7085) > 0 && countitem(7084) > 0 && countitem(7083) > 0 && countitem(7082) > 0 && countitem(7081) > 0 && countitem(7080) > 0 && countitem(7074) > 0 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7092,1;
+delitem 7087,1;
+delitem 7085,1;
+delitem 7084,1;
+delitem 7083,1;
+delitem 7082,1;
+delitem 7081,1;
+delitem 7080,1;
+delitem 7074,1;
+delitem 542,100;
+delitem 7484,1;
+getitem 7088,1;
+announce ""+strcharinfo(0)+"  has acquired Freya's Jewel!","0x33FF66";
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgfreya:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gwov:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Sauro II Al Crysta 1";
+mes "Wheel of the Unknown 1";
+mes "Snow Crystal 1";
+mes "Omen of Tempest 1";
+mes "Iron Maiden 1";
+mes "Feather of Angel Wing 1";
+mes "Dark Piece 100";
+mes "Valhalla's Flower 5";
+mes "RebootRO 2B Certificate 100";
+mes "Symbol of a Brave Warrior 1";
+next;
+menu "Offer Sacrifice",makegwov,"Back out",exitgwov;
+
+makegwov:
+next;
+if (countitem(5317) > 0 && countitem(7076) > 0 && countitem(7086) > 0 && countitem(7088) > 0 && countitem(7089) > 00 && countitem(7079) > 0 && countitem(6089) > 99 && countitem(7510) > 4 && countitem(542) > 99 && countitem(7484) > 0){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5317,1;
+delitem 7076,1;
+delitem 7086,1;
+delitem 7088,1;
+delitem 7089,1;
+delitem 7079,1;
+delitem 6089,100;
+delitem 7510,5;
+delitem 542,100;
+delitem 7484,1;
+getitem 7078,1;
+announce ""+strcharinfo(0)+"  has acquired the Wrath of Valkyrie!","0x33FF66";
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgwov:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitcdrop:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+bloody:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "5 Bloody Branches.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+menu "Offer Sacrifice",makebloody,"Back out",exitbloody;
+
+makebloody:
+next;
+if (countitem(674) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+getitem 12103,5;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitbloody:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+acce10:
+next;
+menu "Megingjard EX",str10,"Freya's Circlet EX",agi10,"Divine Incense",vit10,"Ring of Solomon",int10,"Brisingamen EX",dex10,"Curonne's Treasure",luk10,"Cancel",exitacce10;
+
+str10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "STR +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Mantis Card 100";
+mes "Tarou Card 100";
+menu "Offer Sacrifice",makestr10,"Back out",exitstr10;
+
+makestr10:
+next;
+if (countitem(674) > 99 && countitem(4079) > 99 && countitem(4028) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4079,100;
+delitem 4028,100;
+getitem 20071,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitstr10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+agi10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "AGI +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Bapho Jr. Card 100";
+mes "Matyr Card 100";
+menu "Offer Sacrifice",makeagi10,"Back out",exitagi10;
+
+makeagi10:
+next;
+if (countitem(674) > 99 && countitem(4129) > 99 && countitem(4097) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4129,100;
+delitem 4097,100;
+getitem 20072,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitagi10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+vit10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "VIT +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Alarm Card 100";
+mes "Apocalipse Card 100";
+menu "Offer Sacrifice",makevit10,"Back out",exitvit10;
+
+makevit10:
+next;
+if (countitem(674) > 99 && countitem(4244) > 99 && countitem(4242) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4244,100;
+delitem 4242,100;
+getitem 20073,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitvit10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+int10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "INT +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Baby Desert Wolf Card 100";
+mes "Carat Card 100";
+menu "Offer Sacrifice",makeint10,"Back out",exitint10;
+
+makeint10:
+next;
+if (countitem(674) > 99 && countitem(4023) > 99 && countitem(4288) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4023,100;
+delitem 4288,100;
+getitem 20074,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitint10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+dex10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "DEX +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Drops Card 100";
+mes "Rocker Card 100";
+menu "Offer Sacrifice",makedex10,"Back out",exitdex10;
+
+makedex10:
+next;
+if (countitem(674) > 99 && countitem(4004) > 99 && countitem(4021) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4004,100;
+delitem 4021,100;
+getitem 20075,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitdex10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+luk10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "LUK +10";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "Ah, splendid choice.";
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "RebootRO Orichalcum Coin 100";
+mes "Zealotus Card 100";
+mes "Poring Card 100";
+menu "Offer Sacrifice",makeluk10,"Back out",exitluk10;
+
+makeluk10:
+next;
+if (countitem(674) > 99 && countitem(4277) > 99 && countitem(4001) > 99){
+mes "[Zeus, Fallen God of Heavens]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 674,100;
+delitem 4277,100;
+delitem 4001,100;
+getitem 20076,1;
+end;
+}
+else {
+mes "[Zeus, Fallen God of Heavens]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitluk10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+exitacce10:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+
+exitzeus:
+next;
+mes "[Zeus, Fallen God of Heavens]";
+mes "That's too bad.";
+close;
+end;
+}

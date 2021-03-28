@@ -1,0 +1,1023 @@
+prontera,130,215,5	script	Coin Manager	4_dr_gamberi,{
+function int__;
+
+do{
+	callsub exchange_rate;
+	.@menu = select( "Zeny to Coin","Coin to Zeny","Close" );
+	switch( .@menu ){
+		Case 1:
+			mes "Convert Zeny to which Coins ?";
+			.@coin = select( implode( .coin_name$,":" ) ) - 1;
+			if( Zeny <  .value[.@coin] ){
+				mes "^FF0000[ERROR]^000000 You didnt have enough zeny.";
+			}else{
+				.@maximum = Zeny / .value[.@coin];
+				mes "You can get maximum of ^FF0000"+int__( .@maximum )+" x "+getitemname( .coin_id[.@coin] )+"^000000";
+				input .@amount,0,.@maximum;
+				if( .@maximum )
+					if( checkweight( .coin_id[.@coin],.@amount ) ){
+						.@total = ( .@amount * .value[.@coin] );
+						Zeny -= .@total;
+						getitem .coin_id[.@coin],.@amount;
+						message strcharinfo(0),"Exchanged "+int__( .@total )+" Zeny to "+int__( .@amount )+" "+getitemname( .coin_id[.@coin] )+"^000000";
+					}else{
+						mes "^FF0000[ERROR]^000000 You cant take this much.";
+					}
+			}
+			break;
+		Case 2:
+			mes "Convert which Coins to Zeny ?";
+			.@coin = select( implode( .coin_name$,":" ) ) - 1;
+			if( !countitem( .coin_id[.@coin] ) ){
+				mes "^FF0000[ERROR]^000000 You didnt have any "+getitemname( .coin_id[.@coin] )+".";
+			}else if( ( .max_zeny - Zeny ) < .value[.@coin] ){
+				mes "^FF0000[ERROR]^000000 You cant exchange this Coin as it will exceed the Zeny limit.";
+			}else{
+				.@maximum = (( .max_zeny - Zeny ) / .value[.@coin] );
+				if( .@maximum > countitem( .coin_id[.@coin] ) ) .@maximum = countitem( .coin_id[.@coin] );
+				mes "You can exchange maximum of ^FF0000"+int__( .@maximum )+" x "+getitemname( .coin_id[.@coin] )+"^000000 to zeny";
+				input .@amount,0,.@maximum;
+				if( .@maximum ){
+					.@total = ( .@amount * .value[.@coin] );
+					Zeny += .@total;
+					delitem .coin_id[.@coin],.@amount;
+					message strcharinfo(0),"Exchanged "+int__( .@amount )+" "+getitemname( .coin_id[.@coin] )+" to "+int__( .@total )+" Zeny^000000";
+				}
+			}
+			break;
+		default: break;
+	}
+	next;
+}while( .@menu != 3 );
+mes "Thank you.";
+close;
+
+exchange_rate:
+	mes "Exchange Rate :";
+	for( .@i = 0; .@i < .coin_size; .@i++ )
+		mes "^777777 > "+.coin_name$[.@i]+" - "+int__( .value[.@i] )+" z^000000";
+	return;
+	
+OnInit:
+// server max zeny
+.max_zeny = 2000000000;
+// coin list + name + value
+setarray .coin_name$,"Gold Coins","Orichalcum Coins","Sauro II Crystas","RebootRO 2B Certificates";
+setarray .coin_id,671,674,543,542;
+setarray .value,10000000,100000000,500000000,2000000000;
+
+.coin_size = getarraysize( .coin_name$ );
+end;
+
+
+// credits to annieruru
+function	int__	{
+	set .@num, atoi(""+getarg(0));
+	if ( .@num == 0 || .@num >= 2000000000 ) return getarg(0);
+	set .@l, getstrlen(""+.@num);
+	for ( set .@i,0; .@i < .@l; set .@i, .@i + 1 ) {
+		set .@num$, .@num % pow(10,.@i+1) / pow(10,.@i) + .@num$;
+			if ( (.@i+1) % 3 == 0 && .@i+1 != .@l ) set .@num$, ","+ .@num$;
+	}
+	return .@num$;
+}
+
+}
+
+prontera,128,213,5	script	Currency Exchange	4_dr_pepe,{
+mes "Please select your currency type.";
+menu "Gold Coin",gold,"Orichalcum Coin",oric,"Sauro II Crysta",sau2,"2B Certificate",cert,"Cancel",cxexit;
+
+gold:
+next;
+mes "Select exchange method.";
+menu "Exchange to Orichalcum Coins",gori,"Exchange to Sauro II Crystas",gsau2,"Exchange to 2B Certificates",gcert,"Cancel",gexit;
+
+gori:
+next;
+mes "Select exchange amount.";
+menu "10GC -> 1OC",gori1,"100GC -> 10OC",gori2,"1000GC -> 100OC",gori3,"10000GC -> 1000OC",gori4,"30000GC -> 3000OC",gori5,"Cancel",goriexit;
+
+gori1:
+if (countitem(671) > 9){
+close2;
+delitem 671,10;
+getitem 674,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gori2:
+if (countitem(671) > 99){
+close2;
+delitem 671,100;
+getitem 674,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gori3:
+if (countitem(671) > 999){
+close2;
+delitem 671,1000;
+getitem 674,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gori4:
+if (countitem(671) > 9999){
+close2;
+delitem 671,10000;
+getitem 674,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gori5:
+if (countitem(671) == 30000){
+close2;
+delitem 671,30000;
+getitem 674,3000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+goriexit:
+close;
+end;
+
+gsau2:
+next;
+mes "Select exchange amount.";
+menu "50GC -> 1Sau2",gsau21,"500GC -> 10Sau2",gsau22,"5000GC -> 100Sau2",gsau23,"30000GC -> 600Sau2",gsau24,"Cancel",gsau2exit;
+
+gsau21:
+if (countitem(671) > 49){
+close2;
+delitem 671,50;
+getitem 543,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gsau22:
+if (countitem(671) > 499){
+close2;
+delitem 671,500;
+getitem 543,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gsau23:
+if (countitem(671) > 4999){
+close2;
+delitem 671,5000;
+getitem 543,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gsau24:
+if (countitem(671) == 30000){
+close2;
+delitem 671,30000;
+getitem 543,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gsau2exit:
+close;
+end;
+
+gcert:
+next;
+mes "Select exchange amount.";
+menu "200GC -> 1Cert",gcert1,"2000GC -> 10Cert",gcert2,"20000GC -> 100Cert",gcert3,"30000GC -> 150Cert",gcert4,"Cancel",gcertexit;
+
+gcert1:
+if (countitem(671) > 199){
+close2;
+delitem 671,200;
+getitem 542,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gcert2:
+if (countitem(671) > 1999){
+close2;
+delitem 671,2000;
+getitem 542,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gcert3:
+if (countitem(671) > 19999){
+close2;
+delitem 671,20000;
+getitem 542,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gcert4:
+if (countitem(671) == 30000){
+close2;
+delitem 671,30000;
+getitem 542,150;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+gcertexit:
+close;
+end;
+
+gexit:
+close;
+end;
+
+oric:
+next;
+mes "Select exchange method.";
+menu "Exchange to Gold Coins",ogold,"Exchange to Sauro II Crystas",osau2,"Exchange to 2B Certificates",ocert,"Cancel",oexit;
+
+ogold:
+next;
+mes "Select exchange amount.";
+menu "1OC -> 10GC",ogold1,"10OC -> 100GC",ogold2,"100OC -> 1000GC",ogold3,"1000OC -> 10000GC",ogold4,"3000OC -> 30000GC",ogold5,"Cancel",ogoldexit;
+
+ogold1:
+if (countitem(674) > 0){
+close2;
+delitem 674,1;
+getitem 671,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ogold2:
+if (countitem(674) > 9){
+close2;
+delitem 674,10;
+getitem 671,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ogold3:
+if (countitem(674) > 99){
+close2;
+delitem 674,100;
+getitem 671,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ogold4:
+if (countitem(674) > 999){
+close2;
+delitem 674,1000;
+getitem 671,10000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ogold5:
+if (countitem(674) > 2999){
+close2;
+delitem 674,3000;
+getitem 671,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ogoldexit:
+close;
+end;
+
+osau2:
+next;
+mes "Select exchange amount.";
+menu "5OC -> 1Sau2",osau21,"50OC -> 10Sau2",osau22,"500OC -> 100Sau2",osau23,"5000OC -> 1000Sau2",osau24,"30000OC -> 6000Sau2",osau25,"Cancel",osau2exit;
+
+osau21:
+if (countitem(674) > 4){
+close2;
+delitem 674,5;
+getitem 543,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+osau22:
+if (countitem(674) > 49){
+close2;
+delitem 674,50;
+getitem 543,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+osau23:
+if (countitem(674) > 499){
+close2;
+delitem 674,500;
+getitem 543,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+osau24:
+if (countitem(674) > 4999){
+close2;
+delitem 674,5000;
+getitem 543,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+osau25:
+if (countitem(674) == 30000){
+close2;
+delitem 674,30000;
+getitem 543,6000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+osau2exit:
+close;
+end;
+
+ocert:
+next;
+mes "Select exchange amount.";
+menu "20OC -> 1Cert",ocert1,"200GC -> 10Cert",ocert2,"2000OC -> 100Cert",ocert3,"20000OC -> 1000Cert",ocert4,"30000OC -> 1500Cert",ocert5,"Cancel",ocertexit;
+
+ocert1:
+if (countitem(674) > 19){
+close2;
+delitem 674,20;
+getitem 542,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ocert2:
+if (countitem(674) > 199){
+close2;
+delitem 674,200;
+getitem 542,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ocert3:
+if (countitem(674) > 1999){
+close2;
+delitem 674,2000;
+getitem 542,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ocert4:
+if (countitem(674) > 19999){
+close2;
+delitem 674,20000;
+getitem 542,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ocert5:
+if (countitem(674) == 30000){
+close2;
+delitem 674,30000;
+getitem 542,1500;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+ocertexit:
+close;
+end;
+
+oexit:
+close;
+end;
+
+sau2:
+next;
+mes "Select exchange method.";
+menu "Exchange to Gold Coins",sau2g,"Exchange to Orichalcum Coins",sau2o,"Exchange to 2B Certificates",sauc,"Cancel",sexit;
+
+sau2g:
+next;
+mes "Select exchange amount.";
+menu "1Sau2 -> 50GC",sau2g1,"10Sau2 -> 500GC",sau2g2,"100Sau2 -> 5000GC",sau2g3,"600Sau2 -> 30000GC",sau2g4,"Cancel",sau2gexit;
+
+sau2g1:
+if (countitem(543) > 0){
+close2;
+delitem 543,1;
+getitem 671,50;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2g2:
+if (countitem(543) > 9){
+close2;
+delitem 543,10;
+getitem 671,500;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2g3:
+if (countitem(543) > 99){
+close2;
+delitem 543,100;
+getitem 671,5000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2g4:
+if (countitem(543) > 599){
+close2;
+delitem 543,600;
+getitem 671,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2gexit:
+close;
+end;
+
+sau2o:
+next;
+mes "Select exchange amount.";
+menu "1Sau2 -> 5OC",sau2o1,"10Sau2 -> 50OC",sau2o2,"100Sau2 -> 500OC",sau2o3,"1000Sau2 -> 5000OC",sau2o4,"6000Sau2 -> 30000OC",sau2o5,"Cancel",sau2oexit;
+
+sau2o1:
+if (countitem(543) > 0){
+close2;
+delitem 543,1;
+getitem 674,5;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2o2:
+if (countitem(543) > 9){
+close2;
+delitem 543,10;
+getitem 674,50;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2o3:
+if (countitem(543) > 99){
+close2;
+delitem 543,100;
+getitem 674,500;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2o4:
+if (countitem(543) > 999){
+close2;
+delitem 543,1000;
+getitem 674,5000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2o5:
+if (countitem(543) > 5999){
+close2;
+delitem 543,6000;
+getitem 674,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sau2oexit:
+close;
+end;
+
+sauc:
+next;
+mes "Select exchange amount.";
+menu "4Sau2 -> 1Cert",sauc1,"40Sau2 -> 10Cert",sauc2,"400Sau2 -> 100Cert",sauc3,"4000Sau2 -> 1000Cert",sauc4,"30000Sau2 -> 7500Cert",sauc5,"Cancel",saucexit;
+
+sauc1:
+if (countitem(543) > 3){
+close2;
+delitem 543,4;
+getitem 542,1;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sauc2:
+if (countitem(543) > 39){
+close2;
+delitem 543,40;
+getitem 542,10;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sauc3:
+if (countitem(543) > 399){
+close2;
+delitem 543,400;
+getitem 542,100;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sauc4:
+if (countitem(543) > 3999){
+close2;
+delitem 543,4000;
+getitem 542,1000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+sauc5:
+if (countitem(543) == 30000){
+close2;
+delitem 543,30000;
+getitem 542,7500;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+saucexit:
+close;
+end;
+
+sexit:
+close;
+end;
+
+cert:
+next;
+mes "Select exchange method.";
+menu "Exchange to Gold Coins",certg,"Exchange to Orichalcum Coins",certo,"Exchange to Sauro II Crystas",certs,"Cancel",cexit;
+
+certg:
+next;
+mes "Select exchange amount.";
+menu "1Cert -> 200GC",certg1,"10Cert -> 2000GC",certg2,"100Cert -> 20000GC",certg3,"150Cert -> 30000GC",certg4,"Cancel",certgexit;
+
+certg1:
+if (countitem(542) > 0){
+close2;
+delitem 542,1;
+getitem 671,200;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certg2:
+if (countitem(542) > 9){
+close2;
+delitem 543,10;
+getitem 671,2000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certg3:
+if (countitem(542) > 99){
+close2;
+delitem 542,100;
+getitem 671,20000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certg4:
+if (countitem(542) > 149){
+close2;
+delitem 542,600;
+getitem 671,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certgexit:
+close;
+end;
+
+certo:
+next;
+mes "Select exchange amount.";
+menu "1Cert -> 20OC",certo1,"10Cert -> 200OC",certo2,"100Cert -> 2000OC",certo3,"1000Cert -> 20000OC",certo4,"1500Cert -> 30000OC",certo5,"Cancel",certoexit;
+
+certo1:
+if (countitem(542) > 0){
+close2;
+delitem 542,1;
+getitem 674,20;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certo2:
+if (countitem(542) > 9){
+close2;
+delitem 542,10;
+getitem 674,200;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certo3:
+if (countitem(542) > 99){
+close2;
+delitem 542,100;
+getitem 674,2000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certo4:
+if (countitem(542) > 999){
+close2;
+delitem 542,1000;
+getitem 674,20000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certo5:
+if (countitem(542) > 1499){
+close2;
+delitem 542,1500;
+getitem 674,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certoexit:
+close;
+end;
+
+certs:
+next;
+mes "Select exchange amount.";
+menu "1Cert -> 4Sau2",certs1,"10Cert -> 40Sau2",certs2,"100Cert -> 400Sau2",certs3,"1000Cert -> 4000Sau2",certs4,"7500Cert -> 30000Sau2",certs5,"Cancel",certsexit;
+
+certs1:
+if (countitem(542) > 0){
+close2;
+delitem 542,1;
+getitem 543,4;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certs2:
+if (countitem(542) > 9){
+close2;
+delitem 542,10;
+getitem 543,40;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certs3:
+if (countitem(542) > 99){
+close2;
+delitem 542,100;
+getitem 543,400;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certs4:
+if (countitem(542) > 999){
+close2;
+delitem 542,1000;
+getitem 543,4000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certs5:
+if (countitem(542) > 7499){
+close2;
+delitem 542,7500;
+getitem 543,30000;
+end;
+}
+else {
+next;
+mes "You do not have enough currency.";
+close;
+end;
+}
+
+certsexit:
+close;
+end;
+
+cexit:
+close;
+end;
+
+cxexit:
+close;
+end;
+}
+

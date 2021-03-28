@@ -1,0 +1,1529 @@
+valkyrie,50,87,6	script	Hades	1696,{
+mes "[Hades, Fallen God of Hel]";
+mes "What forgotten power do you wish to have, mortal?";
+menu "Upper Headgear",headupper,"Advanced Headgear",advhead,"Middle Headgear",headmiddle,"Diabolus Equipment",donatequest,"Cancel",exithades;
+
+headupper:
+next;
+menu "Valkyrie Helm",vhelm,"Gigantic Majestic Goat",gmagoat,"Hat of the Sun God",hesg,"Evil Snake Lord Hat",snakehat,"Soul Ring",soulring,"Cancel",exitupper;
+
+vhelm:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "MDEF +5, All Stats +5";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Helm [1] 1";
+mes "Valhalla's Flower 5";
+mes "Soft Feather 50";
+mes "Cobaltblue Dyestuffs 50";
+next;
+menu "Offer Sacrifice",makevhelm,"Back out",exitvhelm;
+
+makevhelm:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",govhelm,"No.",exitvhelm;
+
+govhelm:
+next;
+if (countitem(2229) > 0 && countitem(7510) > 4 && countitem(7063) > 49 && countitem(978) > 49){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2229,1;
+delitem 7510,5;
+delitem 7063,50;
+delitem 978,50;
+getitem 5171,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitvhelm:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+gmagoat:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Increase damage to demihuman and player by 12%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Majestic Goat 1";
+mes "Cursed Baphomet Doll 1";
+mes "Crystal of Darkness 30";
+mes "Fragment of Darkness 50";
+next;
+menu "Offer Sacrifice",makegmagoat,"Back out",exitgmagoat;
+
+makegmagoat:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gogmagoat,"No.",exitgmagoat;
+
+gogmagoat:
+next;
+if (countitem(2256) > 0 && countitem(6004) > 0 && countitem(7799) > 29 && countitem(7798) > 49){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2256,1;
+delitem 6004,1;
+delitem 7799,30;
+delitem 7798,50;
+getitem 5374,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitgmagoat:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+hesg:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "STR +5, ATK +5, Increase Physical dmg vs player by 15%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Emblem of the Sun God 1";
+mes "Gold 10";
+mes "Steel 40";
+mes "Coal 50";
+mes "Oridecon 2";
+next;
+menu "Offer Sacrifice",makehesg,"Back out",exithesg;
+
+makehesg:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gohesg,"No.",exithesg;
+
+gohesg:
+next;
+if (countitem(7086) > 0 && countitem(969) > 9 && countitem(999) > 39 && countitem(1003) > 49 && countitem(984) > 1){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 7086,1;
+delitem 969,10;
+delitem 999,40;
+delitem 1003,50;
+delitem 984,2;
+getitem 5353,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exithesg:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+snakehat:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "INT +5, MATK +5%, increase magic dmg vs player by 15%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Evil Snake Lord Card 1";
+mes "Ba Gua 25";
+mes "Fabric 500";
+mes "Oil Paper 500";
+mes "Sharp Paper 250";
+next;
+menu "Offer Sacrifice",makesnakehat,"Back out",exitsnakehat;
+
+makesnakehat:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gosnakehat,"No.",exitsnakehat;
+
+gosnakehat:
+next;
+if (countitem(4330) > 0 && countitem(7169) > 24 && countitem(1059) > 499 && countitem(7151) > 499 && countitem(7112) > 249){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 4330,1;
+delitem 7169,25;
+delitem 1059,500;
+delitem 7151,500;
+delitem 7112,250;
+getitem 5364,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitsnakehat:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+soulring:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "VIT +5, Max HP +10%, Reduce dmg from players by 10%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Angeling Card 1";
+mes "Feather of Birds 500";
+mes "Gold 10";
+mes "Soft Feather 100";
+mes "Peco Peco Feather 250";
+next;
+menu "Offer Sacrifice",makesoulring,"Back out",exitsoulring;
+
+makesoulring:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gosoulring,"No.",exitsoulring;
+
+gosoulring:
+next;
+if (countitem(4054) > 0 && countitem(916) > 499 && countitem(969) > 9 && countitem(7063) > 99 && countitem(7101) > 249){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 4054,1;
+delitem 916,500;
+delitem 969,10;
+delitem 7063,100;
+delitem 7101,250;
+getitem 5257,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitsoulring:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitupper:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "That's too bad.";
+close;
+end;
+
+advhead:
+next;
+menu "Duneyrr Helm",duneyrr,"Dark Valkyrie Helm",darkvalk,"Lord Kaho's Horn",lkhadv,"Soul Wing",soulwing,"Cancel",exitadvhead;
+
+duneyrr:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "All stats +3, +15% damage to, and resistance from, players.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Gigantic Majestic Goat [1] 1";
+mes "Bone Head [1] 1";
+mes "Fur 500";
+mes "Evil Horn 500";
+mes "Billow 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makeduneyrr,"Back out",exitduneyrr;
+
+makeduneyrr:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",goduneyrr,"No.",exitduneyrr;
+
+goduneyrr:
+next;
+if (isequipped(5353) == 1){
+if (countitem(5398) > 0 && countitem(6020) > 499 && countitem(923) > 499 && countitem(7091) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_TOP;
+delitem 5398,1;
+delitem 6020,500;
+delitem 923,500;
+delitem 7091,1;
+delitem 5317,1;
+getitem 5762,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Duneyrr Helm!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5374) > 0 && countitem(5398) > 0 && countitem(6020) > 499 && countitem(923) > 499 && countitem(7091) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5374,1;
+delitem 5398,1;
+delitem 6020,500;
+delitem 923,500;
+delitem 7091,1;
+delitem 5317,1;
+getitem 5762,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Duneyrr Helm!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitduneyrr:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+darkvalk:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "STR +10, DEX +5, ATK +10%, Increases Physical dmg to player by 20%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Hat of the Sun God [1] 1";
+mes "Morrigane's Helm 1";
+mes "Black Dyestuffs 100";
+mes "Valhalla's Flower 5";
+mes "Silver Ornament 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makedarkvalk,"Back out",exitdarkvalk;
+
+makedarkvalk:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godarkvalk,"No.",exitdarkvalk;
+
+godarkvalk:
+next;
+if (isequipped(5353) == 1){
+if (countitem(5127) > 0 && countitem(983) > 99 && countitem(7510) > 4 && countitem(7077) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_TOP;
+delitem 5127,1;
+delitem 983,100;
+delitem 7510,5;
+delitem 7077,1;
+delitem 5317,1;
+getitem 5373,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Dark Valkyrie Helm!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5353) > 0 && countitem(5127) > 0 && countitem(983) > 99 && countitem(7510) > 4 && countitem(7077) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5353,1;
+delitem 5127,1;
+delitem 983,100;
+delitem 7510,5;
+delitem 7077,1;
+delitem 5317,1;
+getitem 5373,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Dark Valkyrie Helm!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdarkvalk:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+lkhadv:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "INT +10, MATK +10%, increase Magic dmg to player by 20%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Evil Snake Lord Hat [1] 1";
+mes "Morpheus' Hood 1";
+mes "Insect Feeler 500";
+mes "Shining Spear Blade 1";
+mes "Ripple 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makelkhadv,"Back out",exitlkhadv;
+
+makelkhadv:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",golkhadv,"No.",exitlkhadv;
+
+golkhadv:
+next;
+if (isequipped(5364) == 1){
+if (countitem(5126) > 0 && countitem(928) > 499 && countitem(7109) > 0 && countitem(7090) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_TOP;
+delitem 5126,1;
+delitem 928,500;
+delitem 7109,1;
+delitem 7090,1;
+delitem 5317,1;
+getitem 5013,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Lord Kaho's Horn!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5364) > 0 && countitem(5126) > 0 && countitem(928) > 499 && countitem(7109) > 0 && countitem(7090) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5364,1;
+delitem 5126,1;
+delitem 928,500;
+delitem 7109,1;
+delitem 7090,1;
+delitem 5317,1;
+getitem 5013,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Lord Kaho's Horn!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitlkhadv:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+soulwing:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "All stats +1, VIT +10, MaxHP +15%, reduce dmg from player by 15%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Soul Ring [1] 1";
+mes "Halo 1";
+mes "Arc Angeling Card 1";
+mes "Rune of Darkness 100";
+mes "Feather of Angel Wing 1";
+mes "Sauro II Al Crysta 1";
+next;
+menu "Offer Sacrifice",makesoulwing,"Back out",exitsoulwing;
+
+makesoulwing:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",gosoulwing,"No.",exitsoulwing;
+
+gosoulwing:
+next;
+if (isequipped(5257) == 1){
+if (countitem(2282) > 0 && countitem(4241) > 0 && countitem(7511) > 99 && countitem(7079) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_TOP;
+delitem 2282,1;
+delitem 4241,1;
+delitem 7511,100;
+delitem 7079,1;
+delitem 5317,1;
+getitem 5373,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Soul Wing!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5257) > 0 && countitem(2282) > 0 && countitem(4241) > 0 && countitem(7511) > 99 && countitem(7079) > 0 && countitem(5317) > 0){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5257,1;
+delitem 2282,1;
+delitem 4241,1;
+delitem 7511,100;
+delitem 7079,1;
+delitem 5317,1;
+getitem 5373,1;
+if (achievementexists(240024) == 0){
+achievementcomplete(240024);
+}
+announce ""+strcharinfo(0)+"  has acquired Soul Wing!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitsoulwing:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitadvhead:
+mes "[Hades, Fallen God of Hel]";
+mes "That's too bad.";
+close;
+end;
+
+headmiddle:
+next;
+menu "Robo Eye",robo,"Blank Eyes",blank,"Cyclop's Eye",optic,"Ears of Ifrit",ifrit,"Censor Bar",hentai,"Blush",kawaii,"Cancel",exitmiddle;
+
+robo:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "DEX, ATK, MATK and dmg vs player +2%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "Fragment 250";
+mes "Metal Fragment 250";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makerobo,"Back out",exitrobo;
+
+makerobo:
+next;
+if (countitem(746) > 249 && countitem(7094) > 249 && countitem(7095) > 249 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 7094,250;
+delitem 7095,250;
+delitem 543,10;
+getitem 5325,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitrobo:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+blank:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "INT, ATK, MATK and magic resistance +2%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "White Dyestuffs 50";
+mes "Will of Red Darkness 25";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeblank,"Back out",exitblank;
+
+makeblank:
+next;
+if (countitem(746) > 249 && countitem(982) > 49 && countitem(7566) > 24 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 982,50;
+delitem 7566,25;
+delitem 543,10;
+getitem 5102,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitblank:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+optic:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "VIT, ATK, MATK +2%, MaxHP +5%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "Cursed Ruby 50";
+mes "Rusty Screw 500";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeoptic,"Back out",exitoptic;
+
+makeoptic:
+next;
+if (countitem(746) > 249 && countitem(724) > 49 && countitem(7317) > 499 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 724,50;
+delitem 7317,500;
+delitem 543,10;
+getitem 5135,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitoptic:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+ifrit:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "STR, ATK, MATK and Crit Dmg +2%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "Burning Horseshoe 500";
+mes "Burning Heart 500";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makeifrit,"Back out",exitifrit;
+
+makeifrit:
+next;
+if (countitem(746) > 249 && countitem(7120) > 499 && countitem(7097) > 499 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 7120,500;
+delitem 7097,500;
+delitem 543,10;
+getitem 5421,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitifrit:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+hentai:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "AGI, ATK, MATK and physical resistance +2%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "Black Dyestuffs 50";
+mes "Crystal of Darkness 50";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makehentai,"Back out",exithentai;
+
+makehentai:
+next;
+if (countitem(746) > 249 && countitem(983) > 49 && countitem(7799) > 49 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 983,50;
+delitem 7799,50;
+delitem 543,10;
+getitem 5175,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exithentai:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+kawaii:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "LUK, ATK, MATK and dmg reduc vs players +2%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Glass Bead 250";
+mes "Scarlet Dyestuffs 50";
+mes "Powder of Butterfly 500";
+mes "Sauro II Crysta 10";
+next;
+menu "Offer Sacrifice",makekawaii,"Back out",exitkawaii;
+
+makekawaii:
+next;
+if (countitem(746) > 249 && countitem(975) > 49 && countitem(924) > 499 && countitem(543) > 9){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 746,250;
+delitem 975,50;
+delitem 924,500;
+delitem 543,10;
+getitem 5040,1;
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitkawaii:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitmiddle:
+mes "[Hades, Fallen God of Hel]";
+mes "That's too bad.";
+close;
+end;
+
+donatequest:
+next;
+menu "Dark Bacilium",dhelm,"Diabolus Armor",darmor,"Diabolus Robe",drobe,"Diabolus Manteau",dmant,"Diabolus Boots",dboots,"Diabolus Ring",dring,"Diabolus Shield",dshield,"Cancel",exitdonate;
+
+dhelm:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "20% resist Stone Curse, Frozen and Stun. Resist levels increase per refine. All stats +7.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrie Helm [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedhelm,"Back out",exitdhelm;
+
+makedhelm:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godhelm,"No.",exitdhelm;
+
+godhelm:
+next;
+if (isequipped(5171) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HEAD_TOP;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 5808,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Dark Bacilium!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(5171) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 5171,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 5808,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Dark Bacilium!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdhelm:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+darmor:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "All Stats +2, additional STR +2. ATK +5%, MaxHP +10% Silence Resist +20%, increased by refine.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrian Armor [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedarmor,"Back out",exitdarmor;
+
+makedarmor:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godarmor,"No.",exitdarmor;
+
+godarmor:
+next;
+if (isequipped(2357) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_ARMOR;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2375,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Armor!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(2357) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2357,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2375,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Armor!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdarmor:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+drobe:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "All Stats +2, additional INT +2. MATK +5%, MaxHP +10% Silence Resist +20%, increased by refine.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrian Armor [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedrobe,"Back out",exitdrobe;
+
+makedrobe:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godrobe,"No.",exitdrobe;
+
+godrobe:
+next;
+if (isequipped(2357) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_ARMOR;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2374,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Robe!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(2357) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2357,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2374,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Robe!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdrobe:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+dmant:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "MaxHP +100. Resist Neutral +5%, Increase physical dmg to Boss +10%, PD +10 and Physical Reflect +10%, both increased by refine.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrian Manteau [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedmant,"Back out",exitdmant;
+
+makedmant:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godmant,"No.",exitdmant;
+
+godmant:
+next;
+if (isequipped(2524) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_GARMENT;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2537,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Manteau!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(2524) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2524,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2537,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Manteau!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdmant:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+dboots:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "MaxHP and SP +10% All stats +3, Movespeed +20%.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrian Shoes [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedboots,"Back out",exitdboots;
+
+makedboots:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godboots,"No.",exitdboots;
+
+godboots:
+next;
+if (isequipped(2421) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_SHOES;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2433,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Boots!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(2421) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2421,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2433,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Boots!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdboots:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+dring:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "All Stats +10, MaxHP and SP +100, Physical dmg to boss +10%, Heal power +5%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Megingjard EX [1]";
+mes "Freya's Circlet EX [1]";
+mes "Divine Incense [1]";
+mes "Ring of Solomon [1]";
+mes "Brisingamen EX [1]";
+mes "Curonne's Treasure [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedring,"Back out",exitdring;
+
+makedring:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godring,"No.",exitdring;
+
+godring:
+next;
+if (countitem(20071) > 0 && countitem(20072) > 0 && countitem(20073) > 0 && countitem(20074) > 0 && countitem(20075) > 0 && countitem(20076) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 20071,1;
+delitem 20072,1;
+delitem 20073,1;
+delitem 20074,1;
+delitem 20075,1;
+delitem 20076,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 2729,1;
+if (achievementexists(240026) == 0){
+achievementcomplete(240026);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Ring!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+
+exitdring:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+dshield:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "MaxHP +10%, Reflect all single-target dmg +10%, All dmg resist +10%";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "Ah, splendid choice.";
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You'll need to offer me these items as sacrifice:";
+next;
+mes "Valkyrie Shield [1]";
+mes "Black Dyestuffs 100";
+mes "Sauro II Al Crysta 1";
+mes "Freya's Jewel 1";
+mes "Wrath of Valkyrie 1";
+mes "RebootRO 2B Certificate 100";
+next;
+menu "Offer Sacrifice",makedshield,"Back out",exitdshield;
+
+makedshield:
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards, if any are compounded into the base material will be lost.";
+mes "Do you wish to continue?";
+menu "Yes.",godshield,"No.",exitdshield;
+
+godshield:
+next;
+if (isequipped(2115) == 1){
+if (countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delequip EQI_HAND_L;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 20058,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Shield!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+else {
+if (countitem(2115) > 0 && countitem(983) > 99 && countitem(5317) > 0 && countitem(7073) > 0 && countitem(7070) > 0 && countitem(542) > 99){
+mes "[Hades, Fallen God of Hel]";
+mes "The power of Olympus is upon you.";
+close2;
+delitem 2115,1;
+delitem 983,100;
+delitem 5317,1;
+delitem 7073,1;
+delitem 7078,1;
+delitem 542,100;
+getitem 20058,1;
+if (achievementexists(240025) == 0){
+achievementcomplete(240025);
+}
+announce ""+strcharinfo(0)+"  has acquired Diabolus Shield!","0x33FF66";
+end;
+}
+else {
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+}
+}
+
+exitdshield:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exitdonate:
+next;
+mes "[Hades, Fallen God of Hel]";
+mes "You dare challenge a god?";
+close;
+end;
+
+exithades:
+mes "[Hades, Fallen God of Hel]";
+mes "That's too bad.";
+close;
+end;
+}

@@ -1,0 +1,264 @@
+prontera,150,192,6	script	Special Warper	4_f_himel2,{
+cutin "gl_himel2",2;
+mes "Select a Quest Line.";
+if (countitem(40500) > 0){
+menu "Item Mall and Equipment Quests",valk,"Couples System",couple,"Dyestuffs Quest",dye,"Counteragent and Mixture Quest",ctmix,"New World Quest",morocc,"Special Instances",instance,"^0000FFHoloPro Gifting Center^000000",hololive;
+}
+else {
+menu "Item Mall and Equipment Quests",valk,"Couples System",couple,"Dyestuffs Quest",dye,"Counteragent and Mixture Quest",ctmix,"New World Quest",morocc,"Special Instances",instance;
+}
+
+valk:
+cutin "",255;
+close2;
+warp "valkyrie",48,10;
+end;
+
+couple:
+next;
+menu "Wedding Boutique",wedshop,"Marriage Ceremony",marry,"Honeymoon",jawaii,"Divorce",d_vorce;
+
+wedshop:
+cutin "",255;
+close2;
+warp "prt_in",208,171;
+end;
+
+marry:
+cutin "",255;
+close2;
+warp "prt_church",99,98;
+end;
+
+jawaii:
+cutin "",255;
+close2;
+warp "jawaii",204,289;
+end;
+
+d_vorce:
+cutin "",255;
+close2;
+warp "nif_in",189,105;
+end;
+
+dye:
+cutin "",255;
+close2;
+warp "morocc_in",144,100;
+end;
+
+ctmix:
+cutin "",255;
+close2;
+warp "alberta_in",130,54;
+end;
+
+morocc:
+cutin "",255;
+close2;
+warp "prt_castle",85,62;
+end;
+
+instance:
+if (countitem(20239) > 0){
+next;
+menu "Endless Tower",etow,"Sealed Shrine",sealed,"Nidhoggur's Nest",nydhogg,"^FF0000Ruins of Lograth^000000",lograth;
+}
+else if (countitem(20239) < 1){
+next;
+menu "Endless Tower",etow,"Sealed Shrine",sealed,"Nidhoggur's Nest",nydhogg;
+}
+
+etow:
+cutin "",255;
+close2;
+warp "e_tower",77,112;
+end;
+
+sealed:
+cutin "",255;
+close2;
+warp "monk_test",305,144;
+end;
+
+nydhogg:
+cutin "",255;
+close2;
+warp "nyd_dun02",97,196;
+end;
+
+lograth:
+cutin "",255;
+close2;
+warp "yuno_in03",96,34;
+end;
+
+hololive:
+cutin "",255;
+close2;
+warp "ra_temsky",47,136;
+end;
+}
+
+morocc,168,106,6	duplicate(Special Warper)	Special Warper#moc	4_f_himel2
+geffen,128,68,6	duplicate(Special Warper)	Special Warper#gef	4_f_himel2
+payon,180,105,6	duplicate(Special Warper)	Special Warper#pay	4_f_himel2
+alberta,114,65,6	duplicate(Special Warper)	Special Warper#alb	4_f_himel2
+aldebaran,146,122,6	duplicate(Special Warper)	Special Warper#ald	4_f_himel2
+xmas,155,141,6	duplicate(Special Warper)	Special Warper#lut	4_f_himel2
+comodo,204,153,6	duplicate(Special Warper)	Special Warper#com	4_f_himel2
+amatsu,100,156,6	duplicate(Special Warper)	Special Warper#ama	4_f_himel2
+gonryun,164,127,6	duplicate(Special Warper)	Special Warper#gon	4_f_himel2
+umbala,106,160,6	duplicate(Special Warper)	Special Warper#umb	4_f_himel2
+niflheim,200,183,6	duplicate(Special Warper)	Special Warper#nif	4_f_himel2
+louyang,210,110,6	duplicate(Special Warper)	Special Warper#lou	4_f_himel2
+ayothaya,203,173,6	duplicate(Special Warper)	Special Warper#ayo	4_f_himel2
+einbroch,238,203,6	duplicate(Special Warper)	Special Warper#ein	4_f_himel2
+lighthalzen,155,104,6	duplicate(Special Warper)	Special Warper#lhz	4_f_himel2
+einbech,182,124,6	duplicate(Special Warper)	Special Warper#ebc	4_f_himel2
+hugel,91,158,6	duplicate(Special Warper)	Special Warper#hu	4_f_himel2
+rachel,123,145,6	duplicate(Special Warper)	Special Warper#ra	4_f_himel2
+veins,205,130,6	duplicate(Special Warper)	Special Warper#ve	4_f_himel2
+moscovia,211,200,6	duplicate(Special Warper)	Special Warper#mos	4_f_himel2
+yuno,176,187,6	duplicate(Special Warper)	Special Warper#yun	4_f_himel2
+
+alberta_in,128,51,6	script	To Geffen	650,{
+warp "geffen",187,115;
+}
+
+geffen,184,112,6	script	To Crafting	650,{
+warp "geffen",139,142;
+}
+
+prt_castle,85,67,6	script	Quest Aide	650,{
+mes "What would you like to do?";
+menu "To AlDeBaran",alde,"To Lighthalzen",lhz,"Cancel",exit;
+
+alde:
+cutin "",255;
+close2;
+warp "aldebaran",125,139;
+end;
+
+lhz:
+cutin "",255;
+close2;
+warp "lhz_in01",123,229;
+end;
+
+exit:
+cutin "",255;
+close;
+end;
+}
+
+aldebaran,130,137,6	script	Quest Aide II	650,{
+mes "What would you like to do?";
+menu "Get Jellopy",jell,"Next",gef,"Cancel",exit1;
+
+jell:
+cutin "",255;
+close2;
+warp "pay_fild04",24,166;
+end;
+
+gef:
+cutin "",255;
+close2;
+warp "geffen",91,66;
+end;
+
+exit1:
+cutin "",255;
+close;
+end;
+}
+
+pay_fild04,30,169,6	script	Back to Aldebaran	650,{
+cutin "gl_himel2",3;
+warp "aldebaran",125,139;
+}
+
+geffen,88,69,6	script	Quest Aide III	650,{
+mes "What would you like to do?";
+menu "Get Jewels",jewel,"Next",izlude,"Cancel",exit2;
+
+jewel:
+cutin "",255;
+close2;
+warp "moc_ruins",107,105;
+end;
+
+izlude:
+cutin "",255;
+close2;
+warp "prt_in",79,104;
+end;
+
+exit2:
+cutin "",255;
+close;
+end;
+}
+
+moc_ruins,108,108,6	script	Back to Geffen	650,{
+cutin "gl_himel2",3;
+warp "geffen",91,66;
+}
+
+prt_in,72,100,4	script	Back to Recruiter	650,{
+warp "prt_castle",85,62;
+}
+
+lhz_in01,129,259,6	script	Alliance	650,{
+mes "What would you like to do?";
+menu "To Prontera",rune,"To Rachel",rachel,"Cancel",exit3;
+
+rune:
+cutin "",255;
+close2;
+warp "prt_castle",118,49;
+end;
+
+rachel:
+cutin "",255;
+close2;
+warp "ra_temple",119,110;
+end;
+
+exit3:
+cutin "",255;
+close;
+end;
+}
+
+prt_castle,121,48,6,	script	Back to Lighthalzen	650,{
+cutin "gl_himel2",3;
+warp "lhz_in01",123,229;
+}
+
+ra_temple,124,113,6	script	Back to Lighthalzen 2	650,{
+warp "lhz_in01",123,229;
+}
+
+lhz_in01,23,22,6	script	Back Upstairs	650,{
+warp "lhz_in01",123,229;
+}
+
+lhz_in01,125,224,6	script	Listen In	650,{
+mes "What would you like to do?";
+menu "Downstairs",stairs,"Cancel",exit4;
+
+stairs:
+cutin "",255;
+close2;
+warp "lhz_in01",147,179;
+end;
+
+
+exit4:
+cutin "",255;
+close;
+end;
+}

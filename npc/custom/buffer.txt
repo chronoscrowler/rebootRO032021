@@ -1,0 +1,277 @@
+prontera,150,187,6	script	Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+
+aldebaran,135,120,6	script	Narabedla buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+in_hunter,97,100,4	script	All Star Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+louyang,91,250,4	script	War Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+comodo,189,150,4	script	Los Espadas Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+louyang,207,102,4	script	S t e a l t h Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+payon,153,234,4	script	Hall of Fame Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+alb_ship,114,103,4	script	Primal Roar Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+poring_c02,100,78,4	script	Papsinators Buffer	1513,{
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+poring_w02,101,76,6	script	Dmg Test Assist	1513,{
+	  percentheal 100,100;
+//skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+//skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+//skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+//skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+//skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+//sc_start SC_STRFood,700000,20;
+//sc_start SC_AGIFood,700000,20;
+//sc_start SC_VITFood,700000,20;
+//sc_start SC_INTFood,700000,20;
+//sc_start SC_DEXFood,700000,20;
+//sc_start SC_LUKFood,700000,20;
+end;
+}
+
+ecl_fild01,177,70,6	script	Pekoland Buffer	1322,{
+//percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+//skilleffect 67,0; sc_start SC_SUFFRAGIUM,360000,3;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+//skilleffect 465,0; sc_start SC_KAITE,360000,7;
+//skilleffect 464,0; sc_start SC_KAUPE,360000,3;
+//skilleffect 463,0; sc_start SC_KAAHI,360000,7;
+//skilleffect 462,0; sc_start SC_KAIZEL,360000,7;
+//skilleffect 361,0; sc_start SC_ASSUMPTIO,360000,5;
+//skilleffect 2515,0; sc_start SC_SECRAMENT,360000,5;
+sc_start SC_STRFood,360000,10;
+sc_start SC_AGIFood,360000,10;
+sc_start SC_VITFood,360000,10;
+sc_start SC_INTFood,360000,10;
+sc_start SC_DEXFood,360000,10;
+sc_start SC_LUKFood,360000,10;
+end;
+}

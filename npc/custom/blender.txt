@@ -1,0 +1,124 @@
+// Essence Extraction
+prt_in,40,117,6	script	Blender	563,{
+getinventorylist;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Weapons",gweaps,"Armors",garmors,"Ubergarments",gubers,"Advanced Headgear",gadvheads,"Set Items",gsets;
+
+gweaps:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Soul Weapons",bsoulw,"Advanced Soul Weapons",asoulw,"Reboot HoloCrisis Weapons",wholo,"Faction Weapons",fweap;
+
+garmors:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Dual-Slotted Armors",2sarms,"Overloaded Armors",overloads;
+
+gsets:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Valkyrie Set",valkset,"Magic Tournament Set",geffenset,"Diabolus Set",diabset,"Sinister Set",siniset,"Reboot HoloCrisis Set",holoset,"Faction Sets",facsets;
+
+asoulw:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Netorian Vicious Soul",nsoulw,"Irunite Crimson Soul",isoulw,"Schicksal Fate Soul",ssoulw;
+
+fweap:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Netoria",nfacw,"Iruna",ifacw,"Schicksal",sfacw;
+
+facsets:
+next;
+mes "[ Data Blender ]";
+mes "Select an item type to blend.";
+menu "Netoria",nfaca,"Iruna",ifaca,"Schicksal",sfaca;
+
+bsoulw:
+next;
+set .@bsoulw,countinarray(.soulw,@inventorylist_id);
+if (countinarray(.soulw,@inventorylist_id) > 0){
+mes "[ Data Blender ]";
+mes "Select an item. ("+.@bsoulw+" available)";
+menu 
+
+/*
+for ( .@i = 0; .@i < @inventorylist_count; .@i++ ) {
+for ( .@h = 0; .@h < .@itemtcount; .@h++ ) {
+if (@inventorylist_id[.@i] == .@itemtier[.@h] && @inventorylist_equip[.@i] == 0 && @inventorylist_refine[.@i] < 11 && @inventorylist_card1[.@i] >= 0 && @inventorylist_card2[.@i] >= 0 && @inventorylist_card3[.@i] >= 0 && @inventorylist_card4[.@i] >= 0){
+for ( .@j = 0; .@j < @inventorylist_count; .@j++ ) {
+set .@blender[.@j],@inventorylist_id[.@i];
+set .@blender$[.@j],getitemname(@inventorylist_id[.@i]);
+set .@blendref[.@j],@inventorylist_refine[.@i];
+set .@blendc1[.@j],@inventorylist_card1[.@i];
+set .@blendc2[.@j],@inventorylist_card2[.@i];
+set .@blendc3[.@j],@inventorylist_card3[.@i];
+set .@blendc4[.@j],@inventorylist_card4[.@i];
+}
+}
+}
+}
+set .@blen1,getarraysize(.@blender);
+set .@blen2,getarraysize(.@blendref);
+set .@blen3,getarraysize(.@blendc1);
+set .@blen4,getarraysize(.@blendc2);
+set .@blen5,getarraysize(.@blendc3);
+set .@blen6,getarraysize(.@blendc4);
+set .@blendsize,getarraysize(.@blender$);
+set .@blend$,implode(.@blender$, ":");
+//.@j = select( .@blend$ ) - 1;
+close;
+end;
+*/
+
+/*
+OnInit:
+setarray .soulw[0],20059,20060,20061,20062,20063,20064,20065,20066,20067,20068,20069,20070;
+set .soulwsize,getarraysize(.soulw);
+setarray .advsoulwn[0],39000,39001,39002,39003,39004,39005,39006,39007,39008,39009,39010,39011;
+set .advsoulwnsize,getarraysize(.advsoulwn);
+setarray .advsoulwi[0],39012,39013,39014,39015,39016,39017,39018,39019,39020,39021,39022,39023;
+set .advsoulwisize,getarraysize(.advsoulwi);
+setarray .advsoulws[0],39024,39025,39026,39027,39028,39029,39030,39031,39032,39033,39034,39035;
+set .advsoulwssize,getarraysize(.advsoulws);
+setarray .whololive[0],1283,1323,1489,1746,1830,1935,1992,2007,13076,13088,13115,13431;
+set .whololivesize,getarraysize(.whololive);
+setarray .nfactionw[0],40007,40008,40009,40010,40011,40012,40013,40014,40015,40016,40017;
+set .nfactionwsize,getarraysize(.nfactionw);
+setarray .ifactionw[0],40027,40028,40029,40030,40031,40032,40033,40034,40035,40036,40037;
+set .ifactionwsize,getarraysize(.ifactionw);
+setarray .sfactionw[0],40047,40048,40049,40050,40051,40052,40053,40054,40055,40056,40057;
+set .sfactionwsize,getarraysize(.sfactionw);
+setarray .2sarm[0],2361,2362,2363,2632,2633,2750,2792,2793;
+set .2sarmsize,getarraysize(.2sarm);
+setarray .advhelm[0],5013,5297,5373,5762;
+set .advhelmsize,getarraysize(.advhelm);
+setarray .ubergarm[0],40109,40110,40111,40112,40200,40201,40202,40203;
+set .ubergarmsize,getarraysize(.ubergarm);
+setarray .valk[0],2115,2357,2421,2524,5171;
+set .valksize,getarraysize(.valk);
+searray .diab[0],2374,2375,2433,2537,5808,20058,39046,39053,39054,39056;
+set .diabsize,getarraysize(.diab);
+setarray .sinister[0],40100,40101,40102,40103,40105;
+set .sinistersize,getarraysize(.sinister);
+setarray .overload[0],39036,39037,39038,39039,39040,39041,39047,39048,39049,39050,39051,39052;
+set .overloadsize,getarraysize(.overload);
+setarray .gefset[0],2185,2186,15073,15074,15146,15177,28605,28913;
+set .gefsetcount,getarraysize(.gefset);
+setarray .ahololive[0],40493,40494,40495;
+set .ahololivesize,getarraysize(.ahololive);
+setarray .nfacarm[0],40001,40003,40004,40005,40018;
+set .nfacarmsize,getarraysize(.nfacarm);
+setarray .ifacarm[0],40021,40023,40024,40025,40038;
+set .ifacarmsize,getarraysize(.ifacarm);
+setarray .sfacarm[0],40041,40043,40044,40045,40058;
+set .sfacarmsize,getarraysize(.sfacarm);
+*/
+}
