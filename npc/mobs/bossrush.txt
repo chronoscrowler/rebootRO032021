@@ -1,0 +1,28 @@
+//Phi Boss Rush
+bra_dun01,0,0,0,0	monster	Gloom Under Night	1768,10,15000,0
+bra_dun01,0,0,0,0	monster	Tao Gunka	1583,10,15000,0
+bra_dun01,0,0,0,0	monster	Deviling	1582,30,15000,0
+bra_dun01,0,0,0,0	monster	Tendril Lion	1991,10,15000,0
+bra_dun01,0,0,0,0	monster	Mutant Dragonoid	1262,30,15000,0
+bra_dun01,0,0,0,0	monster	Abysmal Knight	1219,30,15000,0
+//Upsilon Boss Rush
+bra_dun02,0,0,0,0	monster	Archangeling	1388,30,15000,0
+bra_dun02,0,0,0,0	monster	Mysteltainn	1203,30,15000,0
+bra_dun02,0,0,0,0	monster	Hardrock Mammoth	1990,10,15000,0
+bra_dun02,0,0,0,0	monster	Mistress	1059,10,15000,0
+bra_dun02,0,0,0,0	monster	Hydrolancer	1720,10,15000,0
+bra_dun02,0,0,0,0	monster	Valkyrie	1765,30,15000,0
+//Iota Boss Rush
+dic_dun02,0,0,0,0	monster	Ungoliant	1618,30,15000,0
+dic_dun02,0,0,0,0	monster	Beelzebub	1873,10,15000,0
+dic_dun02,0,0,0,0	monster	Kiel D-01	1734,10,15000,0
+dic_dun02,0,0,0,0	monster	RSX-0806	1623,10,15000,0
+dic_dun02,0,0,0,0	monster	Executioner	1205,30,15000,0
+dic_dun02,0,0,0,0	monster	Ghostring	1120,30,15000,0
+//Lambda Boss Rush
+dic_dun03,0,0,0,0	monster	Chepet	1250,30,15000,0
+dic_dun03,0,0,0,0	monster	Amon Ra	1511,10,15000,0
+dic_dun03,0,0,0,0	monster	Evil Snake Lord	1418,10,15000,0
+dic_dun03,0,0,0,0	monster	Maya	1147,10,15000,0
+dic_dun03,0,0,0,0	monster	Tirfing	1204,30,15000,0
+dic_dun03,0,0,0,0	monster	Angeling	1096,30,15000,0

@@ -1,0 +1,5 @@
+1@pump,0,0,0,0	monster	Sauro	1731,1,60000,0
+2@pump,0,0,0,0	monster	Elite Sauro	1966,1,14400000,0
+mal_dun01,0,0,0,0	monster	Sauro	1731,10,60000,0
+mal_dun01,0,0,0,0	monster	Elite Sauro	1966,5,14400000,0
+mal_dun01,0,0,0,0	monster	Master Sauro	1841,1,172800000,0,"DetectSauro::OnSauroKill"

@@ -1,0 +1,42 @@
+//Mobs
+
+//==================================================
+// eden_fild01 - Mysterious Island
+//==================================================
+eden_fild01,0,0	monster	Abzan	3827,50,5000
+eden_fild01,0,0	monster	Bug Bear	3828,35,5000
+eden_fild01,0,0	monster	Kokebi	3830,25,5000
+eden_fild01,0,0	monster	Chip	3829,50,5000
+eden_fild01,0,0	monster	Lotus Wormhole	3831,35,5000
+eden_fild01,0,0	monster	Pinya	3834,25,5000
+eden_fild01,0,0	monster	Monkeya	3832,5,3600000
+eden_fild01,0,0	monster	Musang	3833,5,3600000
+eden_fild01,41,110,20,20	boss_monster	Dark Snake Lord	3835,1,3600000,600000,0
+
+//==================================================
+// eden_fild02 - Mysterious Island
+//==================================================
+eden_fild02,0,0	monster	Firamon	3847,50,5000
+eden_fild02,0,0	monster	Pyupyumon	3846,35,5000
+eden_fild02,0,0	monster	Gamugamon	3849,25,5000
+eden_fild02,0,0	monster	Langamon	3848,50,5000
+eden_fild02,0,0	monster	Guianamon	3854,35,5000
+eden_fild02,0,0	monster	Birmon	3850,25,5000
+eden_fild02,0,0	monster	Mingomon	3852,25,5000
+eden_fild02,0,0	monster	Parumon	3851,15,10000
+eden_fild02,0,0	monster	Myconidmon	3853,5,3600000
+eden_fild02,0,0	monster	Gagambamon	3462,5,3600000
+eden_fild02,99,93,20,20	boss_monster	Arachnemon	3845,1,3600000,600000,0
+//==================================================
+// eden_fild03 - Mysterious Island
+//==================================================
+eden_fild03,0,0	monster	Gulaymon	3842,50,5000
+eden_fild03,0,0	monster	Chamemon	3836,35,5000
+eden_fild03,0,0	monster	Frillmon	3838,25,5000
+eden_fild03,0,0	monster	Urchimon	3843,50,5000
+eden_fild03,0,0	monster	Seabreamon	3839,35,5000
+eden_fild03,0,0	monster	Igumon	3840,25,5000
+eden_fild03,0,0	monster	Roostmon	3837,15,20000
+eden_fild03,0,0	monster	Ictomon	3841,5,3600000
+eden_fild03,0,0	monster	Dramon	3844,5,3600000
+eden_fild03,131,153,20,20	boss_monster	Eden's Harbinger	2961,1,3600000,600000,0

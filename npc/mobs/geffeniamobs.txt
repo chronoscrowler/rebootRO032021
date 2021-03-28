@@ -1,0 +1,14 @@
+//Mobs
+//==================================================
+// Dwarf Cave - Geffenia
+//==================================================
+abyss_04,0,0	monster	Sprouting	3862,50,5000
+abyss_04,0,0	monster	Digger Skeleton	3863,35,5000
+abyss_04,0,0	monster	Kubma	3856,25,5000
+abyss_04,0,0	monster	Moss Moth	3861,50,5000
+abyss_04,0,0	monster	Ducole	3859,35,5000
+abyss_04,0,0	monster	King Ducole	3858,5,20000
+abyss_04,0,0	monster	Rare Chest	3864,5,3600000
+abyss_04,0,0	monster	Momonga	3857,1,25000
+abyss_04,0,0	monster	Kaboom	3860,1,25000
+abyss_04,169,166,20,20	boss_monster	Guardian Kuma	3855,1,3600000,600000,0

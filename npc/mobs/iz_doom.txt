@@ -1,0 +1,7 @@
+//Remains of Izlude
+iz_boom,0,0,0,0	monster	Izlude Zombie Warrior	2603,50,15000,0
+iz_boom,0,0,0,0	monster	Izlude Zombie Prisoner	2604,50,15000,0
+iz_boom,0,0,0,0	monster	Child of Izlude	2993,35,15000,0
+iz_boom,0,0,0,0	monster	Emissary of Death	3029,10,15000,0
+iz_boom,0,0,0,0	monster	Izlude Zombie	3256,75,15000,0
+iz_boom,0,0,0,0	monster	Zombie Guard	3452,35,15000,0
