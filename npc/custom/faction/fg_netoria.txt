@@ -1,0 +1,419 @@
+dicastes01,197,339,3	script	Netorian Royal Guard	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Do you wish to proceed to the ruins of the Netorian High Keep?";
+menu "Yes",-;
+warp "jupe_area2",129,106;
+close;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0 && countitem(40509) > 0){ 
+if (countitem(20256) > 4 && countitem(20260) > 0 && countitem(20245) > 49){
+mes "[Netorian Royal Guard]";
+mes "I see you have completed Her Brilliance's task.";
+next;
+mes "[Netorian Royal Guard]";
+mes "I shall now escort you back.";
+close2;
+warp "jupe_area2",108,53;
+end;
+}
+else if (countitem(20256) < 5 || countitem(20260) < 1 || countitem(20245) < 50){
+mes "[Netorian Royal Guard]";
+mes "Please complete Her Brilliance's task before I can return you inside.";
+close;
+end;
+}
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dicastes01,217,226,3	script	Netorian Royal Guard#hak	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Oh, you wish to see the Prodigy?";
+next;
+mes "[Netorian Royal Guard]";
+mes "He's waiting over there at the Royal villa's center.";
+close;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0 && countitem(40509) > 0){
+mes "[Netorian Royal Guard]";
+mes "I guard the entrance to the Royal Villa.";
+close;
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dicastes01,230,176,3	script	Netorian Royal Guard#tam	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Her Brilliance, The White Light is truly a kind soul.";
+next;
+mes "[Netorian Royal Guard]";
+mes "She saved my life once before.";
+close;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0 && countitem(40509) > 0){
+mes "[Netorian Royal Guard]";
+mes "Her Brilliance, The White Light is truly a kind soul.";
+next;
+mes "[Netorian Royal Guard]";
+mes "She saved my life once before.";
+close;
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dicastes01,197,44,3	script	Netorian Royal Guard#ext	414,10,10,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Be careful out there.";
+close;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0){
+mes "[Guard]";
+mes "You!";
+next;
+mes "[Guard]";
+mes "That... feeling...";
+next;
+mes "[Guard]";
+mes "That aura...";
+next;
+mes "[Guard]";
+mes "How did you get such power?";
+next;
+mes "Suddenly, a gentle voice echoes through your head";
+next;
+mes "[Voice]";
+mes "Let them pass, my child.";
+next;
+mes "[Guard]";
+mes "Yes, Your Brilliance.";
+close2;
+warp "dicastes01",260,145;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0 && countitem(40509) > 0){
+mes "[Netorian Royal Guard]";
+mes "Be careful out there.";
+close;
+end;
+}
+else if (getcharid(5) == 3){
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dicastes01,146,159,3	script	Netorian Royal Guard#shp	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Welcome to the trade district.";
+close;
+end;
+}
+else if (getcharid(5) == 2 && countitem(40503) > 0 && countitem(40509) > 0){
+mes "[Netorian Royal Guard]";
+mes "Welcome to the trade district.";
+close;
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dic_fild01,24,80,3	script	Huge Door	111,{
+mes "There's an enormous door blocking your way.";
+if (countitem(20241) > 0 || countitem(40509) > 0){
+next;
+mes "Do you wish to proceed?";
+menu "Yes",-;
+warp "dic_dun01",369,44;
+close;
+end;
+}
+else {
+close;
+end;
+}
+}
+
+dic_dun01,371,44,3	script	Return Outside#neto	111,{
+mes "Do you wish to return?";
+menu "Yes",-;
+warp "dic_fild01",27,80;
+close;
+end;
+}
+
+dic_dun01,288,106,3	script	Netorian Royal Guard#dun	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1 || countitem(40509) > 0){
+mes "[Netorian Royal Guard]";
+mes "Beyond this point is a restricted area.";
+if (countitem(20242) > 0 || countitem(40509) > 0){
+next;
+mes "[Netorian Royal Guard]";
+mes "Oh, I see you have the permission of The Light herself.";
+next;
+mes "[Netorian Royal Guard]";
+mes "I'm very sorry.";
+next;
+mes "[Netorian Royal Guard]";
+mes "You may pass.";
+close2;
+warp "ecl_tdun01",61,17;
+end;
+}
+else {
+next;
+mes "[Netorian Royal Guard]";
+mes "Please leave now.";
+close;
+end;
+}
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+dic_dun01,28,212,3	script	Ominous Door#neto	111,{
+mes "There's an enormous door blocking your way.";
+next;
+mes "Something behind it is giving off an ominous feeling.";
+if (countitem(20242) > 0 || countitem(40509) > 0){
+next;
+mes "Do you wish to proceed anyway?";
+menu "Yes",-;
+warp "jupe_area2",141,192;
+close;
+end;
+}
+else {
+close;
+end;
+}
+}
+
+jupe_area2,126,109,6	script	Netorian Royal Guard#fac	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+mes "[Netorian Royal Guard]";
+mes "Do you wish to go back outside?";
+menu "Yes",-;
+warp "dicastes01",197,189;
+close;
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+ecl_tdun03,49,48,3	script	Broken Stairs#neto	111,{
+if (countitem(20243) > 0 || countitem(40509) > 0){
+warp "ecl_tdun04",33,18;
+end;
+}
+else {
+end;
+}
+}
+
+jupe_area2,126,147,3	script	Key Slot#neto	111,{
+mes "There's an apparatus that needs a key to activate.";
+if (countitem(20241) > 0){
+next;
+mes "Insert ^0000FFKey of the Frost Garrison^000000?";
+menu "Yes",-;
+hideoffnpc "Decommissioned Portal#2";
+close;
+end;
+}
+if (countitem(40509) > 0){
+next;
+mes "Use ^0000FFTemporary Netorian Pass^000000?";
+menu "Yes",-;
+hideoffnpc "Decommissioned Portal#2";
+close;
+end;
+}
+else {
+close;
+end;
+}
+}
+
+jupe_area2,129,138,3	script	Decommissioned Portal#1	10007,{
+mes "Use this portal?";
+menu "Yes",-;
+warp "jupe_area2",115,260;
+hideonnpc "Decommissioned Portal#1";
+close;
+end;
+
+OnInit:
+hideonnpc "Decommissioned Portal#1";
+end;
+}
+
+jupe_area2,138,239,3	script	Key Slot#neto2	111,{
+mes "There's an apparatus that needs a key to activate.";
+if (countitem(20241) > 0){
+next;
+mes "Insert ^0000FFKey of the Frost Garrison^000000?";
+menu "Yes",-;
+hideoffnpc "Decommissioned Portal#2";
+close;
+end;
+}
+if (countitem(40509) > 0){
+next;
+mes "Use ^0000FFTemporary Netorian Pass^000000?";
+menu "Yes",-;
+hideoffnpc "Decommissioned Portal#2";
+close;
+end;
+}
+else {
+close;
+end;
+}
+}
+
+jupe_area2,141,226,3	script	Decommissioned Portal#2	10007,{
+mes "Use this portal?";
+menu "Yes",-;
+warp "jupe_area2",80,222;
+hideonnpc "Decommissioned Portal#2";
+close;
+end;
+
+OnInit:
+hideonnpc "Decommissioned Portal#2";
+end;
+}
+
+jupe_gate,28,145,3	script	Netorian Royal Guard#jup	414,{
+if (getcharid(5) == 1 || getcharid(2) == 1 || countitem(40509) > 0){
+if (countitem(20273) > 0 && countitem(20259) > 99 && countitem(20260) > 99 && countitem(20261) > 99){
+mes "[Netorian Royal Guard]";
+mes "Halt!";
+next;
+mes "[Netorian Royal Guard]";
+mes "Only those who have both the permission and capacity to activate the Master Controls are permitted beyond this point.";
+next;
+mes "[Netorian Royal Guard]";
+mes "...That's!";
+next;
+mes "The Guard sees the items you have in your hand.";
+next;
+mes "[Netorian Royal Guard]";
+mes "I'm sorry! You may pass!";
+close2;
+warp "jupe_area1",96,221;
+end;
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Halt!";
+next;
+mes "[Netorian Royal Guard]";
+mes "Only those who have both the permission and capacity to activate the Master Controls are permitted beyond this point.";
+close;
+end;
+}
+}
+else {
+mes "[Netorian Royal Guard]";
+mes "Intruder!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+jupe_area1,89,225,3	script	???#ntend	10043,{
+if (countitem(20273) > 0 && countitem(20259) > 99 && countitem(20260) > 99 && countitem(20261) > 99){
+mes "The Items in your possession are reacting to the pedestal.";
+next;
+mes "Place them all on the pedestal?";
+menu "Yes",-;
+next;
+mes "The items disintegrate as a faint evil manifests in front of you.";
+close2;
+delitem 20273,1;
+delitem 20259,100;
+delitem 20260,100;
+delitem 20261,100;
+if (achievementexists(240032) == 0){
+achievementcomplete(240032);
+}
+monster "jupe_area1",84,222,"Last Doubts",2080,1,"NetoEndGameGet::OnKill";
+end;
+}
+else {
+mes "There's a very complex pedestal in front of you.";
+close;
+end;
+}
+}
+
+-	script	NetoEndGameGet	-1,{
+OnKill:
+
+announce ""+strcharinfo(0)+" has obtained the Endgame Item [Jeff Saber's Unconditional Love] !!!",bc_all;
+end;
+}
+
+-	script	HereticIru	-1,{
+OnKill:
+announce "No! I refuse to accept the White Light's existence!",bc_map;
+sleep2 5000;
+announce "This is not over!",bc_map;
+atcommand "@doommap";
+end;
+}

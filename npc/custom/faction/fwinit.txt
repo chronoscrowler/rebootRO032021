@@ -1,0 +1,43 @@
+-	script	FWDef	-1,{
+initnpctimer;
+end;
+
+OnTimer1000:
+stopnpctimer;
+monster "prtg_cas03",0,0,"Netorian Homunculus",2222,30,"FWKill::OnNPCKillEvent";
+end;
+}
+
+-	script	FWKill	-1,{
+end;
+
+OnNPCKillEvent:
+if (strcharinfo(3) == "prtg_cas03"){
+set .@mob_dead_num,mobcount("prtg_cas03","FWKill::OnNPCKillEvent");
+if (.@mob_dead_num > 0){
+announce "Fadhgridh Castle's defenses are being compromised.",bc_blue;
+end;
+}
+else if (.@mob_dead_num < 1){
+announce "The Guardians of the Castle of Destiny have been defeated. The Destiny Emperium is wide open!",bc_blue;
+end;
+}
+}
+}
+
+-	script	FWInitSet	-1,{
+OnInit:
+OnSun2000:
+OnAgitStart:
+if (gettime(5) > 24){
+enablenpc "FWDef";
+sleep 1500;
+enablenpc "FWKill";
+end;
+}
+else {
+disablenpc "FWDef";
+disablenpc "FWKill";
+end;
+}
+}

@@ -1,0 +1,67 @@
+dicastes01,248,157,3	script	Test Selector	123,{
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getguildmasterid(getcharid(2))+"'", .@fac);
+		if (.@fac == 1){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '1'", .@guild);
+		dispbottom "Your guild is part of the Netorian United Empire";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+end;
+}
+		else if (.@fac == 2){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '2'", .@guild);
+        dispbottom "Your guild is part of the Red Empire of Iruna";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+end;
+}
+		else if (.@fac == 3){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '3'", .@guild);
+        dispbottom "Your guild is part of the Chrono Imperium of Schicksal";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+end;
+}
+		else if (.@fac == 4){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '4'", .@guild);
+        dispbottom "Your guild is part of the Arcturus Dominion";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+end;
+}
+}

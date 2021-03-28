@@ -1,0 +1,1190 @@
+//Iruna Faction Items
+//High Empress ReDGuRL
+moonhaven,204,240,4	script	High Empress ReDGuRL	4_pd_plesio,{
+if (countitem(40504) > 0){
+if (countitem(40510) < 1){
+mes "The crimson crystal...";
+next;
+mes "The concentrated energy that has been fluctuating since you got here...";
+next;
+mes "...Is now generating dangerously lethal, plasma sparks.";
+next;
+cutin "redgurl_cutin",2;
+mes "[???]";
+mes "Return to me at once.";
+next;
+mes "The lady in red seemingly talked to the haywire energy crystal.";
+next;
+mes "[???]";
+mes "I am your whole.";
+next;
+mes "[???]";
+mes "I am your master.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I am your creator.";
+next;
+mes "The unstable energy crystal dissipated into thin air.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Seriously, where did you get that?";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Tell me, are you from Netoria?";
+next;
+mes "She begins to craft something from nothing.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Seriously, that Jeff... ";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Always causing trouble.";
+next;
+cutin "",255;
+mes "[???]";
+mes "Everything alright there, hon?";
+next;
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Yeah. Want this traveler to do something for us?";
+next;
+cutin "",255;
+mes "You now look at the other figure talking to you, confused.";
+next ;
+cutin "kardui01",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Cut the traveler some slack.";
+next;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "They just arrived here, yet you already want to toy with them?";
+next;
+cutin "",255;
+mes "You now get the gist of your situation.";
+next;
+mes "You basically got sent here to an unknown realm for something very petty, yet very dire.";
+next;
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Alright, alright.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I need you to collect stuff for me so I can purify that blob of unstable Crimson energy I just got from you.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "It still reeks of residual Genocide, since, if I'm not mistaken, it came directly from Your Lord.";
+next;
+mes "She just hit the nail directly on the head.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "If I don't purify it, it'll be trouble all over again.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Don't worry, I'll grant you passage throughout my realm.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Here, take this.";
+next;
+getitem 40510,1;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I'll be needing the following items now.";
+next;
+mes "^FF0000Ouvelam Core^000000 1";
+mes "^FF0000Sorrowful Eye^000000 50";
+mes "^FF0000Knight Soul Fragment^000000 1";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck!";
+close2;
+cutin "",255;
+set xoredgurl,1;
+end;
+}
+else if (countitem(40510) > 0 && xoredgurl == 1){
+if (countitem(20234) < 1 || countitem(20235) < 50 || countitem(20227) < 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "In case you forgot about what items you need...";
+next;
+mes "^FF0000Ouvelam Core^000000 1";
+mes "^FF0000Sorrowful Eye^000000 50";
+mes "^FF0000Knight Soul Fragment^000000 1";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Now, go get them.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(20234) > 0 && countitem(20235) > 49 && countitem(20227) > 0){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Very good.";
+next;
+delitem 20234,1;
+delitem 20235,50;
+delitem 20227,1;
+delitem 40510,1;
+delitem 40504,1;
+mes "All your hard-earned items vaporized all at once!";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Oh, those weren't for the purification.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "You were so slow, so I had to do it by myself, without the catalysts.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Anyway, just to get you something for your effort...";
+next;
+cutin "",255;
+getitem 20089,1;
+next;
+mes "You feel quite tired.";
+next;
+cutin "kardui01",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Say hi to ^0000FFTam^000000 and ^0000FFJeff^000000 for us.";
+close2;
+cutin "",255;
+warp "dicastes01",197,189;
+end;
+}
+}
+}
+else if (countitem(40511) > 0){
+if (curonner < 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Ah. I've been expecting you lot.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "You wish to unlock the power of the Relic Crystas?";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I require nothing short of a simple errand to be done.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I need 50 Turquoise for me to be able to make you a Relic Glass to contain the Crysta's power.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Not just your ordinary turquoise...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "^FF0000Iruna Turquoise^000000.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Now, go.";
+close2;
+cutin "",255;
+set curonner,1;
+end;
+}
+else if (countitem(20219) < 50 && curonner == 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I'll be waiting.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(20219) > 49 && curonner == 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "How nice!";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "You got them all!";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Close your eyes.";
+next;
+delitem 40511,1;
+delitem 20219,50;
+getitem 40438,1;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "There you go.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Kunon!";
+next;
+cutin "",255;
+mes "[Justice Demigoddess Kunon]";
+mes "Yes, Your Grace?";
+next;
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I grant you the authority to provide the necessary methods of unsealing Relic Crystas.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Joshuca already has enough on her hands, so I'm giving the reins for that to you.";
+next;
+cutin "",255;
+mes "[Justice Demigoddess Kunon]";
+mes "Understood, Your Grace.";
+close2;
+set curonner,2;
+set xoveriru,1;
+end;
+}
+}
+else if (countitem(40511) < 1){
+if (curonner < 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes " *yawn* ";
+mes "Playing Iruna is getting boring.";
+close2;
+cutin "",255;
+end;
+}
+else if (curonner > 1){
+cutin "redgurl_cutin",2;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+if (xoveriru <= 2){
+mes " *yawn* ";
+mes "Playing Iruna is getting boring.";
+mes "Anyway, wanna get rewarded for your efforts?";
+menu "Yes, please.",exchangeiru,"^FF0000I sense something odd^000000.",crosoveriru,"Maybe some other time.",exitiru;
+}
+else if (xoveriru > 2){
+mes " *yawn* ";
+mes "Playing Iruna is getting boring.";
+mes "Anyway, wanna get rewarded for your efforts?";
+menu "Yes, please.",exchangeiru,"Maybe some other time.",exitiru;
+}
+}
+}
+
+crosoveriru:
+next;
+if (xoveriru == 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "You have a good sense of force, loyal Subject.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Lately, my powers have been fluctuating heavily, and as a result, I cannot control it the way I used to.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "^FF0000N-nnnngghh...^000000";
+next;
+mes "The Divine Being seems to be in pain.";
+next;
+mes "The Goddess Specia's Blessed Stone given to you by Joshuca seems to be reacting violently to the pain of the Divine Being!";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "^FF0000N-nnnnaaaaaahhh!^000000";
+next;
+mes "A dark aura suddenly envelops Her entire being.";
+next;
+mes "The Stone you possess absorbs all of it, and condenses it into a physical entity.";
+next;
+getitem 40503,1;
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Haaahhh... That really did a number on me...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good thing Specia left this thing behind...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Wait...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I recognize this... energy...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "To think that I still had some of it remaining in my system...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Brave one.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I hereby command you.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Venture into the deepest part of Noieverre.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Travel beyond that point, and you'll learn of what this is.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "It's better that way.";
+close2;
+cutin "",255;
+set xoveriru,2;
+end;
+}
+else if (xoveriru == 2){
+if (countitem(40503) > 0){
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Go.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "That thing is highly unstable, so you better be quick.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(40503) > 0 && countitem(40509) > 0){
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Go.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "That thing is highly unstable, so you better be quick.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(40503) < 1 && countitem(40509) < 1){
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I sense a very strong hint of White energy from you...";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "She told you to say hi to me for her, huh?";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "That's just ^0000FFTam^000000 for you.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "She's perfect.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Anyway, thank you for helping me regain my balance.";
+close2;
+set xoveriru,3;
+getitem 20270,10;
+cutin "",255;
+end;
+}
+}
+
+exchangeiru:
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Select your reward.";
+menu "Al Crystas",irufrag,"Equipment",irufac;
+
+irufrag:
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Oh, you want to exchange your fragments for whole Al Crystas?";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "You'll need ^FFC0CBRed Al Crysta Fragments^000000 for a whole ^FF0000Red Al Crysta^000000.";
+mes "There will be catalysts, as well.";
+next;
+mes "10 ^FFC0CBRed Al Crysta Fragments^000000";
+mes "100 ^AAA9ADRebootRO Orichalcum Coins^000000";
+mes "10 ^FFFF00Sauro II Crystas^000000";
+menu "I have them.",exchal,"I don't have them.",exital;
+
+exchal:
+next;
+if (countitem(40061) >= 10 && countitem(674) >= 100 && countitem(543) >= 10){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I shall now make you a whole Al Crysta.";
+close2;
+cutin "",255;
+delitem 40061,10;
+delitem 674,100;
+delitem 543,10;
+getitem 40020,1;
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+exital:
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't want to be rewarded.";
+close2;
+cutin "",255;
+end;
+
+irufac:
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Select your desired Iruna Faction Equipment.";
+menu "Upper Headgear",iruhead,"Lower Headgear",irulow,"Armor",iruarm,"Garment",irugarm,"Footgear",irufoot,"Accessory",iruacc,"Axe",iruaxe,"Dagger",irudag,"Staff",irustaff,"Sword",irusword,"Spear",iruspear,"Bow",irubow,"Gun",irugun,"Fist",irufist,"Musical Instrument",irumusic,"Whip",iruwhip,"Katar",irukatar,"Shield",irushield,"Not now.",irufacexit;
+
+iruhead:
+next;
+mes "[^FF0000Iruna^000000 Faction Upper Headgear]";
+mes "Will of the Light";
+mes "DEF 5 WT 1";
+mes "All Stats +10. Grants immunity to the Stun, Blind and Silence statuses. Removes the need of Gemstones and materials for certain skills.";
+next;
+mes "Requires 100 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40021,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Will of the Light!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irulow:
+next;
+mes "[^FF0000Iruna^000000 Faction Lower Headgear]";
+mes "Imperial Prominence";
+mes "DEF 5 WT 1";
+mes "Grants Perfect Hiding, Resistance to all properties +10%, ATK and MATK +5%, Skill Delay -10%.";
+next;
+mes "Requires 50 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "50 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 50 && countitem(5317) >= 5 && countitem(542) >= 50 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,50;
+delitem 542,50;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40022,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Imperial Standard!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+iruarm:
+next;
+mes "[^FF0000Iruna^000000 Faction Armor]";
+mes "Ultimi";
+mes "DEF 15 WT 1";
+mes "Grants immunity to Knockback, Freezing and Stone Curse. Increases Max HP and SP +120%.";
+next;
+mes "Requires 200 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "200 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 200 && countitem(5317) >= 5 && countitem(542) >= 200 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,200;
+delitem 542,200;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40023,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Ultimi!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irugarm:
+next;
+mes "[^FF0000Iruna^000000 Faction Garment]";
+mes "Nacht Krone";
+mes "DEF 10 WT 1";
+mes "Reflects 40% of all incoming damage. Flee +100, Perfect Dodge +35. Resistance to all properties +20%.";
+next;
+mes "Requires 250 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "250 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 250 && countitem(5317) >= 5 && countitem(542) >= 250 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,250;
+delitem 542,250;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40024,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Nacht Krone!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irufoot:
+next;
+mes "[^FF0000Iruna^000000 Faction Footgear]";
+mes "Volk Shoes";
+mes "DEF 5 WT 1";
+mes "Allows maximum movement speed. Renders your spells unable to be interrupted and enables the effect of Endure as long as this footgear is equipped. Increases Max HP and SP +25%.";
+next;
+mes "Requires 150 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "150 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 150 && countitem(5317) >= 5 && countitem(542) >= 150 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,150;
+delitem 542,150;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40025,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Volk Shoes!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+iruacc:
+next;
+mes "[^FF0000Iruna^000000 Faction Accessory]";
+mes "Seal of Iruna";
+mes "DEF 1 WT 1";
+mes "All Stats +10. Whenever you attack, there is a chance to cast Lex Aeterna. Whenever you receive melee physical damage, there is a chance of casting Lv1 Safety Wall on yourself. If you receive ranged physical damage instead, there is a chance of casting Pneuma on yourself.";
+next;
+mes "Requires 100 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40020) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40026,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Seal of Iruna!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+iruaxe:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Axe]";
+mes "Emperor's Enforcer";
+mes "ATK 400 WT 200";
+mes "ATK +10%, MATK +20% HIT +300 Increases damage to Holy Property by 50%, skill damage of Cart Termination and Acid Demonstration by 20%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40027,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Emperor's Enforcer!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irudag:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Dagger]";
+mes "Shojo's Grief";
+mes "ATK 150 WT 200";
+mes "ATK +20%, MATK +30%, Flee +20, HIT +300 Perfect Dodge +5. Deal Double Damage to Holy Property if Thief, Max HP +50% if Ninja.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40028,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Shojo's Grief!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irustaff:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Staff]";
+mes "Staff of Dawn";
+mes "ATK 100 WT 200";
+mes "Ignores Magic Resistances, increases Holy Light skill damage by 750%, doubles Heal Power and MATK, and grants an Autoskill ability for Acolyte Class. HIT +300 MATK +50%, All Stats +20.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40029,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Staff of Dawn!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irusword:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Sword]";
+mes "Rose Schwartz";
+mes "ATK 250 WT 200";
+mes "ATK +30%. Increases Max HP by 20%, HIT +300 damage to Holy Property by 50%, triples damage of Backstab, Bowling Bash by 50% and Sacrifice by 20%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40030,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Rose Schwartz!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+iruspear:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Spear]";
+mes "Kijimu Branch";
+mes "ATK 300 WT 500";
+mes "ATK +20%. Max HP +10%. HIT +300 Increases damage of Brandish Spear, Spiral Pierce, Pierce and Grand Cross by 50%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40031,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Kijimu Branch!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irubow:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Bow]";
+mes "Stardust Bow";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Quintuples Backstab damage. Also doubles damage of Double Strafing, Triples damage of Arrow Shower, Phantasmic Arrow, and Sharp Shooting.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40032,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Stardust Bow!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irugun:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Gun]";
+mes "Heartstopper";
+mes "ATK 150 WT 200";
+mes "ATK +20%. HIT +300 Doubles damage dealt by long-ranged physical attacks. Doubles Desperado damage.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40033,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Heartstopper!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irufist:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Fist]";
+mes "Asuranirrti";
+mes "ATK 200 WT 200";
+mes "STR, AGI and INT +25, HIT +300 ATK and MATK +10%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40034,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Asuranirrti!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irumusic:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Musical Instrument]";
+mes "Ode to Mezzaluna";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40035,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Ode to Mezzaluna!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+iruwhip:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Whip]";
+mes "Tomoyo's Bonds";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40036,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Tomoyo's Bonds!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irukatar:
+next;
+mes "[^FF0000Iruna^000000 Faction Weapon - Katar]";
+mes "Ouvel's Agony";
+mes "ATK 200 WT 200";
+mes "ATK +25%. HIT +500 Flee +20. Doubles damage of Soul Breaker and Sonic Blow, and increases Grimtooth damage by 50%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40037,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Ouvel's Agony!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irushield:
+next;
+mes "[^FF0000Iruna^000000 Faction Shield]";
+mes "Red Light Pledge";
+mes "DEF 15 WT 300";
+mes "Increases Max HP +30%. Reflects 15% of all incoming damage. Resistance to all properties +10%. Increases damage of Shield Chain by 50%.";
+next;
+mes "Requires 350 ^FF0000Red Al Crystas^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40020) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "I now bestow upon you my Divine Equipment.";
+next;
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Good luck, my loyal Irunite.";
+close2;
+cutin "",255;
+delitem 40020,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40038,1;
+if (achievementexists(240044) == 0){
+achievementcomplete(240044);
+}
+announce "Iruna Gratis!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Red Light Pledge!","0xff0000";
+end;
+}
+else {
+mes "[^FF0000ReDGuRL^000000, High Empress of Iruna]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+irufacexit:
+close2;
+cutin "",255;
+end;
+
+exitiru:
+close2;
+cutin "",255;
+end;
+}

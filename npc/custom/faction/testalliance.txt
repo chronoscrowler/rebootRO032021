@@ -1,0 +1,96 @@
+/*
+DROP TABLE IF EXISTS `rfaction`;
+
+CREATE TABLE IF NOT EXISTS `rfaction` (
+  `gid` int(25) NOT NULL DEFAULT '0',
+  `fid` int(25) NOT NULL DEFAULT '0',
+  `fname` varchar(25) NOT NULL DEFAULT '',
+  `gname` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`gid`)
+) ENGINE=MyISAM;
+*/
+
+moonhaven,249,191,3	script	Test Alliance	123,{
+query_sql "CREATE TABLE IF NOT EXISTS `rfaction` ( `gid` int(25) NOT NULL DEFAULT '0', `fid` int(25) NOT NULL DEFAULT '0', `fname` varchar(25) NOT NULL DEFAULT '', `gname` varchar(255) NOT NULL DEFAULT '', PRIMARY KEY (`gid`) ) ENGINE=MyISAM";
+if (strcharinfo(0) == getguildmaster(getcharid(2))){
+mes "Select an Option";
+menu "Join a Faction",joinfact,"Leave a Faction",leavefact;
+}
+else if (strcharinfo(0) != getguildmaster(getcharid(2))){
+mes "You do not own a guild.";
+close;
+end;
+}
+
+joinfact:
+next;
+menu "Netoria",netoria,"Iruna",iruna,"Schicksal",schicksal;
+
+netoria:
+set .@fac,query_sql(" SELECT `fid` FROM `rfaction` WHERE `gid` = '"+getcharid(2)+"'");
+if (.@fac != 1&&2&&3){
+next;
+mes "Welcome to Netoria.";
+close2;
+query_sql(" INSERT INTO `rfaction` (`gid`,`fid`,`fname`,`gname`) VALUES ('"+getcharid(2)+"','1','Netoria','"+escape_sql(getguildname(getcharid(2)))+"')");
+end;
+}
+else if (.@fac == 1||2||3){
+next;
+mes "You are already in a faction.";
+close;
+end;
+}
+
+iruna:
+set .@fac,query_sql(" SELECT `fid` FROM `rfaction` WHERE `gid` = '"+getcharid(2)+"'");
+if (.@fac != 1&&2&&3){
+next;
+mes "Welcome to Iruna.";
+close2;
+query_sql(" INSERT INTO `rfaction` (`gid`,`fid`,`fname`,`gname`) VALUES ('"+getcharid(2)+"','2','Iruna','"+escape_sql(getguildname(getcharid(2)))+"')");
+end;
+}
+else if (.@fac == 1||2||3){
+next;
+mes "You are already in a faction.";
+close;
+end;
+}
+
+schicksal:
+set .@fac,query_sql(" SELECT `fid` FROM `rfaction` WHERE `gid` = '"+getcharid(2)+"'");
+if (.@fac != 1&&2&&3){
+next;
+mes "Welcome to Schicksal.";
+close2;
+query_sql(" INSERT INTO `rfaction` (`gid`,`fid`,`fname`,`gname`) VALUES ('"+getcharid(2)+"','3','Schicksal','"+escape_sql(getguildname(getcharid(2)))+"')");
+end;
+}
+else if (.@fac == 1||2||3){
+next;
+mes "You are already in a faction.";
+close;
+end;
+}
+
+leavefact:
+set .@fac,query_sql(" SELECT `fid` FROM `rfaction` WHERE `gid` = '"+getcharid(2)+"'");
+if (.@fac == 1||2||3){
+next;
+mes "You have left the Faction.";
+close2;
+query_sql(" DELETE FROM `rfaction` WHERE `gid` = '"+getcharid(2)+"'");
+end;
+}
+else if (.@fac != 1&&2&&3){
+next;
+mes "You are not in a faction.";
+close;
+end;
+}
+
+exit:
+close;
+end;
+}

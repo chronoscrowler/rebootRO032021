@@ -1,0 +1,800 @@
+//RebootRO Faction System
+//Main NPC: Herald of Destiny
+prontera,155,187,5	script	Herald of Destiny	4_sys_msg,{
+mes "[Herald of Destiny]";
+mes "This...";
+mes "Is...";
+mes "Unacceptable...";
+mes "*cough* *cough*";
+menu "What's wrong?",story1,"Tempt Destiny.",warp1,"Leave him be.",exit1;
+
+story1:
+next;
+			mes "[Herald of Destiny]";
+			mes "I have seen the end.";
+			next;
+			mes "Nothing remains.";
+			next;
+			mes "Endless suffering...";
+			next;
+			menu "What happened to you?",story2,"Leave him be.",exit2;
+			
+		story2:
+		next;
+					mes "[Herald of Destiny]";
+					mes "Long ago, Three Empires stood atop the world - ^0000FFNetoria^000000, ^FF0000Iruna^000000, and ^C0C0C0Schicksal^000000.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "^0000FFThe United Empire of Netoria^000000 was formed under the valiance of its Primal Lord, ^0000FFNetori^000000, after the gods of Motenia failed to destroy all life.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Due to the devastation, ^0000FFNetoria^000000 gave the world its greatest period of time, and let it cultivate its people even more.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "With the passing of the great Lord, his chosen, the two greatest Netorians to ever grace its palace - ^0000FFJeff Saber^000000, The Last Exile, and ^FF0000ReDGuRL^000000, The Light of Netoria - begin to carry out his will.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "The new Lord, ^0000FFJeff Saber^000000, began reigniting the passion of everyone, Netorian or not, so that they could forge their own paths with greater fortitude.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "However, ^FF0000The Light of Netoria^000000 saw that ^0000FFSaber^000000's darkness grew, despite all the effort they both put into keeping it at bay.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Eventually, she let go of the authority given to her by ^0000FFNetori^000000's will, and set off to found a ^FF0000new empire^000000 of her own.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Deeply saddened by this, ^0000FFSaber^000000 vows to get even stronger than they were before, in hopes of crossing paths with ^FF0000her^000000 again.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "As ^FF0000ReDGuRL^000000 travelled the world, she encountered a rogue vicar named ^FF0000Mabel^000000, who tries to sell her her goods.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Instead of just buying ^FF0000Mabel^000000's stuff, she insisted on helping her out on some errands. The two quickly gained each other's trust and became friends.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "With the money they raised from retail, ^FF0000Mabel^000000 eventually bought a very large expanse of land due east of ^0000FFNetorian Territory^000000.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Using most of her strength, ^FF0000ReDGuRL^000000 created a multitude of terrain, cities to be populated, flora, and fauna.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "She was pleased, and she named ^FF0000Mabel^000000's land ^FF0000Iruna^000000, as she was also mourning the loss of a loved one, and she feels like shutting in.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "One day, one of ^FF0000Mabel's acquaintances^000000, an assassin named ^FF0000Binx Eclair^000000, is hired by bandits to kill ^FF0000ReDGuRL^000000 in her weakened state.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "^FF0000Mabel^000000 pleaded, but to no avail. ^FF0000Binx^000000 manages to get inside the ^FF0000High Empress ReDGuRL^000000's chambers, and attempts to kill her.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Instead, she saw her eyes - lifeless as they are - and sheathed back her blade. Reflecting on her vow to ^FF0000Mabel^000000 never to kill anyone who is broken, she promises the ^FF0000High Empress^000000 to help her find herself again.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "A year passes and ^FF0000Binx^000000 has made her promise. A new ^FF0000Emperor^000000 is crowned - ^FF0000The Grand Magus of Iruna, Toyo Okazaki^000000. ^FF0000The Red Empire^000000 has ushered in a prosperous age once more.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "With ^0000FFNetoria^000000 being torn apart from the inside, ^0000FFJeff Saber, The Lord of Netoria^000000, had no choice but to exile himself to ^FF0000Iruna^000000 to regain his powers.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Upon knowing this, ^C0C0C0The Chrono Imperium, Schicksal^000000, responds with the decree of ^C0C0C0Flugel, The Coordinator^000000.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "He knows that if ^0000FFNetoria^000000 lie ruined amidst the prosperity of ^FF0000Iruna^000000, ^C0C0C0Destiny^000000 will be tempted and the balance of the world will once again be in jeopardy.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "After just a month of his time in ^FF0000Iruna^000000, ^0000FFSaber^000000 comes back to a lost empire. With a few of his loyal subjects remaining, and the completion of the darkness within him, he declares that it's time to take back what's his, in the name of ^0000FFTamari^000000, the new ^0000FFLight of Netoria^000000.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "^C0C0C0The Chrono Imperator^000000's right hand, ^C0C0C0The Coordinator^000000, then warns the ^FF0000Red Emperor^000000 of what's to come to his Empire, and his beloved ^FF0000High Empress^000000. He misunderstands this and sees it as a dire threat, and prepares the ^FF0000Red Empire^000000 for combat, without knowing the enemy fully, and with the ^FF0000High Empress^000000' powers not yet fully recovered.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Alarmed by the absolute defiance of ^C0C0C0Destiny^000000, ^C0C0C0Flugel^000000 sets out to stop this madness himself.";
+					next;
+					mes "[Herald of Destiny]";
+					mes "I am one of ^C0C0C0The Chrono Imperator^000000's Personal Guard. I came back to this time so I can prevent ^C0C0C0His Majesty^000000 and ^C0C0C0Flugel, The Coordinator^000000, from failing. The time-travel turned me into this...";
+					next;
+					mes "[Herald of Destiny]";
+					mes "Maybe I could use some help. It doesn't matter what happens, as long as one Empire remains.";
+					next;
+					menu "Tempt Destiny",warp1,"Exit",exit2;
+					
+		exit2:
+					close;
+					end;
+					
+
+
+warp1:
+next;
+				mes "[Herald of Destiny]";
+				mes "I am eternally grateful";
+				mes "I admire your courage to tempt Destiny, young one.";
+				next;
+				mes "[Herald of Destiny]";
+				mes "Now, there are Three Empires.";
+				mes "^0000FFNetoria, The Lost Empire^000000.";
+				mes "^FF0000Iruna, The Red Empire^000000.";
+				mes "^C0C0C0Schicksal, The Chrono Imperium^000000.";
+				next;
+				mes "[Herald of Destiny]";
+				mes "Where would you want you and your allies to be a part of?";
+				next;
+				menu "We will follow ^0000FFJeff Saber^000000.",neto,"We will give our lives for ^FF0000ReDGuRL^000000.",iru,"We want to watch over the world with ^626268Flugel^000000.",schick,"Our Destiny is uncertain.",exit3;
+
+neto:
+next;
+						mes "[Herald of Destiny]";
+						mes "Are you sure you want to be ^0000FFNetorians^000000?";
+						next;
+						menu "Viva, ^0000FFNetoria^000000! We are one!",netowarp,"Our Destiny is uncertain.",exit4;
+
+exit4:
+next;
+							mes "[Herald of Destiny]";
+							mes "Then, I shall give you time, but not too much.";
+							mes "Destiny waits for you.";
+							close;
+							end;
+
+netowarp:
+next;
+							mes "[Herald of Destiny]";
+							mes "May I know the people who are interested in defying Destiny for the greater good?";
+							next ;
+							getcharid(2);
+						if ((getcharid(2)) == 0) {
+						mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+								else if (getguildalliance(2,(getcharid(2))) == 1 || getcharid(2) == (1||2)){
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "^0000FF"+getguildname(getcharid(2))+"^000000, is it?";
+								next;
+								mes "Very well. You will now be teleported to the ^0000FFNetorian^000000 side.";
+								close2;
+							warp "jupe_area2",129,106;
+							end;
+							}
+							else {
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+
+iru:
+next;
+						mes "[Herald of Destiny]";
+						mes "Are you sure you want to be ^FF0000Irunites^000000?";
+						next;
+						menu "^FF0000Akai Kogo^000000 no tame ni!",iruwarp,"Our Destiny is uncertain.",exit5;
+
+exit5:
+next;
+							mes "[Herald of Destiny]";
+							mes "Then, I shall give you time, but not too much.";
+							mes "Destiny waits for you.";
+							close;
+							end;
+
+iruwarp:
+next;
+						mes "[Herald of Destiny]";
+						mes "May I know the people who are interested in defying Destiny for the greater good?";
+						next;
+						getcharid(2);
+						if ((getcharid(2)) == 0) {
+						mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+								else if (getguildalliance(3,(getcharid(2))) == 1 || getcharid(2) == (1||3)){
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "^FF0000"+getguildname(getcharid(2))+"^000000, is it?";
+								mes "Very well. You will now be teleported to the ^FF0000Irunite^000000 side.";
+								close2;
+								warp "mora",55,150;
+								end;
+								}
+							else {
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+
+schick:
+next;
+						mes "[Herald of Destiny]";
+						mes "Are you sure you want to be ^C0C0C0Schicks^000000?";
+						next;
+						menu "May the stars shine in ^C0C0C0His Majesty^000000's favor.",schickwarp,"Our Destiny is uncertain.",exit6;
+						
+exit6:
+next;
+							mes "[Herald of Destiny]";
+							mes "Then, I shall give you time, but not too much.";
+							mes "Destiny waits for you.";
+							close;
+							end;
+
+schickwarp:
+next;
+						mes "[Herald of Destiny]";
+						mes "May I know the people who are interested in defying Destiny for the greater good?";
+						next;
+						getcharid(2);
+						if ((getcharid(2)) == 0) {
+						mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+								else if (getguildalliance(4,(getcharid(2))) == 1 || getcharid(2) == (1||4)){
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "^C0C0C0"+getguildname(getcharid(2))+"^000000, is it?";
+								mes "Very well. You will now be teleported to the ^C0C0C0Schick^000000 side.";
+								close2;
+								warp "dali02",141,82;
+								end;
+								}
+							else {
+								mes "[Herald of Destiny]";
+								mes "...";
+								next;
+								mes "[Herald of Destiny]";
+								mes "This is a waste of time.";
+								close;
+								end;
+								}
+
+exit3:
+next;
+						mes "[Herald of Destiny]";
+						mes "Then, I shall give you time, but not too much.";
+						mes "Destiny waits for you.";
+						close;
+						end;
+						
+exit1:
+						close;
+						end;
+}
+
+//Netoria NPC
+//Tamari, The White Light
+jupe_area2,105,54,6	script	Tamari, The White Light	640,{
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Hello, my child.";
+menu "Purge the overflow of Genocide.",netofarm,"Receive Blessing of The White Light.",netobuff,"Just saying hi.",netoexit;
+
+netofarm:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||2)){
+cutin "gc_mayssel02",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Very well. Please close your eyes.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "I shall transport you to where Genocide overflows.";
+next;
+cutin "gc_mayssel05",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Good luck, my child.";
+close2;
+cutin "",255;
+warp "lhz_dun04",244,62;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+netobuff:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||2)){
+mes "[^0000FFTamari^000000, The White Light]";
+mes "In my name, as The White Light of Netoria...";
+mes "I shall now bestow upon you my blessings.";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+netoexit:
+next;
+cutin "gc_mayssel05",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Please be careful out there, my child.";
+close2;
+cutin "",255;
+end;
+}
+
+//Exit From NetoFarm
+lhz_dun04,248,60,3	script	Tamari	640,{
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Do you wish to go back, my child?";
+menu "Yes.",netoback,"No.",continueneto;
+
+netoback:
+next;
+cutin "gc_mayssel05",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Alright. Let's go back.";
+close2;
+cutin "",255;
+warp "jupe_area2",129,106;
+end;
+
+continueneto:
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Alright. I'll be here when you need me.";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+
+//Netoria Warp
+//Genjuro
+jupe_area2,114,50,6	script	General Genjuro	4_as_wind_ghost,{
+cutin "cry-b2",2;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "I must partake of the chaos that engulfs the world.";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "I must do my part, as One, to help prevent the unspeakable from happening.";
+next;
+menu "What do you mean?",netoxplain,"^0000FFDe^626268sti^FF0000ny^000000",netofad,"Can you help me get back to my world?.",netopront,"Ok, I'll leave you alone..",netostay;
+
+netoxplain:
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "Both Netoria and Iruna's relationship is very volatile at this very moment.";
+mes "If you must know, my mother predicted this.";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "That one day, the Lord will completely give in to his dark side.";
+mes "...";
+mes "And destroy Destiny like it's never mattered at all.";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "His very form is that of an astral projection.";
+mes "His powers weakened from that last attempt at trying to regain what he lost...";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "What remains is his visage, and a miniscule amount of what was once his immense power.";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "Lady Tamari might be the key to salvation, after all...";
+next;
+mes "[Netorian General ^0000FFGenjuro^000000]";
+mes "Anyway, where would you like to go?";
+menu "Where ^0000FFDe^626268sti^FF0000ny^000000 Awaits.",netofad,"Back to my realm.",netopront,"Nowhere.",netostay;
+
+netofad:
+close2;
+cutin "",255;
+warp "prt_gld",153,135;
+end;
+
+netopront:
+close2;
+cutin "",255;
+warp "prontera",156,191;
+end;
+
+netostay:
+close2;
+cutin "",255;
+end;
+}
+
+//Iruna NPC
+//Emperor Tomoyo Okazaki
+mora,114,93,1	script	Emperor Tomoyo Okazaki	624,{
+cutin "kardui01",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Glory to ^FF0000ReDGuRL^000000, my beloved High Empress!";
+menu "Go to Spinnen Abandoned Hospital.",irufarm,"Receive Grand Magus' Blessing.",irubuff,"Just saying hi.",iruexit;
+
+irufarm:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||3)){
+cutin "kardui04",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Very well. I trust you with taking care of the rampaging Chils.";
+next;
+cutin "kardui03",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "If only both of us weren't busy, we would've dealt with it ourselves. I'm sorry about putting this on you.";
+next;
+cutin "kardui01",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Good luck, loyal subject.";
+close2;
+cutin "",255;
+warp "ma_dun01",34,110;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+irubuff:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||3)){
+cutin "kardui04",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "By my power, as Grand Magus and Emperor of Iruna...";
+mes "I shall now bestow upon you my blessings.";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+iruexit:
+next;
+cutin "kardui05",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Please be careful out there, my loyal subject.";
+close2;
+cutin "",255;
+end;
+}
+
+//Exit From IruFarm
+ma_dun01,40,116,1	script	Tomoyo	624,{
+cutin "kardui01",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Do you wish to go back, loyal subject?";
+menu "Yes.",iruback,"No.",continueiru;
+
+iruback:
+next;
+cutin "kardui05",2;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Alright, let's go back.";
+close2;
+cutin "",255;
+warp "mora",55,150;
+end;
+
+continueiru:
+next;
+mes "[^FF0000Tomoyo Okazaki^000000, Emperor of Iruna]";
+mes "Alright. I'll be here when you need me.";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+
+//Iruna Warp
+//Arupha
+mora,105,95,6	script	Chief Consul Arupha	4_f_valkyrie2,{
+cutin "3rd_ab_anghilde01",2;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "Drats... Not this again...";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "I am very busy right now, yet it just keeps on coming!";
+next;
+menu "What do you mean?",iruxplain,"^0000FFDe^626268sti^FF0000ny^000000",irufad,"Can you help me get back to my world?.",irupront,"Ok, I'll leave you alone...",irustay;
+
+iruxplain:
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "I left the once prosperous Netorian Empire for this.";
+mes " ";
+mes "But now, things get very bad, very quickly.";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "This world, as you can see, is pretty volatile.";
+mes "...";
+mes "I mean we Irunites are completely used to getting isekaied, but...";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "You won't believe what I'm about to say, but Netoria's Lord...";
+mes "Is my full-blooded cousin.";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "I know what you're thinking, I must be powerful. NO!";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "I couldn't even hold a candle to him. Heck, Astral Travelers from the Chrono Imperium of Schicksal had to warn and help us out...";
+next;
+mes "[Chief Consul ^FF0000Arupha^000000]";
+mes "Now then, while Her Highness hasn't gotten anything for me yet, where do you like to go?";
+menu "Where ^0000FFDe^626268sti^FF0000ny^000000 Awaits.",irufad,"Back to my realm.",irupront,"Nowhere.",irustay;
+
+irufad:
+close2;
+cutin "",255;
+warp "prt_gld",153,135;
+end;
+
+irupront:
+close2;
+cutin "",255;
+warp "prontera",156,191;
+end;
+
+irustay:
+close2;
+cutin "",255;
+end;
+}
+
+//Schicksal NPC
+//Awakened Yuwee
+dali02,63,105,6	script	Awakened Yuwee	4_PD_BRACHIOS,{
+cutin "cutin_saiki",2;
+mes "[Awakened ^C0C0C0Saiki^000000, The Apprentice]";
+mes "Hi there, I am the Coordinator's Apprentice, you can call me Saiki, tehee~";
+next;
+mes "How can I help you?~";
+menu "Go to the Timeless Gorge.",schickfarm,"Receive Trap's Blessing.",schickbuff,"Just saying hi.",schickexit;
+
+schickfarm:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||4)){
+cutin "cutin_yuwee",2;
+mes "[Awakened ^C0C0C0Yuwee^000000, The Apprentice]";
+mes "I Yuwee, wish you a safe journey..";
+close2;
+cutin "",255;
+warp "dicastes02",119,82;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+
+schickbuff:
+next;
+if ((getguildalliance(getcharid(2),getcastledata("prtg_cas03",CD_GUILD_ID))) == 1 || getcharid(2) == (1||4)){
+cutin "cutin_yuwee",2;
+mes "[Awakened ^C0C0C0Yuwee^000000, The Apprentice]";
+mes " *Gives you a Chips Ahoy! Chewy cookie* ";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+else {
+cutin "",255;
+mes "We must own Fadhgridh Castle to continue.";
+close;
+end;
+}
+
+schickexit:
+next;
+cutin "cutin_yuwee",2;
+mes "[Awakened ^C0C0C0Yuwee^000000, The Apprentice]";
+mes "Hmph...";
+close2;
+cutin "",255;
+end;
+}
+
+//Exit From SchickFarm
+dicastes02,119,99,4	script	Apprentice Yuwee	4_PD_BRACHIOS,{
+cutin "cutin_yuwee",2;
+mes "[Awakened ^C0C0C0Yuwee^000000, The Apprentice]";
+mes "Do you wish to go back?";
+menu "Yes.",schickback,"No.",continueschick;
+
+schickback:
+next;
+cutin "cutin_saiki",2;
+mes "[Awakened ^C0C0C0Saiki^000000, The Apprentice]";
+mes "Hold my hand, I'll take you back. tehee~";
+close2;
+cutin "",255;
+warp "dali02",141,82;
+end;
+
+continueschick:
+next;
+cutin "cutin_saiki",2;
+mes "[Awakened ^C0C0C0Saiki^000000, The Apprentice]";
+mes " *Gives you another Chips Ahoy! Chewy cookie* ";
+close2;
+cutin "",255;
+	  percentheal 100,100;
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+end;
+}
+
+//Schicksal Warp
+//Flugel
+dali02,113,80,4	script	Flugel, The Coordinator	4_PD_TYRANOS,{
+cutin "flugel_admin",2;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I cannot participate in the conflict right now...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "I am busy saving multiple realities as we speak...";
+next;
+menu "What do you mean?",schickxplain,"^0000FFDe^626268sti^FF0000ny^000000",schickfad,"Can you help me get back to my world?.",schickpront,"Ok, I'll leave you alone...",schickstay;
+
+schickxplain:
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "This world has been severely affected by the Eternal Conflict.";
+mes " ";
+mes "If you must know, I have replicated the old world and brought it to the past...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "This world you are in right now, is what I call the --SERVER--";
+mes "...";
+mes "And as you can see I am continuously preventing the inevitable...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "My Chrono Imperator has amassed the remainder of his physical form,";
+mes "to save your world, and has passed his powers unto me, to make things right...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "What remains is his visage, I've enclosed it in a relic...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "If you have other things in mind, my apprentice Yuwee can help you...";
+next;
+mes "[^C0C0C0Flugel^000000, The Coordinator]";
+mes "But I can still spare some time for you, where would you like to go?";
+menu "Where ^0000FFDe^626268sti^FF0000ny^000000 Awaits.",schickfad,"Back to my realm.",schickpront,"Nowhere.",schickstay;
+
+schickfad:
+close2;
+cutin "",255;
+warp "prt_gld",153,135;
+end;
+
+schickpront:
+close2;
+cutin "",255;
+warp "prontera",156,191;
+end;
+
+schickstay:
+close2;
+cutin "",255;
+end;
+}

@@ -1,0 +1,31 @@
+-	script	FacLeadBC	-1,{
+	OnInit:
+		bindatcmd("fcast", strnpcinfo(3)+ "::OnType");
+		end;
+	OnType:
+		if (getguildmasterid(2) == getcharid(0)){
+		mes "Please input your message, Faction Leader.";
+		input .@fcast_message$;
+		close2;
+		announce "[Netoria] "+strcharinfo(0)+" : "+.@fcast_message$,bc_all,0x0000ff;
+		end;
+		}
+		if (getguildmasterid(3) == getcharid(0)){
+		mes "Please input your message, Faction Leader.";
+		input .@fcast_message$;
+		close2;
+		announce "[Iruna] "+strcharinfo(0)+" : "+.@fcast_message$, bc_all,0xff0000;
+		end;
+		}
+		if (getguildmasterid(4) == getcharid(0)){
+		mes "Please input your message, Faction Leader.";
+		input .@fcast_message$;
+		close2;
+		announce "[Schicksal] "+strcharinfo(0)+" : "+.@fcast_message$, bc_all,0xc0c069;
+		end;
+		}
+		else {
+		dispbottom "You are not authorized to use this command.";
+		end;
+		}
+}

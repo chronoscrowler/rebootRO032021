@@ -1,0 +1,98 @@
+moonhaven,209,195,3	script	Elbano Darkan V	965,{
+if (getcharid(5) == 2 || getcharid(2) == 1){
+mes "[Elbano Darkan V]";
+mes "Welcome to Elban!";
+next;
+mes "[Elbano Darkan V]";
+mes "What's left of it, at least...";
+next;
+mes "[Elbano Darkan V]";
+mes "Anyway, what can I do for you, young one?";
+if (countitem(20238) < 1){
+menu "What happened here?",irustory,"What's in here, anyway?",iruguide,"Gain Elbano's trust",elbquest;
+}
+else if (countitem(20238) > 0){
+menu "What happened here?",irustory,"What's in here, anyway?",iruguide;
+}
+}
+else if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "Must be the monarch of this place...";
+next;
+mes "But that's highly unlikely.";
+next;
+mes "The source is getting closer.";
+close;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "Definitely not the monarch of this place.";
+close;
+end;
+}
+}
+else {
+mes "[Elbano Darkan V]";
+mes "...";
+close;
+end;
+}
+
+irustory:
+next;
+mes "[Elbano Darkan V]";
+mes "My father, the king of Darkan, once ruled a very prosperous nation of Elves, Hume, Cule and Diel.";
+next;
+mes "[Elbano Darkan V]";
+mes "Then everything came to ruin when the Cloud of Corruption came in.";
+next;
+mes "[Elbano Darkan V]";
+mes "Even the Gods cannot hold it out, and they succumbed to the corruption.";
+next;
+mes "[Elbano Darkan V]";
+mes "Good thing you came and helped Joshuca the God-child undo the corruption on the Gods and revert them to their Unified form.";
+close;
+end;
+
+iruguide:
+next;
+mes "[Elbano Darkan V]";
+mes "Why don't you take a look around?";
+next;
+mes "[Elbano Darkan V]";
+mes "There are plenty of things to find.";
+next;
+mes "[Elbano Darkan V]";
+mes "But only the most esteemed among us can proceed to the very top of that spiral hill.";
+close;
+end;
+
+elbquest:
+if (countitem(20206) > 29 && countitem(20208) > 29 && countitem(20210) > 14){
+next;
+mes "[Elbano Darkan V]";
+mes "Thank you, brave one.";
+next;
+mes "You can now access some areas with Darkan Seal.";
+close2;
+delitem 20206,30;
+delitem 20208,30;
+delitem 20210,15;
+getitem 20238,1;
+end;
+}
+else {
+next;
+mes "[Elbano Darkan V]";
+mes "There are a lot of monsters popping up recently, due to the energies of the 12 Gods becoming one again.";
+next;
+mes "[Elbano Darkan V]";
+mes "I need you to clear some of them and bring back their remains, if possible.";
+next;
+mes "Pretty Shell 30";
+mes "Spongy Hide 30";
+mes "Poison Fang 15";
+close;
+end;
+}
+}

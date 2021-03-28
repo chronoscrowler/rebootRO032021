@@ -1,0 +1,27 @@
+ma_zif04,30,22,3	script	Manager Genjuro	4_as_wind_ghost,{
+mes "[ Wash Manager Genjuro ]";
+mes "Thank you for patronizing ^0000FFPark & Wash^000000 .";
+next;
+mes "[ Wash Manager Genjuro ]";
+mes "Here's your freebie.";
+next;
+mes "[ Wash Manager Genjuro ]";
+mes "Come again, and have a safe trip!";
+close2;
+if (countitem(40193) > 0){
+delitem 40193,1;
+getitem 40196,1;
+warp "prontera",156,191;
+}
+else if (countitem(40194) > 0){
+delitem 40194,1;
+getitem 40197,1;
+warp "prontera",156,191;
+}
+else if (countitem(40195) > 0){
+delitem 40195,1;
+getitem 40198,1;
+warp "prontera",156,191;
+}
+end;
+}

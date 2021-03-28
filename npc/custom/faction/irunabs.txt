@@ -1,0 +1,1632 @@
+moonhaven,209,228,3	script	Lady Dyett of Elban	435,{
+if (getcharid(5) == 2 || getcharid(2) == 1){
+mes "[Lady Dyett]";
+mes "How are you doing today, Hume?";
+if (countitem(20238) > 0 && countitem(20239) < 1){
+menu "You seem VERY familiar...",dyettquest;
+}
+else if (countitem(20238) > 0 && countitem(20239) > 0){
+menu "Create Al Crystas",makealgb,"Reflect Nature Energy into Weapons",mirror,"Soul Infusion",irusoul,"Diabolus Overload",diabolusiru,"Advanced Garments",garmentiru;
+}
+else if (countitem(20238) < 1 && countitem(20239) < 1){
+close;
+end;
+}
+}
+else if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "Wow.";
+next;
+mes "Enough distractions!";
+next;
+mes "The source must be up there...";
+close;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "Wow.";
+next;
+mes "What a beauty.";
+close;
+end;
+}
+}
+else {
+mes "[Lady Dyett]";
+mes "Who dares defile this sanctum?";
+close2;
+atcommand "@die";
+end;
+}
+
+dyettquest:
+if (countitem(20268) < 1 && countitem(20271) < 1){
+next;
+mes "[Lady Dyett]";
+mes "Have we met before?";
+next;
+mes "[Lady Dyett]";
+mes "I swear to the High Being I've felt your presence before...";
+next;
+mes "[Lady Dyett]";
+mes "Well, since you're here, I'd like you to help me with something.";
+next;
+mes "[Lady Dyett]";
+mes "I want you to procure the last vestiges of the old Mezzaluna Dynasty.";
+next;
+mes "[Lady Dyett]";
+mes "I know there must be people from Iruna scattered around this weird dimensional amalgamation at the moment.";
+next;
+mes "[Lady Dyett]";
+mes "Take this. This should help in your search.";
+close2;
+getitem 20272,1;
+end;
+}
+else if (countitem(20268) > 0 && countitem(20271) > 0){
+next;
+mes "[Lady Dyett]";
+mes "Interesting. You got my stuff back from Mash and Sauro...";
+next;
+delitem 20268,1;
+delitem 20271,1;
+mes "[Lady Dyett]";
+mes "Yes. This should help.";
+next;
+mes "Dyett chants an Irunite spell on her dagger, and stabs her own diary with it.";
+next;
+mes "The diary produces smoke, and out comes a brooch with a crest on it.";
+next;
+mes "[Lady Dyett]";
+mes "I knew that would work.";
+next;
+mes "[Lady Dyett]";
+mes "As thanks, you can take this crest with you.";
+next;
+mes "[Lady Dyett]";
+mes "This should help you plenty with your exploration.";
+next;
+mes "You can now access some areas with Crest of Mezzaluna.";
+next;
+mes "You can now create ^FF0000Al Crystas^000000.";
+close2;
+getitem 20239,1;
+end;
+}
+
+makealgb:
+next;
+menu "Blue Al Crysta",blueal,"Green Al Crysta",greenal,"Exchange Light Particle",particle;
+
+blueal:
+next;
+mes "[Lady Dyett]";
+mes "The items required for that are as follows.";
+next;
+mes "Tengu Feather 5";
+mes "Broken Claw 5";
+mes "Kappa Plate 5";
+mes "Pretty Shell 5";
+mes "Spongy Hide 5";
+mes "Poison Fang 5";
+mes "Heavy Sword 5";
+mes "Thick Hide 5";
+mes "Usable Engine 5";
+mes "Cubic Fragment 5";
+mes "Sturdy Tusk 5";
+next;
+if (countitem(20200) > 4 && countitem(20202) > 4 && countitem(20204) > 4 && countitem(20206) > 4 && countitem(20208) > 4 && countitem(20210) > 4 && countitem(20212) > 4 && countitem(20213) > 4 && countitem(20215) > 4 && countitem(20217) > 4 && countitem(20236) > 4){
+delitem 20200,5;
+delitem 20202,5;
+delitem 20204,5;
+delitem 20206,5;
+delitem 20208,5;
+delitem 20210,5;
+delitem 20212,5;
+delitem 20213,5;
+delitem 20215,5;
+delitem 20217,5;
+delitem 20236,5;
+getitem 20269,1;
+mes "[Lady Dyett]";
+mes "There you go.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+greenal:
+next;
+mes "[Lady Dyett]";
+mes "The items required for that are as follows.";
+next;
+mes "Torn Cloth 5";
+mes "Jade 5";
+mes "Water Bead 5";
+mes "Spinel 5";
+mes "Silk Thread 5";
+mes "Damascus Steel 5";
+mes "Big Meat 5";
+mes "Bent Screw 5";
+mes "Patterned Plate 5";
+mes "Iruna Turquoise 5";
+mes "Sorrowful Eye 5";
+next;
+if (countitem(20201) > 4 && countitem(20203) > 4 && countitem(20205) > 4 && countitem(20207) > 4 && countitem(20209) > 4 && countitem(20211) > 4 && countitem(20214) > 4 && countitem(20216) > 4 && countitem(20218) > 4 && countitem(20219) > 4 && countitem(20235) > 4){
+delitem 20201,5;
+delitem 20203,5;
+delitem 20205,5;
+delitem 20207,5;
+delitem 20209,5;
+delitem 20211,5;
+delitem 20214,5;
+delitem 20216,5;
+delitem 20218,5;
+delitem 20219,5;
+delitem 20235,5;
+getitem 20270,1;
+mes "[Lady Dyett]";
+mes "There you go.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+particle:
+next;
+if (countitem(20237) > 0){
+delitem 20237,1;
+getitem 20269,10;
+getitem 20270,5;
+mes "[Lady Dyett]";
+mes "There you go.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+mirror:
+next;
+mes "[Lady Dyett]";
+mes "Ah, you want to let Nature Energy embed and reflect its power into your weaponry?";
+next;
+mes "Tier II Weapons will be imbued with elemental properties and become more powerful.";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the following ready:";
+next;
+mes "Battered Weapon [4] 1";
+mes "Tier II Weapon [4] 1";
+mes "Blue Al Crysta 3";
+mes "Corresponding Elemental Catalyst 100";
+menu "Sword",mirsw,"Bow",mirbow,"Axe",miraxe,"Dagger",mirdag,"Rod",mirod,"Claw",mirclaw,"Revolver",mirgun,"Whip",mirwhip,"Instrument",mirguit,"Katar",mirkat,"Spear",mirspear,"Throw",mirthrow;
+
+mirsw:
+set .@mirror,20035;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirbow:
+set .@mirror,20039;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+miraxe:
+set .@mirror,20051;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirdag:
+set .@mirror,20045;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirod:
+set .@mirror,20041;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirclaw:
+set .@mirror,20037;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirgun:
+set .@mirror,20053;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirwhip:
+set .@mirror,20055;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirguit:
+set .@mirror,20057;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirkat:
+set .@mirror,20049;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirspear:
+set .@mirror,20047;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirthrow:
+set .@mirror,20043;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+firemirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(994) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 994,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+watermirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(995) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 995,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+earthmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(997) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 997,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+windmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(996) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 996,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+darkmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(7799) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 7799,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+neutmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(730) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 730,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+holymirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(1009) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 1009,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+ghostmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(7268) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 7268,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+poisonmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(7154) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 7154,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+undeadmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20269) > 2 && countitem(934) > 99){
+next;
+delitem 40420,1;
+delitem 20269,3;
+delitem 934,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Lady Dyett]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+irusoul:
+next;
+mes "[Lady Dyett]";
+mes "Ah, you want to embed your very existence into that weapon you're using right now?";
+next;
+mes "Soul Weapons will have an augment of HIT +150, and an increase of 5 ATK except for Staff.";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Soul Weapon equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "15 ^FF0000Blue Al Crystas^000000";
+mes "5 ^FF0000Green Al Crystas^000000";
+menu "Soul Decimator",geroldiru,"Soul Brutalizer",justiceiru,"Soul Shooter",kulotiru,"Soul Orb",daniloiru,"Argent Soul",paoloiru,"Soul Breaker",jeraldiru,"Soul Piercer",kurtiru,"Soul Terminator",erikiru,"Soul Cleaver",kamaliru,"Soul Eater",astreairu,"Soulstrings",honestiru,"Soulsoother",jonasiru;
+
+geroldiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20059){
+set .@item,20059;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39012,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+justiceiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20060){
+set .@item,20060;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39013,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kulotiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20061){
+set .@item,20061;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39014,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+daniloiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20063){
+set .@item,20063;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39016,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+paoloiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20062){
+set .@item,20062;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39015,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+jeraldiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20064){
+set .@item,20064;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39017,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kurtiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20065){
+set .@item,20065;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39018,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+erikiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20066){
+set .@item,20066;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39019,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kamaliru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20067){
+set .@item,20067;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39020,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+astreairu:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20068){
+set .@item,20068;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39021,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+honestiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20069){
+set .@item,20069;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39022,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+jonasiru:
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20269) > 14 && countitem(20270) > 4 && getequipid(EQI_HAND_R) == 20070){
+set .@item,20070;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20269,15;
+delitem 20270,5;
+delequip EQI_HAND_R;
+getitem2 39023,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240036) == 0){
+achievementcomplete(240036);
+}
+mes "[Lady Dyett]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+diabolusiru:
+next;
+mes "[Lady Dyett]";
+mes "Ah, you want to unlock the potential of your Diabolus Armor or Robe?";
+menu "Deceiver",deciiru,"Struggler",strugiru,"Schwermer",schwermiru,"Ira",irairu,"Emido",emidoiru,"Hulam",hulamiru;
+
+deciiru:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Deceiver Trait...";
+next;
+mes "All Stats +5";
+mes "ATK +5%";
+mes "Max HP +50%";
+mes "Physical and Magic Resistance +5%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Specia's Tears";
+mes "1 Mio's Katana";
+mes "1 Titanium";
+mes "1 Zirconium";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20220) > 0 && countitem(20221) > 0 && countitem(20224) > 0 && countitem(20229) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20220,1;
+delitem 20221,1;
+delitem 20224,1;
+delitem 20229,1;
+delequip EQI_ARMOR;
+getitem2 39036,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+strugiru:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Struggler Trait...";
+next;
+mes "All Stats +5";
+mes "MATK +5%";
+mes "Max HP +10%";
+mes "Further Increases MATK depending on VIT";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Empress Hairpin";
+mes "1 Knight's Hair Ornament";
+mes "1 Liath Fail";
+mes "1 Light Crystal";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20223) > 0 && countitem(20228) > 0 && countitem(20231) > 0 && countitem(20233) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20223,1;
+delitem 20228,1;
+delitem 20231,1;
+delitem 20233,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+schwermiru:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Schwermer Trait...";
+next;
+mes "All Stats +5";
+mes "VIT +2";
+mes "ATK +5%";
+mes "Max HP +10%";
+mes "Reflects 5% of all damage";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Tarante Claw";
+mes "1 Mysterious Plume";
+mes "1 Mio's Katana Strap";
+mes "1 Elder Sister's Resentment";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20230) > 0 && countitem(20232) > 0 && countitem(20226) > 0 && countitem(20225) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20230,1;
+delitem 20232,1;
+delitem 20226,1;
+delitem 20225,1;
+delequip EQI_ARMOR;
+getitem2 39038,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+irairu:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Ira Trait...";
+next;
+mes "All Stats +5";
+mes "ATK +15%";
+mes "Max HP +10%";
+mes "Physical and Magic Resistance -10%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Ouvelam Core";
+mes "1 Specia's Tears";
+mes "1 Knight Soul Fragment";
+mes "1 Zirconium";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20234) > 0 && countitem(20220) > 0 && countitem(20227) > 0 && countitem(20229) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20234,1;
+delitem 20220,1;
+delitem 20227,1;
+delitem 20229,1;
+delequip EQI_ARMOR;
+getitem2 39039,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+emidoiru:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Emido Trait...";
+next;
+mes "All Stats +5";
+mes "MATK +15%";
+mes "Max HP +10%";
+mes "Physical and Magic Resistance -10%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Ouvelam Core";
+mes "1 Specia's Tears";
+mes "1 Knight Soul Fragment";
+mes "1 Titanium";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20234) > 0 && countitem(20220) > 0 && countitem(20227) > 0 && countitem(20224) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20234,1;
+delitem 20220,1;
+delitem 20227,1;
+delitem 20224,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+hulamiru:
+next;
+mes "[Lady Dyett]";
+mes "Awaken the Hulam Trait...";
+next;
+mes "All Stats +7";
+mes "ATK +10%";
+mes "MATK +10%";
+mes "Max HP +20%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Lady Dyett]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Lady Dyett]";
+mes "You'll also need the following.";
+next;
+mes "5 ^FF0000Blue Al Crystas^000000";
+mes "1 ^FF0000Green Al Crysta^000000";
+mes "1 Ouvelam Core";
+mes "1 Indra Microchip";
+mes "1 Mio's Katana Strap";
+mes "1 Light Crystal";
+next;
+mes "[Lady Dyett]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20269) > 4 && countitem(20270) > 0 && countitem(20234) > 0 && countitem(20222) > 0 && countitem(20226) > 0 && countitem(20233) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20269,5;
+delitem 20270,1;
+delitem 20234,1;
+delitem 20222,1;
+delitem 20226,1;
+delitem 20233,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Lady Dyett]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+garmentiru:
+next;
+mes "[Lady Dyett]";
+mes "Which one, though?";
+menu "Asprika",asprikairu,"Flame Manteau of Naght Sieger",naghtiru,"Leather of Tendrillion",tendriliru,"Nidhoggur's Shadow Garb",nidhoggiru;
+
+asprikairu:
+next;
+mes "[Lady Dyett]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "1 Empress Hairpin";
+mes "1 Specia's Tears";
+mes "1 Zirconium";
+mes "1 Liath Fail";
+next;
+mes "[Lady Dyett]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20228) > 0 && countitem(20220) > 0 && countitem(20229) > 0 && countitem(20231) > 0 && getequipid(EQI_GARMENT) == 2541){
+set .@garment,2541;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20228,1;
+delitem 20220,1;
+delitem 20229,1;
+delitem 20231,1;
+delequip EQI_GARMENT;
+getitem2 39042,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Lady Dyett]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+naghtiru:
+next;
+mes "[Lady Dyett]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "1 Mysterious Plume";
+mes "1 Mio's Katana";
+mes "1 Light Crystal";
+mes "1 Titanium";
+next;
+mes "[Lady Dyett]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20232) > 0 && countitem(20221) > 0 && countitem(20233) > 0 && countitem(20224) > 0 && getequipid(EQI_GARMENT) == 2542){
+set .@garment,2542;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20232,1;
+delitem 20221,1;
+delitem 20233,1;
+delitem 20224,1;
+delequip EQI_GARMENT;
+getitem2 39043,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Lady Dyett]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+tendriliru:
+next;
+mes "[Lady Dyett]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "1 Indra Microchip";
+mes "1 Tarante Claw";
+mes "1 Mio's Katana Strap";
+mes "1 Titanium";
+next;
+mes "[Lady Dyett]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20222) > 0 && countitem(20230) > 0 && countitem(20226) > 0 && countitem(20224) > 0 && getequipid(EQI_GARMENT) == 2544){
+set .@garment,2544;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20222,1;
+delitem 20230,1;
+delitem 20226,1;
+delitem 20224,1;
+delequip EQI_GARMENT;
+getitem2 39043,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Lady Dyett]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+nidhoggiru:
+next;
+mes "[Lady Dyett]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "1 Ouvelam Core";
+mes "1 Knight's Hair Ornament";
+mes "1 Elder Sister's Resentment";
+mes "1 Knight Soul Fragment";
+next;
+mes "[Lady Dyett]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20234) > 0 && countitem(20223) > 0 && countitem(20225) > 0 && countitem(20227) > 0 && getequipid(EQI_GARMENT) == 2554){
+set .@garment,2554;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20234,1;
+delitem 20223,1;
+delitem 20225,1;
+delitem 20227,1;
+delequip EQI_GARMENT;
+getitem2 39044,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Lady Dyett]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Lady Dyett]";
+mes "This won't do.";
+next;
+mes "[Lady Dyett]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+}

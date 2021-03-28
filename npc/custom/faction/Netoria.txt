@@ -1,0 +1,1098 @@
+//Netoria Faction Items
+//Weakened Jeff Saber
+jupe_area2,105,53,6	script	Astral Jeff Saber	2221,{
+if (countitem(40507) > 0 && countitem(20264) < 3 && celebeamj == 1){
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "You're back!";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Oh, you're still missing some stuff.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I'll wait for you.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(40507) > 0 && countitem(20264) > 2 && celebeamj == 1){
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "You're back!";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Alright. Stand back a bit.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Oh, don't worry about Tammy.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "She's used to this.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "She's probably stronger than I am in my current state.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Here goes...";
+next;
+delitem 40507,1;
+delitem 20264,3;
+getitem 40508,1;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Phew~";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "That's a wrap!";
+next;
+mes "Tamari glances at the Refined Celebeam Sample and takes note of everything that has transpired.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I guess you can go back to her projection in the main town.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I'm sorry I can't tend to you with such limited time.";
+close2;
+cutin "",255;
+set celebeamj,2;
+set xoverneto,1;
+end;
+}
+else if (countitem(40507) > 0){
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I am in my severely weakened --Astral Form--.";
+mes "Yet, I am still The Lord of Netoria.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "How is everything?";
+menu "Ask about ^0000FFThe Power of the Immortals^000000",-;
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Oh, what do we have here?";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "A Celebeam Particle!";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Although it's a very impure specimen...";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "It's quite nice to see some in this realm.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Haaku got it?";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Oh, of course!";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Brother's got a knack for collecting rare stuff, so I won't be surprised.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Tammy sent you here, using one of her many projections, huh?";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "She does that so she doesn't lose focus in helping me maintain my Astral Form.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Anyway, I guess you could do us a good favor and purify this specimen.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "If I remember correctly, back in Motenia...";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Oh! I think this realm has similar items that can be substituted for the process.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Get me these, and I can purify this sample.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "...And hopefully Tammy can teach Haaku how to do it once we're done.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "3 Lesser Netorian Souls";
+close2;
+cutin "",255;
+set celebeamj,1;
+end;
+}
+else if (celebeamj > 1){
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I am in my severely weakened --Astral Form--.";
+mes "Yet, I am still The Lord of Netoria.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Do you wish to be granted sacred gear?";
+if (xoverneto <= 2){
+menu "Yes, please.",exchangeneto,"^0000FFI sense something odd^000000.",crosoverneto,"Maybe some other time.",exitneto;
+}
+else if (xoverneto > 2){
+menu "Yes, please.",exchangeneto,"Maybe some other time.",exitneto;
+}
+}
+else if (countitem(40503) > 0){
+mes "You see a somewhat eerie Astral Projection of someone in front of you";
+next;
+cutin "jeff_randel",2;
+mes "Aaarghhh...";
+next;
+mes "He seems to be reacting uncomfortably to the energy you possess at the moment.";
+next;
+cutin "",255;
+mes "You instinctively turn towards Tamari, with some questions in mind.";
+close2;
+set netocross2,1;
+end;
+}
+else if (celebeamj < 1){
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I am in my severely weakened --Astral Form--.";
+mes "Yet, I am still The Lord of Netoria.";
+close2;
+cutin "",255;
+end;
+}
+else if (netocross2 == 1){
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "I think we should not disturb his self-preservation in the meantime, my child.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "I believe we need to think deep and discuss this further.";
+close2;
+cutin "",255;
+end;
+}
+
+crosoverneto:
+next;
+if (xoverneto == 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "What is?";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "^FF0000AAAAAAARRRRRRRGGGGGGGHHHHHHH^000000";
+next;
+mes "Suddenly, a cloak of crimson energy envelops The Lord's Astral Body.";
+next;
+cutin "",255;
+mes "The force of his scream shakes the entire realm.";
+next;
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Jeff!";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "It's happening again, isn't it?";
+next;
+cutin "",255;
+mes "The White Light lunges forward and puts The Lord in her embrace.";
+next;
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "^FF0000U-urghh...^000000";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Dear...";
+next;
+cutin "",255;
+mes "The Lord is enveloped in The White Light's Brilliant White Aura, making the crimson veil isolated within her energies.";
+next;
+mes "The crimson speck now condenses into something peculiar.";
+next;
+cutin "jeff_randel",2;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "T-that's...";
+next;
+getitem 40504,1;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "It's unfortunate to be in this form at this point in time...";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "...But in my behalf, I need you to bring that thing beyond the Time Rip.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Go, and you'll find the answer there.";
+next;
+cutin "",255;
+mes "You look at the eerie red glow of it.";
+next;
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "I wish you all the luck in the world, my child.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "I will keep watch over here while you're away.";
+close2;
+cutin "",255;
+set xoverneto,2;
+end;
+}
+else if (xoverneto == 2){
+if (countitem(40504) > 0 || countitem(40510) > 0){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Ugh...";
+next;
+cutin "",255;
+mes "The Lord still seems to be in pain.";
+next;
+cutin "gc_mayssel01",2;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Don't worry, my child.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "He will be fine.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "Go beyond the Time Rip.";
+next;
+mes "[^0000FFTamari^000000, The White Light]";
+mes "This will all be over soon.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(40504) < 1 && countitem(40510) < 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Thank you.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "The Immortals are grateful for your actions.";
+close2;
+cutin "",255;
+set xoverneto,3;
+getitem 20265,10;
+end;
+}
+}
+
+exchangeneto:
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Select your reward.";
+menu "Genocide Fragments",netofrag,"Equipment",netofac;
+
+netofrag:
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Recover my forgotten memories, and you may extract the hate within them.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "You'll need ^00FFFFRepressed Memories^000000 for a ^0000FFFragment of Genocide^000000.";
+mes "There will be catalysts, as well.";
+next;
+mes "10 ^00FFFFRepressed Memories^000000";
+mes "100 ^AAA9ADRebootRO Orichalcum Coins^000000";
+mes "10 ^FFFF00Sauro II Crystas^000000";
+menu "I have them.",exchmem,"I don't have them.",exitmem;
+
+exchmem:
+next;
+if (countitem(40060) >= 10 && countitem(674) >= 100 && countitem(543) >= 10){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I shall now extract the hatred within myself.";
+close2;
+cutin "",255;
+delitem 40060,10;
+delitem 674,100;
+delitem 543,10;
+getitem 40000,1;
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+exitmem:
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't want to be rewarded.";
+close2;
+cutin "",255;
+end;
+
+netofac:
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Select your desired Netoria Faction Equipment.";
+menu "Upper Headgear",netohead,"Lower Headgear",netolow,"Armor",netoarm,"Garment",netogarm,"Footgear",netofoot,"Accessory",netoacc,"Axe",netoaxe,"Dagger",netodag,"Staff",netostaff,"Sword",netosword,"Spear",netospear,"Bow",netobow,"Gun",netogun,"Fist",netofist,"Musical Instrument",netomusic,"Whip",netowhip,"Katar",netokatar,"Shield",netoshield,"Not now.",netofacexit;
+
+netohead:
+next;
+mes "[^0000FFNetoria^000000 Faction Upper Headgear]";
+mes "Fortes Solis";
+mes "DEF 5 WT 1";
+mes "All Stats +10. Grants immunity to the Stun, Blind and Silence statuses. Removes the need of Gemstones and materials for certain skills.";
+next;
+mes "Requires 100 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40001,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Fortes Solis!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netolow:
+next;
+mes "[^0000FFNetoria^000000 Faction Lower Headgear]";
+mes "Netorian Authority";
+mes "DEF 5 WT 1";
+mes "Grants Perfect Hiding, Resistance to all properties +10%, ATK and MATK +5%, Skill Delay -10%.";
+next;
+mes "Requires 50 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "50 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 50 && countitem(5317) >= 5 && countitem(542) >= 50 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,50;
+delitem 542,50;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40002,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Netorian Standard!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netoarm:
+next;
+mes "[^0000FFNetoria^000000 Faction Armor]";
+mes "Fortiores Una";
+mes "DEF 15 WT 1";
+mes "Grants immunity to Knockback, Freezing and Stone Curse. Increases Max HP and SP +120%.";
+next;
+mes "Requires 200 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "200 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 200 && countitem(5317) >= 5 && countitem(542) >= 200 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,200;
+delitem 542,200;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40003,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Fortiores Una!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netogarm:
+next;
+mes "[^0000FFNetoria^000000 Faction Garment]";
+mes "Cape of Immortals";
+mes "DEF 10 WT 1";
+mes "Reflects 40% of all incoming damage. Flee +100, Perfect Dodge +35. Resistance to all properties +20%.";
+next;
+mes "Requires 250 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "250 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 250 && countitem(5317) >= 5 && countitem(542) >= 250 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,250;
+delitem 542,250;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40004,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Cape of Immortals!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netofoot:
+next;
+mes "[^0000FFNetoria^000000 Faction Footgear]";
+mes "Behemoth";
+mes "DEF 5 WT 1";
+mes "Allows maximum movement speed. Renders your spells unable to be interrupted and enables the effect of Endure as long as this footgear is equipped. Increases Max HP and SP +25%.";
+next;
+mes "Requires 150 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "150 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 150 && countitem(5317) >= 5 && countitem(542) >= 150 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,150;
+delitem 542,150;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40005,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Behemoth!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netoacc:
+next;
+mes "[^0000FFNetoria^000000 Faction Accessory]";
+mes "Ring of the Frost Garrison";
+mes "DEF 1 WT 1";
+mes "All Stats +10. Whenever you attack, there is a chance to cast Lex Aeterna. Whenever you receive melee physical damage, there is a chance of casting Lv1 Safety Wall on yourself. If you receive ranged physical damage instead, there is a chance of casting Pneuma on yourself.";
+next;
+mes "Requires 100 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40000) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40006,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Ring of the Frost Garrison!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netoaxe:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Axe]";
+mes "Mace of the King";
+mes "ATK 400 WT 200";
+mes "ATK +10%, MATK +20% HIT +300 Increases damage to Holy Property by 50%, skill damage of Cart Termination and Acid Demonstration by 20%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40007,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Mace of the King!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netodag:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Dagger]";
+mes "One-Shot One Kill";
+mes "ATK 150 WT 200";
+mes "ATK +20%, MATK +30%, Flee +20, HIT +300 Perfect Dodge +5. Deal Double Damage to Holy Property if Thief, Max HP +50% if Ninja.";
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40008,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired One-Shot One Kill!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netostaff:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Staff]";
+mes "Red Vicar's Staff";
+mes "ATK 100 WT 200";
+mes "Ignores Magic Resistances, increases Holy Light skill damage by 750%, doubles Heal Power and MATK, and grants an Autoskill ability for Acolyte Class. HIT +300 MATK +50%, All Stats +20.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40009,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Red Vicar's Staff!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netosword:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Sword]";
+mes "Lesser Sword of Genocide";
+mes "ATK 250 WT 200";
+mes "ATK +30%. Increases Max HP by 20%, HIT +300 damage to Holy Property by 50%, triples damage of Backstab, Bowling Bash by 50% and Sacrifice by 20%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40010,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Lesser Sword of Genocide!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netospear:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Spear]";
+mes "Sir Pelleus' Holy Spear";
+mes "ATK 300 WT 500";
+mes "ATK +20%. Max HP +10%. HIT +300 Increases damage of Brandish Spear, Spiral Pierce, Pierce and Grand Cross by 50%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40011,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Sir Pelleus' Holy Spear!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netobow:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Bow]";
+mes "Wings of Netori";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Quintuples Backstab damage. Also doubles damage of Double Strafing, Triples damage of Arrow Shower, Phantasmic Arrow, and Sharp Shooting.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40012,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Wings of Netori!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netogun:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Gun]";
+mes "Death of Netori";
+mes "ATK 150 WT 200";
+mes "ATK +20%. HIT +300 Doubles damage dealt by long-ranged physical attacks. Doubles Desperado damage.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40013,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Death of Netori!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netofist:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Fist]";
+mes "Fist of Netori";
+mes "ATK 200 WT 200";
+mes "STR, AGI and INT +25, HIT +300 ATK and MATK +10%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40014,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Fist of Netori!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netomusic:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Musical Instrument]";
+mes "Slapshock";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40015,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Slapshock!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netowhip:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Whip]";
+mes "Donna's Arcane Whip";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40016,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Donna's Arcane Whip!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netokatar:
+next;
+mes "[^0000FFNetoria^000000 Faction Weapon - Katar]";
+mes "Executioner's Soul";
+mes "ATK 200 WT 200";
+mes "ATK +25%. HIT +500 Flee +20. Doubles damage of Soul Breaker and Sonic Blow, and increases Grimtooth damage by 50%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40017,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Executioner's Soul!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netoshield:
+next;
+mes "[^0000FFNetoria^000000 Faction Shield]";
+mes "Paladin's Oath";
+mes "DEF 15 WT 300";
+mes "Increases Max HP +30%. Reflects 15% of all incoming damage. Resistance to all properties +10%. Increases damage of Shield Chain by 50%.";
+next;
+mes "Requires 350 ^0000FFFragments of Genocide^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40000) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 5 && countitem(7078) >= 5){
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "I now bestow upon you the Sacred Relics.";
+next;
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Viva, Netoria! We Are One!";
+close2;
+cutin "",255;
+delitem 40000,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40018,1;
+if (achievementexists(240043) == 0){
+achievementcomplete(240043);
+}
+announce "Viva Netoria! We are one!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Paladin's Oath!","0x0000ff";
+end;
+}
+else {
+mes "[^0000FFJeff Saber^000000, The Lord of Netoria]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+netofacexit:
+close2;
+cutin "",255;
+end;
+
+exitneto:
+close2;
+cutin "",255;
+end;
+}

@@ -1,0 +1,550 @@
+prontera,146,160,0	script	Poring Catcher Warper	10101,{
+
+mes "Do you want to join the Poring Catcher Event?";
+menu "Yes",-;
+set @rex,rand(102,104);
+warp "poring_c01",@rex,101;
+close;
+
+}
+
+-	script	pcetrigger	-1,{
+OnClock0000:
+OnClock0200:
+OnClock0400:
+OnClock0600:
+OnClock0800:
+OnClock1000:
+OnClock1200:
+OnClock1400:
+OnClock1600:
+OnClock1800:
+OnClock2000:
+OnClock2200:
+enablenpc "Poring Catcher Warper";
+announce "Poring Catcher Event: We are going to have a Poring Catcher Event",bc_all,0xFF7F50;
+sleep2 1000;
+announce "Poring Catcher Event: For those who want to join, please warp @ center of prontera",bc_all,0xFF7F50; //Edit to where would you place the warper
+sleep2 1000;
+announce "Poring Catcher Event: Poring Catcher Start in 1 minute",bc_all,0xFF7F50;
+sleep2 30000;
+announce "Poring Catcher Event: Last 30 Seconds.",bc_all,0xFF7F50;
+sleep2 30000;
+announce "Poring Catcher Event: Join Now.",bc_all,0xFF7F50;
+donpcevent "Poring Catcher Event::OnPoringCatcherStart";
+end;
+
+}
+
+poring_c01,106,110,3	script	Got Stuck?#pce	948,{
+
+mes "[ Got Stuck? ]";
+mes "Do you wish to go back?";
+menu "Yes",-;
+warp "prontera",154,177;
+close;
+
+}
+
+-	script	Poring Catcher Event	-1,{
+
+OnPoringCatcherStart:
+mapannounce "poring_c01","We are about to start the Poring Catcher Event.",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","Rules are simple:",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","In a few seconds I'm going to spawn tons of porings..",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","..All you need to do is kill the Poring with the right name..",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","..Which would be Poring.",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","If you kill the wrong one, you're out!",bc_blue;
+sleep2 3000;
+mapannounce "poring_c01","That's it.. Now let's get this on!",bc_blue;
+sleep2 3000;
+goto Lstart;
+end;
+
+
+Lstart:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+mapannounce "poring_c01","Ready...",bc_blue;
+sleep2 1000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin1::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porong",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,1*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+
+
+
+}
+
+
+
+-	script	poringwin1	-1,{
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 671,50; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 1!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 1",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin2::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,5*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwin2	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 2!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 2",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin3::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poriing",1002,1*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+-	script	poringwin3	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 3!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 3",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin4::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+-	script	poringwin4	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 4!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 4",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin5::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poriing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+-	script	poringwin5	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 5!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 5",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin6::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"pH0ur1n6",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poriing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwin6	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 6!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 6",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin7::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porong",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Powing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poring",1572,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwin7	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 7!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 7",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin8::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porong",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Powing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poriing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Zerrudoring!",1572,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwin8	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 8!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 8",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin9::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porng",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Powing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poring",1572,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwin9	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 9!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 9",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwin10::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poring",1572,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Powing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poriing",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Boring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+
+-	script	poringwin10	-1,{
+
+OnMobKilled:
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+if(getmapusers("poring_c01") > 0) {
+getitem 30076,3; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 10!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+mapannounce "poring_c01","Round 3",bc_blue;
+sleep2 10000;
+mapannounce "poring_c01","Get Set..",bc_blue;
+sleep2 1500;
+mapannounce "poring_c01","Go!",bc_blue;
+sleep2 1000;
+areamonster "poring_c01",95,108,113,87,"Poring",1002,1,"poringwinend::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poking",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poiring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poling",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"P0ring",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Porong",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Poring",1572,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Erning",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Nining",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Lolwut!?",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+areamonster "poring_c01",95,108,113,87,"Kill me to win!",1002,3*getmapusers("poring_c01"),"poringlose::OnMobKilled";
+sleep2 1800000;
+if(getmapusers("poring_c01") > 0) { goto Lnoone;
+disablenpc "Poring Catcher Warper";
+}
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+}
+}
+
+
+-	script	poringwinend	-1,{
+
+OnMobKilled:
+getitem 30076,1; //Edit on what prize would you give to the winner
+announce strcharinfo(0)+" won the Poring Catcher Event Round 10!",bc_all,0xFF7F50;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+mapwarp "poring_c01","prontera",154,177;
+end;
+}
+
+
+
+
+
+-	script	poringlose	-1,{
+
+OnMobKilled:
+dispbottom "You killed the wrong Poring! Yerrrrrrrrrrrr out!";
+warp "prontera",154,177; //Edit to where will you warp players that lost
+sleep2 500;
+if(getmapusers("poring_c01") == 0) goto Lnoone;
+end;
+
+Lnoone:
+announce "No one won the Poring Catcher Event!",bc_all,0xFF7F50;
+mapwarp "poring_c01","prontera",154,177;
+killmonsterall "poring_c01";
+disablenpc "Poring Catcher Warper";
+end;
+
+}
+
+
+poring_c01	mapflag	nopenalty
+poring_c01	mapflag	noloot
+poring_c01	mapflag	noskill
+poring_c01	mapflag	nowarpto
+poring_c01	mapflag	nowarp
+poring_c01	mapflag	noteleport
+poring_c01	mapflag	nomemo
+poring_c01	mapflag	nosave	SavePoint
+poring_c01	mapflag	nobranch
+poring_c01	mapflag	nodrop

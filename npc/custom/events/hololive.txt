@@ -1,0 +1,4037 @@
+/*
+RebootRO Easter Egg Quest
+Reboot HoloCrisis
+*/
+
+//Part I
+//Hentai Tekunoroji
+jupe_core,113,285,3	script	???#hllq	111,{
+if (hololive > 0){
+end;
+}
+else {
+mes "You notice an odd piece of technology lying on the ground, just behind this defunct robot.";
+next;
+mes "Reach out and grab it?";
+menu "Yes",-;
+next;
+mes "It seems like it's a relatively ancient piece of technology relative to whatever's down here in Juperos.";
+next;
+mes "Maybe it's from another dimension?";
+close2;
+set hololive,1;
+end;
+}
+}
+
+//Reactivation
+mid_camp,209,300,3	script	???#hllq1	111,{
+if (hololive != 1){
+end;
+}
+else {
+mes "The piece of technology you got in Juperos seems to react to the energies of the Ash-Vacuum dimensional rip.";
+next;
+mes "Attempt to get the tech closer to the Rip?";
+menu "Yes",-;
+next;
+mes "The piece of technology activates.";
+next;
+mes "It lights up and shows a hologram playing a somewhat eastern techno song...";
+next;
+mes "...With animated girls swaying their heads to it...???";
+next;
+mes "It cuts to a short, choppy audio clip.";
+next;
+mes "...lp us, plea...";
+next;
+mes "...help, ^0000FFpeko^000000...";
+next;
+mes "What could that possibly mean???";
+close2;
+getitem 20315,1;
+set hololive,2;
+end;
+}
+}
+
+//Discommunication Rabbit
+-	script	Nousagi	-1,{
+end;
+
+OnEclipseKill:
+if (isequipped(20315) == 1){
+if (hololive != 2){
+end;
+}
+else {
+mes "[Eclipse]";
+mes "Please help our Princess, peko.";
+next;
+mes "[Eclipse]";
+mes "She's trapped in Turtle Islands, peko.";
+close2;
+set hololive,3;
+end;
+}
+}
+else {
+end;
+}
+}
+
+//Pekora
+tur_dun01,140,244,3	script	Rabid Bunny	1322,{
+if (isequipped(20315) == 1){
+if (hololive == 3){
+mes "You see a rabbit that might still have some semblance of sanity.";
+next;
+mes "[???]";
+mes "...ko";
+next;
+mes "[???]";
+mes "Peko!!!";
+next;
+mes "You instinctively think of giving this rabbit a Rainbow Carrot.";
+close2;
+set hololive,4;
+end;
+}
+else if (hololive == 4){
+mes "[???]";
+mes "Pe... ko...";
+if (countitem(622) > 0){
+next;
+mes "You feed the rabid rabbit the Rainbow Carrot.";
+next;
+delitem 622,1;
+mes "[???]";
+mes "Thank you, peko.";
+next;
+mes "The device you're wearing seems to alter the rabbit's form.";
+next;
+mes "[???]";
+mes "I see you've got the ^E0FFFFHoloGear^000000, peko.";
+next;
+mes "The rabbit turned into a girl, that looks like one of the ones included in the eastern techno track swaying her head.";
+next;
+mes "[???]";
+mes "Konpeko, konpeko, konpeko!!!";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "^E0FFFFHololive^000000 3rd Generation's ^92DDF7Usada Pekora^000000, peko!";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "Thank you for saving me, peko. Pekoland is ever grateful to you, peko.";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "My other senpai and kouhai are also in trouble in this dimension, peko.";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "It seems that our data is corrupted, peko. We can't move freely, peko.";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "We ^E0FFFFHololive^000000 members are scattered all throughout this world of yours, peko.";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "I'll give you one of my followers as thanks, peko.";
+next;
+mes "[^92DDF7Usada Pekora^000000]";
+mes "Please help ^E0FFFFHololive^000000, peko!";
+close2;
+getitem 9031,1;
+set hololive,5;
+end;
+}
+else {
+close;
+end;
+}
+}
+else {
+mes "What is that?";
+close;
+end;
+}
+}
+else {
+mes "What is that?";
+close;
+end;
+}
+}
+
+//Fubuki
+ama_in01,185,133,3	script	Corrupted Fubuki	1180,{
+if (isequipped(20315) == 1){
+if (hololive == 5){
+mes "You see four somewhat mutilated animals.";
+next;
+mes "One looks at you and forcefully whimpers.";
+next;
+mes "[???]";
+mes "Fweeh...";
+next;
+mes "[???]";
+mes "Fweeenn...";
+next;
+mes "[???]";
+mes "Friend...";
+next;
+mes "[???]";
+mes "Save... us... friend...";
+next;
+mes "It seems something cold would be needed...";
+next;
+mes "How about a Snow Crystal?";
+if (countitem(7088) > 0){
+next;
+mes "The Snow Crystals in your inventory is reacting to the fox's digital form.";
+next;
+delitem 7088,1;
+mes "[???]";
+mes "Kon Kon Kitsune!";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "^E0FFFFHololive^000000's 1st Generation, part of ^E0FFFFHololive^000000 Gamers, ^C0C0C0Shirakami Fubuki^000000 here!";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Somehow that thing in your bag stabilized my form, but I don't know for how long...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Can you please save my fellow Gamers?";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "This wolf beside me is ^FF0000Ookami Mio^000000.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Maybe if you bring her something that makes her remember how she was appreciated...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "There's no miso soup in this world, so probably the next best thing is a bowl of Tantan Noodles.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Please give it to her once you get one...";
+close2;
+set hololive,6;
+end;
+}
+else {
+close;
+end;
+}
+}
+else if (hololive == 7){
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Thank you for saving Mio-chan...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "I think it's about time we help out Koro-chan over there.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Yes. ^D2691EInugami Korone^000000-chan, the dog girl beside the catgirl.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Please help her.";
+close2;
+set hololive,8;
+end;
+}
+else if (hololive == 10){
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Okayun's the last one, huh?";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "^CC99FFNekomata Okayu^000000 is one of the heaviest eaters among us...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "I know! Try to get Rice Cake Boys to give you some Onigiri.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Okayun loves onigiri so much that she will kill anyone who steals from her.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "I'd love to come with you to go eat...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "I mean get the shota-";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Erm... Get the Rice Cake Boys to give us some Onigiri.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "But I can't exactly leave this place.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Good luck, then! Give an Onigiri to Okayu when you get one!";
+close2;
+set hololive,11;
+end;
+}
+else if (hololive == 12){
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Thank you for saving us.";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "Here's a gift for you...";
+next;
+mes "[^C0C0C0Shirakami Fubuki^000000]";
+mes "...Friend!";
+close2;
+set hololive,13;
+getitem 40495,1;
+end;
+}
+}
+else {
+mes "There's a rabid fox.";
+close;
+end;
+}
+}
+
+//Mio
+ama_in01,185,131,3	script	Corrupted Mio	427,{
+if (isequipped(20315) == 1){
+if (hololive == 6){
+if (countitem(12395) > 0){
+mes "The wolf in front of you, Mio, is starting to regain consciousness upon smelling the noodles you've brought.";
+next;
+mes "[^FF0000Ookami Mio^000000]";
+mes "^FF0000GAAAOOOOOOOOOOOOOOOOOOOO!!!^000000";
+next;
+mes "[^FF0000Ookami Mio^000000]";
+mes "Konban~Miooooon! From ^E0FFFFHololive^000000 Gamers, ^FF0000Ookami Mio^000000 here!";
+next;
+mes "[^FF0000Ookami Mio^000000]";
+mes "My form hasn't fully recovered yet...";
+next;
+mes "[^FF0000Ookami Mio^000000]";
+mes "Even so, thanks for saving me...";
+next;
+mes "[^FF0000Ookami Mio^000000]";
+mes "Fubu-chan's waiting for your progress!";
+close2;
+delitem 12395,1;
+getitem 40493,1;
+set hololive,7;
+end;
+}
+else {
+mes "The wolf in front of you, Mio, sadly growls and howls at you.";
+close;
+end;
+}
+}
+else {
+mes "A sad wolf growls and howls at you.";
+close;
+end;
+}
+}
+else {
+mes "A sad wolf growls and howls at you.";
+close;
+end;
+}
+}
+
+//Korone
+ama_in01,170,133,6	script	Corrupted Korone	515,{
+if (isequipped(20315) == 1){
+if (hololive == 8){
+mes "[^D2691EInugami Korone^000000]";
+mes "^D2691EYubi, Yubi!^000000";
+next;
+mes "It seems she's addicted to fingers.";
+next;
+mes "Give her a Finger [2]?";
+menu "Yes",yubi1,"No",noyubi;
+}
+else if (hololive == 9){
+mes "She seems to look at you with puppy eyes, intent on asking for more.";
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "Yubi Yubi?";
+next;
+mes "Give her more Finger [2]?";
+menu "Yes",yubi2,"No",noyubi;
+}
+}
+else {
+mes "A dog girl growls at you.";
+close;
+end;
+}
+
+yubi1:
+if (countitem(1812) > 0){
+next;
+delitem 1812,1;
+mes "[^D2691EInugami Korone^000000]";
+mes "Yay! Yubi!";
+close2;
+set hololive,9;
+end;
+}
+else {
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "^D2691EEekum Bokum.^000000";
+close;
+end;
+}
+
+yubi2:
+if (countitem(1812) > 0){
+next;
+delitem 1812,1;
+mes "[^D2691EInugami Korone^000000]";
+mes "Yay! Yubi!";
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "Thank you!";
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "Please save Okayu...";
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "Fubu-chan seems to know the cure for her.";
+close2;
+set hololive,10;
+getitem 40492,1;
+end;
+}
+else {
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "^D2691EEekum Bokum.^000000";
+close;
+end;
+}
+
+noyubi:
+next;
+mes "[^D2691EInugami Korone^000000]";
+mes "^D2691EEekum Bokum.^000000";
+close;
+end;
+}
+
+//Okayu
+ama_in01,170,131,6	script	Corrupted Okayu	1307,{
+if (isequipped(20315) == 1){
+if (hololive == 11){
+mes "[^CC99FFNekomata Okayu^000000]";
+mes "I'm hungry...";
+if (countitem(5575) > 0){
+next;
+mes "You give her an Onigiri.";
+next;
+mes "[^CC99FFNekomata Okayu^000000]";
+mes "^CC99FFMogu mogu~ Okayu!^000000";
+next;
+mes "[^CC99FFNekomata Okayu^000000]";
+mes "Thank you!";
+close2;
+set hololive,12;
+delitem 5575,1;
+getitem 40491,1;
+end;
+}
+else {
+close;
+end;
+}
+}
+else {
+mes "A catgirl is looking at you intently.";
+close;
+end;
+}
+}
+else {
+mes "A catgirl is looking at you intently.";
+close;
+end;
+}
+}
+
+//Onigiri
+-	script	Onigiri	-1,{
+end;
+
+OnKill:
+if (isequipped(20315) == 1){
+if (hololive != 11){
+end;
+}
+else {
+set onigirieat,rand(100);
+if (onigirieat > 50){
+getitem 5575,1;
+end;
+}
+}
+}
+else {
+end;
+}
+}
+
+//Baqua
+iz_dun04,129,239,3	script	???#onion	111,{
+if (isequipped(20315) == 1){
+if (hololive == 13){
+mes "Help me...";
+next;
+mes "You hear a girl's voice within the locked castle.";
+next;
+mes "[???]";
+mes "Is someone out there?";
+next;
+mes "[???]";
+mes "Marine?";
+next;
+mes "[???]";
+mes "Someone? Anyone? Help me!";
+menu "Save her",onion1,"Leave her",exitonion;
+}
+else if (hololive == 14){
+mes "[???]";
+mes "What do you want?";
+menu "Who's 'her'?",onion2,"Leave her",exitonion;
+}
+else if (hololive == 15){
+mes "[^00FFFFMinato Aqua^000000]";
+mes "You mean to say Marine-chan's data has been fragmented, and she can be saved somehow?";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "If that's the case, I'll need to convert one item here that closely resembles her aspect.";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Like... a pirate hat!";
+if (countitem(5019) > 0){
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Perfect!";
+next;
+mes "Aqua then squints like her life depended on it.";
+next;
+delitem 5019,1;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "It worked!";
+next;
+getitem 40494,1;
+mes "You both hear a divine voice.";
+next;
+mes "[???]";
+mes "Aqu-tan... Seek out Kanatan... I need your help!";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Sora-senpai! She must be in danger!";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "We must help her!";
+next;
+mes "You assure Aqua you'll do it.";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Thank you.";
+close2;
+set hololive,16;
+end;
+}
+else {
+close;
+end;
+}
+}
+else {
+mes "Help me...";
+close;
+end;
+}
+}
+else {
+mes "Something must be in there...";
+end;
+}
+
+onion1:
+next;
+mes "You pry open the door.";
+next;
+mes "A small-statured girl with what seems to be a blue maid outfit comes out of the broken door.";
+next;
+mes "[???]";
+mes "I... Can't sense her here...";
+next;
+mes "[???]";
+mes "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+close2;
+set hololive,14;
+end;
+
+onion2:
+next;
+mes "[???]";
+mes "Marine-chan...";
+next;
+mes "You suspect her to be one of the ^E0FFFFHololive^000000 girls.";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Yes, I'm one of the ^E0FFFFHololive^000000 Girls. ^00FFFFMinato Aqua^000000. Second Generation.";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "You seem to be knowledgeable about this world...";
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Will you please help me?";
+menu "Yes",-;
+next;
+mes "[^00FFFFMinato Aqua^000000]";
+mes "Thank you.";
+close2;
+set hololive,15;
+end;
+
+exitonion:
+next;
+mes "You leave her be.";
+close;
+end;
+}
+
+//Kanata
+tha_t11,16,88,6	script	Corrupted Kanata	1702,{
+if (isequipped(20315) == 1){
+if (hololive == 16){
+mes "You notice a hooded figure hiding in the corner.";
+next;
+mes "At first glance, you see wings.";
+next;
+mes "You ask if they're okay.";
+next;
+mes "[???]";
+mes "What? I'm sorry, I couldn't hear you.";
+next;
+mes "You lean in closer to their face, and you notice they're a girl.";
+next;
+mes "[???]";
+mes "Yes, I'm okay, somewhat. But what's with this form of mine?";
+next;
+mes "You assume she's one of them, too.";
+next;
+mes "[???]";
+mes "Yes, I'm from ^E0FFFFHololive^000000, too.";
+next;
+mes "You wonder-";
+next;
+mes "[???]";
+mes "You wonder why I can read your thoughts, correct?";
+next;
+mes "[???]";
+mes "I'm an angel.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "^87CEEBAmane Kanata^000000. Fourth Generation.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "I wonder what happened to my colleagues?";
+close2;
+set hololive,17;
+end;
+}
+else if (hololive == 18){
+mes "[^87CEEBAmane Kanata^000000]";
+mes "You've talked with Towa's guardian?";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "That's good. At least we know you're trustworthy.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Alright. I need you to get one of my feathers for me.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Feather of Angel Wing, is what they call it here. It has the same data profile as my own wings.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Return to me once you have it.";
+close2;
+set hololive,19;
+end;
+}
+else if (hololive == 19){
+if (countitem(7079) > 0){
+mes "[^87CEEBAmane Kanata^000000]";
+mes "You did it!";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "I'll be holding on to that.";
+next;
+delitem 7079,1;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "While I take my time channeling what's left of my powers, you should go get Towa's Guardian what he needs to get going.";
+close2;
+set hololive,20;
+end;
+}
+else {
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Take your time.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Don't worry. I'll hold it for a while longer.";
+close;
+end;
+}
+}
+else if (hololive == 22){
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Nice.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "All preparations are set.";
+next;
+mes "[^87CEEBAmane Kanata^000000]";
+mes "Here we go!";
+close2;
+set hololive,23;
+warp "ra_temsky",47,136;
+end;
+}
+}
+else {
+mes "You notice a hooded figure hiding in the corner.";
+close;
+end;
+}
+}
+
+//Towa
+tha_t11,85,12,3	script	Bibi#towa	738,{
+if (isequipped(20315) == 1){
+if (hololive == 17){
+mes "You see a small demon on the ground.";
+next;
+mes "[Bibi]";
+mes "I'm ^DA70D6Tokoyami Towa^000000's Guardian Demon, Bibi.";
+next;
+mes "[Bibi]";
+mes "Towa's data has apparently been corrupted so much that it scattered all throughout this dimension.";
+next;
+mes "[Bibi]";
+mes "Right now, we need to properly merge Demon and Angel energies together to reach where ^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000 is.";
+next;
+mes "[Bibi]";
+mes "But first, consult with Kanata about what she needs to channel what's left of her Angel powers.";
+close2;
+set hololive,18;
+end;
+}
+else if (hololive == 20){
+mes "[Bibi]";
+mes "I see you've got to the Angel part smoothly.";
+next;
+mes "[Bibi]";
+mes "Now, we need you to give me 100 Crystals of Darkness.";
+next;
+mes "[Bibi]";
+mes "I'll be waiting.";
+close2;
+set hololive,21;
+end;
+}
+else if (hololive == 21){
+if (countitem(7799) > 99){
+mes "[Bibi]";
+mes "You did it.";
+next;
+delitem 7799,100;
+mes "[Bibi]";
+mes "Go back to Kanata so she can start the process.";
+close2;
+set hololive,22;
+end;
+}
+else {
+mes "[Bibi]";
+mes "Let's move it!";
+close;
+end;
+}
+}
+else {
+mes "[???]";
+mes "...?";
+close;
+end;
+}
+}
+else {
+mes "[???]";
+mes "...?";
+close;
+end;
+}
+}
+
+//Sora and HoloPro Gifting Center
+ra_temsky,47,140,3	script	???#sora	10046,10,10,{
+if (isequipped(20315) == 1){
+if (hololive == 23){
+mes "[???]";
+mes "Hey...";
+next;
+mes "You hear a divine voice.";
+next;
+mes "[???]";
+mes "Behind you, hehe.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Sora-tomo no Minna~! Genki~? Konsome! ^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000 desu!";
+next;
+mes "She is definitely ^E0FFFFHololive^000000's figurehead.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "What's it called... Yeah, my data's so corrupt that only my voice and what's left of my powers as a Divine Idol are here.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I can't do anything about it, now that I've been trapped in this statue.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "If it's alright with you, denizen of this dimension... Would you please do me a favor, and save my precious kouhai?";
+next;
+mes "You instinctively say yes. How could someone sane refuse?";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Alright~";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Let's start with Haato.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Her actual soul is trapped within one of the deepest hells in this dimension.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Please help her.";
+close2;
+set hololive,24;
+warp "prontera",156,191;
+end;
+}
+else if (hololive == 26){
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Great job over there!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Thank you for helping out Haato.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "And yes, I heard her.";
+next;
+mes "You can hear an extremely pained roar coming from somewhere.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Oh no!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "That roar...";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "It can only be one person.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "We have no time to waste!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Something is trying to infiltrate Coco-chan's data mainframe!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Eliminate the strongest monster in her area. I'll send you over to her right away.";
+close2;
+set hololive,27;
+warp "abyss_03",97,100;
+end;
+}
+else if (hololive == 29){
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Shall we?";
+next;
+mes "You give ^FF0000Haachama's Curse^000000 and ^9932CCCo^000000^FFA500co's^000000 ^9932CCBur^000000^FFA500dens^000000 to Sora.";
+delitem 40496,1;
+delitem 40497,1;
+next;
+mes "The statue's eyes glow a radiant gold and a giant hologram of Sora begins to move.";
+next;
+mes "A brilliant flash of light then illuminates the entire sky.";
+next;
+mes "You hear the familiar voices of the girls you've encountered, thanking you.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I'll leave a connection to this dimension just for your efforts.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Thank you, once again.";
+close2;
+set hololive,30;
+if (achievementexists(240052) == 0){
+achievementcomplete(240052);
+}
+getitem 20089,1;
+getitem 40500,1;
+warp "prontera",156,191;
+announce "What an absolute simp! "+strcharinfo(0)+" has successfully completed the Reboot HoloCrisis Quest!",bc_all;
+end;
+}
+else if (hololive == 30){
+mes "[HoloPro Gifting Center]";
+mes "Welcome.";
+menu "Buy Products",holobuy,"^FF0000Urgent Mission^000000",holopart2,"Leave",byebye;
+}
+else if (hololive >= 31){
+mes "[HoloPro Gifting Center]";
+mes "Welcome.";
+menu "Buy Products",holobuy,"^0000FFAcquire Pekoland Pass^000000",pekopeko,"^0000FFExchange Ninjin^000000",pekarrot,"Leave",byebye;
+}
+else {
+end;
+}
+}
+else if (isequipped(20315) != 1){
+if (hololive >= 30){
+mes "[HoloPro Gifting Center]";
+mes "Welcome.";
+menu "Buy Products",holobuy,"Leave",byebye;
+}
+else {
+end;
+}
+}
+
+holopart2:
+if (p2prog == 0){
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Oh, hi again, friend!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Sorry... Hehe! I know it's been a while, but if it's alright with you, I need yor help.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "It's been months since she got taken away...";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Everybody's wanting to pay their respects.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I want to give everyone a chance.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I'll make the offering, but I'll need help with gathering the right stuff.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Please help me get hold of the following:";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "10 ^EE82EEAloe^000000";
+mes "20 ^DA70D6Aloe Leaflet^000000";
+mes "and 50 ^4B0082Aloe Vera^000000.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Please come back to me when you have them all.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I'm counting on you!";
+close2;
+set p2prog,1;
+warp "prontera",156,191;
+end;
+}
+else if (p2prog == 1){
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Yay, you're back!";
+if (countitem(704) > 9 && countitem(521) > 19 && countitem(606) > 49){
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I knew you could do it!";
+next;
+mes "You give all the items to Sora.";
+next;
+delitem 704,10;
+delitem 521,20;
+delitem 606,50;
+next;
+mes "Sora now enchants the items.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "There we go!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "A perfect offering for her.";
+next;
+mes "She gives you the finished offering.";
+next;
+getitem 40588,1;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "On behalf of all of us, please send this to Calliope-san.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "She's the only one who can give this to her directly, since she's in the Demon Realm and all.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "As for where you can find her, I'm pretty sure you already know how.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "When you've given this to her, please come back to me, and I'll grant you a great reward.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Good luck, friend!";
+close2;
+set p2prog,2;
+warp "prontera",156,191;
+end;
+}
+else {
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I'm sorry, but I can't properly make something suitable out of the stuff you currently have.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Please come back to me whenever you have all the things I need.";
+close;
+end;
+}
+}
+else if (p2prog == 3){
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "How was the trip?";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Hehe... Sorry about that.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I just don't want you to get spooked about how to get to Calliope-san.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "I guess old habits die hard...";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Well, as promised, I now grant you access to Pekoland.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Oh, and new stuff from the ID branch just came in.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Hope you'll like them!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Oh, and thanks for helping us once again.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "When the time comes, and you're down in the dumps...";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "We'll be there to help cheer you up.";
+close2;
+set hololive,31;
+if (achievementexists(240053) == 0){
+achievementcomplete(240053);
+}
+announce "What the FAQ are you doing!? "+strcharinfo(0)+" has simped even further down the Rabbit Hole and completed part 2 of the Reboot HoloCrisis Quest!",bc_all;
+end;
+}
+
+holobuy:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Consumables",holoconsume,"Exclusive Costumes",holocos,"Leave",byebye;
+
+holoconsume:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Asacoco",asscoco,"Haachama Cooking",donteatpls,"Commercial-Grade Instant Curry",currymeshi,"Go Back",holobuy,"Leave",byebye;
+
+asscoco:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Asacoco v1",asscoco1,"Asacoco v2",asscoco2,"Asacoco v3",asscoco3,"Go Back",holobuy,"Leave",byebye;
+
+donteatpls:
+next;
+mes "You'll need 5000 RebootRO 2B Certificates for each.";
+menu "Exchange",godiepls,"Go Back",holoconsume,"Leave",byebye;
+
+currymeshi:
+next;
+mes "You'll need 1000 RebootRO 2B Certificates for each.";
+menu "1",gonissin1,"10",gonissin10,"30",gonissin30,"Go Back",holoconsume,"Leave",byebye;
+
+holocos:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+if (hololive < 31){
+menu "^E0FFFFShiny Smily Story^000000",holoprod,"^33FFFFHololive Japan^000000",holojp,"Go Back",holobuy,"Leave",byebye;
+}
+else if (hololive > 30){
+menu "^E0FFFFShiny Smily Story^000000",holoprod,"^33FFFFHololive Japan^000000",holojp,"^FF007FHololive International^000000",holoworld,"Go Back",holobuy,"Leave",byebye;
+}
+
+holojp:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a Generation";
+menu "^CF2F14Hololive Origins (0th Generation)^000000",zerokisei,"^FFD3001st Generation^000000",ichikisei,"^4169E12nd Generation^000000",nikisei,"^00FF00Hololive Gamers^000000",gamers,"^B76E79Hololive Fantasy (3rd Generation)^000000",sankisei,"^FF8C00Kiryu Kai/HoloForce (4th Generation)^000000",yonkisei,"^330066HoloFive (5th Generation)^000000",gokisei,"Go Back",holobuy,"Leave",byebye;
+
+zerokisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000",goddess,"^C0C0C0Roboco San^000000",goodbot,"^FF69B4Sakura Miko^000000",elitefaq,"^F653A6AZKi^000000",azki,"^7FCDFFHoshimachi Suisei^000000",suicopath,"Go Back",holocos,"Leave",byebye;
+
+ichikisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^84563CNatsuiro Matsuri^000000",bandaids,"^C0C0C0Shirakami Fubuki^000000",fbkear,"^FF0000Akai Haato^000000",haachama,"^2D5A7AAki Rosenthal^000000",goodboy,"^FFC30BYozora Mel^000000",banpire,"Go Back",holocos,"Leave",byebye;
+
+nikisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^00FFFFMinato Aqua^000000",baqua,"^FF0000Nakiri Ayame^000000",ojou,"^4B0082Murasaki Shion^000000",shion,"^3D4849Oozora Subaru^000000",shuba,"^FFC30BYuzuki Choco^000000",sensei,"Go Back",holocos,"Leave",byebye;
+
+gamers:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^C0C0C0Shirakami Fubuki^000000",fbkear,"^FF0000Ookami Mio^000000",miomama,"^CC99FFNekomata Okayu^000000",okayu,"^D2691EInugami Korone^000000",doog,"Go Back",holocos,"Leave",byebye;
+
+sankisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^92DDF7Usada Pekora^000000",peko,"^FF0000Houshou Marine^000000",horny,"^FFB6C1Uru^000000^98FF98ha Ru^000000^FFB6C1sh^000000^98FF98ia^000000",pettan,"^D2B48CShiranui Flare^000000",fuutan,"^C0C0C0Shirogane Noel^000000",danchou,"Go Back",holocos,"Leave",byebye;
+
+yonkisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^8AB7F8Amane Kanata^000000",pptenshi,"^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000",motherfucker,"^FDFD96Tsunomaki Watame^000000",hitsuji,"^DA70D6Tokoyami Towa^000000",towamtenshi,"^FF69B4Himemori Luna^000000",nanora,"Go Back",holocos,"Leave",byebye;
+
+gokisei:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^93FAFBYukihana Lamy^000000",lamymama,"^C0C0C0Shishiro Botan^000000",lalion,"^FFD700Momosuzu Nene^000000",gyoza,"^E9CCA4Omaru Polka^000000",polmao,"Go Back",holocos,"Leave",byebye;
+
+holoworld:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a branch";
+menu "^FF9993Hololive ID^000000",holoindo,"^89CFF0Hololive EN (Myth 1st Generation)^000000",holoen,"Go Back",holocos,"Leave",byebye;
+
+holoindo:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a Generation";
+menu "^8A2BE2Ar^000000^D2B48Cea^000000 ^FFC0CB15^000000 (ID 1st Generation)",idgen1,"^CC0000Holor^000000^FFFF99o/Hob^000000^0080FFolive^000000 (ID 2nd Generation)",idgen2,"Go Back",holocos,"Leave",byebye;
+
+idgen1:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^8A2BE2Moona^000000 ^FFFF00Hoshinova^",moona,"^D2B48CAyunda Risu^000000",risu,"^FFC0CBAirani Iofifteen^000000",iofi,"Go Back",holocos,"Leave",byebye;
+
+idgen2:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^CC0000Kureiji Ollie^000000",ollie,"^FFFF99Anya Melfissa^000000",anya,"^0080FFPavolia Reine^000000",reine,"Go Back",holocos,"Leave",byebye;
+
+holoen:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select a member";
+menu "^FFB6C1Mori Calliope^000000",calliope,"^E25822Takanashi Kiara^000000",kiara,"^FFF700Nino^000000^9400D3mae^000000 ^FFF700Ina'^000000^9400D3nis^000000",inachan,"^000080Gawr Gura^000000",gura,"^FFF700Watson Amelia^000000",watson,"Go Back",holocos,"Leave",byebye;
+
+holoprod:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goholoprod,"Go Back",holocos,"Leave",byebye;
+
+goddess:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogoddess,"Go Back",holocos,"Leave",byebye;
+
+goodbot:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogoodbot,"Go Back",holocos,"Leave",byebye;
+
+elitefaq:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goelitefaq,"Go Back",holocos,"Leave",byebye;
+
+azki:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goazki,"Go Back",holocos,"Leave",byebye;
+
+suicopath:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gosuicopath,"Go Back",holocos,"Leave",byebye;
+
+bandaids:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gobandaids,"Go Back",holocos,"Leave",byebye;
+
+fbkear:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gofriend,"Go Back",holocos,"Leave",byebye;
+
+haachama:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gohaachama,"Go Back",holocos,"Leave",byebye;
+
+goodboy:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogoodboy,"Go Back",holocos,"Leave",byebye;
+
+banpire:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gobanpire,"Go Back",holocos,"Leave",byebye;
+
+baqua:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gobaqua,"Go Back",holocos,"Leave",byebye;
+
+ojou:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Blazing Soul",ojou1,"Hyakku Oni Mask",ojou2,"Go Back",holocos,"Leave",byebye;
+
+ojou1:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goojou1,"Go Back",holocos,"Leave",byebye;
+
+ojou2:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goojou2,"Go Back",holocos,"Leave",byebye;
+
+shion:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goshion,"Go Back",holocos,"Leave",byebye;
+
+shuba:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Swan Idol Beret",shuba1,"Shuba Cap",shuba2,"Go Back",holocos,"Leave",byebye;
+
+shuba1:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goshuba1,"Go Back",holocos,"Leave",byebye;
+
+shuba2:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goshuba2,"Go Back",holocos,"Leave",byebye;
+
+sensei:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gosensei,"Go Back",holocos,"Leave",byebye;
+
+miomama:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gomiomama,"Go Back",holocos,"Leave",byebye;
+
+okayu:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gookayu,"Go Back",holocos,"Leave",byebye;
+
+doog:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",godoog,"Go Back",holocos,"Leave",byebye;
+
+peko:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gopeko,"Go Back",holocos,"Leave",byebye;
+
+horny:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gohorny,"Go Back",holocos,"Leave",byebye;
+
+pettan:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gopettan,"Go Back",holocos,"Leave",byebye;
+
+fuutan:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gofuutan,"Go Back",holocos,"Leave",byebye;
+
+danchou:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",godanchou,"Go Back",holocos,"Leave",byebye;
+
+pptenshi:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Ragged Angel Doll",pptenshi1,"Angel Strength",pptenshi2,"Go Back",holocos,"Leave",byebye;
+
+pptenshi1:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gopptenshi1,"Go Back",holocos,"Leave",byebye;
+
+pptenshi2:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gopptenshi2,"Go Back",holocos,"Leave",byebye;
+
+motherfucker:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goasacoco,"Go Back",holocos,"Leave",byebye;
+
+hitsuji:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gohitsuji,"Go Back",holocos,"Leave",byebye;
+
+towamtenshi:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gotmt,"Go Back",holocos,"Leave",byebye;
+
+nanora:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gonanora,"Go Back",holocos,"Leave",byebye;
+
+moona:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gomoona,"Go Back",holocos,"Leave",byebye;
+
+risu:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gorisu,"Go Back",holocos,"Leave",byebye;
+
+iofi:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Green Ribbon",iofi1,"Red Ribbon",iofi2,"Go Back",holocos,"Leave",byebye;
+
+iofi1:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goiofi1,"Go Back",holocos,"Leave",byebye;
+
+iofi2:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goiofi2,"Go Back",holocos,"Leave",byebye;
+
+lamymama:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",golamymama,"Go Back",holocos,"Leave",byebye;
+
+lalion:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",golalion,"Go Back",holocos,"Leave",byebye;
+
+gyoza:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Bao Bao",gyoza1,"Gao Gao",gyoza2,"Go Back",holocos,"Leave",byebye;
+
+gyoza1:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogyoza1,"Go Back",holocos,"Leave",byebye;
+
+gyoza2:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogyoza2,"Go Back",holocos,"Leave",byebye;
+
+polmao:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gopolmao,"Go Back",holocos,"Leave",byebye;
+
+watson:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gowatson,"Go Back",holocos,"Leave",byebye;
+
+calliope:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gocalliope,"Go Back",holocos,"Leave",byebye;
+
+kiara:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gokiara,"Go Back",holocos,"Leave",byebye;
+
+inachan:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goinachan,"Go Back",holocos,"Leave",byebye;
+
+gura:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",gogura,"Go Back",holocos,"Leave",byebye;
+
+ollie:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goollie,"Go Back",holocos,"Leave",byebye;
+
+anya:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goanya,"Go Back",holocos,"Leave",byebye;
+
+reine:
+next;
+mes "You'll need 10000 RebootRO 2B Certificates for each.";
+menu "Exchange",goreine,"Go Back",holocos,"Leave",byebye;
+
+asscoco1:
+next;
+mes "You'll need 100 RebootRO 2B Certificates for each.";
+menu "1",ac1x1,"10",ac1x10,"100",ac1x100,"Go Back",asscoco,"Leave",byebye;
+
+asscoco2:
+next;
+mes "You'll need 100 RebootRO 2B Certificates for each.";
+menu "1",ac2x1,"10",ac2x10,"100",ac2x100,"Go Back",asscoco,"Leave",byebye;
+
+asscoco3:
+next;
+mes "You'll need 100 RebootRO 2B Certificates for each.";
+menu "1",ac3x1,"10",ac3x10,"100",ac3x100,"Go Back",asscoco,"Leave",byebye;
+
+goholoprod:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 18744,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogoddess:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20459,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogoodbot:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40522,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goelitefaq:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20285,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goazki:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20141,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gosuicopath:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 18742,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gobandaids:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19616,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gofriend:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40519,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gohaachama:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19861,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogoodboy:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40521,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gobanpire:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31120,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gobaqua:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40517,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goojou1:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19969,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goojou2:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40595,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goshion:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20450,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goshuba1:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 18561,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goshuba2:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19852,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gosensei:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19862,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gomiomama:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40520,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gookayu:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31417,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+godoog:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31096,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gopeko:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31201,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gohorny:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 5501,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gopettan:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20430,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gofuutan:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20144,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+godanchou:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20432,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gopptenshi1:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19712,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gopptenshi2:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20468,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goasacoco:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19568,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gohitsuji:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19836,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gotmt:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19547,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gonanora:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19522,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gomoona:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31433,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gorisu:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31158,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goiofi1:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40589,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goiofi2:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40590,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+golamymama:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31440,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+golalion:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19649,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogyoza1:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19845,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogyoza2:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 31027,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gopolmao:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40516,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gowatson:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 19738,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gocalliope:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20798,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gokiara:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40518,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goinachan:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 20338,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gogura:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40515,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goollie:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40591,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goanya:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40592,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goreine:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40593,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac1x1:
+next;
+if (countitem(542) > 99){
+delitem 542,100;
+getitem 40488,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac1x10:
+next;
+if (countitem(542) > 999){
+delitem 542,1000;
+getitem 40488,10;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac1x100:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40488,100;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac2x1:
+next;
+if (countitem(542) > 99){
+delitem 542,100;
+getitem 40489,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac2x10:
+next;
+if (countitem(542) > 999){
+delitem 542,1000;
+getitem 40489,10;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac2x100:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40489,100;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac3x1:
+next;
+if (countitem(542) > 99){
+delitem 542,100;
+getitem 40490,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac3x10:
+next;
+if (countitem(542) > 999){
+delitem 542,1000;
+getitem 40490,10;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+ac3x100:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40490,100;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+godiepls:
+next;
+if (countitem(542) > 4999){
+delitem 542,5000;
+getitem 40514,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gonissin1:
+next;
+if (countitem(542) > 999){
+delitem 542,1000;
+getitem 40523,1;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gonissin10:
+next;
+if (countitem(542) > 9999){
+delitem 542,10000;
+getitem 40523,10;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+gonissin30:
+next;
+if (countitem(542) > 29999){
+delitem 542,30000;
+getitem 40523,30;
+mes "Thank you.";
+menu "Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+pekopeko:
+next;
+if (pekoland == 0){
+rentitem 40594,3600;
+set pekoland,1;
+mes "You have acquired a ticket to Pekoland.";
+close;
+end;
+}
+else {
+if (gettimetick(1) < pekotime2){
+mes "You cannot enter Pekoland now.";
+menu "Pain Peko.",-;
+close;
+end;
+}
+else {
+set pekoland,0;
+mes "You may acquire another ticket to Pekoland.";
+close;
+end;
+}
+}
+
+pekarrot:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an option";
+menu "Exchange Almonds",domodomo,"Exchange HoloCrisis Equipment",holocrisis,"Leave",byebye;
+
+domodomo:
+next;
+mes "You'll receive 100 Pekoland Carrots for each.";
+menu "Exchange 1",godomo1,"Exchange 5",godomo5,"Exchange 10",godomo10,"Go Back",holocos,"Leave",byebye;
+
+godomo1:
+next;
+if (countitem(25512) > 0){
+delitem 25512,1;
+getitem 40596,100;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+godomo5:
+next;
+if (countitem(25512) > 4){
+delitem 25512,5;
+getitem 40596,500;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+godomo10:
+next;
+if (countitem(25512) > 9){
+delitem 25512,10;
+getitem 40596,1000;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+holocrisis:
+next;
+mes "[HoloPro Gifting Center]";
+mes "Select an equipment";
+menu "Okayu's Pawprint (ACC)",holokayu,"Korone Plushie (ACC)",holokoro,"Ookami Family Heirloom (HEAD)",holomio,"Boots of Friendzoning (FOOT)",holofbk,"Houshou Pirate Coat",holohorny,"Go Back",pekarrot,"Leave",byebye;
+
+holokayu:
+next;
+mes "You'll need 250 Pekoland Carrots for each.";
+menu "Exchange",goholokayu,"Go Back",pekarrot,"Leave",byebye;
+
+holokoro:
+next;
+mes "You'll need 250 Pekoland Carrots for each.";
+menu "Exchange",goholokoro,"Go Back",pekarrot,"Leave",byebye;
+
+holomio:
+next;
+mes "You'll need 500 Pekoland Carrots for each.";
+menu "Exchange",goholomio,"Go Back",pekarrot,"Leave",byebye;
+
+holofbk:
+next;
+mes "You'll need 500 Pekoland Carrots for each.";
+menu "Exchange",goholofbk,"Go Back",pekarrot,"Leave",byebye;
+
+holohorny:
+next;
+mes "You'll need 750 Pekoland Carrots for each.";
+menu "Exchange",goholohorny,"Go Back",pekarrot,"Leave",byebye;
+
+goholokayu:
+next;
+if (countitem(40596) > 249){
+delitem 40596,250;
+getitem 40491,1;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goholokoro:
+next;
+if (countitem(40596) > 249){
+delitem 40596,250;
+getitem 40492,1;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goholomio:
+next;
+if (countitem(40596) > 499){
+delitem 40596,500;
+getitem 40493,1;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goholofbk:
+next;
+if (countitem(40596) > 499){
+delitem 40596,500;
+getitem 40495,1;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+goholohorny:
+next;
+if (countitem(40596) > 749){
+delitem 40596,750;
+getitem 40494,1;
+mes "Thank you.";
+menu "Go Back",pekarrot,"Buy More Products",holobuy,"Leave",byebye;
+}
+else {
+mes "Insufficient materials. Warping out.";
+close2;
+warp "prontera",156,191;
+end;
+}
+
+nopeko:
+close;
+end;
+
+byebye:
+close2;
+warp "prontera",156,191;
+end;
+}
+
+//Haato
+mag_dun02,215,235,3	script	Akai Haato's Spirit	612,{
+if (isequipped(20315) == 1){
+if (hololive == 24){
+mes "[???]";
+mes "Kon-rouge, senpai!";
+next;
+mes "You hear a peculiar girl's voice.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "^E0FFFFHololive^000000 First Generation's Red Heart, ^FF0000Akai Haato^000000 here!";
+next;
+mes "You ask what happened to her, and why she is down here.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Ever since everyone's data got messed up while transferring to this dimension...";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Everything went all Australia on us.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "I guess the extremist group that tried to banish every single one of us succeeded.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "That's not true.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Sora-senpai?!";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "They didn't succeed.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "Our data is still mostly intact.";
+next;
+mes "[^0000FFToki^000000^FFD700no^000000 ^FF0000Sora^000000]";
+mes "All we need to do is recover our lost parts and we'll be dealing with them later.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "You're right...";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Alright. Let's do this.";
+next;
+mes "She then undoes her hairpin.";
+next;
+getitem 40512,1;
+mes "[^FF0000Akai Haato^000000]";
+mes "I need to re-sync with my darker, inner side.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "If we want a fighting chance against them, this is one of the best ways.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Break my hairpin, and bring me my dark essence once you defeat my other self.";
+close2;
+set hololive,25;
+end;
+}
+else if (hololive == 25){
+if (countitem(40512) > 0){
+mes "[^FF0000Akai Haato^000000]";
+mes "Break my hairpin, and bring me my dark essence once you defeat my other self.";
+close;
+end;
+}
+else if (countitem(40512) < 1){
+if (countitem(40496) < 1){
+mes "[^FF0000Akai Haato^000000]";
+mes "Oh no...";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "I'm sorry. I'll expend some of my data to create another hairpin.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Break my hairpin, and bring me my dark essence once you defeat my other self.";
+close2;
+getitem 40512,1;
+end;
+}
+else {
+mes "[^FF0000Akai Haato^000000]";
+mes "Thank you, senpai.";
+next;
+mes "You see a dark aura forming around Haato.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "I can feel it.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Before you leave...";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "Please give my thanks to Sora-Senpai.";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "^FF0000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH^000000";
+next;
+mes "[^FF0000Akai Haato^000000]";
+mes "^FF0000HAACHAMA-CHAMAAAAAAAAAAAAAAAA~~~^000000";
+close2;
+set hololive,26;
+warp "ra_temsky",47,136;
+end;
+}
+}
+}
+else {
+mes "You see a spirit of a girl, staring at you.";
+close;
+end;
+}
+}
+else {
+mes "You see a spirit of a girl, staring at you.";
+close;
+end;
+}
+}
+
+//Haachama
+function	script	Haachama	{
+if (isequipped(20315) == 1){
+if (hololive == 25){
+monster "mag_dun02",204,215,"Haachama",2056,1;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+}
+
+//Coco Switcher
+-	script	AsacocoSwitcher	-1,{
+OnInit:
+hideonnpc "Severely Weakened Coco";
+end;
+
+OnDetaleKill:
+if (isequipped(20315) == 1){
+if (hololive == 27){
+hideoffnpc "Severely Weakened Coco";
+dispbottom "It seems there's some movement in the center of the map. Check it out.";
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnCocoKill:
+hideoffnpc "Severely Weakened Coco";
+end;
+}
+
+//Coco Summon
+function	script	Kaichou	{
+hideonnpc "Severely Weakened Coco";
+monster "abyss_03",97,102,"Kiryu Coco",2075,1,"AsacocoSwitcher::OnCocoKill";
+end;
+}
+
+//Coco
+abyss_03,97,102,3	script	Severely Weakened Coco	2131,{
+if (isequipped(20315) == 1){
+if (hololive == 27){
+mes "You see a giant purple-ish dragon.";
+next;
+cutin "cococutin2",2;
+mes "[???]";
+mes "T-thanks...";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "I'm ^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000, by the way.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Some sons of bitches made me like this, unable to return to human form.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "They also managed to severely weaken my stats.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Those bastards, really.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Anyway, I know of the plan.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Give me your hand.";
+next;
+getitem 40513,1;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Point that thing's gem into my eyes.";
+close2;
+cutin "",255;
+set hololive,28;
+end;
+}
+else if (hololive == 28){
+if (countitem(40513) > 0){
+cutin "cococutin2",2;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Hurry up and do it. We don't have much time.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(40513) < 1){
+if (countitem(40497) < 1){
+cutin "cococutin2",2;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Let's try that again.";
+close2;
+cutin "",255;
+getitem 40513,1;
+end;
+}
+else {
+cutin "cococutin2",2;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "This.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "This extremely heavy load.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "This is what keeps me going.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Thank you, motherf@#$%r.";
+next;
+mes "[^9932CCKi^000000^FFA500ryu^000000 ^9932CCCo^000000^FFA500co^000000]";
+mes "Sora-dai-paisen! Let's start the data restoration!";
+close2;
+cutin "",255;
+set hololive,29;
+warp "ra_temsky",47,136;
+end;
+}
+}
+}
+}
+}
+
+//Calliope Warper
+-	script	MeetCalli	-1,{
+OnInit:
+hideonnpc "itsyaboi";
+hideonnpc "Mori Calliope";
+end;
+
+OnPCDieEvent:
+if (hololive == 30 && p2prog == 2 && countitem(40588) == 1 && strcharinfo(3) != "nif_fild01"){
+hideoffnpc "itsyaboi";
+warp "nif_fild01",232,233;
+end;
+}
+else {
+end;
+}
+}
+
+//Calliope Switcher
+thor_v03,3,102,6	script	???#Calli	111,1,1,{
+if (hololive == 30 && p2prog == 2 && countitem(40588) == 1){
+hideoffnpc "Mori Calliope";
+end;
+}
+else {
+end;
+}
+}
+
+//Calliope
+thor_v03,1,102,6	script	Mori Calliope	4_f_deadevil,{
+mes "[???]";
+mes "What the fuck are you looking at?";
+next;
+mes "You see a dark-haired girl... reaper? Kneeling on the molten ground.";
+next;
+mes "[???]";
+mes "Oh, don't mind my dyed hair for now. Today's special.";
+next;
+mes "[???]";
+mes "It's a damn shame. She was so young.";
+next;
+mes "By the looks of it, this must be who Sora was talking about.";
+next;
+mes "You ask her if she's Calliope.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Yours truly.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Came here to deliver Sora-senpai's collective offering?";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Alright. Gimme.";
+next;
+delitem 40588,1;
+mes "You give her the Goddess' Flower.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Lay it over there... and...";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "May she be alright now, in this damned place.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Since you're here, you might as well have this.";
+next;
+getitem 18653,1;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Before she handed over her soul to me, technically her kouhai, she wanted to give her biggest supporters this.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Let's get moving, then.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "I have a lot of souls to account for.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "And you better get back to Sora-senpai.";
+next;
+mes "[^FFB6C1Mori Calliope^000000]";
+mes "Peace!";
+close2;
+hideonnpc "Mori Calliope";
+hideonnpc "itsyaboi";
+set p2prog,3;
+warp "ra_temsky",47,136;
+end;
+}
+
+//Pekoland Control
+ecl_fild01,209,69,3	script	PekolandBGM	111,300,300,{
+playbgmall "1002","ecl_fild01";
+initnpctimer;
+end;
+
+OnTimer79000:
+playbgmall "1002","ecl_fild01";
+initnpctimer;
+end;
+}
+
+ecl_fild01,207,88,3	script	Pekoland Royal Guard	674,{
+mes "[ Pekoland Royal Guard ]";
+mes "I have been tasked by the Usada Royal Family to escort you, Peko.";
+next;
+mes "[ Pekoland Royal Guard ]";
+mes "Would you like to leave Pekoland now, Peko?";
+mes "^FF0000(WARNING: YOU CANNOT RETURN TO PEKOLAND ONCE YOU WARP OUT BEFORE TIME RUNS OUT)^000000";
+menu "Yes, Peko.",byepeko,"No, Peko.",staypeko;
+
+byepeko:
+next;
+mes "[ Pekoland Royal Guard ]";
+mes "Thanks for coming, peko.";
+close2;
+warp "prontera",156,191;
+end;
+
+staypeko:
+next;
+mes "[ Pekoland Royal Guard ]";
+mes "Alright, Peko.";
+close;
+end;
+}
+
+ecl_fild01,203,88,3	script	Corrupted Ayunda Risu	2017,{
+mes "[ ^D2B48CAyunda Risu^000000 ]";
+mes "Even when I'm like this, I still can't resist the urge to nibble on nuts.";
+next;
+mes "[ ^D2B48CAyunda Risu^000000 ]";
+mes "I heard from Pekora-senpai that there's tons of Nuts here in Pekoland, thanks to her.";
+next;
+mes "[ ^D2B48CAyunda Risu^000000 ]";
+mes "Better get some for me, too. Hehe.";
+close;
+end;
+}
+
+function	script	PekoCounter	{
+if (achievementexists(240064) == 0){
+achievementcomplete(240064);
+}
+set pekotime1,gettimetick(1);
+set pekotime2,(pekotime1 + ( 7 * 86400 ));
+warp "ecl_fild01",205,74;
+sleep2 5000;
+dispbottom "Welcome to Pekoland, Peko.";
+sleep2 3295000;
+if (strcharinfo(3) == "ecl_fild01"){
+dispbottom "5 minutes left for your stay in Pekoland, Peko.";
+sleep2 300000;
+if (strcharinfo(3) == "ecl_fild01"){
+dispbottom "Thank you for coming to Pekoland, Peko.";
+sleep2 2000;
+if (strcharinfo(3) == "ecl_fild01"){
+dispbottom "You will be warped out shortly, Peko.";
+sleep2 3000;
+if (strcharinfo(3) == "ecl_fild01"){
+dispbottom "Thank you, come again, Peko.";
+warp "prontera",156,191;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+}
+}
+
+/*Tsunomaki Janken*/
+//Watame
+prontera,155,184,3	script	Tsunomaki Watame	6010,{
+end;
+
+OnGMCommand:
+initnpctimer;
+end;
+
+OnTimer1000:
+announce "KonbanDoDoDo! It's almost time for Tsunomaki Janken!",bc_all;
+npctalk "KonbanDoDoDo! It's almost time for Tsunomaki Janken!";
+end;
+
+OnTimer4000:
+enablenpc "JankenControl";
+announce "You have 1 minute to declare your hand. Type @rock, @paper, or @scissors to pick.",bc_all;
+npctalk "You have 1 minute to declare your hand. Type @rock, @paper, or @scissors to pick.";
+set $jankentime,1;
+end;
+
+OnTimer59000:
+announce "5 seconds left!",bc_all;
+npctalk "5 seconds left!";
+end;
+
+OnTimer64000:
+announce "Tsunomaki Janken, start!",bc_all;
+npctalk "Tsunomaki Janken, start!";
+disablenpc "JankenControl";
+set $jankentime,0;
+end;
+
+OnTimer65500:
+announce "Tsunomaki... Tsunomaki... Tsunomaki... Tsunomaki...",bc_all;
+npctalk "Tsunomaki... Tsunomaki... Tsunomaki... Tsunomaki...";
+end;
+
+OnTimer69500:
+announce "Tsunomaki... Tsunomaki... Tsunomaki... Tsunomaki...",bc_all;
+npctalk "Tsunomaki... Tsunomaki... Tsunomaki... Tsunomaki...";
+end;
+
+OnTimer73500:
+announce "Tsu... no... ma... ki...",bc_all;
+npctalk "Tsu... no... ma... ki...";
+end;
+
+OnTimer75500:
+announce "Jan... Ken... Pon!",bc_all;
+npctalk "Jan... Ken... Pon!";
+end;
+
+OnTimer77000:
+set $janken,rand(1,4);
+if ($janken == 1){
+npctalk "Rock!";
+announce "Rock!",bc_all;
+enablenpc "Janken NPC#wpap";
+enablenpc "Janken NPC#droc";
+enablenpc "Janken NPC#lscs";
+}
+else if ($janken == 2){
+npctalk "Paper!";
+announce "Paper!",bc_all;
+enablenpc "Janken NPC#dpap";
+enablenpc "Janken NPC#lroc";
+enablenpc "Janken NPC#wscs";
+}
+else if ($janken == 3){
+npctalk "Scissors!";
+announce "Scissors!",bc_all;
+enablenpc "Janken NPC#lpap";
+enablenpc "Janken NPC#wroc";
+enablenpc "Janken NPC#dscs";
+}
+else if ($janken == 4){
+npctalk "Nope! Everyone Loses!";
+announce "Nope! Everyone Loses!",bc_all;
+enablenpc "Janken NPC#lpap";
+enablenpc "Janken NPC#lroc";
+enablenpc "Janken NPC#lscs";
+}
+end;
+
+OnTimer82000:
+announce "Thank you for playing!",bc_all;
+npctalk "Thank you for playing!";
+end;
+
+OnTimer87000:
+stopnpctimer;
+disablenpc "Tsunomaki Watame";
+end;
+}
+
+//Tsunomaki Janken GM Control
+-	script	WatameCtrl	-1,{
+OnInit:
+disablenpc "Janken NPC#wpap";
+disablenpc "Janken NPC#lroc";
+disablenpc "Janken NPC#lscs";
+disablenpc "Janken NPC#lpap";
+disablenpc "Janken NPC#wroc";
+disablenpc "Janken NPC#wscs";
+disablenpc "Janken NPC#dpap";
+disablenpc "Janken NPC#droc";
+disablenpc "Janken NPC#dscs";
+disablenpc "Tsunomaki Watame";
+bindatcmd "janken",strnpcinfo(3) + "::OnType";
+end;
+
+OnType:
+if (getcharid(3) >= 2000000 && getcharid(3) <= 2000007){
+set $janken,0;
+dispbottom "Tsunomaki Janken Initiated.";
+enablenpc "Tsunomaki Watame";
+donpcevent "Tsunomaki Watame::OnGMCommand";
+end;
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+
+//Tsunomaki Janken Auto Control
+-	script	JankenControl	-1,{
+OnInit:
+bindatcmd "rock",strnpcinfo(3) + "::OnRock";
+bindatcmd "paper",strnpcinfo(3) + "::OnPaper";
+bindatcmd "scissors",strnpcinfo(3) + "::OnScissor";
+end;
+
+OnRock:
+dispbottom "You have chosen Rock. Please wait while the result is decided.";
+warp "ma_zif01",30,36;
+end;
+
+OnPaper:
+dispbottom "You have chosen Paper. Please wait while the result is decided.";
+warp "ma_zif02",30,36;
+end;
+
+OnScissor:
+dispbottom "You have chosen Scissors. Please wait while the result is decided.";
+warp "ma_zif03",30,36;
+end;
+}
+
+//Tsunomaki Janken Player Rock
+ma_zif01,30,22,3	script	Janken NPC#wroc	123,20,20,{
+if (achievementexists(240065) == 0){
+achievementcomplete(240065);
+}
+dispbottom "Congratulations! You've won Tsunomaki Janken!";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+getitem 40597,2;
+}
+else {
+getitem 40597,1;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#wroc";
+end;
+}
+
+ma_zif01,30,22,3	script	Janken NPC#lroc	123,20,20,{
+dispbottom "You have lost. Try again next time.";
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#lroc";
+end;
+}
+
+ma_zif01,30,22,3	script	Janken NPC#droc	123,20,20,{
+dispbottom "It's a draw. Try again next time.";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#droc";
+end;
+}
+
+//Tsunomaki Janken Player Paper
+ma_zif02,30,22,3	script	Janken NPC#wpap	123,20,20,{
+if (achievementexists(240065) == 0){
+achievementcomplete(240065);
+}
+dispbottom "Congratulations! You've won Tsunomaki Janken!";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+getitem 40597,2;
+}
+else {
+getitem 40597,1;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#wpap";
+end;
+}
+
+ma_zif02,30,22,3	script	Janken NPC#lpap	123,20,20,{
+dispbottom "You have lost. Try again next time.";
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#lpap";
+end;
+}
+
+ma_zif02,30,22,3	script	Janken NPC#dpap	123,20,20,{
+dispbottom "It's a draw. Try again next time.";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#dpap";
+end;
+}
+
+//Tsunomaki Janken Player Scissors
+ma_zif03,30,22,3	script	Janken NPC#wscs	123,20,20,{
+if (achievementexists(240065) == 0){
+achievementcomplete(240065);
+}
+dispbottom "Congratulations! You've won Tsunomaki Janken!";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+getitem 40597,2;
+}
+else {
+getitem 40597,1;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#wscs";
+end;
+}
+
+ma_zif03,30,22,3	script	Janken NPC#lscs	123,20,20,{
+dispbottom "You have lost. Try again next time.";
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#lscs";
+end;
+}
+
+ma_zif03,30,22,3	script	Janken NPC#dscs	123,20,20,{
+dispbottom "It's a draw. Try again next time.";
+if (isequipped(19836) == 1){
+skilleffect 383,0; sc_start SC_WINDWALK,360000,5;
+skilleffect 33,0; sc_start SC_ANGELUS,360000,10;
+skilleffect 45,0; sc_start SC_CONCENTRATE,360000,10;
+skilleffect 74,0; sc_start SC_MAGNIFICAT,360000,5;
+skilleffect 75,0; sc_start SC_GLORIA,360000,5;
+skilleffect 66,0; sc_start SC_IMPOSITIO,360000,5;
+skilleffect 34,0; sc_start SC_BLESSING,360000,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,360000,10;
+sc_start SC_STRFood,700000,20;
+sc_start SC_AGIFood,700000,20;
+sc_start SC_VITFood,700000,20;
+sc_start SC_INTFood,700000,20;
+sc_start SC_DEXFood,700000,20;
+sc_start SC_LUKFood,700000,20;
+}
+warp "prontera",156,191;
+sleep 5000;
+disablenpc "Janken NPC#dscs";
+end;
+}
+
+//Tsunomaki Janken Box
+function	script	Watame	{
+set .@wataprize,rand(1,5);
+set .@watachance,rand(100);
+set .@watarand,rand(1,3);
+if (.@wataprize == 1){
+getitem 20002,1;
+}
+else if (.@wataprize == 2){
+getitem 20003,1;
+}
+else if (.@wataprize == 3){
+getitem 20004,1;
+}
+else if (.@wataprize == 4){
+getitem 38992,1;
+}
+else if (.@wataprize == 5){
+getitem 38997,1;
+}
+if (.@watachance > 89){
+if (.@watarand == 1){
+getitem 40210,1;
+}
+else if (.@watarand == 2){
+getitem 40211,1;
+}
+else if (.@watarand == 3){
+getitem 40212,1;
+}
+end;
+}
+else if (.@watachance < 90){
+end;
+}
+}
+
+//Warp Portals - HoloCrisis II
+nif_fild01,235,226,0	warp	itsyaboi	1,1,thor_v03,3,102
+ecl_fild01,182,83,0	warp	pekoabove	1,1,ecl_fild01,183,73
+ecl_fild01,183,70,0	warp	pekobelow	1,1,ecl_fild01,182,85
+
+//HoloCrisis III
+xmas_fild01,250,198,3	script	???#holo3	550,{
+if (isequipped(20315) == 1){
+if (hololive == 32 && countitem(40067) > 0 && countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Thank you for helping the girls, despite your situation.";
+next;
+mes "[ Voice From Beyond ]";
+mes "Our dimension is forever grateful to you.";
+next;
+mes "[ Voice From Beyond ]";
+mes "I hope you will find the happy end to your Shiny Smily Story, as well.";
+close2;
+delitem 40067,1;
+delitem 40068,10000;
+set hololive,33;
+set .@holochance,rand(1,100);
+.@eac = eaclass();
+if (.@eac == EAJ_RUNE_KNIGHT_T){
+if (.@holochance > 50){
+getitem 13431,1;
+}
+else {
+getitem 1489,1;
+}
+}
+else if (.@eac == EAJ_WARLOCK_T||EAJ_ARCHBISHOP_T||EAJ_SORCERER_T){
+getitem 2007,1;
+}
+else if (.@eac == EAJ_RANGER_T){
+getitem 1746,1;
+}
+else if (.@eac == EAJ_MINSTRELWANDERER_T){
+if (Sex == 1){
+if (.@holochance > 50){
+getitem 1746,1;
+}
+else {
+getitem 1935,1;
+}
+}
+else {
+if (.@holochance > 50){
+getitem 1746,1;
+}
+else {
+getitem 1992,1;
+}
+}
+}
+else if (.@eac == EAJ_SHADOW_CHASER_T){
+if (.@holochance > 33 && .@holochance < 66){
+getitem 1746,1;
+}
+else if (.@holochance < 34){
+getitem 13431,1;
+}
+else if (.@holochance > 65){
+getitem 13088,1;
+}
+}
+else if (.@eac == EAJ_MECHANIC_T||EAJ_GENETIC_T){
+getitem 1323,1;
+}
+else if (.@eac == EAJ_GUILLOTINE_CROSS_T){
+if (.@holochance > 25 && .@holochance < 50){
+getitem 1323,1;
+}
+else if (.@holochance < 26){
+getitem 13431,1;
+}
+else if (.@holochance > 49 && .@holochance < 75){
+getitem 13088,1;
+}
+else if (.@holochance > 74){
+getitem 1283,1;
+}
+}
+else if (.@eac == EAJ_SURA_T){
+getitem 1830,1;
+}
+else if (.@eac == EAJ_KAGEROUOBORO){
+getitem 13076,1;
+}
+else if (.@eac == EAJ_REBELLION){
+getitem 13115,1;
+}
+else {
+if (.@holochance < 9){
+getitem 1283,1;
+}
+else if (.@holochance > 8 && .@holochance < 17){
+getitem 1323,1;
+}
+else if (.@holochance > 16 && .@holochance < 33){
+getitem 1489,1;
+}
+else if (.@holochance > 32 && .@holochance < 41){
+getitem 1746,1;
+}
+else if (.@holochance > 40 && .@holochance < 49){
+getitem 1830,1;
+}
+else if (.@holochance > 48 && .@holochance < 57){
+getitem 1935,1;
+}
+else if (.@holochance > 56 && .@holochance < 63){
+getitem 1992,1;
+}
+else if (.@holochance > 62 && .@holochance < 71){
+getitem 2007,1;
+}
+else if (.@holochance > 70 && .@holochance < 79){
+getitem 13076,1;
+}
+else if (.@holochance > 78 && .@holochance < 87){
+getitem 13088,1;
+}
+else if (.@holochance > 86 && .@holochance < 93){
+getitem 13115,1;
+}
+else if (.@holochance > 92){
+getitem 13431,1;
+}
+}
+if (achievementexists(240054) == 0){
+achievementcomplete(240054);
+}
+announce "Wowza! "+strcharinfo(0)+" has ascended beyond simpery by finishing the entirety of the HoloCrisis Quest and acquiring a Hololive Weapon!",bc_all;
+warp "prontera",156,191;
+end;
+}
+else {
+mes "You see a peculiar crack in the fabric of this dimension.";
+if (hololive == 31){
+menu "Reach into it",holocrisis3,"Ignore it",noyagoo;
+}
+else if (hololive == 32 && countitem(40067) > 0 && countitem(40068) < 10000){
+menu "Return to the Anti Dimension",antiwarp,"Ignore it",noyagoo;
+}
+else if (hololive == 33){
+menu "Return to the Anti Dimension",antiwarp2,"Purify Anti Essence",holoweap,"Ignore it",noyagoo;
+}
+else {
+menu "Ignore it",noyagoo;
+}
+}
+}
+else {
+end;
+}
+
+noyagoo:
+close;
+end;
+
+holocrisis3:
+next;
+mes "You feel a warm voice touch your soul.";
+next;
+mes "[ Voice From Beyond ]";
+mes "You've proven time and time again that you are worthy of the girls' favors.";
+next;
+mes "[ Voice From Beyond ]";
+mes "Now, I ask of you one final task.";
+next;
+mes "[ Voice From Beyond ]";
+mes "Destroy the source of the girls' agony.";
+next;
+mes "[ Voice From Beyond ]";
+mes "I shall grant you the tool to purify the poor souls that have fallen into the grasp of the Antis.";
+next;
+getitem 40067,1;
+mes "[ Voice From Beyond ]";
+mes "Go forth and set them free, brave one.";
+close2;
+set hololive,32;
+warp "1@face",151,286;
+end;
+
+antiwarp:
+next;
+mes "[ Voice From Beyond ]";
+mes "Very well.";
+close2;
+warp "1@face",151,286;
+end;
+
+antiwarp2:
+next;
+if (antiraid == 0){
+rentitem 40069,3600;
+set antiraid,1;
+mes "You have acquired an Unstable Holo Orb.";
+close;
+end;
+}
+else {
+if (gettimetick(1) < antitime2){
+mes "You cannot enter The Anti Dimension now.";
+menu "I understand.",-;
+close;
+end;
+}
+else {
+set antiraid,0;
+mes "You may acquire another Unstable Holo Orb.";
+close;
+end;
+}
+}
+
+gokillanti:
+next;
+mes "[ Voice From Beyond ]";
+mes "Very well.";
+close2;
+set antiraid,1;
+warp "1@face",151,286;
+end;
+
+holoweap:
+next;
+mes "[ Voice From Beyond ]";
+mes "Select Purification and Materialization Method";
+menu "Gacha Pull!",randomholo,"For My Oshi!",selectholo;
+
+randomholo:
+next;
+if (countitem(40068) > 4999){
+delitem 40068,5000;
+set .@holochance2,rand(1,100);
+.@eac = eaclass();
+if (.@eac == EAJ_RUNE_KNIGHT_T){
+if (.@holochance2 > 50){
+getitem 13431,1;
+}
+else {
+getitem 1489,1;
+}
+}
+else if (.@eac == EAJ_WARLOCK_T||EAJ_ARCHBISHOP_T||EAJ_SORCERER_T){
+getitem 2007,1;
+}
+else if (.@eac == EAJ_RANGER_T){
+getitem 1746,1;
+}
+else if (.@eac == EAJ_MINSTRELWANDERER_T){
+if (Sex == 1){
+if (.@holochance2 > 50){
+getitem 1746,1;
+}
+else {
+getitem 1935,1;
+}
+}
+else {
+if (.@holochance2 > 50){
+getitem 1746,1;
+}
+else {
+getitem 1992,1;
+}
+}
+}
+else if (.@eac == EAJ_SHADOW_CHASER_T){
+if (.@holochance2 > 33 && .@holochance < 66){
+getitem 1746,1;
+}
+else if (.@holochance2 < 34){
+getitem 13431,1;
+}
+else if (.@holochance2 > 65){
+getitem 13088,1;
+}
+}
+else if (.@eac == EAJ_MECHANIC_T||EAJ_GENETIC_T){
+getitem 1323,1;
+}
+else if (.@eac == EAJ_GUILLOTINE_CROSS_T){
+if (.@holochance2 > 25 && .@holochance < 50){
+getitem 1323,1;
+}
+else if (.@holochance2 < 26){
+getitem 13431,1;
+}
+else if (.@holochance2 > 49 && .@holochance < 75){
+getitem 13088,1;
+}
+else if (.@holochance2 > 74){
+getitem 1283,1;
+}
+}
+else if (.@eac == EAJ_SURA_T){
+getitem 1830,1;
+}
+else if (.@eac == EAJ_KAGEROUOBORO){
+getitem 13076,1;
+}
+else if (.@eac == EAJ_REBELLION){
+getitem 13115,1;
+}
+else {
+if (.@holochance2 < 9){
+getitem 1283,1;
+}
+else if (.@holochance2 > 8 && .@holochance2 < 17){
+getitem 1323,1;
+}
+else if (.@holochance2 > 16 && .@holochance2 < 33){
+getitem 1489,1;
+}
+else if (.@holochance2 > 32 && .@holochance2 < 41){
+getitem 1746,1;
+}
+else if (.@holochance2 > 40 && .@holochance2 < 49){
+getitem 1830,1;
+}
+else if (.@holochance2 > 48 && .@holochance2 < 57){
+getitem 1935,1;
+}
+else if (.@holochance2 > 56 && .@holochance2 < 63){
+getitem 1992,1;
+}
+else if (.@holochance2 > 62 && .@holochance2 < 71){
+getitem 2007,1;
+}
+else if (.@holochance2 > 70 && .@holochance2 < 79){
+getitem 13076,1;
+}
+else if (.@holochance2 > 78 && .@holochance2 < 87){
+getitem 13088,1;
+}
+else if (.@holochance2 > 86 && .@holochance2 < 93){
+getitem 13115,1;
+}
+else if (.@holochance2 > 92){
+getitem 13431,1;
+}
+}
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+}
+close;
+end;
+
+selectholo:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Select a HoloWeapon";
+menu "Ookami Claws",mioclaw,"Hoshi Clan Golden Axe",hoshiaxe,"Reaper Training Scythe",callisc,"Fire Elven Bow",flarebow,"Angel's Grip",kanagori,"Atlantean Ukelele",gurasong,"School Nurse's Measuring Tape",chocowhip,"Sky Goddess' Staff",sorastaff,"Nakiri Hyakku Oni Sword",nakiridag,"Anya Melfissa",holokeris,"Houshou Pirate Gun",hornygun,"Shirogane Knight's Sword",noelsword;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+}
+close;
+end;
+
+mioclaw:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1283,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+hoshiaxe:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1323,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+callisc:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1489,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+flarebow:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1746,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+kanagori:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1830,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+gurasong:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1935,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+chocowhip:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 1992,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+sorastaff:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 2007,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+nakiridag:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 13076,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+holokeris:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 13088,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+hornygun:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 13115,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+
+noelsword:
+next;
+if (countitem(40068) > 9999){
+mes "[ Voice From Beyond ]";
+mes "Anti Essence Purified, and HoloWeapon Obtained.";
+close2;
+delitem 40068,10000;
+getitem 13431,1;
+end;
+}
+else {
+mes "[ Voice From Beyond ]";
+mes "You have not enough Anti Essence.";
+close;
+end;
+}
+}
+
+//Anti Dimension Control
+1@face,149,288,3	script	Dimensional Rip#holo3	550,{
+mes "Would you like to exit the Anti Dimension?";
+if (hololive == 33){
+mes "^FF0000(WARNING: YOU CANNOT RETURN TO THE ANTI DIMENSION ONCE YOU WARP OUT BEFORE TIME RUNS OUT)^000000";
+}
+menu "Yes.",byeanti,"No.",stayanti;
+
+byeanti:
+next;
+mes "You reach out your hand to the rip.";
+close2;
+warp "prontera",156,191;
+end;
+
+stayanti:
+next;
+mes "You decide it's not yet time to leave.";
+close;
+end;
+}
+
+1@face,155,288,3	script	Altered Shiranui Flare	10066,{
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "Please put an end to this madness, dear Elfriend.";
+next;
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "Even without my elven powers...";
+next;
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "Even when I've turned human because of the data corruption...";
+next;
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "I can still fight alongside you all.";
+next;
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "But you all told me not to stress about it, and save my energy.";
+next;
+mes "[ ^D2B48CShiranui Flare^000000 ]";
+mes "I'll keep your word.";
+close;
+end;
+}
+
+function	script	HoloCri3	{
+set antitime1,gettimetick(1);
+set antitime2,(antitime1 + ( 7 * 86400 ));
+warp "1@face",151,286;
+sleep2 3300000;
+if (strcharinfo(3) == "1@face"){
+dispbottom "5 minutes left until the effects of the Unstable Holo Orb dissipates";
+sleep2 300000;
+if (strcharinfo(3) == "1@face"){
+dispbottom "The Unstable Holo Orb has broken.";
+sleep2 2000;
+if (strcharinfo(3) == "1@face"){
+dispbottom "You will be warped out shortly.";
+sleep2 3000;
+if (strcharinfo(3) == "1@face"){
+warp "prontera",156,191;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+}
+}

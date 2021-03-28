@@ -1,0 +1,43 @@
+//Cross-Faction Quest NPCs
+//Iruna-Netoria Access Point via Noieverre
+1@mist,345,186,3	script	Dimensional Instability	10007,{
+mes "There is a very unstable spot in the dimensional fabric of Noieverre.";
+if (getcharid(5) == 2 && countitem(40503) > 0){
+next;
+mes "Somehow, the energies you have acquired seem to react strongly to this abnormality.";
+next;
+mes "The hole opens up and reveals a frozen wasteland beyond it.";
+menu "^0000FFJump in.^000000",gotonetoria,"Stay away.",exit;
+}
+else if (getcharid(5) == 3 && countitem(40484) > 0){
+menu "Go to Netoria.",gotonetoria2,"Back to Schicksal.",gotoschicksal,"Stay in Iruna.",exit;
+}
+else if (getcharid(5) == 1 && countitem(40504) > 0){
+menu "Go back to the Frost Garrison.",gotonetoria,"Stay in Iruna.",exit;
+}
+else if (getcharid(5) == 2 && countitem(40503) < 1){
+next;
+mes "Powerful energies seemingly emanating from the abnormality repels you away.";
+close;
+end;
+}
+
+gotonetoria:
+close2;
+warp "dic_fild02",240,55;
+end;
+
+gotonetoria2:
+close2;
+warp "dicastes01",260,146;
+end;
+
+gotoschicksal:
+close2;
+warp "dali02",110,84;
+end;
+
+exit:
+close;
+end;
+}

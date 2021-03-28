@@ -1,0 +1,18 @@
+//Faction Boss Death Script
+-	script	HatredJeff	-1,{
+OnKill:
+announce "The Darkness in Jeff Saber's heart has been driven out! His Hatred has been quelled... for now.",bc_blue;
+end;
+}
+
+-	script	RedgurlBattle	-1,{
+OnKill:
+announce "ReDGuRL's uncontrollable power has been suppressed! She will surely lose control again.",bc_red;
+end;
+}
+
+-	script	YuwkiBattle	-1,{
+OnKill:
+announce "Yuwki's soul has stabilized! They have been saved, but for how long?",bc_yellow;
+end;
+}

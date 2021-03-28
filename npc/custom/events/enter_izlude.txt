@@ -1,0 +1,88 @@
+//============================================================
+-	script	FGNSwitcher	-1,{
+if (gettime(3) == 10||23 && gettime(2) == 0){
+disablenpc "High Enforcer";
+enablenpc "High Enforcer#dis";
+end;
+}
+else if (gettime(3) == 9||22 && gettime(2) == 0){
+enablenpc "High Enforcer";
+disablenpc "High Enforcer#dis";
+end;
+}
+
+OnInit:
+enablenpc "High Enforcer";
+disablenpc "High Enforcer#dis";
+end;
+}
+
+prt_fild08,363,214,3	script	High Enforcer#dis	4_m_redsword,{
+cutin "ep13_captin_edq",2;
+mes "^3399FF[Francois Guerra Nyx]^000000";
+mes "The remains of izlude is infested by numerous negative energies and undead.";
+mes " ";
+mes "So I cannot let you pass.";
+next;
+mes "Good bye for now..";
+cutin "",255;
+end;
+}
+
+prt_fild08,363,214,3	script	High Enforcer	4_m_redsword,{
+cutin "ep13_captin_edq",2;
+mes "^3399FF[Francois Guerra Nyx]^000000";	
+mes "A Dimmensional Invader has entered Izlude!";
+mes "We need your help adventurer, but I suggest you enter with a party";
+switch(select("I have a party:I am alone:I am not ready"))
+{
+	case 1: 
+	{
+		next;
+		cutin "ep13_captin_edq",2;
+		mes "^3399FF[Francois Guerra Nyx]^000000";
+		mes "Ok, let me confirm your Party";
+		.@party_id = getcharid(1);
+		if (.@party_id > 0){
+		next;
+		mes "^3399FF[Francois Guerra Nyx]^000000";
+		mes "Let's go! I'll escort you inside..";
+		close2;
+		cutin "",255;
+		warpparty "iz_boom",20,133,.@party_id;
+		break;
+		} else if (.@party_id < 1){
+		next;
+		mes "^3399FF[Francois Guerra Nyx]^000000";
+		mes "Unfortunately, I cannot allow you to risk your life.."; 
+		mes "Please look for someone to join you, or bring a friend";
+		next;
+		cutin "",255;
+		close;
+		break;
+		}
+	}
+	case 2:
+	{
+		next;
+		cutin "ep13_captin_edq",2;
+		mes "^3399FF[Francois Guerra Nyx]^000000";
+		mes "Unfortunately, I cannot allow you to risk your life.."; 
+		mes "Please look for someone to join you, or bring a friend";
+		next;
+		cutin "",255;
+		close;
+		break;
+	}
+	case 3:
+	{
+		next; 
+		cutin "ep13_captin_edq",2;
+		mes "^3399FF[Francois Guerra Nyx]^000000";
+		mes "Be careful, and I suggest you stay away from this area.."; 
+		next;
+		cutin "",255;
+		close;
+	}
+}
+}

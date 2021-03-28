@@ -1,0 +1,1996 @@
+dicastes01,255,259,3	script	Haaku Stuart	468,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+if (countitem(20241) > 0 && countitem(20242) > 0 && countitem(20243) > 0){
+if (celebeamh < 1){
+mes "[Haaku Stuart]";
+mes "So, Tam's got your approval?";
+next;
+mes "[Haaku Stuart]";
+mes "Now, you'll answer to me.";
+next;
+mes "[Haaku Stuart]";
+mes "You see, there's this mysterious ore that's been popping around the place...";
+next;
+mes "[Haaku Stuart]";
+mes "And it seems it's found its way from the original realm of Motenia, the Immortal Plane.";
+next;
+mes "[Haaku Stuart]";
+mes "I want you to take this to my elder sister and ask her what she thinks of it.";
+close2;
+getitem 40507,1;
+set celebeamh,1;
+end;
+}
+else if (celebeamh == 1){
+if (countitem(40508) > 0 && countitem(40422) > 0){
+mes "[Haaku Stuart]";
+mes "Alright.";
+next;
+mes "[Haaku Stuart]";
+mes "You can probably do whatever the heck you want in the base from now on.";
+next;
+mes "[Haaku Stuart]";
+mes "But first...";
+next;
+delitem 40508,1;
+mes "[Haaku Stuart]";
+mes "That's mine to begin with.";
+next;
+mes "[Haaku Stuart]";
+mes "Just come back whenever you need something.";
+close2;
+set celebeamh,2;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "What do you want? I'm supposed to go fetch my elder sister now...";
+next;
+mes "[Haaku Stuart]";
+mes "All that work as ^0000FFThe White Light^000000 must be pretty tiring on her.";
+menu "Reflect Nature Energy into Weapons",mirror,"Soul Infusion",netosoul,"Diabolus Overload",diabolusup,"Advanced Garments",garmentup;
+}
+}
+else {
+mes "[Haaku Stuart]";
+mes "What do you want? I'm supposed to go fetch my elder sister now...";
+next;
+mes "[Haaku Stuart]";
+mes "All that work as ^0000FFThe White Light^000000 must be pretty tiring on her.";
+if (countitem(40422) > 0 && celebeamh > 1){
+menu "Celebeam System",boicele,"Reflect Nature Energy into Weapons",mirror,"Soul Infusion",netosoul,"Diabolus Overload",diabolusup,"Advanced Garments",garmentup;
+}
+else {
+menu "Reflect Nature Energy into Weapons",mirror,"Soul Infusion",netosoul,"Diabolus Overload",diabolusup,"Advanced Garments",garmentup;
+}
+}
+}
+}
+else {
+mes "[Haaku Stuart]";
+mes "What do you want? Begone.";
+close2;
+atcommand "@die";
+end;
+}
+
+boicele:
+next;
+mes "[Haaku Stuart]";
+mes "Ah, yes, what is it now?";
+menu "Celebeam Purification",celecraft,"Celebeam Transfiguration",faintcrys;
+
+celecraft:
+next;
+mes "[Haaku Stuart]";
+mes "What do you wanna do with your Celebeam Particles?";
+menu "Purify Further",purecele,"Imbue Physical Power",meleecele,"Imbue Ranged Aptitude",rangedcele,"Imbue Magic Power",magicele,"Imbue Willpower",resistcele,"Imbue Force of Will",forcecele,"Corrupt Celebeam",chaoscele;
+
+purecele:
+next;
+mes "[Haaku Stuart]";
+mes "Pure Celebeam Gem";
+mes "------------------";
+mes "MaxHP +5%.";
+mes "All Resistance +2%";
+mes "Increases MATK, Long-Ranged and Melee attack damage by 2%";
+mes "Reflect all damage by 2%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Lesser Netorian Soul";
+mes "1 Greater Netorian Soul";
+menu "Create Pure Celebeam Gem",-;
+if (countitem(40421) > 499 && countitem(20264) > 2 && countitem(20265) > 0){
+next;
+delitem 40421,500;
+delitem 20264,3;
+delitem 20265,1;
+getitem 40430,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+meleecele:
+next;
+mes "[Haaku Stuart]";
+mes "Melee Celebeam Gem";
+mes "------------------";
+mes "ATK +5.";
+mes "ATK +5%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Celebeam Particle";
+mes "5 Lesser Netorian Soul";
+menu "Create Melee Celebeam Gem",-;
+if (countitem(40421) > 199 && countitem(20264) > 4){
+next;
+delitem 40421,200;
+delitem 20264,5;
+getitem 40431,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+rangedcele:
+next;
+mes "[Haaku Stuart]";
+mes "Ranged Celebeam Gem";
+mes "------------------";
+mes "ATK +5.";
+mes "Long-Ranged ATK +5%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Celebeam Particle";
+mes "5 Lesser Netorian Soul";
+menu "Create Ranged Celebeam Gem",-;
+if (countitem(40421) > 199 && countitem(20264) > 4){
+next;
+delitem 40421,200;
+delitem 20264,5;
+getitem 40432,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+magicele:
+next;
+mes "[Haaku Stuart]";
+mes "Magic Celebeam Gem";
+mes "------------------";
+mes "MATK +5.";
+mes "MATK +5%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Celebeam Particle";
+mes "5 Lesser Netorian Soul";
+menu "Create Magic Celebeam Gem",-;
+if (countitem(40421) > 199 && countitem(20264) > 4){
+next;
+delitem 40421,200;
+delitem 20264,5;
+getitem 40433,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+resistcele:
+next;
+mes "[Haaku Stuart]";
+mes "Resist Celebeam Gem";
+mes "------------------";
+mes "All Resist +5%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Celebeam Particle";
+mes "3 Greater Netorian Soul";
+menu "Create Resist Celebeam Gem",-;
+if (countitem(40421) > 299 && countitem(20265) > 2){
+next;
+delitem 40421,300;
+delitem 20265,3;
+getitem 40434,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+forcecele:
+next;
+mes "[Haaku Stuart]";
+mes "Force Celebeam Gem";
+mes "------------------";
+mes "Long-Ranged ATK, ATK and MATK +10%";
+mes "Greatly Reduces DEF and MDEF";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Celebeam Particle";
+mes "3 Greater Netorian Soul";
+menu "Create Force Celebeam Gem",-;
+if (countitem(40421) > 299 && countitem(20265) > 2){
+next;
+delitem 40421,300;
+delitem 20265,3;
+getitem 40435,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+chaoscele:
+next;
+mes "[Haaku Stuart]";
+mes "Chaos Celebeam Gem";
+mes "------------------";
+mes "MaxHP +10%";
+mes "Reflect All damage by 5%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Celebeam Particle";
+mes "3 Greater Netorian Soul";
+menu "Create Chaos Celebeam Gem",-;
+if (countitem(40421) > 299 && countitem(20265) > 2){
+next;
+delitem 40421,300;
+delitem 20265,3;
+getitem 40436,1;
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+faintcrys:
+next;
+mes "[Haaku Stuart]";
+mes "Which Power do you want a taste of?";
+menu "Shyvana",faintshyv,"Primal Hatred",fainthate,"Red Light Heretic",faintheretic,"Corrupted Lord Netori",faintnetori,"Grand Magus Donna",faintdonna,"Holy Vanguard Pelleus",faintpell,"Jack Callers",faintjack;
+
+faintshyv:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Shyvana Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Magic Resistance +5%";
+mes "Increases damage of Sharpshooting skill by 25%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Shyvana's Scale";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Faint Shyvana Crysta",-;
+if (countitem(40421) > 499 && countitem(20257) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20257,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40423,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+fainthate:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Primal Hatred Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Increases physical damage dealt to Boss monsters by 25%";
+mes "Increases damage received from Boss monsters by 50%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 White Light's Influence";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Faint Primal Hatred Crysta",-;
+if (countitem(40421) > 499 && countitem(20259) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20259,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40424,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintheretic:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Red Light Heretic Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "MATK +3%";
+mes "Increases Magic damage to Boss monsters by 25%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Flames of The Red Light";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Faint Red Light Heretic Crysta",-;
+if (countitem(40421) > 499 && countitem(20260) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20260,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40425,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintnetori:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Corrupted Lord Netori Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Increases resistance to all elements +12%";
+mes "Further Increases resistance to Neutral property +12%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "5 Blessing of the Primal Lord";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Faint Corrupted Lord Netori Crysta",-;
+if (countitem(40421) > 499 && countitem(20261) > 4 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20261,5;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40426,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintdonna:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Grand Magus Donna Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "MATK +3%";
+mes "Increases damage of Storm Gust skill by 20%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Blessing of the Primal Lord";
+mes "3 Donna's Will";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Grand Magus Donna Crysta",-;
+if (countitem(40421) > 499 && countitem(20261) > 2 && countitem(20266) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20261,3;
+delitem 20266,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40427,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintpell:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Holy Vanguard Pelleus Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Increases Resistance against all monster and player classes by 7%";
+mes "Increases damage of Shield Chain skill by 25%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Blessing of the Primal Lord";
+mes "3 Sir Pelleus' Will";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Holy Vanguard Pelleus Crysta",-;
+if (countitem(40421) > 499 && countitem(20261) > 2 && countitem(20267) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20261,3;
+delitem 20267,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40428,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintjack:
+next;
+mes "[Haaku Stuart]";
+mes "Faint Jack Callers Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Increases Long-Ranged attack damage by 3%";
+mes "Increases damage of Arrow Vulcan skill by 20%";
+next;
+mes "[Haaku Stuart]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Celebeam Particle";
+mes "3 Master Baiter";
+mes "10 Lesser Netorian Soul";
+mes "5 Greater Netorian Soul";
+menu "Create Faint Jack Callers Crysta",-;
+if (countitem(40421) > 499 && countitem(20263) > 2 && countitem(20264) > 9 && countitem(20265) > 4){
+next;
+delitem 40421,500;
+delitem 20263,3;
+delitem 20264,10;
+delitem 20265,5;
+getitem 40429,1;
+mes "[Haaku Stuart]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+mirror:
+next;
+mes "[Haaku Stuart]";
+mes "Ah, you want to let Nature Energy embed and reflect its power into your weaponry?";
+next;
+mes "Tier II Weapons will be imbued with elemental properties and become more powerful.";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the following ready:";
+next;
+mes "Battered Weapon [4] 1";
+mes "Tier II Weapon [4] 1";
+mes "Lesser Netorian Soul 3";
+mes "Corresponding Elemental Catalyst 100";
+menu "Sword",mirsw,"Bow",mirbow,"Axe",miraxe,"Dagger",mirdag,"Rod",mirod,"Claw",mirclaw,"Revolver",mirgun,"Whip",mirwhip,"Instrument",mirguit,"Katar",mirkat,"Spear",mirspear,"Throw",mirthrow;
+
+mirsw:
+set .@mirror,20035;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirbow:
+set .@mirror,20039;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+miraxe:
+set .@mirror,20051;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirdag:
+set .@mirror,20045;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirod:
+set .@mirror,20041;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirclaw:
+set .@mirror,20037;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirgun:
+set .@mirror,20053;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirwhip:
+set .@mirror,20055;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirguit:
+set .@mirror,20057;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirkat:
+set .@mirror,20049;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirspear:
+set .@mirror,20047;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+mirthrow:
+set .@mirror,20043;
+next;
+mes "^FF0000WARNING^000000";
+mes "All refine levels and cards compounded into your Tier II Weapon will be lost upon upgrading.";
+menu "Flame Heart",firemirror,"Mystic Frozen",watermirror,"Great Nature",earthmirror,"Rough Wind",windmirror,"Crystal of Darkness",darkmirror,"1carat Diamond",neutmirror,"Hand of God",holymirror,"Little Ghost Doll",ghostmirror,"Poisonous Powder",poisonmirror,"Memento",undeadmirror;
+
+firemirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(994) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 994,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+watermirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(995) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 995,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+earthmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(997) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 997,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+windmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(996) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 996,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+darkmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(7799) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 7799,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+neutmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(730) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 730,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+holymirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(1009) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 1009,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+ghostmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(7268) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 7268,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+poisonmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(7154) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 7154,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+undeadmirror:
+if (countitem(40420) > 0 && getequipid(EQI_HAND_R) == .@mirror && countitem(20264) > 2 && countitem(934) > 99){
+next;
+delitem 40420,1;
+delitem 20264,3;
+delitem 934,100;
+delequip EQI_HAND_R;
+if (achievementexists(240034) == 0){
+achievementcomplete(240034);
+}
+if (.@mirror == 20035) getitem 40300,1;
+if (.@mirror == 20037) getitem 40330,1;
+if (.@mirror == 20039) getitem 40320,1;
+if (.@mirror == 20041) getitem 40350,1;
+if (.@mirror == 20043) getitem 40380,1;
+if (.@mirror == 20045) getitem 40310,1;
+if (.@mirror == 20047) getitem 40340,1;
+if (.@mirror == 20049) getitem 40370,1;
+if (.@mirror == 20051) getitem 40360,1;
+if (.@mirror == 20053) getitem 40410,1;
+if (.@mirror == 20055) getitem 40390,1;
+if (.@mirror == 20057) getitem 40400,1;
+mes "Mirror Weapon acquired.";
+close;
+end;
+}
+else {
+mes "[Haaku Stuart]";
+mes "I'm sorry, but you don't have enough.";
+close;
+end;
+}
+
+netosoul:
+next;
+mes "[Haaku Stuart]";
+mes "Ah, you want to embed your very existence into that weapon you're using right now?";
+next;
+mes "Soul Weapons will have an augment of HIT +150, and an increase of 5 ATK except for Staff.";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Soul Weapon equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "15 ^0000FFLesser Netorian Souls^000000";
+mes "5 ^0000FFGreater Netorian Souls^000000";
+menu "Soul Decimator",geroldup,"Soul Brutalizer",justiceup,"Soul Shooter",kulotup,"Soul Orb",daniloup,"Argent Soul",paoloup,"Soul Breaker",jeraldup,"Soul Piercer",kurtup,"Soul Terminator",erikup,"Soul Cleaver",kamalup,"Soul Eater",astreaup,"Soulstrings",honestup,"Soulsoother",jonasup;
+
+geroldup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20059){
+set .@item,20059;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39000,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+justiceup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20060){
+set .@item,20060;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39001,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kulotup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20061){
+set .@item,20061;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39002,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+daniloup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20063){
+set .@item,20063;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39004,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+paoloup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20062){
+set .@item,20062;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39003,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+jeraldup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20064){
+set .@item,20064;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39005,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kurtup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20065){
+set .@item,20065;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39006,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+erikup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20066){
+set .@item,20066;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39007,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+kamalup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20067){
+set .@item,20067;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39008,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+astreaup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20068){
+set .@item,20068;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39009,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+honestup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20069){
+set .@item,20069;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39010,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+jonasup:
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the infusion?";
+menu "Yes",-;
+if (countitem(20264) > 14 && countitem(20265) > 4 && getequipid(EQI_HAND_R) == 20070){
+set .@item,20070;
+set .@ref,getequiprefinerycnt(EQI_HAND_R);
+set .@card1,getequipcardid(EQI_HAND_R,0);
+set .@card2,getequipcardid(EQI_HAND_R,1);
+set .@card3,getequipcardid(EQI_HAND_R,2);
+set .@card4,getequipcardid(EQI_HAND_R,3);
+next;
+delitem 20264,15;
+delitem 20265,5;
+delequip EQI_HAND_R;
+getitem2 39011,1,1,.@ref,0,.@card1,.@card2,.@card3,.@card4;
+if (achievementexists(240035) == 0){
+achievementcomplete(240035);
+}
+mes "[Haaku Stuart]";
+mes "May you use your soul to its fullest with your newfound Soul Weapon.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+diabolusup:
+next;
+mes "[Haaku Stuart]";
+mes "Ah, you want to unlock the potential of your Diabolus Armor or Robe?";
+menu "Deceiver",decineto,"Struggler",strugneto,"Schwermer",schwermneto,"Ira",iraneto,"Emido",emidoneto,"Hulam",hulamneto;
+
+decineto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Deceiver Trait...";
+next;
+mes "All Stats +5";
+mes "ATK +5%";
+mes "Max HP +50%";
+mes "Physical and Magic Resistance +5%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "2 Blessing of the Primal Lord";
+mes "1 Sir Pelleus' Will";
+mes "1 Master Baiter";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20261) > 1 && countitem(20267) > 0 && countitem(20263) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20261,2;
+delitem 20263,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20267,1;
+delequip EQI_ARMOR;
+getitem2 39036,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+strugneto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Struggler Trait...";
+next;
+mes "All Stats +5";
+mes "MATK +5%";
+mes "Max HP +10%";
+mes "Further Increases MATK depending on VIT";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "2 Red Light's Influence";
+mes "1 Flame of The Red Light";
+mes "1 Donna's Will";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20256) > 1 && countitem(20260) > 0 && countitem(20266) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20256,2;
+delitem 20260,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20266,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+schwermneto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Schwermer Trait...";
+next;
+mes "All Stats +5";
+mes "VIT +2";
+mes "ATK +5%";
+mes "Max HP +10%";
+mes "Reflects 5% of all damage";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "2 Open Letter of Rebellion";
+mes "1 White Light's Influence";
+mes "1 Shyvana's Scale";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20262) > 1 && countitem(20267) > 0 && countitem(20263) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20262,2;
+delitem 20259,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20257,1;
+delequip EQI_ARMOR;
+getitem2 39038,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+iraneto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Ira Trait...";
+next;
+mes "All Stats +5";
+mes "ATK +15%";
+mes "Max HP +10%";
+mes "Physical and Magic Resistance -10%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Armor equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "2 Pure Hatred";
+mes "1 Flame of The Red Light";
+mes "1 Master Baiter";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20258) > 1 && countitem(20260) > 0 && countitem(20263) > 0 && getequipid(EQI_ARMOR) == 2375){
+set .@armor,2375;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20258,2;
+delitem 20263,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20260,1;
+delequip EQI_ARMOR;
+getitem2 39039,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+emidoneto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Emido Trait...";
+next;
+mes "All Stats +5";
+mes "MATK +15%";
+mes "Max HP +10%";
+mes "Physical and Magic Resistance -10%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "2 Pure Hatred";
+mes "1 Flame of The Red Light";
+mes "1 Shyvana's Scale";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20258) > 1 && countitem(20260) > 0 && countitem(20257) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20258,2;
+delitem 20260,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20257,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+hulamneto:
+next;
+mes "[Haaku Stuart]";
+mes "Awaken the Hulam Trait...";
+next;
+mes "All Stats +7";
+mes "ATK +10%";
+mes "MATK +10%";
+mes "Max HP +20%";
+mes "Tolerance to Silence +20%, increasing with refine";
+mes "Unstrippable and Unbreakable except when refining";
+next;
+mes "[Haaku Stuart]";
+mes "If you want the procedure to succeed, you must have the Diabolus Robe equipped.";
+next;
+mes "[Haaku Stuart]";
+mes "You'll also need the following.";
+next;
+mes "5 ^0000FFLesser Netorian Souls^000000";
+mes "1 ^0000FFGreater Netorian Soul^000000";
+mes "1 Blessing of the Primal Lord";
+mes "1 Red Light's Influence";
+mes "1 Flame of The Red Light";
+mes "1 White Light's Influence";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed with the awakening?";
+menu "Yes",-;
+if (countitem(20264) > 4 && countitem(20265) > 0 && countitem(20256) > 0 && countitem(20261) > 0 && countitem(20260) > 0 && countitem(20259) > 0 && getequipid(EQI_ARMOR) == 2374){
+set .@armor,2374;
+set .@ref,getequiprefinerycnt(EQI_ARMOR);
+set .@card,getequipcardid(EQI_ARMOR,0);
+set .@crysta,getequipcardid(EQI_ARMOR,3);
+next;
+delitem 20256,1;
+delitem 20261,1;
+delitem 20260,1;
+delitem 20264,5;
+delitem 20265,1;
+delitem 20259,1;
+delequip EQI_ARMOR;
+getitem2 39037,1,1,.@ref,0,.@card,0,0,.@crysta;
+if (achievementexists(240038) == 0){
+achievementcomplete(240038);
+}
+mes "[Haaku Stuart]";
+mes "You have awakened newfound powers.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+garmentup:
+next;
+mes "[Haaku Stuart]";
+mes "Which one, though?";
+menu "Asprika",asprikaup,"Flame Manteau of Naght Sieger",naghtup,"Leather of Tendrillion",tendrilup,"Nidhoggur's Shadow Garb",nidhoggup;
+
+asprikaup:
+next;
+mes "[Haaku Stuart]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "2 Blessing of the Primal Lord";
+mes "1 White Light's Influence";
+mes "1 Donna's Will";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20261) > 1 && countitem(20259) > 0 && countitem(20266) > 0 && getequipid(EQI_GARMENT) == 2541){
+set .@garment,2541;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20261,2;
+delitem 20259,1;
+delitem 20266,1;
+delequip EQI_GARMENT;
+getitem2 39042,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+naghtup:
+next;
+mes "[Haaku Stuart]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "2 Red Light's Influence";
+mes "1 Flames of the Red Light";
+mes "1 Master Baiter";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20256) > 1 && countitem(20260) > 0 && countitem(20263) > 0 && getequipid(EQI_GARMENT) == 2542){
+set .@garment,2542;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20256,2;
+delitem 20260,1;
+delitem 20263,1;
+delequip EQI_GARMENT;
+getitem2 39043,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+tendrilup:
+next;
+mes "[Haaku Stuart]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "2 Open Letter of Rebellion";
+mes "1 Sir Pelleus' Will";
+mes "1 Donna's Will";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20262) > 1 && countitem(20267) > 0 && countitem(20266) > 0 && getequipid(EQI_GARMENT) == 2544){
+set .@garment,2544;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20262,2;
+delitem 20267,1;
+delitem 20266,1;
+delequip EQI_GARMENT;
+getitem2 39043,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+
+nidhoggup:
+next;
+mes "[Haaku Stuart]";
+mes "You'll need your garment to be equipped, along with the following.";
+next;
+mes "2 Pure Hatred";
+mes "1 Flames of The Red Light";
+mes "1 Shyvana's Scale";
+next;
+mes "[Haaku Stuart]";
+mes "Proceed?";
+menu "Yes",-;
+if (countitem(20258) > 1 && countitem(20260) > 0 && countitem(20257) > 0 && getequipid(EQI_GARMENT) == 2554){
+set .@garment,2554;
+set .@ref,getequiprefinerycnt(EQI_GARMENT);
+set .@card,getequipcardid(EQI_GARMENT,0);
+next;
+delitem 20258,2;
+delitem 20260,1;
+delitem 20257,1;
+delequip EQI_GARMENT;
+getitem2 39044,1,1,.@ref,0,.@card,0,0,0;
+if (achievementexists(240039) == 0){
+achievementcomplete(240039);
+}
+mes "[Haaku Stuart]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Haaku Stuart]";
+mes "This won't do.";
+next;
+mes "[Haaku Stuart]";
+mes "Now, if you could please stop wasting my time...";
+close;
+end;
+}
+}

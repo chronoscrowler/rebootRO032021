@@ -1,0 +1,443 @@
+dicastes01,264,141,3	script	Tamari, The White Light#dic	640,{
+if (getcharid(5) == 1 || getcharid(2) == 1){
+cutin "gc_mayssel05",2;
+mes "[Tamari, The White Light]";
+mes "Hello, my child.";
+if (countitem(20241) > 0 && countitem(20242) > 0 && countitem(20243) < 1){
+menu "Create Netorian Souls",makesoul,"End ^0000FFJeff Saber^000000's haunting past",tamariquest3;
+}
+else if (countitem(20241) > 0 && countitem(20242) < 1 && countitem(20243) < 1){
+menu "Create Netorian Souls",makesoul,"Get ^0000FFTamari^000000's approval",tamariquest2;
+}
+else if (countitem(20241) < 1 && countitem(20242) < 1 && countitem(20243) < 1){
+menu "Prove your worth",tamariquest;
+}
+else if (countitem(20241) > 0 && countitem(20242) > 0 && countitem(20243) > 0){
+if (countitem(40507) > 0){
+menu "About ^0000FFThe Power of the Immortals^000000",celequest,"Create Netorian Souls",makesoul;
+}
+else if (countitem(40508) > 0){
+menu "Umm...",celequest,"Create Netorian Souls",makesoul;
+}
+else {
+menu "Create Netorian Souls",makesoul;
+}
+}
+}
+else if (getcharid(5) == 2){
+if (countitem(40503) > 0){
+mes "You see a radiantly beautiful blonde lady with skin as white as snow.";
+next;
+cutin "gc_mayssel05",2;
+mes "[???]";
+mes "Hello there.";
+next;
+mes "You notice that her voice is the same as the one that whispered in your head a while ago.";
+next;
+mes "[???]";
+mes "I'm sorry about our Royal Guards' rude behavior.";
+next;
+mes "[???]";
+mes "You must be very new here, judging from what you've brought with you.";
+next;
+mes "You pick up right away that this lady is extremely powerful just by the fact that she can sense that faint packet of energy you have with you.";
+next;
+mes "[???]";
+mes "Ah, I see you've noticed it as well.";
+next;
+mes "[???]";
+mes "Well then, welcome to the Frost Garrison of ^0000FFNetoria^000000.";
+next;
+mes "[Tamari, The White Light]";
+mes "I am Tamari Stuart. Currently ^0000FFThe Light of Netoria^000000, with the color designation White.";
+next;
+mes "[Tamari, The White Light]";
+mes "I am, overall, the second-in-command of everything you see around these parts.";
+next;
+mes "[Tamari, The White Light]";
+mes "Your concerns are quite the same as mine at the moment, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "That tidbit of energy you're holding...";
+next;
+mes "[Tamari, The White Light]";
+mes "If my hunches and feelings about it are correct, it must be from my dearest's ^FF0000past^000000.";
+next;
+mes "[Tamari, The White Light]";
+mes "I suggest you come with me, and we will confirm our suspicions personally.";
+close2;
+set netocross,1;
+cutin "",255;
+warp "jupe_area2",108,53;
+end;
+}
+else if (countitem(40503) > 0 && netocross == 1){
+cutin "gc_mayssel05",2;
+mes "[Tamari, The White Light]";
+if (countitem(20256) < 5 || countitem(20260) < 1 || countitem(20245) < 50){
+mes "Have you completed your tasks, my child?";
+next;
+mes "^FF0000Red Light's Influence^000000 5";
+mes "^FF0000Flames of The Red Light^000000 1";
+mes "^0000FFDiffuse Genocide^000000 50";
+next;
+mes "[Tamari, The White Light]";
+mes "Whenever you have all the items, just come by the northern part of town, and talk to the Royal Guard on post.";
+close2;
+cutin "",255;
+end;
+}
+else if (countitem(20256) > 4 && countitem(20260) > 0 && countitem(20245) > 49){
+mes "That's great, my child!";
+next;
+mes "[Tamari, The White Light]";
+mes "Just come by the northern part of town, and talk to the Royal Guard on post.";
+next;
+mes "[Tamari, The White Light]";
+mes "I'll meet you in the Castle Ruins.";
+close2;
+cutin "",255;
+end;
+}
+}
+}
+else {
+cutin "gc_mayssel05",2;
+mes "[Tamari, The White Light]";
+mes "Hello there.";
+close2;
+cutin "",255;
+end;
+}
+
+tamariquest:
+if (countitem(20246) > 49 && countitem(20247) > 4){
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "Thank you for your hard work, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "Here, take it. It's your rightful reward.";
+next;
+mes "You can now enter more areas with ^0000FFKey of the Frost Garrison^000000.";
+next;
+mes "You can now create ^0000FFNetorian Souls^000000.";
+close2;
+cutin "",255;
+delitem 20246,50;
+delitem 20247,5;
+getitem 20241,1;
+end;
+}
+else {
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "Very well, then, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "I would like you to kill some Behemoths and acquire the following from them.";
+next;
+mes "50 Behemoth Fangs";
+mes "5 Behemoth Eyes";
+next;
+mes "[Tamari, The White Light]";
+mes "Please be careful, my child.";
+close2;
+cutin "",255;
+end;
+}
+
+tamariquest2:
+if (countitem(20262) > 0){
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "Thank you for your hard work, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "Although it pains me to say this, but we lost a potential good man for the force.";
+next;
+mes "[Tamari, The White Light]";
+mes "Here, take it. It's your rightful reward.";
+next;
+mes "You can now enter more areas with ^0000FFCrest of The White Light^000000.";
+close2;
+cutin "",255;
+delitem 20262,1;
+getitem 20242,1;
+end;
+}
+else {
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "I see. You want to be even more of a diligent child.";
+next;
+mes "[Tamari, The White Light]";
+mes "I would like you to negotiate with the rebel leader, Jack Callers.";
+next;
+mes "[Tamari, The White Light]";
+mes "If he doesn't respond properly, I'm afraid I'll be giving you orders to terminate him.";
+next;
+mes "[Tamari, The White Light]";
+mes "Please be careful, my child.";
+close2;
+cutin "",255;
+end;
+}
+
+tamariquest3:
+if (countitem(20258) > 0){
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "Thank you for your hard work, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "Now, it would be easier for me to help ^0000FFJeff^000000 regain his lost powers, now that his mind is clear of hatred.";
+next;
+mes "[Tamari, The White Light]";
+mes "You have proven time and time again that you are a ^0000FFNetorian^000000 at the core of your values.";
+next;
+mes "[Tamari, The White Light]";
+mes "Here, take it. It's your rightful reward.";
+next;
+mes "You can now enter more areas with ^0000FFTamari's Pure Feelings^000000.";
+close2;
+cutin "",255;
+delitem 20258,1;
+getitem 20243,1;
+end;
+}
+else {
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "I see. You want to be the best child.";
+next;
+mes "[Tamari, The White Light]";
+mes "I want you to destroy the source of all hatred, Primal Hatred, and bring me its pure hatred for me to exorcise.";
+next;
+mes "[Tamari, The White Light]";
+mes "It exists in a time-rip just south of here.";
+next;
+mes "[Tamari, The White Light]";
+mes "Please be careful, my child.";
+close2;
+cutin "",255;
+end;
+}
+
+celequest:
+if (countitem(40508) > 0 && celebeamt == 1){
+next;
+mes "[Tamari, The White Light]";
+mes "Isn't he amazing? Hehe...";
+next;
+mes "[Tamari, The White Light]";
+mes "Well, anyway, I've passed the info to my younger brother via a psychic link.";
+next;
+mes "[Tamari, The White Light]";
+mes "He'll know what to do when you come over to him.";
+next;
+mes "[Tamari, The White Light]";
+mes "Here, take this.";
+next;
+mes "[Tamari, The White Light]";
+mes "Take care, my child.";
+close2;
+cutin "",255;
+getitem 40422,1;
+set celebeamt,2;
+end;
+}
+else {
+next;
+mes "[Tamari, The White Light]";
+mes "Oh!";
+next;
+mes "[Tamari, The White Light]";
+mes "You got this from Haaku?";
+next;
+mes "[Tamari, The White Light]";
+mes "Hmm...";
+next;
+mes "[Tamari, The White Light]";
+mes "It does look like one of those gems ^0000FFJeffrey^000000 showed me once...";
+next;
+mes "[Tamari, The White Light]";
+mes "I think you should go ask him about it, before I give my thoughts on it.";
+next;
+mes "[Tamari, The White Light]";
+mes "He's staying with my real body in the Castle Ruins, trying to regain his strength.";
+next;
+mes "[Tamari, The White Light]";
+mes "Just talk to the Royal Guard up north, and he'll take you there.";
+close2;
+cutin "",255;
+set celebeamt,1;
+end;
+}
+
+makesoul:
+next;
+menu "Lesser Netorian Soul",lessersoul,"Greater Netorian Soul",greatersoul;
+
+lessersoul:
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "The items required for that are as follows.";
+next;
+mes "Dark Thoughts 10";
+mes "Behemoth Fang 10";
+mes "Last Will 10";
+mes "Netori's Fire 10";
+mes "Frost Rat Fang 10";
+next;
+if (countitem(20244) > 19 && countitem(20246) > 9 && countitem(20248) > 9 && countitem(20251) > 19 && countitem(20254) > 9){
+delitem 20244,20;
+delitem 20246,10;
+delitem 20248,10;
+delitem 20251,20;
+delitem 20254,10;
+getitem 20264,1;
+mes "[Tamari, The White Light]";
+mes "Here you go, my child.";
+close2;
+cutin "",255;
+end;
+}
+else {
+mes "[Tamari, The White Light]";
+mes "I'm sorry, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "You don't have enough materials.";
+close2;
+cutin "",255;
+end;
+}
+
+greatersoul:
+next;
+cutin "gc_mayssel01",2;
+mes "[Tamari, The White Light]";
+mes "The items required for that are as follows.";
+next;
+mes "Diffuse Genocide 10";
+mes "Behemoth Eye 10";
+mes "Cursed Soul 10";
+mes "Diffuse Lust 10";
+mes "Corrupted Magic Core 10";
+mes "Corrupted Holy Armor 10";
+mes "Bubonic Plague 10";
+next;
+if (countitem(20245) > 9 && countitem(20247) > 9 && countitem(20249) > 9 && countitem(20250) > 9 && countitem(20252) > 9 && countitem(20253) > 9 && countitem(20255) > 9){
+delitem 20245,10;
+delitem 20247,10;
+delitem 20249,10;
+delitem 20250,10;
+delitem 20252,10;
+delitem 20253,10;
+delitem 20255,10;
+getitem 20265,1;
+mes "[Tamari, The White Light]";
+mes "Here you go, my child.";
+close2;
+cutin "",255;
+end;
+}
+else {
+mes "[Tamari, The White Light]";
+mes "I'm sorry, my child.";
+next;
+mes "[Tamari, The White Light]";
+mes "You don't have enough materials.";
+close2;
+cutin "",255;
+end;
+}
+}
+
+dicastes01,260,146,3	script	...#nxsque	111,5,5,{
+if (countitem(40484) > 0 && schicknetox < 1){
+cutin "gc_mayssel01",2;
+mes "You see a blonde beauty right in front of you.";
+next;
+mes "You notice her energy signature.";
+next;
+mes "It's unmistakeable. She's ^0000FFThe Light of Netoria^000000.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Hello there, my child.";
+menu "Hello.",-;
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "You need not speak, my child.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "I sensed you from even the farthest reaches.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "I know what you seek.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "I need to confirm your might.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Go get 50 Behemoth Fangs and 50 Last Wills.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Only then will I trust you completely.";
+close2;
+cutin "",255;
+set schicknetox,1;
+end;
+}
+else if (schicknetox == 1){
+if (countitem(20246) > 49 && countitem(20248) > 49){
+cutin "gc_mayssel01",2;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Thank goodness.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "I was worried.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "I'm sorry you had to put up with my selfish request.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Anyway...";
+next;
+mes "The Light of Netoria tells you everything.";
+next;
+cutin "",255;
+mes "She then tells you the way out.";
+next;
+mes "Follow the path down south until you see a Time Rip.";
+close2;
+delitem 20246,50;
+delitem 20248,50;
+getitem 40485,1;
+set schicknetox,2;
+end;
+}
+else {
+cutin "gc_mayssel01",2;
+mes "[^0000FFLight of Netoria^000000]";
+mes "It's not enough.";
+next;
+mes "[^0000FFLight of Netoria^000000]";
+mes "Go.";
+close2;
+cutin "",255;
+end;
+}
+}
+else {
+end;
+}
+}

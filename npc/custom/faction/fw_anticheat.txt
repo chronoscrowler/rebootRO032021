@@ -1,0 +1,45 @@
+prt_gld,153,137,3	script	FactionRestrict	111,10,10,{
+if (getcharid(5) < 1 && getcharid(2) == 1){
+end;
+}
+else if (getcharid(5) < 1){
+mes "A dense barrier of ungodly energy is hindering your movements.";
+next;
+mes "You must belong to a Faction to proceed.";
+close2;
+atcommand "@go 0";
+end;
+}
+}
+
+-	script	FWBarrier2	-1,{
+OnInit:
+if (gettime(5) > 24){
+if (gettime(3) >= 20){
+if (gettime(3) == 22 && gettime(2) == 0){
+disablenpc "prtg-3_prtg-3";
+end;
+}
+else {
+enablenpc "prtg-3_prtg-3";
+end;
+}
+}
+}
+else {
+disablenpc "prtg-3_prtg-3";
+end;
+}
+
+OnSun1959:
+if (gettime(5) > 24){
+enablenpc "prtg-3_prtg-3";
+end;
+}
+
+OnSun2200:
+if (gettime(5) > 24){
+disablenpc "prtg-3_prtg-3";
+end;
+}
+}

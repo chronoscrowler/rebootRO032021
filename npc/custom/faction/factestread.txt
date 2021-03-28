@@ -1,0 +1,4 @@
+jupe_area2,115,54,3	script	TestFacReader	123,{
+mes "Your Faction ID is " +query_sql(" SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getguildmasterid(getcastledata("prtg_cas03",CD_GUILD_ID))+"'");
+end;
+}

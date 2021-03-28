@@ -1,0 +1,1389 @@
+moonhaven,308,129,0	script	Dimensional Crystal	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Want to go to Ganaji?";
+menu "Yes",-;
+warp "chry_fld",95,73;
+close;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+chry_fld,97,77,3	script	Dimensional Crystal#pce	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Go back to Bizen Forest Sector?";
+menu "Yes",-;
+warp "moonhaven",308,129;
+close;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+moonhaven,275,85,3	script	Dimensional Crystal#dc1	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Want to go to the old Bizen sector?";
+menu "Yes",-;
+warp "aev_fild",142,237;
+close;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+aev_fild,142,242,3	script	Dimensional Crystal#dc2	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Go Back to Bizen Forest Sector?";
+menu "Yes",-;
+warp "moonhaven",275,85;
+close;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+moonhaven,181,67,3	script	Dimensional Crystal#dc4	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Want to go to the regenerated Bizen Forest?";
+menu "Yes",-;
+warp "bizen01",39,281;
+close;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+bizen01,34,276,3	script	Dimensional Crystal#dc5	4_vending_machine,{
+if (getcharid(5) == 2 || getcharid(2) == 1 || countitem(40510) > 0){
+mes "Go Back to Bizen Forest Sector?";
+menu "Yes",-;
+warp "moonhaven",181,67;
+close;
+end;
+}
+else if (countitem(40504) > 0 || countitem(40510) > 0){
+mes "Divine Energy detected.";
+next;
+mes "Access Granted.";
+close2;
+warp "moonhaven",181,67;
+end;
+}
+else {
+mes "Unauthorized Access.";
+close;
+end;
+}
+}
+
+moonhaven,258,207,3	script	Kunon	10041,{
+if (getcharid(5) == 2 || getcharid(2) == 1){
+if (countitem(20076) > 0 && curonne < 1){
+mes "[Justice Demigoddess Kunon]";
+mes "T-That's...";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Mother's!";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Where did you get that?!";
+next;
+mes "Curonne's Treasure is somehow resonating with Kunon's remaining powers.";
+next;
+getitem 40501,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you... here to help us?";
+next;
+mes "Suddenly, the Crystal that manifested in your hands glows.";
+next;
+mes "[???]";
+mes "Release me...";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Mother! That's mother's voice!";
+next;
+mes "Something tells you that you have to go to Joshuca and get her to warp you to Noieverre right away.";
+close2;
+set curonne,1;
+end;
+}
+else if (countitem(40505) > 0 && curonne == 1){
+mes "[Justice Demigoddess Kunon]";
+mes "I'm sorry I lashed out at you at first...";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "I feel that I need to give this to you...";
+next;
+getitem 40506,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I believe mother wants to say her last words to her friends first.";
+close2;
+set curonne,2;
+end;
+}
+else if (curonne > 5){
+mes "[Justice Demigoddess Kunon]";
+mes "Thank you, brave one.";
+if (countitem(40438) > 0){
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Now, what can I do to repay you?";
+menu "Relic Crysta System",-;
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "What is it, brave one?";
+menu "Unseal Relic Crysta",relicraft,"Name Relic Crysta",faintcrys;
+}
+else {
+close;
+end;
+}
+}
+else if (countitem(40511) > 0 && curonne == 4){
+mes "[Justice Demigoddess Kunon]";
+mes "T-That's...";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "A Relic Crysta!";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "A sealed one, at least.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "I see.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Joshuca sent you here about this.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "I believe it is time.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Let's go get Joshuca, and we'll go together.";
+close2;
+set curonne,5;
+end;
+}
+else {
+mes "[Justice Demigoddess Kunon]";
+mes "...";
+close;
+end;
+}
+}
+else if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "This girl is glaring at you.";
+next;
+mes "The fluctuating energy you possess is reacting strongly now.";
+next;
+mes "The source must be close by.";
+close;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "This girl is glaring at you.";
+next;
+mes "It's best not to piss her off.";
+close;
+end;
+}
+}
+else {
+mes "[Justice Demigoddess Kunon]";
+mes "...";
+close2;
+atcommand "@die";
+end;
+}
+
+relicraft:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "What do you wanna do with your Sealed Relic Crystas?";
+menu "Unseal Relic Crysta",clearelic,"Imbue Physical Power",meleerelic,"Imbue Ranged Aptitude",rangedrelic,"Imbue Magic Power",magirelic,"Imbue Willpower",resirelic,"Imbue Force of Will",forelic,"Corrupt Relic Crysta",chaosrelic;
+
+clearelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Clear Relic Crysta";
+mes "------------------";
+mes "MaxHP +5%.";
+mes "All Resistance +2%";
+mes "Increases MATK, Long-Ranged and Melee attack damage by 2%";
+mes "Reflect all damage by 2%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Blue Al Crysta";
+mes "1 Green Al Crysta";
+menu "Create Clear Relic Crysta",-;
+if (countitem(40437) > 499 && countitem(20269) > 2 && countitem(20270) > 0){
+next;
+delitem 40437,500;
+delitem 20269,3;
+delitem 20270,1;
+getitem 40447,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+meleerelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Melee Relic Crysta";
+mes "------------------";
+mes "ATK +5.";
+mes "ATK +5%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Sealed Relic Crysta";
+mes "5 Blue Al Crysta";
+menu "Create Melee Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20269) > 4){
+next;
+delitem 40437,200;
+delitem 20269,5;
+getitem 40448,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+rangedrelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Ranged Relic Crysta";
+mes "------------------";
+mes "ATK +5.";
+mes "Long-Ranged ATK +5%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Sealed Relic Crysta";
+mes "5 Blue Al Crysta";
+menu "Create Ranged Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20269) > 4){
+next;
+delitem 40437,200;
+delitem 20269,5;
+getitem 40449,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+magirelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Magic Relic Crysta";
+mes "------------------";
+mes "MATK +5.";
+mes "MATK +5%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "200 Sealed Relic Crysta";
+mes "5 Blue Al Crysta";
+menu "Create Magic Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20269) > 4){
+next;
+delitem 40437,200;
+delitem 20269,5;
+getitem 40450,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+resirelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Resist Relic Crysta";
+mes "------------------";
+mes "All Resist +5%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Sealed Relic Crysta";
+mes "3 Green Al Crysta";
+menu "Create Resist Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20270) > 2){
+next;
+delitem 40437,300;
+delitem 20270,3;
+getitem 40451,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+forelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Force Relic Crysta";
+mes "------------------";
+mes "Long-Ranged ATK, ATK and MATK +10%.";
+mes "Greatly Reduces DEF and MDEF";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Sealed Relic Crysta";
+mes "3 Green Al Crysta";
+menu "Create Force Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20270) > 2){
+next;
+delitem 40437,300;
+delitem 20270,3;
+getitem 40452,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+chaosrelic:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Chaos Relic Crysta";
+mes "------------------";
+mes "MaxHP +10%";
+mes "Reflect All damage by 5%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "300 Sealed Relic Crysta";
+mes "3 Green Al Crysta";
+menu "Create Chaos Relic Crysta",-;
+if (countitem(40437) > 199 && countitem(20270) > 2){
+next;
+delitem 40437,300;
+delitem 20270,3;
+getitem 40453,1;
+mes "[Justice Demigoddess Kunon]";
+mes "Here you go.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You haven't got enough stuff.";
+close;
+end;
+}
+
+faintcrys:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Which powerful name do you want to invoke onto your Relic Crysta?";
+menu "Ouvel",faintouvel,"Mezzaluna",faintmezz,"Enina",faintenina,"Plazuda",faintplaz,"Seele Zauga",faintseele,"Mio",faintmio,"Tarantina",faintaran,"Tomadora",faintoma;
+
+faintouvel:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Ouvel Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "ATK +3%";
+mes "STR, DEX and LUK +3";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "5 Ouvelam Core";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Ouvel Crysta",-;
+if (countitem(40437) > 499 && countitem(20234) > 4 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20234,5;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40439,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintmezz:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Mezzaluna Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "MATK +7%";
+mes "INT, DEX and VIT +3";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Zirconium";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Mezzaluna Crysta",-;
+if (countitem(40437) > 499 && countitem(20229) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20229,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40440,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintenina:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Enina Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "ATK +5";
+mes "Increases Brandish Spear damage by 80%.";
+mes "STR, DEX and VIT +3";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Knight Soul Fragment";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Enina Crysta",-;
+if (countitem(40437) > 499 && countitem(20227) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20227,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40441,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintplaz:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Plazuda Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "Increases damage of all 'Bolt' skills by 25%";
+mes "Adds a chance of auto-casting Lv.5 Jupitel Thunder while attacking.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Light Crystal";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Plazuda Crysta",-;
+if (countitem(40437) > 499 && countitem(20233) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20233,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40442,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintseele:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Seele Zauga Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "MaxSP +25%";
+mes "ATK, MATK +3%, Skill Delay -10%.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Elder Sister's Resentment";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Seele Zauga Crysta",-;
+if (countitem(40437) > 499 && countitem(20225) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20225,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40443,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintmio:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Mio Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "DEF -200";
+mes "ATK and Critical Damage +10%.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Mio's Katana Strap";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Mio Crysta",-;
+if (countitem(40437) > 499 && countitem(20226) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20226,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40444,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintaran:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Tarantina Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "MDEF -200";
+mes "MATK and all elemental Magic +10%.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Liath Fail";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Tarantina Crysta",-;
+if (countitem(40437) > 499 && countitem(20231) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20231,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40445,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+
+faintoma:
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Faint Tomadora Crysta";
+mes "------------------";
+mes "MaxHP +25%";
+mes "All Stats +10, ATK and MATK +3%";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "You'll need the following to proceed:";
+next;
+mes "500 Sealed Relic Crysta";
+mes "3 Titanium";
+mes "10 Blue Al Crysta";
+mes "5 Green Al Crysta";
+menu "Create Faint Tomadora Crysta",-;
+if (countitem(40437) > 499 && countitem(20224) > 2 && countitem(20269) > 9 && countitem(20270) > 4){
+next;
+delitem 40437,500;
+delitem 20224,3;
+delitem 20269,10;
+delitem 20270,5;
+getitem 40446,1;
+mes "[Justice Demigoddess Kunon]";
+mes "I impart to you the power.";
+close;
+end;
+}
+else {
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "Are you mocking me?";
+close;
+end;
+}
+}
+
+moonhaven,277,163,3	script	Ganaji Refugee	766,{
+if (getcharid(5) == 2 || getcharid(2) == 1){
+if (curonne == 3){
+mes "[Ganaji Refugee]";
+mes "Oh, it's you!";
+next;
+mes "[Ganaji Refugee]";
+mes "The brave one they're talking about!";
+next;
+mes "[Ganaji Refugee]";
+mes "I want you to have this.";
+next;
+mes "[Ganaji Refugee]";
+mes "It's good luck.";
+next;
+mes "You feel unknown power from this jewel.";
+next;
+mes "You instinctively run towards Joshuca, as you seem to recognize the jewel in your hand.";
+close2;
+getitem 40511,1;
+end;
+}
+else {
+mes "[Ganaji Refugee]";
+mes "The corruption is worse than before, and it has spread.";
+next;
+mes "[Ganaji Refugee]";
+mes "But as long as we have all Divinity with us, we are safe.";
+close;
+end;
+}
+}
+else if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "You look at a wrinkly old man.";
+next;
+mes "The energy you possess now begins to fluctuate.";
+close;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "You look at a wrinkly old man.";
+close;
+end;
+}
+}
+else {
+mes "[Ganaji Refugee]";
+mes "Oh, no. NO NO NO NO NO.";
+next;
+mes "[Ganaji Refugee]";
+mes "I will never be enslaved again!";
+close2;
+atcommand "@die";
+end;
+}
+}
+
+moonhaven,217,231,3	script	Lora	725,{
+if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "A neko?";
+next;
+mes "Nevermind that...";
+next;
+mes "The source is getting ever so closer.";
+close;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "[Neko Girl?]";
+mes "This damned corruption cursed my Diel body and turned me into... this...";
+close;
+end;
+}
+}
+else {
+mes "[Mithurnan General Lora]";
+mes "This damned corruption cursed my Diel body and turned me into... this...";
+next;
+mes "[Mithurnan General Lora]";
+mes "Even Curonne, Mea, and everybody else have perished...";
+next;
+mes "[Mithurnan General Lora]";
+mes "Iruna lay in ruins, but I will not give up.";
+if (getcharid(5) == 2 || getcharid(2) == 1){
+if (countitem(40505) > 0 && countitem(40506) > 0 && curonne == 2){
+next;
+mes "[Mithurnan General Lora]";
+mes "That's...";
+next;
+mes "[Mithurnan General Lora]";
+mes "No freaking way.";
+next;
+mes "[Mithurnan General Lora]";
+mes "How did you get Kunon the God-Child to yield her mother's... Curonne's weapon?";
+next;
+mes "[Mithurnan General Lora]";
+mes "Oh, Curonne...";
+next;
+mes "[Mithurnan General Lora]";
+mes "You saved all of us once, but we couldn't do a thing for you in the end...";
+next;
+mes "[Mithurnan General Lora]";
+mes "Help us, brave one.";
+next;
+mes "[Mithurnan General Lora]";
+mes "Honor my good friend's memory.";
+next;
+mes "[Mithurnan General Lora]";
+mes "Destroy Ouvel.";
+close;
+end;
+}
+else if (countitem(40505) < 1 && countitem(40506) > 0 && curonne == 2){
+next;
+mes "[Mithurnan General Lora]";
+mes "Thank you, brave one.";
+next;
+mes "[Mithurnan General Lora]";
+mes "With this, Curonne's memory and legacy is secured.";
+next;
+mes "[Mithurnan General Lora]";
+mes "All it needs is a protector.";
+next;
+mes "[Mithurnan General Lora]";
+mes "I will uphold her memory, together with her daughter.";
+next;
+mes "[Mithurnan General Lora]";
+mes "She is kind of like my niece now, after all.";
+close2;
+delitem 40506,1;
+set curonne,3;
+end;
+}
+else {
+close;
+end;
+}
+}
+else {
+mes "[Mithurnan General Lora]";
+mes "For Iruna!";
+close2;
+atcommand "@die";
+end;
+}
+}
+}
+
+moonhaven,155,243,3	script	Joshuca	465,{
+if (getcharid(5) == 2 || getcharid(2) == 1){
+if (countitem(20225) > 0 && josh < 1) callsub SisterQuest;
+if (countitem(40511) > 0 && curonne == 3) callsub GanajiRelic;
+if (countitem(40511) > 0 && curonne == 5) callsub MeetDivine1;
+if (curonne == 6 && countitem(40511) > 0) callsub MeetDivine2;
+if (curonne == 6 && countitem(40511) < 1) callsub MeetDivine3x;
+if (curonne == 7 && crossiru == 1 && countitem(40503) > 0) callsub MeetDivine4x;
+if (noiequest == 1) callsub NoiquestGo;
+else {
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "I see you've made it here...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Do you want to go to Noieverre?";
+menu "Yes",noieverre;
+}
+}
+else if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1) callsub NoLeak;
+if (countitem(40504) > 0 && countitem(40510) > 0) callsub YesLeak;
+else {
+cutin "3rd_wl_queen02",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "I will protect what's left of Iruna from the likes of you!";
+close2;
+cutin "",255;
+atcommand "@die";
+end;
+}
+}
+else if (getcharid(5) == 3){
+cutin "3rd_wl_queen02",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Do you want to go to Noieverre?";
+menu "Yes",noieverre;
+}
+
+SisterQuest:
+cutin "3rd_wl_queen02",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Wait...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Isn't that...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "No...";
+next;
+cutin "",255;
+mes "Joshuca's expression becomes more intense.";
+next;
+cutin "3rd_wl_queen01",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "You fought with my elder sister?";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I see...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Then she cannot be saved from the corruption at this rate...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Even if Seele Zauga can't be saved anymore, I'm sure Mother...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Erm... The High Being... Would want you to press on.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I want you to have this.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "This is one of the last items Mother has bestowed her power upon.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Now that not just Iruna itself is in danger of eradication, Mother and all the other Gods needed to undo the seal and become One again.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I want you to finish the job they left behind before becoming the High Being again.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "The corruption has re-awakened Ouvel, and has manifested a dimensional scar somewhere around this place.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "End him.";
+close2;
+cutin "",255;
+delitem 20225,1;
+getitem 20240,1;
+set josh,1;
+end;
+
+GanajiRelic:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Hey...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Isn't that...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Where did you get that?";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "The refugee from Ganaji?";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "This is unprecedented!";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "To think that such powerful items remain sealed despite the corruption...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I even believed the one I gave you was the last one!";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Alright, then. We need to talk to Kunon about this.";
+close2;
+cutin "",255;
+set curonne,4;
+end;
+
+MeetDivine1:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Is it really time for us to meet the Divine Being?";
+next;
+cutin "",255;
+mes "[Justice Demigoddess Kunon]";
+mes "I guess it is.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "After all, this is quite a find.";
+next;
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Indeed.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Brave one, be on your best behavior.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I know you've met with the Divine Being once, but please keep it formal.";
+close2;
+cutin "",255;
+set curonne,6;
+end;
+
+MeetDivine2:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Is it really time for us to meet the Divine Being?";
+next;
+cutin "",255;
+mes "[Justice Demigoddess Kunon]";
+mes "I guess it is.";
+next;
+mes "[Justice Demigoddess Kunon]";
+mes "After all, this is quite a find.";
+next;
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Indeed.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Brave one, be on your best behavior.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I know you've met with the Divine Being once, but please keep it formal.";
+close2;
+cutin "",255;
+end;
+
+MeetDivine3x:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Hey...";
+next;
+mes "Joshuca seems very worried about something.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I've been feeling a bit odd lately...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Like... something is off about the energies of Iruna.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "We better talk to the High Being about this.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Even Kunon is very bothered about it.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Let's go, then!";
+next;
+mes "Joshuca then holds your hand and pulls you towards the top of the Spiral Hill.";
+close2;
+cutin "",255;
+set curonne,7;
+set crossiru,1;
+warp "moonhaven",202,240;
+end;
+
+MeetDivine4x:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Is that...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I've seen and felt that kind of energy before...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "It's abundant beyond the edge of Noieverre.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "So the Divine Being told you to cross over...";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Alright.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I'll have you transported when you're ready.";
+menu "I'm ready.",noieverre,"Wait a bit, please.",noiquest;
+
+NoiquestGo:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca, Daughter of Specia]";
+mes "Are you ready?";
+menu "I'm ready.",noieverre,"Wait a bit, please.",noiquest;
+
+NoLeak:
+mes "She looks familiar...";
+next;
+mes "...But you press onward and try to find out where the fluctuating energy you possess will lead you to...";
+close;
+end;
+
+YesLeak:
+cutin "3rd_wl_queen05",2;
+mes "[Joshuca]";
+mes "I see you've made it here...";
+next;
+mes "[Joshuca]";
+mes "Do you want to go to Noieverre?";
+menu "Yes",noieverre;
+
+noiquest:
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Alright, then.";
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "I'll be waiting.";
+close2;
+cutin "",255;
+set noiequest,1;
+end;
+
+noieverre:
+next;
+mes "[Joshuca, Daughter of Specia]";
+mes "Close your eyes for a while...";
+close2;
+cutin "",255;
+warp "1@mist",100,30;
+end;
+}
+
+1@mist,104,23,3	script	Joshuca#noi	465,{
+cutin "3rd_wl_queen06",2;
+if (getcharid(5) == 1){
+if (countitem(40504) > 0 && countitem(40510) < 1){
+mes "You see a green-haired girl approach you.";
+next;
+mes "[???]";
+mes "Halt! Who goes the---";
+next;
+mes "She stopped mid-sentence to realize what you have with you.";
+next;
+mes "[???]";
+mes "I feel a very familiar power emanating from you...";
+next;
+mes "[???]";
+mes "How... did you get that?";
+next;
+mes "A voice echoes from beyond.";
+next;
+mes "[Voice]";
+mes "Joshuca, let the person pass.";
+next;
+mes "[Joshuca]";
+mes "Yes, Your Grace.";
+close2;
+cutin "",255;
+warp "bizen02",150,150;
+end;
+}
+else if (countitem(40504) > 0 && countitem(40510) > 0){
+mes "[Joshuca, Daughter of Specia]";
+mes "Do you wish to go back to Iruna?";
+menu "Yes",-;
+warp "moonhaven",155,240;
+close;
+}
+}
+else if (getcharid(5) == 2){
+mes "[Joshuca, Daughter of Specia]";
+mes "Do you wish to go back to Iruna?";
+menu "Yes",-;
+warp "moonhaven",155,240;
+close;
+}
+else if (getcharid(5) == 3){
+if (countitem(40485) > 0 && iruxschick < 1){
+mes "A divine aura emanates from the girl in front of you.";
+next;
+mes "[Girl]";
+mes "I sense inter-dimensional energy.";
+next;
+mes "[Girl]";
+mes "I see.";
+next;
+mes "[Girl]";
+mes "You're one of the Watchers of Schicksal, correct?";
+menu "Yes",-;
+next;
+mes "[Girl]";
+mes "Alright. I'll grant you an audience with the High Being.";
+close2;
+set iruxschick,1;
+warp "moonhaven",204,237;
+end;
+}
+else if (iruxschick > 0){
+mes "[Joshuca, Daughter of Specia]";
+mes "Where do you wish to go?";
+menu "Iruna",iruranwarp,"Instability",inswarp;
+}
+}
+
+iruranwarp:
+close2;
+warp "moonhaven",204,237;
+end;
+
+inswarp:
+close2;
+warp "1@mist",342,183;
+end;
+}
+
+bizen02,123,45,3	script	???#irend	10042,{
+mes "There's a peculiar light just floating over your line of sight.";
+if (countitem(20274) > 0 && countitem(20237) > 9 && countitem(20269) > 99 && countitem(20270) > 99){
+next;
+mes "Blue, Green and White light permeate through your bag.";
+next;
+mes "Do you want to take your items out?";
+menu "Yes",-;
+next;
+mes "You take out your Blue and Green Al Crystas and Light Particles near the light.";
+next;
+mes "You feel a strong warmth burning in your heart.";
+next;
+mes "The light swallowed all the items you took out, and manifested a new form.";
+close2;
+delitem 20274,1;
+delitem 20237,10;
+delitem 20269,100;
+delitem 20270,100;
+getitem 40482,1;
+if (achievementexists(240031) == 0){
+achievementcomplete(240031);
+}
+announce ""+strcharinfo(0)+" has obtained the Endgame Item [ReDGuRL's Eternal Passion] !!!",bc_all;
+end;
+}
+else {
+close;
+end;
+}
+}
+
+moonhaven,204,237,3	script	...#iruscq	111,5,5,{
+if (countitem(40485) > 0 && iruxschick == 1){
+cutin "redgurl_cutin",2;
+mes "You feel a warm power emanating from the girl in front of you.";
+next;
+mes "There's no mistaking it.";
+next;
+mes "She's ^FF0000The High Empress of Iruna^000000.";
+next;
+mes "[High Empress of Iruna]";
+mes "Ah, looks like another one of those Watchers from Schicksal.";
+next;
+mes "[High Empress of Iruna]";
+mes "Fine, fine. If you do stuff for me, I'll give you what you want.";
+next;
+mes "[High Empress of Iruna]";
+mes "Go get me 50 Sorrowful Eyes.";
+next;
+mes "[High Empress of Iruna]";
+mes "Joshuca over by the West garden will guide you to where they are obtained.";
+close2;
+cutin "",255;
+set iruxschick,2;
+warp "moonhaven",155,240;
+end;
+}
+else if (iruxschick == 2){
+if (countitem(20235) > 49){
+cutin "redgurl_cutin",2;
+mes "[High Empress of Iruna]";
+mes "Alright, alright.";
+next;
+mes "[High Empress of Iruna]";
+mes "I'll spill the beans.";
+next;
+mes "The High Empress tells you everything.";
+close2;
+cutin "",255;
+set iruxschick,3;
+delitem 20235,50;
+getitem 40486,1;
+warp "moonhaven",155,240;
+end;
+}
+else {
+cutin "redgurl_cutin",2;
+mes "[High Empress of Iruna]";
+mes "Don't insult me.";
+close2;
+cutin "",255;
+warp "moonhaven",155,240;
+end;
+}
+}
+else {
+end;
+}
+}
+
+-	script	WarriorOfLight	-1,{
+OnPCLoginEvent:
+set .@humria,0;
+end;
+
+OnNPCKill:
+if (killedrid == 2005 || killedrid == 2006 || killedrid == 2007){
+set .@humria,.@humria+1;
+if (countitem(20076) > 0 && countitem(40501) > 0){
+if (.@humria == rand(1,5)){
+announce "Thank you for setting my spirit free.",bc_self;
+sleep2 3000;
+announce "Kunon must be worried...",bc_self;
+sleep2 3000;
+announce "Go now, brave one.",bc_self;
+sleep2 3000;
+delitem 40501,1;
+getitem 40505,1;
+warp "moonhaven",209,187;
+end;
+}
+}
+else {
+if (.@humria == rand(50,100)){
+monster "1@mist",0,0,"Warrior of Light",1841,1,"WOLKill::OnNPCKill";
+mapannounce "1@mist","The Warrior of Light has appeared.",0;
+set .@humria,0;
+end;
+}
+}
+}
+}
+
+-	script	WOLKill	-1,{
+OnNPCKill:
+set .@chance,rand(0,100);
+if (.@chance > 69){
+getitem 20237,1;
+end;
+}
+}

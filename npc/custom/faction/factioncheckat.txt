@@ -1,0 +1,158 @@
+-	script	FactionChk	-1,{
+    OnInit:
+        bindatcmd("faction", strnpcinfo(3)+ "::OnCheck");
+        end;
+    OnPCLoginEvent:
+		if (getcharid(2) != 0 && getguildmasterid(getcharid(2)) != getcharid(0)){
+		query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@ini);
+		query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getguildmasterid(getcharid(2))+"'", .@fac);
+		if (.@ini != .@fac){
+		clan_join(.@fac);
+		end;
+		}
+		}
+		else if (getcharid(2) == 0){
+		query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@ini);
+		if (.@ini > 0){
+		clan_leave;
+		savepoint "prontera",156,191;
+		end;
+		}
+		}
+    OnCheck:
+		query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getguildmasterid(getcharid(2))+"'", .@fac);
+		if (.@fac == 1){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '1'", .@guild);
+		dispbottom "Your guild is part of the Netorian United Empire";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+		end;
+		}
+		else if (.@fac == 2){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '2'", .@guild);
+        dispbottom "Your guild is part of the Red Empire of Iruna";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+		end;
+		}
+		else if (.@fac == 3){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '3'", .@guild);
+        dispbottom "Your guild is part of the Chrono Imperium of Schicksal";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+		end;
+		}
+		else if (.@fac == 4){
+		query_sql(" SELECT `guild_id` FROM `char` WHERE `clan_id` = '4'", .@guild);
+        dispbottom "Your guild is part of the Arcturus Dominion";
+        dispbottom "The other guilds in the faction are:";
+		dispbottom getguildname(.@guild[0]);
+		dispbottom getguildname(.@guild[1]);
+		dispbottom getguildname(.@guild[2]);
+		dispbottom getguildname(.@guild[3]);
+		dispbottom getguildname(.@guild[4]);
+		dispbottom getguildname(.@guild[5]);
+		dispbottom getguildname(.@guild[6]);
+		dispbottom getguildname(.@guild[7]);
+		dispbottom getguildname(.@guild[8]);
+		dispbottom getguildname(.@guild[9]);
+		end;
+		}
+		else {
+		dispbottom "You either don't have a guild or your guild doesn't belong to a faction";
+		end;
+		}
+}
+
+-	script	CasFacChk	-1,{
+OnInit:
+bindatcmd("factioncastle", strnpcinfo(3)+ "::OnCheck");
+end;
+
+OnPCLoginEvent:
+if ($@whatfac2 == 1){
+if (getcharid(5) != 1){
+dispbottom "The United Empire of Netoria controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 1){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else if ($@whatfac2 == 2){
+if (getcharid(5) != 2){
+dispbottom "The Red Empire of Iruna controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 2){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else if ($@whatfac2 == 3){
+if (getcharid(5) != 3){
+dispbottom "The Chrono Imperium of Schicksal controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 3){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else {
+dispbottom "No Faction curently controls Fadhgridh Castle.";
+}
+end;
+
+OnCheck:
+if ($@whatfac2 == 1){
+if (getcharid(5) != 1){
+dispbottom "The United Empire of Netoria controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 1){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else if ($@whatfac2 == 2){
+if (getcharid(5) != 2){
+dispbottom "The Red Empire of Iruna controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 2){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else if ($@whatfac2 == 3){
+if (getcharid(5) != 3){
+dispbottom "The Chrono Imperium of Schicksal controls Fadhgridh Castle.";
+}
+else if (getcharid(5) == 3){
+dispbottom "Our current Faction controls Fadhgridh Castle.";
+}
+}
+else {
+dispbottom "No Faction curently controls Fadhgridh Castle.";
+}
+end;
+}

@@ -1,0 +1,992 @@
+/*Guild of the Month System*/
+
+/* Preparation Phase */
+//GM Controls
+-	script	GOTMBidControl	-1,{
+OnInit:
+bindatcmd "gotm",strnpcinfo(3) + "::OnCommand";
+end;
+
+OnCommand:
+if (getcharid(3) >= 2000000 && getcharid(3) <= 2000007){
+mes "Select an option";
+if ($bidon == 0){
+menu "Initiate Guild of the Month Bidding",gogotm,"Check Guild of the Month",checkgotm,"Exit",exit;
+}
+else if ($bidon == 1){
+menu "Cancel Guild of the Month Bidding",nogotm,"Check Guild of the Month",checkgotm,"Exit",exit;
+}
+}
+else {
+dispbottom "The current Guild of the Month is "+$gotm$+" .";
+end;
+}
+
+checkgotm:
+next;
+mes "The current Guild of the Month is "+$gotm$+", winning with "+$gotmpoint+" points.";
+close;
+end;
+
+gogotm:
+next;
+mes "Guild of the Month initiated.";
+close2;
+set $bidon,1;
+donpcevent "GOTMBidSwitch::OnSwitchOn";
+end;
+
+nogotm:
+next;
+mes "Guild of the Month Cancelled.";
+close2;
+set $bidon,0;
+donpcevent "GOTMBidSwitch::OnSwitchOff";
+end;
+
+exit:
+close;
+end;
+}
+
+//Mode Switcher
+-	script	GOTMBidSwitch	-1,{
+OnInit:
+disablenpc "GOTMBidMain";
+disablenpc "gotmwarpin";
+end;
+
+OnSwitchOn:
+enablenpc "GOTMBidMain";
+query_sql( "UPDATE `mapreg` SET `value` = 'null' WHERE `varname` = '$knockout$'");
+query_sql( "UPDATE `mapreg` SET `value` = 'null' WHERE `varname` = '$no3bid$'");
+query_sql( "UPDATE `mapreg` SET `value` = 'null' WHERE `varname` = '$no2bid$'");
+query_sql( "UPDATE `mapreg` SET `value` = 'null' WHERE `varname` = '$no1bid$'");
+query_sql( "UPDATE `char_reg_num` SET `value` = '0' WHERE `key` = 'bidcount'");
+set $gotmpoint1,0;
+set $gotmpoint2,0;
+set $gotmpoint3,0;
+set $gotm1die,0;
+set $gotm2die,0;
+set $gotm3die,0;
+set $no3bidid,0;
+set $no3cert,0;
+set $no3sau2,0;
+set $no3ori,0;
+set $no3gold,0;
+set $no2bidid,0;
+set $no2cert,0;
+set $no2sau2,0;
+set $no2ori,0;
+set $no2gold,0;
+set $no1bidid,0;
+set $no1cert,0;
+set $no1sau2,0;
+set $no1ori,0;
+set $no1gold,0;
+initnpctimer;
+end;
+
+OnSwitchOff:
+disablenpc "GOTMBidMain";
+announce "Guild of the Month has been cancelled.",bc_all;
+stopnpctimer;
+end;
+
+OnTimer500:
+announce "The Guild of the Month Tournament is now open for bidding for 1 hour.",bc_all;
+end;
+
+OnTimer2500:
+announce "Guild Leaders may now bid their stake with @bid.",bc_all;
+end;
+
+OnTimer5000:
+announce "You can only bid once, and cannot be refunded.",bc_all;
+end;
+
+OnTimer7500:
+announce "Good luck to all participating guilds!",bc_all;
+end;
+
+OnTimer1800000:
+announce "30 minutes left before bidding period ends.",bc_all;
+end;
+
+OnTimer2700000:
+announce "15 minutes left before bidding period ends.",bc_all;
+end;
+
+OnTimer3300000:
+announce "5 minutes left before bidding period ends.",bc_all;
+end;
+
+OnTimer3540000:
+announce "1 minute left before bidding period ends.",bc_all;
+end;
+
+OnTimer3600000:
+disablenpc "GOTMBidMain";
+set $bidon,0;
+announce "The bidding period has ended. Good luck to the three guilds that have qualified.",bc_all;
+end;
+
+OnTimer3605000:
+announce "Participating guilds are: "+$no1bid$+", "+$no2bid$+", and "+$no3bid$+".",bc_all;
+end;
+
+OnTimer3610000:
+announce "Participating guild leaders, please make sure you have resetted your Retreat Function by typing @retreat.",bc_all;
+end;
+
+OnTimer3615000:
+announce "The Guild of the Month Tournament will be held 23 hours from now. Good luck!",bc_all;
+end;
+
+OnTimer82800000:
+announce "The Guild of the Month Tournament will start in 1 hour. Participating guilds, please get ready.",bc_all;
+end;
+
+OnTimer84600000:
+announce "The Guild of the Month Tournament will start in 30 minutes. Participating guilds, please get ready.",bc_all;
+end;
+
+OnTimer85500000:
+announce "The Guild of the Month Tournament will start in 15 minutes. Participating guilds, please get ready.",bc_all;
+end;
+
+OnTimer86100000:
+announce "The Guild of the Month Tournament will start in 5 minutes. Participating guilds, please get ready.",bc_all;
+end;
+
+OnTimer86340000:
+announce "The Guild of the Month Tournament will start in 1 minute. Participating guilds, please get ready.",bc_all;
+end;
+
+OnTimer86400000:
+stopnpctimer;
+sleep 1000;
+enablenpc "gotmwarpin";
+donpcevent "GOTMRun::OnWar";
+announce "The Guild of the Month battlefield is now open. Participating guilds have 1 hour to decide who is the best!",bc_all;
+set $gotmode,1;
+end;
+}
+
+//Main Bidding Function
+jupe_area2,149,10,3	script	GOTMBidMain	123,{
+OnInit:
+bindatcmd "bid",strnpcinfo(3) + "::OnType";
+end;
+
+OnType:
+if (is_guild_leader() != 1){
+dispbottom "You are not authorized to use this command.";
+end;
+}
+else {
+query_sql( "SELECT `value` FROM `char_reg_num` WHERE `key` = 'bidcount' AND `char_id` = '"+getcharid(0)+"'", .@bidcount);
+if (.@bidcount == 1){
+dispbottom "You have already placed your bid.";
+end;
+}
+else {
+mes "Please input your bid in RebootRO 2B Certificates.";
+input .@2bcert,0,30000;
+next;
+if (.@2bcert > countitem(542)){
+mes "You have insufficient credits to bid.";
+close;
+end;
+}
+else {
+mes "Please input your bid in Sauro II Crystas.";
+input .@sau2,0,30000;
+next;
+if (.@sau2 > countitem(543)){
+mes "You have insufficient credits to bid.";
+close;
+end;
+}
+else {
+mes "Please input your bid in RebootRO Orichalcum Coins.";
+input .@ori,0,30000;
+next;
+if (.@ori > countitem(674)){
+mes "You have insufficient credits to bid.";
+close;
+end;
+}
+else {
+mes "Please input your bid in RebootRO Gold Coins.";
+input .@gold,0,30000;
+next;
+if (.@gold > countitem(671)){
+mes "You have insufficient credits to bid.";
+close;
+end;
+}
+else {
+if (.@2bcert > $no1cert){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,$no1bid$;
+set $no2bidid,$no1bidid;
+set $no2cert,$no1cert;
+set $no2sau2,$no1sau2;
+set $no2ori,$no1ori;
+set $no2gold,$no1gold;
+set $no1bid$,getguildname(getcharid(2));
+set $no1bidid,getcharid(2);
+set $no1cert,.@2bcert;
+set $no1sau2,.@sau2;
+set $no1ori,.@ori;
+set $no1gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce "Wow! "+getguildname(getcharid(2))+" has taken the top bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@2bcert == $no1cert){
+if (.@sau2 > $no1sau2){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,$no1bid$;
+set $no2bidid,$no1bidid;
+set $no2cert,$no1cert;
+set $no2sau2,$no1sau2;
+set $no2ori,$no1ori;
+set $no2gold,$no1gold;
+set $no1bid$,getguildname(getcharid(2));
+set $no1bidid,getcharid(2);
+set $no1cert,.@2bcert;
+set $no1sau2,.@sau2;
+set $no1ori,.@ori;
+set $no1gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce "Wow! "+getguildname(getcharid(2))+" has taken the top bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@sau2 == $no1sau2){
+if (.@ori > $no1ori){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,$no1bid$;
+set $no2bidid,$no1bidid;
+set $no2cert,$no1cert;
+set $no2sau2,$no1sau2;
+set $no2ori,$no1ori;
+set $no2gold,$no1gold;
+set $no1bid$,getguildname(getcharid(2));
+set $no1bidid,getcharid(2);
+set $no1cert,.@2bcert;
+set $no1sau2,.@sau2;
+set $no1ori,.@ori;
+set $no1gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce "Wow! "+getguildname(getcharid(2))+" has taken the top bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@ori == $no1ori){
+if (.@gold > $no1gold){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,$no1bid$;
+set $no2bidid,$no1bidid;
+set $no2cert,$no1cert;
+set $no2sau2,$no1sau2;
+set $no2ori,$no1ori;
+set $no2gold,$no1gold;
+set $no1bid$,getguildname(getcharid(2));
+set $no1bidid,getcharid(2);
+set $no1cert,.@2bcert;
+set $no1sau2,.@sau2;
+set $no1ori,.@ori;
+set $no1gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce "Wow! "+getguildname(getcharid(2))+" has taken the top bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@gold == $no1gold){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,getguildname(getcharid(2));
+set $no2bidid,getcharid(2);
+set $no2cert,.@2bcert;
+set $no2sau2,.@sau2;
+set $no2ori,.@ori;
+set $no2gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has taken the second place bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@gold < $no1gold){
+if (.@gold >= $no2gold){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,getguildname(getcharid(2));
+set $no2bidid,getcharid(2);
+set $no2cert,.@2bcert;
+set $no2sau2,.@sau2;
+set $no2ori,.@ori;
+set $no2gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has taken the second place bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@gold < $no2gold){
+if (.@gold >= $no3gold){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,getguildname(getcharid(2));
+set $no3bidid,getcharid(2);
+set $no3cert,.@2bcert;
+set $no3sau2,.@sau2;
+set $no3ori,.@ori;
+set $no3gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has knocked out "+$knockout$+" from the bid!",bc_all;
+end;
+}
+else if (.@gold < $no3gold){
+close2;
+dispbottom "Your bid is not enough to contend with existing bids. Please try again.";
+end;
+}
+}
+}
+else if (.@ori < $no1ori){
+if (.@ori >= $no2ori){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,getguildname(getcharid(2));
+set $no2bidid,getcharid(2);
+set $no2cert,.@2bcert;
+set $no2sau2,.@sau2;
+set $no2ori,.@ori;
+set $no2gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has taken the second place bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@ori < $no2ori){
+if (.@ori >= $no3ori){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,getguildname(getcharid(2));
+set $no3bidid,getcharid(2);
+set $no3cert,.@2bcert;
+set $no3sau2,.@sau2;
+set $no3ori,.@ori;
+set $no3gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has knocked out "+$knockout$+" from the bid!",bc_all;
+end;
+}
+else if (.@ori < $no3ori){
+close2;
+dispbottom "Your bid is not enough to contend with existing bids. Please try again.";
+end;
+}
+}
+}
+}
+else if (.@sau2 < $no1sau2)
+if (.@sau2 >= $no2sau2){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,getguildname(getcharid(2));
+set $no2bidid,getcharid(2);
+set $no2cert,.@2bcert;
+set $no2sau2,.@sau2;
+set $no2ori,.@ori;
+set $no2gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has taken the second place bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@sau2 < $no2sau2){
+if (.@sau2 >= $no3sau2){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,getguildname(getcharid(2));
+set $no3bidid,getcharid(2);
+set $no3cert,.@2bcert;
+set $no3sau2,.@sau2;
+set $no3ori,.@ori;
+set $no3gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has knocked out "+$knockout$+" from the bid!",bc_all;
+end;
+}
+else if (.@sau2 < $no3sau2){
+close2;
+dispbottom "Your bid is not enough to contend with existing bids. Please try again.";
+end;
+}
+}
+}
+}
+else if (.@2bcert < $no1cert){
+if (.@2bcert >= $no2cert){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,$no2bid$;
+set $no3bidid,$no2bidid;
+set $no3cert,$no2cert;
+set $no3sau2,$no2sau2;
+set $no3ori,$no2ori;
+set $no3gold,$no2gold;
+set $no2bid$,getguildname(getcharid(2));
+set $no2bidid,getcharid(2);
+set $no2cert,.@2bcert;
+set $no2sau2,.@sau2;
+set $no2ori,.@ori;
+set $no2gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has taken the second place bid! "+$knockout$+" has been knocked out!",bc_all;
+end;
+}
+else if (.@2bcert < $no2cert){
+if (.@2bcert >= $no3cert){
+close2;
+set bidcount,1;
+set $knockout$,$no3bid$;
+set $no3bid$,getguildname(getcharid(2));
+set $no3bidid,getcharid(2);
+set $no3cert,.@2bcert;
+set $no3sau2,.@sau2;
+set $no3ori,.@ori;
+set $no3gold,.@gold;
+delitem 542,.@2bcert;
+delitem 543,.@sau2;
+delitem 674,.@ori;
+delitem 671,.@gold;
+dispbottom "Your bid has been placed.";
+announce getguildname(getcharid(2))+" has knocked out "+$knockout$+" from the bid!",bc_all;
+end;
+}
+else if (.@2bcert < $no3cert){
+close2;
+dispbottom "Your bid is not enough to contend with existing bids. Please try again.";
+end;
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+/* Battle Phase */
+//GOTM Warp System
+prontera,156,224,3	script	gotmwarpin	45,2,2,{
+if (getcharid(2) == $no1bidid){
+warp "bat_a01",158,346;
+end;
+}
+else if (getcharid(2) == $no2bidid){
+warp "bat_a01",353,216;
+end;
+}
+else if (getcharid(2) == $no3bidid){
+warp "bat_a01",149,50;
+end;
+}
+else {
+end;
+}
+}
+
+//Tactical Retreat Function
+-	script	TacRetreat1	-1,{
+OnInit:
+bindatcmd "retreat",strnpcinfo(3) + "::OnRetreat";
+end;
+
+OnRetreat:
+if ($gotmode == 1){
+if (retreats == 0){
+if (is_guild_leader() == 1){
+progressbar "ffff00",3;
+if (getcharid(2) == $no1bidid){
+warpguild "bat_a01",173,345,$no1bidid;
+set rtcd1,gettimetick(1) + 360;
+set retreats,1;
+end;
+}
+else if (getcharid(2) == $no2bidid){
+warpguild "bat_a01",367,216,$no2bidid;
+set rtcd1,gettimetick(1) + 360;
+set retreats,1;
+end;
+}
+else if (getcharid(2) == $no3bidid){
+warpguild "bat_a01",163,49,$no3bidid;
+set rtcd1,gettimetick(1) + 360;
+set retreats,1;
+end;
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else if (retreats == 1){
+dispbottom "You already used your first retreat. Use @retreat2 to use your second retreat.";
+end;
+}
+else if (retreats == 2){
+dispbottom "You already used your first and second retreats. Use @retreat3 to use your final retreat.";
+end;
+}
+else if (retreats == 3){
+dispbottom "You have already used all of your retreats.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+set retreats,0;
+end;
+}
+}
+
+-	script	TacRetreat2	-1,{
+OnInit:
+bindatcmd "retreat2",strnpcinfo(3) + "::OnRetreat";
+end;
+
+OnRetreat:
+if ($gotmode == 1){
+if (retreats == 1){
+if (rtcd1 <= gettimetick(1)){
+if (is_guild_leader() == 1){
+progressbar "ffff00",3;
+if (getcharid(2) == $no1bidid){
+warpguild "bat_a01",173,345,$no1bidid;
+set rtcd2,gettimetick(1) + 360;
+set retreats,2;
+end;
+}
+else if (getcharid(2) == $no2bidid){
+warpguild "bat_a01",367,216,$no2bidid;
+set rtcd2,gettimetick(1) + 360;
+set retreats,2;
+end;
+}
+else if (getcharid(2) == $no3bidid){
+warpguild "bat_a01",163,49,$no3bidid;
+set rtcd2,gettimetick(1) + 360;
+set retreats,2;
+end;
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else {
+dispbottom "You cannot use second retreat yet for a while.";
+end;
+}
+}
+else if (retreats == 2){
+dispbottom "You already used your second retreat. Use @retreat3 to use your last retreat.";
+end;
+}
+else if (retreats == 3){
+dispbottom "You already used all of your retreats.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+
+-	script	TacRetreat3	-1,{
+OnInit:
+bindatcmd "retreat3",strnpcinfo(3) + "::OnRetreat";
+end;
+
+OnRetreat:
+if ($gotmode == 1){
+if (retreats == 2){
+if (rtcd2 <= gettimetick(1)){
+if (is_guild_leader() == 1){
+progressbar "ffff00",3;
+if (getcharid(2) == $no1bidid){
+warpguild "bat_a01",173,345,$no1bidid;
+set retreats,3;
+end;
+}
+else if (getcharid(2) == $no2bidid){
+warpguild "bat_a01",367,216,$no2bidid;
+set retreats,3;
+end;
+}
+else if (getcharid(2) == $no3bidid){
+warpguild "bat_a01",163,49,$no3bidid;
+set retreats,3;
+end;
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+else {
+dispbottom "You cannot use final retreat yet for a while.";
+end;
+}
+}
+else if (retreats <= 1){
+dispbottom "You cannot use your final retreat before using the first and second retreats. Use @retreat or @retreat2.";
+end;
+}
+else if (retreats == 3){
+dispbottom "You have no more retreats left.";
+end;
+}
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+}
+
+//Battle Announcer
+-	script	GOTMRun	-1,{
+end;
+
+OnWar:
+initnpctimer;
+end;
+
+OnTimer1800000:
+announce "The battle for Guild of the Month ends in 30 minutes.",bc_all;
+end;
+
+OnTimer2700000:
+announce "The battle for Guild of the Month ends in 15 minutes.",bc_all;
+end;
+
+OnTimer3300000:
+announce "The battle for Guild of the Month ends in 5 minutes.",bc_all;
+end;
+
+OnTimer3540000:
+announce "The battle for Guild of the Month ends in 1 minute.",bc_all;
+end;
+
+OnTimer3600000:
+set $gotmode,0;
+if ($gotmpoint1 > $gotmpoint2 && $gotmpoint1 > $gotmpoint3){
+set $gotmpoint,$gotmpoint1;
+set $gotm$,$no1bid$;
+set $gotmid,$no1bidid;
+}
+else if ($gotmpoint2 > $gotmpoint1 && $gotmpoint2 > $gotmpoint3){
+set $gotmpoint,$gotmpoint2;
+set $gotm$,$no2bid$;
+set $gotmid,$no2bidid;
+}
+else if ($gotmpoint3 > $gotmpoint1 && $gotmpoint3 > $gotmpoint2){
+set $gotmpoint,$gotmpoint3;
+set $gotm$,$no3bid$;
+set $gotmid,$no3bidid;
+}
+else if ($gotmpoint1 == $gotmpoint2 && $gotmpoint1 > $gotmpoint3){
+if ($gotm1die < $gotm2die){
+set $gotmpoint,$gotmpoint1;
+set $gotm$,$no1bid$;
+set $gotmid,$no1bidid;
+}
+else if ($gotm1die > $gotm2die){
+set $gotmpoint,$gotmpoint2;
+set $gotm$,$no2bid$;
+set $gotmid,$no2bidid;
+}
+}
+else if ($gotmpoint1 == $gotmpoint3 && $gotmpoint1 > $gotmpoint2){
+if ($gotm1die < $gotm3die){
+set $gotmpoint,$gotmpoint1;
+set $gotm$,$no1bid$;
+set $gotmid,$no1bidid;
+}
+else if ($gotm1die > $gotm3die){
+set $gotmpoint,$gotmpoint3;
+set $gotm$,$no3bid$;
+set $gotmid,$no3bidid;
+}
+}
+else if ($gotmpoint2 == $gotmpoint3 && $gotmpoint2 > $gotmpoint1){
+if ($gotm2die < $gotm3die){
+set $gotmpoint,$gotmpoint2;
+set $gotm$,$no2bid$;
+set $gotmid,$no2bidid;
+}
+else if ($gotm2die > $gotm3die){
+set $gotmpoint,$gotmpoint3;
+set $gotm$,$no3bid$;
+set $gotmid,$no3bidid;
+}
+}
+donpcevent "GOTM Banner::OnGOTMEnd";
+disablenpc "gotmwarpin";
+announce "The battle for Guild of the Month has concluded.",bc_all;
+warpguild "prontera",156,191,$no1bidid;
+warpguild "prontera",156,191,$no2bidid;
+warpguild "prontera",156,191,$no3bidid;
+end;
+
+OnTimer3605000:
+announce "Congratulations to RebootRO's Guild of the Month, "+$gotm$+" !",bc_all;
+end;
+
+OnTimer3610000:
+stopnpctimer;
+announce "The Guild of the Month will be met by a High Administrator shortly.",bc_all;
+sleep 3000;
+announce "Good game to all participating guilds!",bc_all;
+end;
+}
+
+//Battle Monitor
+-	script	GotMonitor	-1,{
+OnPCDieEvent:
+if ($gotmode == 1){
+if (strcharinfo(3) != "bat_a01"){
+end;
+}
+else {
+if (getcharid(2) == $no1bidid){
+if (is_guild_leader() == 1){
+announce "The leader of "+$no1bid$+" has been slain! The battlefield is reset!",bc_all;
+set $gotm1die,$gotm1die + 1;
+warpguild "prontera",156,191,$no1bidid;
+if (getcharid(2,rid2name(killerrid)) == $no2bidid){
+set $gotmpoint2,$gotmpoint2 + 10;
+warpguild "prontera",156,191,$no3bidid;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no3bidid){
+set $gotmpoint3,$gotmpoint3 + 10;
+warpguild "prontera",156,191,$no2bidid;
+end;
+}
+}
+else {
+if (getcharid(2,rid2name(killerrid)) == $no2bidid){
+set $gotmpoint2,$gotmpoint2 + 1;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no3bidid){
+set $gotmpoint3,$gotmpoint3 + 1;
+end;
+}
+}
+}
+else if (getcharid(2) == $no2bidid){
+if (is_guild_leader() == 1){
+announce "The leader of "+$no2bid$+" has been slain! The battlefield is reset!",bc_all;
+set $gotm2die,$gotm2die + 1;
+warpguild "prontera",156,191,$no2bidid;
+if (getcharid(2,rid2name(killerrid)) == $no1bidid){
+set $gotmpoint1,$gotmpoint1 + 10;
+warpguild "prontera",156,191,$no3bidid;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no3bidid){
+set $gotmpoint3,$gotmpoint3 + 10;
+warpguild "prontera",156,191,$no1bidid;
+end;
+}
+}
+else {
+if (getcharid(2,rid2name(killerrid)) == $no1bidid){
+set $gotmpoint1,$gotmpoint1 + 1;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no3bidid){
+set $gotmpoint3,$gotmpoint3 + 1;
+end;
+}
+}
+}
+else if (getcharid(2) == $no3bidid){
+if (is_guild_leader() == 1){
+announce "The leader of "+$no3bid$+" has been slain! The battlefield is reset!",bc_all;
+set $gotm3die,$gotm3die + 1;
+warpguild "prontera",156,191,$no3bidid;
+if (getcharid(2,rid2name(killerrid)) == $no1bidid){
+set $gotmpoint1,$gotmpoint1 + 10;
+warpguild "prontera",156,191,$no2bidid;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no2bidid){
+set $gotmpoint2,$gotmpoint2 + 10;
+warpguild "prontera",156,191,$no1bidid;
+end;
+}
+}
+else {
+if (getcharid(2,rid2name(killerrid)) == $no1bidid){
+set $gotmpoint1,$gotmpoint1 + 1;
+end;
+}
+else if (getcharid(2,rid2name(killerrid)) == $no2bidid){
+set $gotmpoint2,$gotmpoint2 + 1;
+end;
+}
+}
+}
+}
+}
+else {
+end;
+}
+}
+
+/* GOTM Flag */
+prontera,151,285,4	script	GOTM Banner	722,{
+mes "[ Edict of the Reboot Patrol ]";
+mes " ";
+mes "1. Become the role-model for all Guilds in the Server Instance.";
+mes " ";
+mes "2. Transcend the barriers of Factions and spread your teachings,";
+mes "and challenge all who desire to be at the top for thirty days.";
+close;
+end;
+
+OnGOTMEnd:
+FlagEmblem $gotmid;
+end;
+}

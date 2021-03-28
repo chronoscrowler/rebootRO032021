@@ -1,0 +1,870 @@
+//Schicksal Faction Items
+//Chrono King's Statue
+dali02,115,88,3	script	Imperator's Statue	4_PD_PLESI,{
+cutin "chrono_imperator",2;
+mes "--You hear a voice in your head--";
+if (schickxover == 2){
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Do you wish to craft your Destiny?";
+menu "Yes, please.",exchangeschick,"Maybe some other time.",exitschick;
+}
+else if (schickxover == 1){
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "This Destiny is quite bizarre.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Coming from an Adept Watcher like you, this is unprecedented.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "You now have the ways and means to forge Destinies.";
+close2;
+cutin "",255;
+delitem 40487,1;
+getitem 20089,1;
+set schickxover,2;
+end;
+}
+else {
+next;
+mes "^C0C069 Do you wish to know your Destiny?^000000";
+menu "Yes",-;
+next;
+getitem 40484,1;
+mes "^C0C069 Seek out my trusted aide.^000000";
+next;
+mes "^C0C069 He will tell you what's next.^000000";
+close2;
+cutin "",255;
+set schickxover,1;
+end;
+}
+
+exchangeschick:
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Select your reward.";
+menu "Chrono Stardust",schickfrag,"Equipment",schickfac;
+
+schickfrag:
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Forge your Destiny among the stars.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "You'll need ^626268Chrono Symbols^000000 for ^C0C0C0Chrono Stardust^000000.";
+mes "There will be catalysts, as well.";
+next;
+mes "10 ^626268Chrono Symbol^000000";
+mes "100 ^AAA9ADRebootRO Orichalcum Coins^000000";
+mes "10 ^FFFF00Sauro II Crystas^000000";
+menu "I have them.",exchspi,"I don't have them.",exitspi;
+
+exchspi:
+next;
+if (countitem(40063) >= 10 && countitem(674) >= 100 && countitem(543) >= 10){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Now, forge your Destiny.";
+close2;
+cutin "",255;
+delitem 40063,10;
+delitem 674,100;
+delitem 543,10;
+getitem 40040,1;
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+exitspi:
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't want to be rewarded.";
+close2;
+cutin "",255;
+end;
+
+schickfac:
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Select your desired Schicksal Faction Equipment.";
+menu "Upper Headgear",schickhead,"Lower Headgear",schicklow,"Armor",schickarm,"Garment",schickgarm,"Footgear",schickfoot,"Accessory",schickacc,"Axe",schickaxe,"Dagger",schickdag,"Staff",schickstaff,"Sword",schicksword,"Spear",schickspear,"Bow",schickbow,"Gun",schickgun,"Fist",schickfist,"Musical Instrument",schickmusic,"Whip",schickwhip,"Katar",schickkatar,"Shield",schickshield,"Not now.",schickfacexit;
+
+schickhead:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Upper Headgear]";
+mes "Chrono Corona";
+mes "DEF 5 WT 1";
+mes "All Stats +10. Grants immunity to the Stun, Blind and Silence statuses. Removes the need of Gemstones and materials for certain skills.";
+next;
+mes "Requires 100 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40041,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Guise of the Truth-Teller!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schicklow:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Lower Headgear]";
+mes "Chrono Brilliance";
+mes "DEF 5 WT 1";
+mes "Grants Perfect Hiding, Resistance to all properties +10%, ATK and MATK +5%, Skill Delay -10%.";
+next;
+mes "Requires 50 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "50 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 50 && countitem(5317) >= 5 && countitem(542) >= 50 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,50;
+delitem 542,50;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40042,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Destiny Watcher's Monocle!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickarm:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Armor]";
+mes "Coordinator's Cloak";
+mes "DEF 15 WT 1";
+mes "Grants immunity to Knockback, Freezing and Stone Curse. Massively increases Max HP ans SP..";
+next;
+mes "Requires 200 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "200 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 200 && countitem(5317) >= 5 && countitem(542) >= 200 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,200;
+delitem 542,200;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40043,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Coordinator's Cloak!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickgarm:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Garment]";
+mes "Restraints of the Time-Watcher";
+mes "DEF 10 WT 1";
+mes "Reflects 40% of all incoming damage. Flee +100, Perfect Dodge +35. Resistance to all properties +20%.";
+next;
+mes "Requires 250 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "250 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 250 && countitem(5317) >= 5 && countitem(542) >= 250 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,250;
+delitem 542,250;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40044,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Restraints of the Time-Watcher!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickfoot:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Footgear]";
+mes "Absolution Greaves";
+mes "DEF 5 WT 1";
+mes "Allows maximum movement speed. Renders your spells unable to be interrupted and enables the effect of Endure as long as this footgear is equipped. Increases Max HP and SP +25%.";
+next;
+mes "Requires 150 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "150 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 150 && countitem(5317) >= 5 && countitem(542) >= 150 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,150;
+delitem 542,150;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40045,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Absolution Greaves!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickacc:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Accessory]";
+mes "Coordinator's Pocketwatch";
+mes "DEF 1 WT 1";
+mes "All Stats +10. Whenever you attack, there is a chance to cast Lex Aeterna. Whenever you receive melee physical damage, there is a chance of casting Lv1 Safety Wall on yourself. If you receive ranged physical damage instead, there is a chance of casting Pneuma on yourself.";
+next;
+mes "Requires 100 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "100 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+next;
+if (countitem(40040) >= 100 && countitem(5317) >= 5 && countitem(542) >= 100 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,100;
+delitem 542,100;
+delitem 5317,5;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40046,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Coordinator's Pocketwatch!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickaxe:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Axe]";
+mes "Schicksal's Judgement";
+mes "ATK 400 WT 200";
+mes "ATK +10%, MATK +20% HIT +300 Increases damage to Holy Property by 50%, skill damage of Cart Termination and Acid Demonstration by 20%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40047,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Schicksal's Judgement!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickdag:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Dagger]";
+mes "Schicksal's Agony";
+mes "ATK 150 WT 200";
+mes "ATK +20%, MATK +30%, Flee +20, HIT +300 Perfect Dodge +5. Deal Double Damage to Holy Property if Thief, Max HP +50% if Ninja.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40048,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Schicksal's Agony!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickstaff:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Staff]";
+mes "The Time Watcher";
+mes "ATK 100 WT 200";
+mes "Ignores Magic Resistances, increases Holy Light skill damage by 750%, doubles Heal Power and MATK, and grants an Autoskill ability for Acolyte Class. HIT +300 MATK +50%, All Stats +20.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40049,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired The Time Watcher!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schicksword:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Sword]";
+mes "Schicksal's Astral Blade";
+mes "ATK 250 WT 200";
+mes "ATK +30%. Increases Max HP by 20%, HIT +300 damage to Holy Property by 50%, triples damage of Backstab, Bowling Bash by 50% and Sacrifice by 20%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40050,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Schicksal's Astral Blade!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickspear:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Spear]";
+mes "The Hand of Time";
+mes "ATK 300 WT 500";
+mes "ATK +20%. Max HP +10%. HIT +300 Increases damage of Brandish Spear, Chrono Pierce, Pierce and Grand Cross by 50%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40051,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired The Hand of Time!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickbow:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Bow]";
+mes "Destiny Bond";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Quintuples Backstab damage. Also doubles damage of Double Strafing, Triples damage of Arrow Shower, Phantasmic Arrow, and Sharp Shooting.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40052,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Destiny Bond!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickgun:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Gun]";
+mes "Chronosphere Trigger";
+mes "ATK 150 WT 200";
+mes "ATK +20%. HIT +300 Doubles damage dealt by long-ranged physical attacks. Doubles Desperado damage.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40053,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Chronosphere Trigger!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickfist:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Fist]";
+mes "Schicksal's Beholder";
+mes "ATK 200 WT 200";
+mes "STR, AGI and INT +25, HIT +300 ATK and MATK +10%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40054,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Schicksal's Beholder!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickmusic:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Musical Instrument]";
+mes "Continuum";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40055,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Continuum!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickwhip:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Whip]";
+mes "Chronos Crowler";
+mes "ATK 150 WT 200";
+mes "Doubles damage dealt by long-ranged physical attacks. HIT +300 Triples damage of Arrow Vulcan. Flee +20.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40056,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Chronos Crowler!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickkatar:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Weapon - Katar]";
+mes "Yuwee and Saiki";
+mes "ATK 200 WT 200";
+mes "ATK +25%. HIT +500 Flee +20. Doubles damage of Soul Breaker and Sonic Blow, and increases Grimtooth damage by 50%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40057,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Yuwee and Saiki!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickshield:
+next;
+mes "[^C0C0C0Schicksal^000000 Faction Shield]";
+mes "Schicksal's Absolution";
+mes "DEF 15 WT 300";
+mes "Increases Max HP +30%. Reflects 15% of all incoming damage. Resistance to all properties +10%. Increases damage of Shield Chain by 50%.";
+next;
+mes "Requires 350 ^C0C0C0Chrono Stardust^000000.";
+mes "5 ^5A0306Sauro II Al Crystas^000000";
+mes "350 ^FFD700RebootRO 2 Billion Certificate^000000";
+mes "1 ^06A94DFreya's Jewel^000000";
+mes "1 ^654321Wrath of Valkyrie^000000";
+mes "1 ^420690Symbol of a Brave Warrior^000000";
+next;
+if (countitem(40040) >= 350 && countitem(5317) >= 5 && countitem(542) >= 350 && countitem(7484) >= 1 && countitem(7073) >= 1 && countitem(7078) >= 1){
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "I now bestow upon you the power.";
+next;
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Go forth and change your Destiny.";
+close2;
+cutin "",255;
+delitem 40040,350;
+delitem 542,350;
+delitem 5317,5;
+delitem 7484,1;
+delitem 7073,1;
+delitem 7078,1;
+getitem 40058,1;
+if (achievementexists(240045) == 0){
+achievementcomplete(240045);
+}
+announce "Glory to the Chrono Imperium!  "+strcharinfo(0)+"  of "+strcharinfo(2)+"  has acquired Schicksal's Absolution!","0x00ff00";
+end;
+}
+else {
+mes "[^C0C0C0Chrono Imperator's Voice^000000]";
+mes "Hmm, that's just unfortunate. You don't have enough items.";
+close2;
+cutin "",255;
+end;
+}
+
+schickfacexit:
+close2;
+cutin "",255;
+end;
+
+exitschick:
+close2;
+cutin "",255;
+end;
+}

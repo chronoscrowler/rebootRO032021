@@ -1,0 +1,1392 @@
+/* Endgame NPC */
+// Main Script
+jupe_area2,145,10,3	script	Amon	4_CENERE,{
+query_sql("SELECT `clan_id` FROM `char` WHERE `char_id` = '"+getcharid(0)+"'", .@end);
+if (achievementexists(240063) == 0){
+achievementcomplete(240063);
+}
+mes "You feel a very evil presence from this mysterious figure.";
+next;
+mes "[???]";
+mes "^0000FFC O M E^000000";
+mes "^FF0000T O^000000";
+mes "^C0C0C0M E^000000";
+next;
+mes "Every fiber of your being inch ever so close...";
+if (countitem(20273) > 0 && countitem(20274) < 1 && countitem(20275) < 1){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^0000FFJeff Saber's Pure Feelings^000000",endneto;
+}
+else if (countitem(20273) < 1 && countitem(20274) > 0 && countitem(20275) < 1){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^FF0000ReDGuRL's Burning Heart^000000",endiru;
+}
+else if (countitem(20273) < 1 && countitem(20274) < 1 && countitem(20275) > 0){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^C0C0C0Yuwki's Soul Unity^000000",endschick;
+}
+else if (countitem(20273) > 0 && countitem(20274) > 0 && countitem(20275) < 1){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^0000FFJeff Saber's Pure Feelings^000000",endneto,"^FF0000ReDGuRL's Burning Heart^000000",endiru;
+}
+else if (countitem(20273) > 0 && countitem(20274) < 1 && countitem(20275) > 0){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^0000FFJeff Saber's Pure Feelings^000000",endneto,"^C0C0C0Yuwki's Soul Unity^000000",endschick;
+}
+else if (countitem(20273) < 1 && countitem(20274) > 0 && countitem(20275) > 0){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^FF0000ReDGuRL's Burning Heart^000000",endiru,"^C0C0C0Yuwki's Soul Unity^000000",endschick;
+}
+else if (countitem(20273) > 0 && countitem(20274) > 0 && countitem(20275) > 0){
+next;
+mes "You feel the Divine Essences in your possession react to this eerily evil entity.";
+menu "Deal with the Void.",amondeal,"^0000FFJeff Saber's Pure Feelings^000000",endneto,"^FF0000ReDGuRL's Burning Heart^000000",endiru,"^C0C0C0Yuwki's Soul Unity^000000",endschick,"^0000FF?^C0C0C0?^FF0000?^000000",endeverything;
+}
+else if (countitem(20273) < 1 && countitem(20274) < 1 && countitem(20275) < 1){
+menu "Deal with the Void.",amondeal;
+}
+
+endneto:
+if (.@end == 1){
+next;
+mes "Are you ready?";
+menu "Bring it.",endinst_n,"Just a moment.",abortamon;
+}
+else {
+next;
+mes "This isn't your fight.";
+close;
+end;
+}
+
+endiru:
+if (.@end == 2){
+next;
+mes "Are you ready?";
+menu "Bring it.",endinst_i,"Just a moment.",abortamon;
+}
+else {
+next;
+mes "This isn't your fight.";
+close;
+end;
+}
+
+endschick:
+if (.@end == 3){
+next;
+mes "Are you ready?";
+menu "Bring it.",endinst_s,"Just a moment.",abortamon;
+}
+else {
+next;
+mes "This isn't your fight.";
+close;
+end;
+}
+
+endeverything:
+next;
+mes "Are you ready?";
+menu "Bring it.",endinst_all,"Just a moment.",abortamon;
+
+amondeal:
+next;
+menu "RebootRO 2B Certificates",exchange2b,"Geffen Magic Tournament Coins",exchangegef;
+
+exchange2b:
+if (countitem(542) < 10000){
+close2;
+atcommand "@die";
+dispbottom "You dare approach me with less than optimal amounts...",0xFF0000;
+end;
+}
+else {
+next;
+if (countitem(542) > 29999){
+menu "^FFF20010,000 2B Certificates^000000",tenkcert,"^FCF4A320,000 2B Certificates^000000",twentykcert,"^FFFDD030,000 2B Certificates^000000",thirtykcert;
+}
+else if (countitem(542) < 20001){
+menu "^FFF20010,000 2B Certificates^000000",tenkcert,"^FCF4A320,000 2B Certificates^000000",twentykcert;
+}
+else {
+menu "^FFF20010,000 2B Certificates^000000",tenkcert;
+}
+}
+
+exchangegef:
+if (countitem(6671) < 10000){
+close2;
+atcommand "@die";
+dispbottom "You dare approach me with less than optimal amounts...",0xFF0000;
+end;
+}
+else {
+next;
+if (countitem(6671) > 29999){
+menu "^08F26E10,000 MagiTourney Coins^000000",tenkcoin,"^06C25820,000 MagiTourney Coins^000000",twentykcoin,"^05914230,000 MagiTourney Coins^000000",thirtykcoin;
+}
+else if (countitem(6671) < 20001){
+menu "^08F26E10,000 MagiTourney Coins^000000",tenkcoin,"^06C25820,000 MagiTourney Coins^000000",twentykcoin;
+}
+else {
+menu "^08F26E10,000 MagiTourney Coins^000000",tenkcoin;
+}
+}
+
+tenkcert:
+next;
+menu "Weaponsmith's Hammer +7",sevenws,"Spirit Needle +7",sevensn,"Fairy Silk U +7",sevenfsu,"Fairy Silk M +7",sevenfsm,"Sacred Cinder +7",sevensc,"Swift Book +7",sevensb,"Next Page",tenkcert2;
+
+tenkcert2:
+next;
+menu "Goddess Bead +7",sevengb,"Cool Summer Outfit",summer,"Costume Full Bojack Mask",horseman,"Previous Page",tenkcert;
+
+twentykcert:
+next;
+menu "Weaponsmith's Hammer +8",eightws,"Spirit Needle +8",eightsn,"Fairy Silk U +8",eightfsu,"Fairy Silk M +8",eightfsm,"Sacred Cinder +8",eightsc,"Swift Book +8",eightsb,"Next Page",twentykcert2;
+
+twentykcert2:
+next;
+menu "Goddess Bead +8",eightgb,"Random Tier I Weapon",randt1,"Random +10 Stat Accessory",rand10acc,"Previous Page",twentykcert;
+
+thirtykcert:
+next;
+menu "Weaponsmith's Hammer +9",ninews,"Spirit Needle +9",ninesn,"Fairy Silk U +9",ninefsu,"Fairy Silk M +9",ninefsm,"Sacred Cinder +9",ninesc,"Swift Book +9",ninesb,"Next Page",thirtykcert2;
+
+thirtykcert2:
+next;
+menu "Goddess Bead +9",ninegb,"RebootRO WOE Gacha Boxes",castledrops,"Valkyrie Set Box",vsetbox,"Previous Page",thirtykcert;
+
+tenkcoin:
+next;
+menu "Diabolus Serum",blowdiab,"Ascended Soul",ascsoul,"Abyss of Magic",mabyss;
+
+twentykcoin:
+next;
+menu "Demon Lord's Wings",dlwings,"Risen Phoenix Wings",rfenix,"Wing of Blades",bladewing,"Fallen Angel Wings",irunafaw,"Boarding Halter",mount;
+
+thirtykcoin:
+next;
+menu "2s Mink Coat",2smink,"2s Cotton Shirt",2scshirt,"2s Legion Plate",2slplate,"2s Saint's Robe",2sstrobe,"2s Jacket",2sjacket,"2s Tights",2stights,"2s Adventurer's Suit",2sadventure,"2s Silk Robe",2ssilkrobe,"Next Page",thirtykcoin2;
+
+thirtykcoin2:
+next;
+menu "Mastersmith's Hammer",tenws,"Sacred Spirit Needle",tensn,"Fairy King Silk U",tenfsu,"Fairy King Silk M",tenfsm,"Sacred Tree Cinder",tensc,"Very Swift Book",tensb,"Goddess' Tear",tengb,"Jar of Greed",jarofgreed,"Previous Page",thirtykcoin;
+
+sevenws:
+close2;
+delitem 542,10000;
+getitem 20006,1;
+end;
+
+sevensn:
+close2;
+delitem 542,10000;
+getitem 20010,1;
+end;
+
+sevenfsu:
+close2;
+delitem 542,10000;
+getitem 20014,1;
+end;
+
+sevenfsm:
+close2;
+delitem 542,10000;
+getitem 20018,1;
+end;
+
+sevensc:
+close2;
+delitem 542,10000;
+getitem 20022,1;
+end;
+
+sevensb:
+close2;
+delitem 542,10000;
+getitem 20026,1;
+end;
+
+sevengb:
+close2;
+delitem 542,10000;
+getitem 20030,1;
+end;
+
+summer:
+close2;
+delitem 542,10000;
+getitem 12260,1;
+end;
+
+horseman:
+close2;
+delitem 542,10000;
+getitem 19996,1;
+end;
+
+eightws:
+close2;
+delitem 542,20000;
+getitem 20007,1;
+end;
+
+eightsn:
+close2;
+delitem 542,20000;
+getitem 20011,1;
+end;
+
+eightfsu:
+close2;
+delitem 542,20000;
+getitem 20015,1;
+end;
+
+eightfsm:
+close2;
+delitem 542,20000;
+getitem 20019,1;
+end;
+
+eightsc:
+close2;
+delitem 542,20000;
+getitem 20023,1;
+end;
+
+eightsb:
+close2;
+delitem 542,20000;
+getitem 20027,1;
+end;
+
+eightgb:
+close2;
+delitem 542,20000;
+getitem 20031,1;
+end;
+
+randt1:
+close2;
+delitem 542,20000;
+getitem 20080,1;
+end;
+
+rand10acc:
+close2;
+delitem 542,20000;
+getitem 20081,1;
+end;
+
+ninews:
+close2;
+delitem 542,30000;
+getitem 20008,1;
+end;
+
+ninesn:
+close2;
+delitem 542,30000;
+getitem 20012,1;
+end;
+
+ninefsu:
+close2;
+delitem 542,30000;
+getitem 20016,1;
+end;
+
+ninefsm:
+close2;
+delitem 542,30000;
+getitem 20020,1;
+end;
+
+ninesc:
+close2;
+delitem 542,30000;
+getitem 20024,1;
+end;
+
+ninesb:
+close2;
+delitem 542,30000;
+getitem 20028,1;
+end;
+
+ninegb:
+close2;
+delitem 542,30000;
+getitem 20032,1;
+end;
+
+castledrops:
+close2;
+delitem 542,30000;
+getitem 16778,5;
+end;
+
+vsetbox:
+close2;
+delitem 542,30000;
+getitem 16250,1;
+end;
+
+blowdiab:
+close2;
+delitem 6671,10000;
+getitem 40210,1;
+end;
+
+ascsoul:
+close2;
+delitem 6671,10000;
+getitem 40211,1;
+end;
+
+mabyss:
+close2;
+delitem 6671,10000;
+getitem 40212,1;
+end;
+
+dlwings:
+close2;
+delitem 6671,20000;
+getitem 40200,1;
+end;
+
+rfenix:
+close2;
+delitem 6671,20000;
+getitem 40201,1;
+end;
+
+bladewing:
+close2;
+delitem 6671,20000;
+getitem 40202,1;
+end;
+
+irunafaw:
+close2;
+delitem 6671,20000;
+getitem 40203,1;
+end;
+
+mount:
+close2;
+delitem 6671,20000;
+getitem 12622,1;
+end;
+
+2sadventure:
+close2;
+delitem 6671,30000;
+getitem 2632,1;
+end;
+
+2slplate:
+close2;
+delitem 6671,30000;
+getitem 2750,1;
+end;
+
+2sjacket:
+close2;
+delitem 6671,30000;
+getitem 2793,1;
+end;
+
+2scshirt:
+close2;
+delitem 6671,30000;
+getitem 2361,1;
+end;
+
+2smink:
+close2;
+delitem 6671,30000;
+getitem 2362,1;
+end;
+
+2ssilkrobe:
+close2;
+delitem 6671,30000;
+getitem 2633,1;
+end;
+
+2sstrobe:
+close2;
+delitem 6671,30000;
+getitem 2792,1;
+end;
+
+2stights:
+close2;
+delitem 6671,30000;
+getitem 2363,1;
+end;
+
+jarofgreed:
+close2;
+delitem 6671,30000;
+getitem 5054,1;
+end;
+
+tenws:
+close2;
+delitem 6671,30000;
+getitem 20009,1;
+end;
+
+tensn:
+close2;
+delitem 6671,30000;
+getitem 20013,1;
+end;
+
+tenfsu:
+close2;
+delitem 6671,30000;
+getitem 20017,1;
+end;
+
+tenfsm:
+close2;
+delitem 6671,30000;
+getitem 20021,1;
+end;
+
+tensc:
+close2;
+delitem 6671,30000;
+getitem 20025,1;
+end;
+
+tensb:
+close2;
+delitem 6671,30000;
+getitem 20029,1;
+end;
+
+tengb:
+close2;
+delitem 6671,30000;
+getitem 20033,1;
+end;
+
+abortamon:
+next;
+mes "You think it's better to prepare thoroughly for this.";
+close;
+end;
+
+endinst_n:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Destiny Null - Netoria";
+
+	set .@neto_timer,checkquest(62254,PLAYTIME); // 1 day
+	set .@neto_timer2,checkquest(62255,PLAYTIME); // 30 minutes
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member of the same Faction and try again.";
+		close;
+	}
+	switch(.@neto_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Destiny Null - Netoria?";
+			next;
+			switch(select("Generate instance "+.@md_name$+":Enter the instance:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$,IM_CLAN) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the instance' to enter the instance.";
+				close;
+			case 2:
+				callsub L_Enter_N,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter_N,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@neto_timer2 < 2 && getcharid(1) == neto_partyid) {
+			mes "If you have the instance generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter_N,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			mes "You have already attempted to change Netoria's Destiny once.";
+			next;
+			mes "Try again when Destiny's grip upon your existence has loosened.";
+			close;
+			end;
+		}
+	case 2:
+		set neto_timer,0;
+		erasequest 62254;
+		erasequest 62255;
+		mes "^0000ffDestiny's grasp has loosened.^000000";
+		close;
+	}
+
+L_Enter_N:
+	switch(instance_enter("Destiny Null - Netoria",-1,-1,getcharid(0),instance_id(IM_CLAN))) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Destiny Null - Netoria does not exist.";
+		mes "The party leader did not generate the instance yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the instance after making the party.";
+		close;
+	case IE_OK:
+		announce ""+strnpcinfo(4)+"", strcharinfo(0) +" of the Netorian party, "+ getpartyname( getcharid(1) ) +", is attempting to change their fate.",bc_all,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set neto_timer,gettimetick(2);
+			set neto_partyid, getcharid(1);
+			setquest 62254;
+			setquest 62255;
+		}
+		//warp "1@spa",118,111
+		if (getarg(0) == 0) close;
+		else end;
+	}
+
+endinst_i:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Destiny Null - Iruna";
+
+	set .@iru_timer,checkquest(62256,PLAYTIME); // 1 day
+	set .@iru_timer2,checkquest(62257,PLAYTIME); // 30 minutes
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member of the same Faction and try again.";
+		close;
+	}
+	switch(.@iru_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Destiny Null - Iruna?";
+			next;
+			switch(select("Generate instance "+.@md_name$+":Enter the instance:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$,IM_CLAN) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the instance' to enter the instance.";
+				close;
+			case 2:
+				callsub L_Enter_I,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter_I,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@iru_timer2 < 2 && getcharid(1) == iru_partyid) {
+			mes "If you have the instance generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter_I,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			mes "You have already attempted to change Iruna's Destiny once.";
+			next;
+			mes "Try again when Destiny's grip upon your existence has loosened.";
+			close;
+			end;
+		}
+	case 2:
+		set iru_timer,0;
+		erasequest 62256;
+		erasequest 62257;
+		mes "^0000ffDestiny's grasp has loosened.^000000";
+		close;
+	}
+
+L_Enter_I:
+	switch(instance_enter("Destiny Null - Iruna",-1,-1,getcharid(0),instance_id(IM_CLAN))) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Destiny Null - Iruna does not exist.";
+		mes "The party leader did not generate the instance yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the instance after making the party.";
+		close;
+	case IE_OK:
+		announce ""+strnpcinfo(4)+"", strcharinfo(0) +" of the Irunite party, "+ getpartyname( getcharid(1) ) +", is attempting to change their fate.",bc_all,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set iru_timer,gettimetick(2);
+			set iru_partyid, getcharid(1);
+			setquest 62256;
+			setquest 62257;
+		}
+		//warp "1@def01",49,22
+		if (getarg(0) == 0) close;
+		else end;
+	}
+
+endinst_s:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Destiny Null - Schicksal";
+
+	set .@ran_timer,checkquest(62258,PLAYTIME); // 1 day
+	set .@ran_timer2,checkquest(62259,PLAYTIME); // 30 minutes
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member of the same Faction and try again.";
+		close;
+	}
+	switch(.@ran_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Destiny Null - Schicksal?";
+			next;
+			switch(select("Generate instance "+.@md_name$+":Enter the instance:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$,IM_CLAN) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the instance' to enter the instance.";
+				close;
+			case 2:
+				callsub L_Enter_S,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter_S,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@ran_timer2 < 2 && getcharid(1) == ran_partyid) {
+			mes "If you have the instance generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter_S,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			mes "You have already attempted to change Schicksal's Destiny once.";
+			next;
+			mes "Try again when Destiny's grip upon your existence has loosened.";
+			close;
+			end;
+		}
+	case 2:
+		set ran_timer,0;
+		erasequest 62258;
+		erasequest 62259;
+		mes "^0000ffDestiny's grasp has loosened.^000000";
+		close;
+	}
+
+L_Enter_S:
+	switch(instance_enter("Destiny Null - Schicksal",-1,-1,getcharid(0),instance_id(IM_CLAN))) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Destiny Null - Schicksal does not exist.";
+		mes "The party leader did not generate the instance yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the instance after making the party.";
+		close;
+	case IE_OK:
+		announce ""+strnpcinfo(4)+"", strcharinfo(0) +" of the Schick party, "+ getpartyname( getcharid(1) ) +", is attempting to change their fate.",bc_all,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set ran_timer,gettimetick(2);
+			set ran_partyid, getcharid(1);
+			setquest 62258;
+			setquest 62259;
+		}
+		//warp "1@lhz",84,26
+		if (getarg(0) == 0) close;
+		else end;
+	}
+
+endinst_all:
+next;
+	set .@party_id,getcharid(1);
+	set .@md_name$,"Destiny Void";
+
+	set .@end_timer,checkquest(62260,PLAYTIME); // 1 day
+	set .@end_timer2,checkquest(62261,PLAYTIME); // 30 minutes
+
+	if (!instance_check_party(.@party_id,2)) {
+		mes "Make or join a party with more than 1 member and try again.";
+		close;
+	}
+	switch(.@end_timer) {
+	case -1:
+		if (is_party_leader() == true) {
+			mes "Confirmed the party has been made. Would you like to reserve entrance to Destiny Void?";
+			next;
+			switch(select("Generate instance "+.@md_name$+":Enter the instance:Cancel")) {
+			case 1:
+				if (instance_create(.@md_name$) < 0) {
+					mes "Party Name: "+ getpartyname(.@party_id);
+					mes "Party Leader: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					close;
+				}
+				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
+				mes "After making a reservation, you have to talk to NPC again and select the menu 'Enter the instance' to enter the instance.";
+				close;
+			case 2:
+				callsub L_Enter,0,1;
+			case 3:
+				close;
+			}
+		}
+		switch(select("Enter "+.@md_name$+":Cancel")) {
+		case 1:
+			callsub L_Enter,1,1;
+		case 2:
+			end;
+		}
+	case 0:
+	case 1:
+		if (.@end_timer2 < 2 && getcharid(1) == end_partyid) {
+			mes "If you have the instance generated already, you can enter it. ";
+			next;
+			switch(select("Enter "+.@md_name$+":Cancel")) {
+			case 1:
+				callsub L_Enter,0,0;
+			case 2:
+				close;
+			}
+		} else {
+			mes "You have already attempted to change Destiny once.";
+			next;
+			mes "Try again when Destiny's grip upon your existence has loosened.";
+			close;
+			end;
+		}
+	case 2:
+		set end_timer,0;
+		erasequest 62260;
+		erasequest 62261;
+		mes "^0000ffDestiny's grasp has loosened.^000000";
+		close;
+	}
+
+L_Enter:
+	switch(instance_enter("Destiny Void")) {
+	case IE_OTHER:
+		mes "An unknown error has occurred.";
+		close;
+	case IE_NOINSTANCE:
+		mes "Destiny Void does not exist.";
+		mes "The party leader did not generate the instance yet.";
+		close;
+	case IE_NOMEMBER:
+		mes "You can enter the instance after making the party.";
+		close;
+	case IE_OK:
+		announce ""+strnpcinfo(4)+"", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is attempting to change the fate of all.",bc_all,"0x00ff99",FW_NORMAL,12;
+		if (getarg(1)) {
+			set end_timer,gettimetick(2);
+			set end_partyid, getcharid(1);
+			setquest 62260;
+			setquest 62261;
+		}
+		//warp "1@jtb",181,216
+		if (getarg(0) == 0) close;
+		else end;
+	}
+}
+
+/* Destiny Null - Netoria */
+//Stage One - Arcturus
+1@spa,118,111,3	script	StageOne#ntr	111,3,3,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+if (countitem(20273) > 0){
+delitem 20273,1;
+warpparty instance_mapname("1@spa",instance_id(IM_CLAN)),118,111,getcharid(1);
+monster instance_mapname("1@spa",instance_id(IM_CLAN)),118,134,"Arcturus",3457,1,instance_npcname("StageOne#ntr",instance_id(IM_CLAN))+"::OnArcturusKill";
+initnpctimer;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnArcturusKill:
+stopnpctimer;
+atcommand "@killmonster2";
+instance_announce 0,"Good job repelling the Dominion's advances.",bc_map;
+sleep2 10000;
+monster instance_mapname("1@spa",instance_id(IM_CLAN)),41,218,"Jeff Saber",2000,1,instance_npcname("StageTwo#ntr",instance_id(IM_CLAN))+"::OnSaberKill";
+monster instance_mapname("1@spa",instance_id(IM_CLAN)),38,218,"Tamari Stuart",2003,1,instance_npcname("StageTwo#ntr",instance_id(IM_CLAN))+"::OnTammyKill";
+instance_announce 0,"Now, let's ensure you have the strength to help us defy Destiny!",bc_map;
+atcommand "@pvpon";
+instance_warpall instance_mapname("1@spa",instance_id(IM_CLAN)),41,177;
+enablenpc instance_npcname("NetoInstW#arp");
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname("NetoInstW#arp");
+end;
+
+OnTimer3000:
+instance_announce 0,"Destroy this wretched place!",bc_map;
+end;
+
+OnTimer180000:
+stopnpctimer;
+instance_announce 0,"For the Dominion!",bc_map;
+areamonster instance_mapname("1@spa",instance_id(IM_CLAN)),110,110,121,129,"Arctarus",1996,4;
+end;
+}
+
+1@spa,118,134,0	warp	NetoInstW#arp	2,2,1@spa,41,177
+
+//Stage Two - Netoria
+1@spa,34,221,3	script	StageTwo#ntr	111,{
+end;
+
+OnSaberKill:
+atcommand "@killmonster2";
+enablenpc instance_npcname("The White Light#amon");
+enablenpc instance_npcname("KillDetect#antr");
+end;
+
+OnTammyKill:
+instance_announce 0,"So strong! Hun, do your worst!",bc_map;
+end;
+}
+
+1@spa,48,220,3	script	KillDetect#antr	111,100,100,{
+if (achievementexists(240061) == 0){
+achievementcomplete(240061);
+}
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@spa,41,218,3	script	The White Light#amon	640,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+mes "[Tamari Stuart]";
+mes "Nicely done.";
+next;
+mes "[Tamari Stuart]";
+mes "You've proven to us that you're worthy of helping us defy Destiny.";
+next;
+mes "[Tamari Stuart]";
+mes "As we get ready to do so, let me reward every single one of you.";
+close2;
+set .@drop,rand(3,5);
+for ( set .@i,1; .@i <= .@drop; set .@i,.@i + 1) 
+makeitem 22721,1,instance_mapname("1@spa",instance_id(IM_CLAN)),rand(39,44),rand(215,219);
+sleep2 15000;
+instance_destroy instance_id(IM_CLAN);
+end;
+}
+else {
+end;
+}
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+/* Destiny Null - Iruna */
+//Stage One - Arcturus
+1@def01,49,22,3	script	StageOne#iru	111,3,3,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+if (countitem(20274) > 0){
+delitem 20274,1;
+warpparty instance_mapname("1@def01",instance_id(IM_CLAN)),49,22,getcharid(1);
+monster instance_mapname("1@def01",instance_id(IM_CLAN)),50,43,"Arcturus",3457,1,instance_npcname("StageOne#iru",instance_id(IM_CLAN))+"::OnArcturusKill";
+initnpctimer;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnArcturusKill:
+stopnpctimer;
+atcommand "@killmonster2";
+instance_announce 0,"Good job repelling the Dominion's advances.",bc_map;
+sleep2 10000;
+monster instance_mapname("1@def01",instance_id(IM_CLAN)),48,74,"ReDGuRL",2001,1,instance_npcname("StageTwo#iru",instance_id(IM_CLAN))+"::OnRoseKill";
+monster instance_mapname("1@def01",instance_id(IM_CLAN)),51,74,"Tomoyo Okazaki",2083,1,instance_npcname("StageTwo#iru",instance_id(IM_CLAN))+"::OnTomKill";
+instance_announce 0,"Now, let's ensure you have the strength to help us defy Destiny!",bc_map;
+atcommand "@pvpon";
+end;
+
+OnTimer3000:
+instance_announce 0,"Destroy this wretched place!",bc_map;
+end;
+
+OnTimer180000:
+stopnpctimer;
+instance_announce 0,"For the Dominion!",bc_map;
+areamonster instance_mapname("1@def01",instance_id(IM_CLAN)),44,39,56,51,"Arctarus",1996,4;
+end;
+}
+
+//Stage Two - Iruna
+1@def01,49,85,3	script	StageTwo#iru	111,{
+end;
+
+OnRoseKill:
+atcommand "@killmonster2";
+enablenpc instance_npcname("ReDGuRL#irend");
+enablenpc instance_npcname("KillDetect#airu");
+end;
+
+OnTomKill:
+instance_announce 0,"Nice one! Dear, show them your best!",bc_map;
+end;
+}
+
+1@def01,50,85,3	script	KillDetect#airu	111,100,100,{
+if (achievementexists(240061) == 0){
+achievementcomplete(240061);
+}
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@def01,48,74,3	script	ReDGuRL#irend	4_pd_plesio,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+mes "[ReDGuRL]";
+mes "Nicely done.";
+next;
+mes "[ReDGuRL]";
+mes "You've proven to us that you're worthy of helping us defy Destiny.";
+next;
+mes "[ReDGuRL]";
+mes "As we get ready to do so, let me reward every single one of you.";
+close2;
+set .@drop,rand(3,5);
+for ( set .@i,1; .@i <= .@drop; set .@i,.@i + 1) 
+makeitem 22721,1,instance_mapname("1@def01",instance_id(IM_CLAN)),rand(46,52),rand(72,77);
+sleep2 15000;
+instance_destroy instance_id(IM_CLAN);
+end;
+}
+else {
+end;
+}
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+/* Destiny Null - Schicksal */
+//Stage One - Arcturus
+1@lhz,84,26,3	script	StageOne#ran	111,3,3,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+if (countitem(20275) > 0){
+delitem 20275,1;
+warpparty instance_mapname("1@lhz",instance_id(IM_CLAN)),84,26,getcharid(1);
+monster instance_mapname("1@lhz",instance_id(IM_CLAN)),84,56,"Arcturus",3457,1,instance_npcname("StageOne#ran",instance_id(IM_CLAN))+"::OnArcturusKill";
+initnpctimer;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnArcturusKill:
+stopnpctimer;
+atcommand "@killmonster2";
+instance_announce 0,"Good job repelling the Dominion's advances.",bc_map;
+sleep2 10000;
+monster instance_mapname("1@lhz",instance_id(IM_CLAN)),136,135,"Flugel Bloodpledge",2063,1,instance_npcname("StageTwo#ran",instance_id(IM_CLAN))+"::OnRanKill";
+monster instance_mapname("1@lhz",instance_id(IM_CLAN)),139,135,"Yuwee",2064,1,instance_npcname("StageTwo#ran",instance_id(IM_CLAN))+"::OnJethKill";
+instance_announce 0,"Now, let's ensure you have the strength to help us defy Destiny!",bc_map;
+atcommand "@pvpon";
+enablenpc instance_npcname("SchickInstW#arp");
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname("SchickInstW#arp");
+end;
+
+OnTimer3000:
+instance_announce 0,"Destroy this wretched place!",bc_map;
+end;
+
+OnTimer180000:
+stopnpctimer;
+instance_announce 0,"For the Dominion!",bc_map;
+areamonster instance_mapname("1@lhz",instance_id(IM_CLAN)),79,41,89,55,"Arctarus",1996,4;
+end;
+}
+
+1@lhz,83,61,0	warp	SchickInstW#arp	2,2,1@lhz,137,100
+
+//Stage Two - Schicksal
+1@lhz,136,160,3	script	StageTwo#ran	111,{
+end;
+
+OnRanKill:
+atcommand "@killmonster2";
+enablenpc instance_npcname("Flugel#rnend");
+enablenpc instance_npcname("KillDetect#asch");
+end;
+
+OnJethKill:
+instance_announce 0,"Ooh! Beat them up, Master!",bc_map;
+end;
+}
+
+1@lhz,139,157,3	script	KillDetect#asch	111,100,100,{
+if (achievementexists(240061) == 0){
+achievementcomplete(240061);
+}
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@lhz,136,135,3	script	Flugel#rnend	4_PD_TYRANOS,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+mes "[Flugel]";
+mes "Nicely done.";
+next;
+mes "[Flugel]";
+mes "You've proven to us that you're worthy of helping us defy Destiny.";
+next;
+mes "[Flugel]";
+mes "As we get ready to do so, let me reward every single one of you.";
+close2;
+set .@drop,rand(3,5);
+for ( set .@i,1; .@i <= .@drop; set .@i,.@i + 1) 
+makeitem 22721,1,instance_mapname("1@lhz",instance_id(IM_CLAN)),rand(133,139),rand(132,138);
+sleep2 15000;
+instance_destroy;
+end;
+}
+else {
+end;
+}
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+/* Destiny Void */
+//Stage One - Arcturus
+1@jtb,181,216,3	script	StageOne#end	111,3,3,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+if (countitem(20273) > 0 && countitem(20274) > 0 && countitem(20275) > 0){
+delitem 20273,1;
+delitem 20274,1;
+delitem 20275,1;
+warpparty instance_mapname("1@jtb"),181,216,getcharid(1);
+instance_announce 0,"Free me from the shackles of this wretched Destiny...",bc_map;
+monster instance_mapname("1@jtb"),205,194,"Arcturus",3457,1,instance_npcname("StageOne#end")+"::OnArcturusKill";
+initnpctimer;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnInstanceInit:
+disablenpc instance_npcname("AmonInstW#arp");
+end;
+
+OnArcturusKill:
+stopnpctimer;
+atcommand "@killmonster2";
+instance_announce 0,"The other Leaders must be freed from this corrupted loop...",bc_map;
+sleep2 10000;
+monster instance_mapname("1@jtb"),37,40,"Jeff Saber",2000,1,instance_npcname("StageTwo#end")+"::OnSaberKill";
+monster instance_mapname("1@jtb"),38,39,"Tamari Stuart",2003,1,instance_npcname("StageTwo#end")+"::OnTammyKill";
+instance_announce 0,"Free the Netorians from the Corrupted Cycle!",bc_map;
+atcommand "@pvpon";
+enablenpc instance_npcname("AmonInstW#arp");
+end;
+
+OnTimer180000:
+stopnpctimer;
+instance_announce 0,"The Corruption spreads...",bc_map;
+areamonster instance_mapname("1@jtb"),204,203,206,205,"Arctarus",1996,4;
+end;
+}
+
+1@jtb,205,194,0	warp	AmonInstW#arp	2,2,1@jtb,12,14
+
+//Stage Two - Netoria
+1@jtb,28,33,3	script	StageTwo#end	111,{
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname("AmonInstW#nrp");
+end;
+
+OnSaberKill:
+instance_announce 0,"Two Leaders remain.",bc_map;
+atcommand "@killmonster2";
+sleep2 10000;
+monster instance_mapname("1@jtb"),278,35,"ReDGuRL",2001,1,instance_npcname("StageThree#end")+"::OnRoseKill";
+monster instance_mapname("1@jtb"),279,36,"Tomoyo Okazaki",2083,1,instance_npcname("StageThree#end")+"::OnTomKill";
+instance_announce 0,"Free the Irunites from the Corrupted Cycle!",bc_map;
+enablenpc instance_npcname("AmonInstW#nrp");
+end;
+
+OnTammyKill:
+instance_announce 0,"YOU DID NOT HAVE TO DO THAT!",bc_map;
+monster instance_mapname("1@jtb"),37,40,"Hatred of Jeff Saber",1812,1;
+areamonster instance_mapname("1@jtb"),13,16,44,44,"Netorian Homunculus",1813,10;
+areamonster instance_mapname("1@jtb"),13,16,44,44,"Netorian Homunculus",1842,10;
+end;
+}
+
+1@jtb,37,40,0	warp	AmonInstW#nrp	2,2,1@jtb,305,14
+
+//Stage Three - Iruna
+1@jtb,293,26,3	script	StageThree#end	111,{
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname("AmonInstW#irp");
+end;
+
+OnRoseKill:
+instance_announce 0,"One Leader remains.",bc_map;
+atcommand "@killmonster2";
+sleep2 10000;
+monster instance_mapname("1@jtb"),38,283,"Flugel Bloodpledge",2063,1,instance_npcname("StageFour#end")+"::OnRanKill";
+monster instance_mapname("1@jtb"),37,282,"Yuwee",2064,1,instance_npcname("StageFour#end")+"::OnJethKill";
+instance_announce 0,"Free the Schicks from the Corrupted Cycle!",bc_map;
+enablenpc instance_npcname("AmonInstW#irp");
+end;
+
+OnTomKill:
+instance_announce 0,"YOU DID NOT HAVE TO DO THAT!",bc_map;
+monster instance_mapname("1@jtb"),278,35,"Flame Spirit of ReDGuRL",1814,1;
+areamonster instance_mapname("1@jtb"),270,14,305,46,"Mutant Death Chils",1843,20;
+end;
+}
+
+1@jtb,278,35,0	warp	AmonInstW#irp	2,2,1@jtb,14,299
+
+//Stage Four - Schicksal
+1@jtb,30,294,3	script	StageFour#end	111,{
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname("AmonInstW#rrp");
+end;
+
+OnRanKill:
+instance_announce 0,"RESISTANCE IS FUTILE!",bc_map;
+atcommand "@killmonster2";
+sleep2 10000;
+monster instance_mapname("1@jtb"),328,333,"Amon",2079,1,instance_npcname("FinalStage#end")+"::OnAmonKill";
+instance_announce 0,"THE DESTINY OF ALL IS ETERNAL HATRED AND DARKNESS!!!",bc_map;
+atcommand "@pvpoff";
+enablenpc instance_npcname("AmonInstW#rrp");
+end;
+
+OnJethKill:
+instance_announce 0,"YOU DID NOT HAVE TO DO THAT!",bc_map;
+monster instance_mapname("1@jtb"),37,282,"Bound Persona Yuwki",1820,1;
+areamonster instance_mapname("1@jtb"),14,272,46,302,"Agent of Chronos",1844,20;
+end;
+}
+
+1@jtb,38,283,0	warp	AmonInstW#rrp	2,2,1@jtb,312,316
+
+//Final Stage - Amon
+1@jtb,312,316,3	script	FinalStage#end	111,3,3,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+if (.@endnpcact1 = 2){
+initnpctimer;
+end;
+}
+else {
+end;
+}
+}
+else {
+end;
+}
+
+OnAmonKill:
+stopnpctimer;
+atcommand "@killmonster2";
+instance_announce 0,"Destiny itself has been freed from the grasp of Absolute Evil.",bc_map;
+enablenpc instance_npcname("Jeff Saber#end");
+enablenpc instance_npcname("KillDetect#aend");
+end;
+
+OnTimer180000:
+stopnpctimer;
+instance_announce 0,"YOUR FATE IS SEALED!!!",bc_map;
+areamonster instance_mapname("1@jtb"),321,324,324,327,"Amon's Shadow",2067,4;
+end;
+}
+
+1@jtb,335,338,3	script	KillDetect#aend	111,100,100,{
+if (achievementexists(240062) == 0){
+achievementcomplete(240062);
+}
+end;
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+1@jtb,323,327,3	script	Jeff Saber#end	2221,{
+if (getpartyleader(getcharid(1),2) == getcharid(0)){
+mes "[Full-Power Jeff Saber]";
+mes "You did it.";
+next;
+mes "[Full-Power Jeff Saber]";
+mes "You've helped me regain my complete power from that... thing.";
+next;
+mes "[Full-Power Jeff Saber]";
+mes "As I remake this world-line with my old powers back, let me reward every single one of you from the other world-line.";
+next;
+mes "[Full-Power Jeff Saber]";
+mes "You have Flugel to thank for this.";
+close2;
+set .@drop,rand(5,7);
+for ( set .@i,1; .@i <= .@drop; set .@i,.@i + 1) 
+makeitem 22721,1,instance_mapname("1@jtb"),rand(320,325),rand(325,330);
+sleep2 15000;
+instance_destroy;
+end;
+}
+else {
+end;
+}
+
+OnInstanceInit:
+disablenpc instance_npcname(strnpcinfo(0));
+end;
+}
+
+/* Owner-Activated Amon NPC Warping */
+-	script	EndgameControls	-1,{
+OnInit:
+bindatcmd("amon", strnpcinfo(3)+ "::OnType");
+end;
+
+OnType:
+if (getcharid(3) >= 2000000 && getcharid(3) <= 2000004){
+mes "What can I do today, Master?";
+menu "Summon Amon",amonwarp,"Recall Amon",amonrest;
+}
+else {
+dispbottom "You are not authorized to use this command.";
+end;
+}
+
+amonwarp:
+next;
+mes "Where do you want Amon unleashed?";
+input .@amonwarp$;
+close2;
+while(1) {
+set $@jx,rand(30,225);
+set $@jy,rand(30,225);
+unitwarp getnpcid(0,"Amon"),""+.@amonwarp$+"",$@jx,$@jy;
+if(checkcell(""+.@amonwarp$+"",$@jx,$@jy,cell_chkpass) == 1) break;
+}
+announce "An unspeakable evil has appeared. Netorian, Irunite and Schicksal units, proceed with caution.",bc_all,0xFF0000;
+end;
+
+amonrest:
+close2;
+unitwarp getnpcid(0,"Amon"),"jupe_area2",145,10;
+announce "Absolute Evil has retreated back into the Void. Everyone, be vigilant.",bc_all,0xFF0000;
+end;
+}
